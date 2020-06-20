@@ -1,6 +1,4 @@
-﻿using System;
-
-public class CorteGestor
+﻿public class CorteGestor
 {
 
 }

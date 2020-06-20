@@ -1,6 +1,4 @@
-﻿using System;
-
-public class TeñidoGestor
+﻿public class TeñidoGestor
 {
 
 }

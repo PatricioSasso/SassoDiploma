@@ -1,6 +1,4 @@
-﻿using System;
-
-public class PrendaGestor
+﻿public class PrendaGestor
 {
 
 }

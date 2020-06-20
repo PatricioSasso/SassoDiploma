@@ -1,6 +1,4 @@
-﻿using System;
-
-public class TejidoGestor
+﻿public class TejidoGestor
 {
 
 }

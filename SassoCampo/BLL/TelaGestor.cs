@@ -1,6 +1,4 @@
-﻿using System;
-
-public class TelaGestor
+﻿public class TelaGestor
 {
 
 }

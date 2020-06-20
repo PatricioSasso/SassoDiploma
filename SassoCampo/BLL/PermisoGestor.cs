@@ -1,6 +1,4 @@
-﻿using System;
-
-public class PermisoGestor
+﻿public class PermisoGestor
 {
 
 }

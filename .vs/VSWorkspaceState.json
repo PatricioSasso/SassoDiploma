@@ -3,8 +3,8 @@
     "",
     "\\SassoCampo",
     "\\SassoCampo\\BLL",
-    "\\SassoCampo\\DAL",
-    "\\SassoCampo\\Entities"
+    "\\SassoCampo\\BLL\\Properties",
+    "\\SassoCampo\\DAL"
   ],
   "SelectedNode": "\\SassoCampo\\BLL\\ConfeccionGestor.cs",
   "PreviewInSolutionExplorer": false

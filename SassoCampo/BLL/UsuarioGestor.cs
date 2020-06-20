@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-
-public class UsuarioGestor
+﻿namespace BLL
 {
+    public class UsuarioGestor
+    {
 
+    }
 }
+
 

@@ -1,6 +1,4 @@
-﻿using System;
-
-public class TinteGestor
+﻿public class TinteGestor
 {
 
 }

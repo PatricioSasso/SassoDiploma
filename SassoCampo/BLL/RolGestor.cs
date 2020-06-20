@@ -1,6 +1,4 @@
-﻿using System;
-
-public class RolGestor
+﻿public class RolGestor
 {
 
 }

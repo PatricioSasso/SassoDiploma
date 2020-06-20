@@ -1,6 +1,4 @@
-﻿using System;
-
-public class ConfeccionGestor
+﻿public class ConfeccionGestor
 {
 
 }

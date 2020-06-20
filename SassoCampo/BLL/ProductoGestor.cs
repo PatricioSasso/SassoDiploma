@@ -1,6 +1,4 @@
-﻿using System;
-
-public class ProductoGestor
+﻿public class ProductoGestor
 {
 
 }
