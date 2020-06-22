@@ -6,6 +6,11 @@
     int cantidad;
     Usuario ultimaModificacion;
 
+    public Producto()
+    {
+
+    }
+
     public Producto(int id, string codigo, string descripcion, int cantidad, Usuario ultimaModificacion)
     {
         Id = id;

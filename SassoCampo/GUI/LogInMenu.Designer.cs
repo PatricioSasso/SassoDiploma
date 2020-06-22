@@ -61,6 +61,7 @@
             this.txt_NombreUsuario.Name = "txt_NombreUsuario";
             this.txt_NombreUsuario.Size = new System.Drawing.Size(140, 22);
             this.txt_NombreUsuario.TabIndex = 2;
+            this.txt_NombreUsuario.Text = "Pato";
             // 
             // txt_Contraseña
             // 
@@ -68,6 +69,7 @@
             this.txt_Contraseña.Name = "txt_Contraseña";
             this.txt_Contraseña.Size = new System.Drawing.Size(140, 22);
             this.txt_Contraseña.TabIndex = 3;
+            this.txt_Contraseña.Text = "xAgunimon";
             // 
             // btn_IniciarSesion
             // 
@@ -86,7 +88,7 @@
             this.gbox_LogIn.Controls.Add(this.txt_NombreUsuario);
             this.gbox_LogIn.Controls.Add(this.lbl_Contraseña);
             this.gbox_LogIn.Controls.Add(this.lbl_NombreUsuario);
-            this.gbox_LogIn.Location = new System.Drawing.Point(12, 12);
+            this.gbox_LogIn.Location = new System.Drawing.Point(24, 25);
             this.gbox_LogIn.Name = "gbox_LogIn";
             this.gbox_LogIn.Size = new System.Drawing.Size(158, 153);
             this.gbox_LogIn.TabIndex = 5;
@@ -97,7 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(204, 198);
+            this.ClientSize = new System.Drawing.Size(224, 198);
             this.Controls.Add(this.gbox_LogIn);
             this.Name = "LogInMenu";
             this.Text = "Inicio de Sesión";

@@ -1,4 +1,6 @@
 ﻿using DAL;
+using System.Security.Cryptography;
+using System.Text;
 
 public class ControlDeAccesoGestor
 {
@@ -17,5 +19,19 @@ public class ControlDeAccesoGestor
     public Usuario GetUsuario(string nombreUsuario)
     {
         return bd.GetUsuario(nombreUsuario);
+    }
+
+    public string GetHash(string input)
+    {
+        using (MD5 hasher = MD5.Create())
+        {
+            byte[] dato = hasher.ComputeHash(UTF8Encoding.UTF8.GetBytes(input));
+            string hasheado = "";
+            for (int i = 0; i < dato.Length; i++)
+            {
+                hasheado += dato[i].ToString();
+            }
+            return hasheado;
+        }
     }
 }

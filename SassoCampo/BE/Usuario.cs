@@ -7,25 +7,25 @@ public class Usuario
     string contraseña;
     string nombre;
     string apellido;
-    List<Rol> roles;
+    Rol rol;
 
     public Usuario()
     {
         
     }
 
-    public Usuario(string nombreUsuario, string contraseña, string nombre, string apellido, List<Rol> roles)
+    public Usuario(string nombreUsuario, string contraseña, string nombre, string apellido, Rol rol)
     {
         NombreUsuario = nombreUsuario;
         Contraseña = contraseña;
         Nombre = nombre;
         Apellido = apellido;
-        Roles = roles;
+        Rol = rol;
     }
 
     public string NombreUsuario { get => nombreUsuario; set => nombreUsuario = value; }
     public string Contraseña { get => contraseña; set => contraseña = value; }
     public string Nombre { get => nombre; set => nombre = value; }
     public string Apellido { get => apellido; set => apellido = value; }
-    public List<Rol> Roles { get => roles; set => roles = value; }
+    public Rol Rol { get => rol; set => rol = value; }
 }

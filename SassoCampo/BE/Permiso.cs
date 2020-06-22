@@ -4,6 +4,11 @@
     string nombre;
     string descripcion;
 
+    public Permiso()
+    {
+
+    }
+
     public Permiso(int id, string nombre, string descripcion)
     {
         Id = id;
