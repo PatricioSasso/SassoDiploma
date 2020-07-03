@@ -8,7 +8,7 @@ namespace DAL
 {
     public class AccesoADatos
     {
-        string connectionString = @"Data Source=PC;Initial Catalog = SassoCampo; Integrated Security = True";
+        string connectionString = @"Data Source=PC;Initial Catalog=SassoCampo;Integrated Security=True";
         SqlConnection conexion;
         SqlCommand query;
 
@@ -21,7 +21,7 @@ namespace DAL
         public bool LogIn(string nombreUsuario, string contraseña)
         {
             conexion.Open();
-            query = new SqlCommand("Select * from Usuario where Usuario_NombreUsuario = @nombreUsuario AND Usuario_Contraseña = @contraseña", conexion);
+            query = new SqlCommand("Select * from Usuario where NombreUsuario = @nombreUsuario AND Contraseña = @contraseña", conexion);
             query.Parameters.AddWithValue("nombreUsuario", nombreUsuario);
             query.Parameters.AddWithValue("contraseña", contraseña);
             var resultado = query.ExecuteScalar();
@@ -36,12 +36,11 @@ namespace DAL
             }
         }
 
-        public Usuario GetUsuario(string nombreUsuario)
+        public Usuario GetUsuario(Usuario usuario)
         {
             conexion.Open();
-            query = new SqlCommand("Select * from Usuario where Usuario_NombreUsuario = @nombreUsuario", conexion);
-            query.Parameters.AddWithValue("nombreUsuario", nombreUsuario);
-            Usuario usuario = new Usuario();
+            query = new SqlCommand("Select * from Usuario where NombreUsuario = @nombreUsuario", conexion);
+            query.Parameters.AddWithValue("nombreUsuario", usuario.NombreUsuario);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while(reader.Read())
@@ -50,8 +49,28 @@ namespace DAL
                 }
             }
             conexion.Close();
-            usuario.Rol = GetRol(usuario.Rol.Id);
+            usuario.Rol = GetRol(usuario.Rol);
             return usuario;
+        }
+
+        public List<Usuario> GetListUsuario()
+        {
+            conexion.Open();
+            query = new SqlCommand("Select * from Usuario", conexion);
+            List<Usuario> usuarios = new List<Usuario>();
+            using (SqlDataReader reader = query.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    usuarios.Add( new Usuario(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), new Rol(reader.GetInt32(4), "", new List<Permiso>())));
+                }
+            }
+            conexion.Close();
+            foreach (var usuario in usuarios)
+            {
+                usuario.Rol = GetRol(usuario.Rol);
+            }
+            return usuarios;
         }
 
         public void AltaUsuario(Usuario alta)
@@ -70,7 +89,7 @@ namespace DAL
         public void ModificarUsuario(Usuario modificar)
         {
             conexion.Open();
-            query = new SqlCommand("UPDATE Usuario SET Usuario_Nombre = @nombre, Usuario_Apellido = @apellido, Rol_Id = @rolId WHERE Usuario_NombreUsuario = @nombreUsuario",conexion);
+            query = new SqlCommand("UPDATE Usuario SET Nombre = @nombre, Apellido = @apellido, Rol_Id = @rolId WHERE NombreUsuario = @nombreUsuario",conexion);
             query.Parameters.AddWithValue("nombreUsuario", modificar.NombreUsuario);
             query.Parameters.AddWithValue("nombre", modificar.Nombre);
             query.Parameters.AddWithValue("apellido", modificar.Apellido);
@@ -82,7 +101,7 @@ namespace DAL
         public void BajaUsuario(Usuario baja)
         {
             conexion.Open();
-            query = new SqlCommand("DELETE FROM Usuario WHERE Usuario_NombreUsuario = @nombreUsuario", conexion);
+            query = new SqlCommand("DELETE FROM Usuario WHERE NombreUsuario = @nombreUsuario", conexion);
             query.Parameters.AddWithValue("nombreUsuario", baja.NombreUsuario);
             query.ExecuteNonQuery();
             conexion.Close();
@@ -92,27 +111,8 @@ namespace DAL
         {
             conexion.Open();
             Rol rol = new Rol();
-            query = new SqlCommand("SELECT * FROM Rol WHERE Rol_Nombre = @rolNombre", conexion);
-            query.Parameters.AddWithValue("rolNombre", buscar.Nombre.ToLower());
-            using (SqlDataReader reader = query.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    rol.Id = reader.GetInt32(0);
-                    rol.Nombre = reader.GetString(1);
-                }
-            }
-            conexion.Close();
-            rol.Permisos = GetListPermiso(rol);
-            return rol;
-        }
-
-        public Rol GetRol(int rolId)
-        {
-            conexion.Open();
-            Rol rol = new Rol();
-            query = new SqlCommand("SELECT * FROM Rol WHERE Rol_Id = @rolId", conexion);
-            query.Parameters.AddWithValue("rolId", rolId);
+            query = new SqlCommand("SELECT * FROM Rol WHERE Id = @Id", conexion);
+            query.Parameters.AddWithValue("Id", buscar.Id);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while (reader.Read())
@@ -135,14 +135,14 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    roles.Add(new Rol(int.Parse(reader.GetString(0)), reader.GetString(1), new List<Permiso>()));
-                }
-                foreach (var rol in roles)
-                {
-                    rol.Permisos = GetListPermiso(rol);
+                    roles.Add(new Rol( reader.GetInt32(0), reader.GetString(1), new List<Permiso>()));
                 }
             }
             conexion.Close();
+            foreach (var rol in roles)
+            {
+                rol.Permisos = GetListPermiso(rol);
+            }
             return roles;
         }
 
@@ -159,7 +159,7 @@ namespace DAL
         public void ModificarRol(Rol modificar)
         {
             conexion.Open();
-            query = new SqlCommand("UPDATE Rol SET Rol_Nombre = @nuevoNombre WHERE Rol_Id = @id",conexion);
+            query = new SqlCommand("UPDATE Rol SET Nombre = @nuevoNombre WHERE Id = @id",conexion);
             query.Parameters.AddWithValue("id", modificar.Id);
             query.Parameters.AddWithValue("nuevoNombre", modificar.Nombre);
             query.ExecuteNonQuery();
@@ -169,7 +169,7 @@ namespace DAL
         public void BajaRol(Rol baja)
         {
             conexion.Open();
-            query = new SqlCommand("DELETE FROM Rol WHERE Rol_Id = @id", conexion);
+            query = new SqlCommand("DELETE FROM Rol WHERE Id = @id", conexion);
             query.Parameters.AddWithValue("id", baja.Id);
             query.ExecuteNonQuery();
             conexion.Close();
@@ -179,7 +179,7 @@ namespace DAL
         {
             conexion.Open();
             Permiso permiso = new Permiso();
-            query = new SqlCommand("SELECT * FROM Permiso WHERE Permiso_Nombre = @permisoNombre", conexion);
+            query = new SqlCommand("SELECT * FROM Permiso WHERE Nombre = @permisoNombre", conexion);
             query.Parameters.AddWithValue("permisoNombre", buscar.Nombre.ToLower());
             using (SqlDataReader reader = query.ExecuteReader())
             {
@@ -203,7 +203,7 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    permisos.Add(new Permiso(int.Parse(reader.GetString(0)), reader.GetString(1), reader.GetString(2)));
+                    permisos.Add(new Permiso(reader.GetInt32(0), reader.GetString(1), reader.GetString(2)));
                 }
             }
             conexion.Close();
@@ -215,7 +215,7 @@ namespace DAL
             conexion.Open();
             List<Permiso> permisos = new List<Permiso>();
             List<int> permisosId = new List<int>();
-            query = new SqlCommand("Select Permiso_Id from [Rol-Permiso] where Rol_Id = 1", conexion);
+            query = new SqlCommand("Select Permiso_Id from [Rol-Permiso] where Rol_Id = @rolId", conexion);
             query.Parameters.AddWithValue("rolId", rol.Id);
             using (SqlDataReader reader = query.ExecuteReader())
             {
@@ -226,7 +226,7 @@ namespace DAL
             }
             foreach (var id in permisosId)
             {
-                query = new SqlCommand("Select * from Permiso where Permiso_Id = @id", conexion);
+                query = new SqlCommand("Select * from Permiso where Id = @id", conexion);
                 query.Parameters.AddWithValue("id", id);
                 using (SqlDataReader reader = query.ExecuteReader())
                 {
@@ -270,12 +270,11 @@ namespace DAL
         public void AltaProducto(Producto alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO Producto VALUES (@id, @codigo, @descripcion, @cantidad, NULL)", conexion);
+            query = new SqlCommand("INSERT INTO Producto VALUES (@id, @codigo, @descripcion, @cantidad)", conexion);
             query.Parameters.AddWithValue("id", alta.Id);
             query.Parameters.AddWithValue("codigo", alta.Codigo);
             query.Parameters.AddWithValue("descripcion", alta.Descripcion);
             query.Parameters.AddWithValue("cantidad", alta.Cantidad);
-            query.Parameters.AddWithValue("usuarioId", alta.UltimaModificacion.NombreUsuario);
             query.ExecuteNonQuery();
             conexion.Close();
         }
@@ -283,11 +282,10 @@ namespace DAL
         public void ModificarProducto(Producto modificar)
         {
             conexion.Open();
-            query = new SqlCommand("UPDATE Producto SET Producto_Descripcion = @descripcion, Producto_Cantidad = @cantidad, Usuario_NombreUsuario = NULL WHERE Producto_Id = @id", conexion);
+            query = new SqlCommand("UPDATE Producto SET Producto_Descripcion = @descripcion, Producto_Cantidad = @cantidad, WHERE Producto_Id = @id", conexion);
             query.Parameters.AddWithValue("id", modificar.Id);
             query.Parameters.AddWithValue("descripcion", modificar.Descripcion);
             query.Parameters.AddWithValue("cantidad", modificar.Cantidad);
-            query.Parameters.AddWithValue("usuarioId", modificar.UltimaModificacion.NombreUsuario);
             query.ExecuteNonQuery();
             conexion.Close();
         }
@@ -315,7 +313,6 @@ namespace DAL
                     producto.Codigo = reader.GetString(1);
                     producto.Descripcion = reader.GetString(2);
                     producto.Cantidad = reader.GetInt32(3);
-                    producto.UltimaModificacion = null;//producto.UltimaModificacion.Nombre = reader.GetString(4);
                 }
             }
             conexion.Close();
@@ -331,7 +328,7 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    producto.Add(new Producto(int.Parse(reader.GetString(0)), reader.GetString(1), reader.GetString(2), reader.GetInt32(3), null /* Usuario*/)); ;
+                    producto.Add(new Producto(int.Parse(reader.GetString(0)), reader.GetString(1), reader.GetString(2), reader.GetInt32(3))); ;
                     // Agregar el usuario creador del producto.
                 }
             }
@@ -342,13 +339,12 @@ namespace DAL
         public void AltaHilado(Hilado alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO Hilado VALUES (@id, @codigo, @descripcion, @cantidad, @peso, NULL)", conexion);
+            query = new SqlCommand("INSERT INTO Hilado VALUES (@id, @codigo, @descripcion, @cantidad, @peso)", conexion);
             query.Parameters.AddWithValue("id", alta.Id);
             query.Parameters.AddWithValue("codigo", alta.Codigo);
             query.Parameters.AddWithValue("descripcion", alta.Descripcion);
             query.Parameters.AddWithValue("cantidad", alta.Cantidad);
             query.Parameters.AddWithValue("peso", alta.Peso);
-            query.Parameters.AddWithValue("usuarioId", alta.UltimaModificacion.NombreUsuario);
             query.ExecuteNonQuery();
             conexion.Close();
         }
@@ -356,12 +352,11 @@ namespace DAL
         public void ModificarHilado(Hilado modificar)
         {
             conexion.Open();
-            query = new SqlCommand("UPDATE Hilado SET Hilado_Descripcion = @descripcion, Hilado_Cantidad = @cantidad, Hilado_Peso = @peso, Usuario_NombreUsuario = NULL WHERE Hilado_Id = @id", conexion);
+            query = new SqlCommand("UPDATE Hilado SET Descripcion = @descripcion, Cantidad = @cantidad, Peso = @peso WHERE Id = @id", conexion);
             query.Parameters.AddWithValue("id", modificar.Id);
             query.Parameters.AddWithValue("descripcion", modificar.Descripcion);
             query.Parameters.AddWithValue("cantidad", modificar.Cantidad);
             query.Parameters.AddWithValue("peso", modificar.Peso);
-            query.Parameters.AddWithValue("usuarioId", modificar.UltimaModificacion.NombreUsuario);
             query.ExecuteNonQuery();
             conexion.Close();
         }
@@ -369,7 +364,7 @@ namespace DAL
         public void BajaHilado(Hilado baja)
         {
             conexion.Open();
-            query = new SqlCommand("DELETE FROM Hilado WHERE Hilado_Id = @id", conexion);
+            query = new SqlCommand("DELETE FROM Hilado WHERE Id = @id", conexion);
             query.Parameters.AddWithValue("id", baja.Id);
             query.ExecuteNonQuery();
             conexion.Close();
@@ -379,7 +374,7 @@ namespace DAL
         {
             conexion.Open();
             Hilado hilado = new Hilado();
-            query = new SqlCommand("SELECT * FROM Hilado WHERE Hilado_Codigo = @codigo", conexion);
+            query = new SqlCommand("SELECT * FROM Hilado WHERE Codigo = @codigo", conexion);
             query.Parameters.AddWithValue("codigo", buscar.Codigo.ToLower());
             using (SqlDataReader reader = query.ExecuteReader())
             {
@@ -390,7 +385,6 @@ namespace DAL
                     hilado.Descripcion = reader.GetString(2);
                     hilado.Cantidad = reader.GetInt32(3);
                     hilado.Peso = reader.GetInt32(4);
-                    hilado.UltimaModificacion = null;//hilado.UltimaModificacion.Nombre = reader.GetString(5);
                 }
             }
             conexion.Close();
@@ -406,8 +400,10 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    hilado.Add(new Hilado(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3), reader.GetInt32(4), null /* Usuario*/)); ;
-                    // Agregar el usuario creador del producto.
+                    if(reader.HasRows)
+                    {
+                        hilado.Add(new Hilado(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3), reader.GetDecimal(4)));
+                    }
                 }
             }
             conexion.Close();
@@ -417,14 +413,13 @@ namespace DAL
         public void AltaTela(Tela alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO Hilado VALUES (@id, @codigo, @descripcion, @cantidad, @color, @teñido, NULL)", conexion);
+            query = new SqlCommand("INSERT INTO Hilado VALUES (@id, @codigo, @descripcion, @cantidad, @color, @teñido)", conexion);
             query.Parameters.AddWithValue("id", alta.Id);
             query.Parameters.AddWithValue("codigo", alta.Codigo);
             query.Parameters.AddWithValue("descripcion", alta.Descripcion);
             query.Parameters.AddWithValue("cantidad", alta.Cantidad);
             query.Parameters.AddWithValue("color", alta.Color);
             query.Parameters.AddWithValue("teñido", alta.Teñido);
-            query.Parameters.AddWithValue("usuarioId", alta.UltimaModificacion.NombreUsuario);
             query.ExecuteNonQuery();
             conexion.Close();
         }
@@ -432,13 +427,12 @@ namespace DAL
         public void ModificarTela(Tela modificar)
         {
             conexion.Open();
-            query = new SqlCommand("UPDATE Tela SET Tela_Descripcion = @descripcion, Tela_Cantidad = @cantidad, Tela_Color = @color, Tela_Teñido = @teñido, Usuario_NombreUsuario = NULL WHERE Tela_Id = @id", conexion);
+            query = new SqlCommand("UPDATE Tela SET Descripcion = @descripcion, Cantidad = @cantidad, Color = @color, Teñido = @teñido WHERE Id = @id", conexion);
             query.Parameters.AddWithValue("id", modificar.Id);
             query.Parameters.AddWithValue("descripcion", modificar.Descripcion);
             query.Parameters.AddWithValue("cantidad", modificar.Cantidad);
             query.Parameters.AddWithValue("color", modificar.Color);
             query.Parameters.AddWithValue("teñido", modificar.Teñido);
-            query.Parameters.AddWithValue("usuarioId", modificar.UltimaModificacion.NombreUsuario);
             query.ExecuteNonQuery();
             conexion.Close();
         }
@@ -446,7 +440,7 @@ namespace DAL
         public void BajaTela(Tela baja)
         {
             conexion.Open();
-            query = new SqlCommand("DELETE FROM Tela WHERE Tela_Id = @id", conexion);
+            query = new SqlCommand("DELETE FROM Tela WHERE Id = @id", conexion);
             query.Parameters.AddWithValue("id", baja.Id);
             query.ExecuteNonQuery();
             conexion.Close();
@@ -456,8 +450,8 @@ namespace DAL
         {
             conexion.Open();
             Tela tela = new Tela();
-            query = new SqlCommand("SELECT * FROM Tela WHERE Tela_Codigo = @codigo", conexion);
-            query.Parameters.AddWithValue("codigo", buscar.Codigo.ToLower());
+            query = new SqlCommand("SELECT * FROM Tela WHERE Codigo = @Id", conexion);
+            query.Parameters.AddWithValue("Id", buscar.Id);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while (reader.Read())
@@ -468,7 +462,6 @@ namespace DAL
                     tela.Cantidad = reader.GetInt32(3);
                     tela.Color = reader.GetString(4);
                     tela.Teñido = reader.GetBoolean(5);
-                    tela.UltimaModificacion = null;//tela.UltimaModificacion.Nombre = reader.GetString(6);
                 }
             }
             conexion.Close();
@@ -484,8 +477,7 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    tela.Add(new Tela(int.Parse(reader.GetString(0)), reader.GetString(1), reader.GetString(2), reader.GetInt32(3), reader.GetString(4), reader.GetBoolean(5), null /* Usuario*/)); ;
-                    // Agregar el usuario creador del producto.
+                    tela.Add(new Tela(int.Parse(reader.GetString(0)), reader.GetString(1), reader.GetString(2), reader.GetInt32(3), reader.GetString(4), reader.GetBoolean(5))); ;
                 }
             }
             conexion.Close();
