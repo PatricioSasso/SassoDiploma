@@ -1,17 +1,22 @@
-﻿public class Prenda : Producto
+﻿using System;
+
+public class Prenda : Producto
 {
     string talle;
     int tiempoConfección;
     bool confeccionada;
 
-    public Prenda(int id, string codigo, string descripcion, int cantidad, Usuario ultimaModificacion) : base(id, codigo, descripcion, cantidad, ultimaModificacion)
+    public Prenda()
+    {
+
+    }
+
+    public Prenda(int id, string codigo, string descripcion, int cantidad) : base(id, codigo, descripcion, cantidad)
     {
         Id = id;
         Codigo = codigo;
         Descripcion = descripcion;
         Cantidad = cantidad;
-
-        UltimaModificacion = ultimaModificacion;
     }
 
     public string Talle { get => talle; set => talle = value; }

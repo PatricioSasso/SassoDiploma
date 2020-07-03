@@ -8,7 +8,7 @@
 
     }
 
-    public Tela(int id, string codigo, string descripcion, int cantidad, string color, bool teñido, Usuario ultimaModificacion) : base(id, codigo, descripcion, cantidad, ultimaModificacion)
+    public Tela(int id, string codigo, string descripcion, int cantidad, string color, bool teñido) : base(id, codigo, descripcion, cantidad)
     {
         Id = id;
         Codigo = codigo;
@@ -16,7 +16,6 @@
         Cantidad = cantidad;
         Color = color;
         Teñido = teñido;
-        UltimaModificacion = ultimaModificacion;
     }
 
     public string Color { get => color; set => color = value; }
