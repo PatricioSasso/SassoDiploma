@@ -9,7 +9,7 @@ namespace GUI
         {
             InitializeComponent();
         }
-
+        
         Controller controller;
 
         private void LogInMenu_Load(object sender, EventArgs e)
@@ -19,10 +19,7 @@ namespace GUI
 
         private void btn_IniciarSesion_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(controller.LogIn(txt_NombreUsuario, txt_Contraseña));
-            MenuPrincipal menu = new MenuPrincipal(this, controller);
-            this.Hide();
-            menu.Show();
+            MessageBox.Show(controller.LogIn(txt_NombreUsuario.Text, txt_Contraseña.Text));
         }
 
         //TODO: Aplicar dígitos verticales y horizontales. (Preguntar).

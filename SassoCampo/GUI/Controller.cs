@@ -4,13 +4,15 @@ using Microsoft.VisualBasic;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using System;
+using System.ComponentModel;
 
 namespace GUI
 {
     public class Controller
     {
         Form form;
-        ControlDeAcceso controlDeAcceso = new ControlDeAcceso();
+
+        public ControlDeAcceso controlDeAcceso = new ControlDeAcceso();
 
         public ControlDeAcceso ControlDeAcceso { get => controlDeAcceso; set => controlDeAcceso = value; }
 
@@ -21,15 +23,19 @@ namespace GUI
 
         #region Log in / out, gestion de perfiles y usuarios.
 
-        public string LogIn(TextBox nombreUsuario, TextBox contraseña)
+        public string LogIn(string nombreUsuario, string contraseña)
         {
             ControlDeAccesoGestor controlDeAccesoGestor = new ControlDeAccesoGestor();
-            if (controlDeAccesoGestor.LogIn(GetTextBoxText(nombreUsuario), GetHashedTextBoxText(contraseña)))
+            UsuarioGestor usuarioGestor = new UsuarioGestor();
+            if (controlDeAccesoGestor.LogIn(nombreUsuario, controlDeAccesoGestor.GetHash(contraseña)))
             {
-                ControlDeAcceso.UsuarioActual = controlDeAccesoGestor.GetUsuario(GetTextBoxText(nombreUsuario));
+                Usuario user = new Usuario(nombreUsuario, contraseña, "", "", new Rol(0, "", new List<Permiso>()));
+                user = usuarioGestor.Buscar(user);
+                ControlDeAcceso.UsuarioActual = controlDeAccesoGestor.GetUsuario(user);
                 if (ControlDeAcceso.UsuarioActual != null)
                 {
                     ControlDeAcceso.GetInstance();
+                    cambiarForm(new MenuPrincipal(this));
                 }
                 return "Inicio de sesión correcto";
             }
@@ -40,21 +46,26 @@ namespace GUI
         {
             ControlDeAcceso.UsuarioActual = null;
             MessageBox.Show("Se ha cerrado la sesión correctamente");
+            form.Owner.Show();
+            form.Close();
         }
 
-        public void AltaUsuario()
+        public void AltaUsuario(string nombreUsuario, string contraseña, string nombre, string apellido, Rol rol)
         {
             try
             {
                 ControlDeAccesoGestor controlDeAccesoGestor = new ControlDeAccesoGestor();
                 UsuarioGestor usuarioGestor = new UsuarioGestor();
-                string nombreUsuario = Interaction.InputBox("Ingrese el nombre de usuario del nuevo usuario");
-                string contraseña = controlDeAccesoGestor.GetHash(Interaction.InputBox("Ingrese la contraseña del nuevo usuario"));
-                string nombre = Interaction.InputBox("Ingrese el nombre del nuevo usuario");
-                string apellido = Interaction.InputBox("Ingrese el apellido del usuario del nuevo usuario");
-                Rol rol = new Rol(0, Interaction.InputBox("Ingrese el rol del nuevo usuario (Admin, Gerente, Empleado)").ToLower(), new List<Permiso>());
                 RolGestor rolGestor = new RolGestor();
-                usuarioGestor.Alta(new Usuario(nombreUsuario, contraseña, nombre, apellido, rolGestor.GetRol(rol)));
+                List<Usuario> usuariosExistentes = usuarioGestor.GetListUsuario();
+                foreach (var usuario in usuariosExistentes)
+                {
+                    if(usuario.NombreUsuario.ToLower() == nombreUsuario.ToLower())
+                    {
+                        throw new Exception("El nombre de usuario ingresado ya está en uso");
+                    }
+                }
+                usuarioGestor.Alta(new Usuario(nombreUsuario, controlDeAccesoGestor.GetHash(contraseña), nombre, apellido, rolGestor.GetRol(rol)));
             }
             catch (Exception ex)
             {
@@ -62,18 +73,12 @@ namespace GUI
             }
         }
 
-        public void ModificarUsuario()
+        public void ModificarUsuario(Usuario usuario)
         {
             try
             {
-                ControlDeAccesoGestor controlDeAccesoGestor = new ControlDeAccesoGestor();
                 UsuarioGestor usuarioGestor = new UsuarioGestor();
-                string nombreUsuario = Interaction.InputBox("Ingrese el nombre de usuario del usuario que desea modificar");
-                string nombre = Interaction.InputBox("Ingrese el nombre del usuario a modificar");
-                string apellido = Interaction.InputBox("Ingrese el apellido del usuario a modificar");
-                Rol rol = new Rol(0, Interaction.InputBox("Ingrese el rol del usuario a modificar (Admin, Gerente, Empleado)").ToLower(), new List<Permiso>());
-                RolGestor rolGestor = new RolGestor();
-                usuarioGestor.Modificar(new Usuario(nombreUsuario, "", nombre, apellido, rolGestor.GetRol(rol)));
+                usuarioGestor.Modificar(usuario);
             }
             catch (Exception ex)
             {
@@ -81,14 +86,13 @@ namespace GUI
             }
         }
 
-        public void BajaUsuario()
+        public void BajaUsuario(Usuario usuario)
         {
             try
             {
                 ControlDeAccesoGestor controlDeAccesoGestor = new ControlDeAccesoGestor();
                 UsuarioGestor usuarioGestor = new UsuarioGestor();
-                string nombreUsuario = Interaction.InputBox("Ingrese el nombre de usuario del usuario que desea eliminar");
-                usuarioGestor.Baja(new Usuario(nombreUsuario, "", "", "", new Rol()));
+                usuarioGestor.Baja(usuario);
             }
             catch (Exception ex)
             {
@@ -96,38 +100,70 @@ namespace GUI
             }
         } 
 
-        public void DarPermiso()
+        public void AltaRol(int id, string nombre)
         {
             RolGestor rolGestor = new RolGestor();
-            Rol rol = new Rol(0, Interaction.InputBox("Ingrese el rol al que desea agregar el permiso (Admin, Gerente, Empleado)").ToLower(), new List<Permiso>());
-            Permiso permiso = new Permiso(0, Interaction.InputBox("Ingrese el nombre del permiso que desea agregar"),"");
-            rolGestor.AddPermiso(rol, permiso);
+            rolGestor.Alta(new Rol(id, nombre, new List<Permiso>()));
         }
 
-        public void QuitarPermiso()
+        public void ModificarRol(Rol rol)
         {
             RolGestor rolGestor = new RolGestor();
-            Rol rol = new Rol(0, Interaction.InputBox("Ingrese el rol al que desea agregar el permiso (Admin, Gerente, Empleado)").ToLower(), new List<Permiso>());
-            Permiso permiso = new Permiso(0, Interaction.InputBox("Ingrese el nombre del permiso que desea agregar"), "");
-            rolGestor.RemovePermiso(rol, permiso);
+            rolGestor.Modificar(rol);
+        }
+
+        public void BajaRol(Rol rol)
+        {
+            RolGestor rolGestor = new RolGestor();
+            rolGestor.Baja(rol);
+        }
+
+        public void DarPermiso(Rol rol, Permiso permiso)
+        {
+            try
+            {
+                if (permiso == null) { throw new Exception("No se ha seleccionado ningún permiso"); }
+                if (rol == null) { throw new Exception("No se ha seleccionado ningún rol"); }
+                RolGestor rolGestor = new RolGestor();
+                foreach (var p in rol.Permisos)
+                {
+                    if (permiso.Id == p.Id)
+                    {
+                        throw new Exception("El permiso que desea agregar ya está en dentro del rol");
+                    }
+                }
+                rolGestor.AddPermiso(rol, permiso);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public void QuitarPermiso(Rol rol, Permiso permiso)
+        {
+            try
+            {
+                if (permiso == null) { throw new Exception("No se ha seleccionado ningún permiso"); }
+                if (rol == null) { throw new Exception("No se ha seleccionado ningún rol"); }
+                RolGestor rolGestor = new RolGestor();
+                rolGestor.RemovePermiso(rol, permiso);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         #endregion
 
         #region Productos
 
-        public void AltaHilado(TextBox txtId, TextBox txtCodigo, TextBox txtDescripcion, TextBox txtCantidad, TextBox txtPeso)
+        public void AltaHilado(string Id, string Codigo, string Descripcion, string Cantidad, string Peso)
         {
             try
             {
                 HiladoGestor hiladoGestor = new HiladoGestor();
-                int id = int.Parse(GetTextBoxText(txtId));
-                string codigo = GetTextBoxText(txtCodigo);
-                string descripcion = GetTextBoxText(txtDescripcion);
-                int cantidad = int.Parse(GetTextBoxText(txtCantidad));
-                int peso = int.Parse(GetTextBoxText(txtPeso));
-                Usuario ultimaModificacion = controlDeAcceso.UsuarioActual;
-                hiladoGestor.AltaHilado(new Hilado(id, codigo, descripcion, cantidad, peso, ultimaModificacion));
+                int id = int.Parse(Id);
+                string codigo = Codigo;
+                string descripcion = Descripcion;
+                int cantidad = int.Parse(Cantidad);
+                decimal peso = decimal.Parse(Peso);
+                hiladoGestor.AltaHilado(new Hilado(id, codigo, descripcion, cantidad, peso));
             }
             catch (Exception ex)
             {
@@ -135,18 +171,17 @@ namespace GUI
             }
         }
 
-        public void ModificarHilado(DataGridView dataGrid, TextBox txtDescripcion, TextBox txtCantidad, TextBox txtPeso)
+        public void ModificarHilado(Hilado hilado)
         {
             try
             {
                 HiladoGestor hiladoGestor = new HiladoGestor();
-                int id = int.Parse(dataGrid.SelectedRows[0].Cells["Id"].Value.ToString());
-                string codigo = dataGrid.SelectedRows[0].Cells["Codigo"].Value.ToString();
-                string descripcion = GetTextBoxText(txtDescripcion);
-                int cantidad = int.Parse(GetTextBoxText(txtCantidad));
-                int peso = int.Parse(GetTextBoxText(txtPeso));
-                Usuario ultimaModificacion = controlDeAcceso.UsuarioActual;
-                hiladoGestor.ModificarHilado(new Hilado(id, codigo, descripcion, cantidad, peso, ultimaModificacion));
+                int id = hilado.Id;
+                string codigo = hilado.Codigo;
+                string descripcion = hilado.Descripcion;
+                int cantidad = hilado.Cantidad;
+                decimal peso = hilado.Peso;
+                hiladoGestor.ModificarHilado(new Hilado(id, codigo, descripcion, cantidad, peso));
             }
             catch (Exception ex)
             {
@@ -154,13 +189,12 @@ namespace GUI
             }
         }
 
-        public void BajaHilado(DataGridView dataGrid)
+        public void BajaHilado(Hilado hilado)
         {
             try
             {
                 HiladoGestor hiladoGestor = new HiladoGestor();
-                int id = int.Parse(dataGrid.SelectedRows[0].Cells["Id"].Value.ToString());
-                hiladoGestor.BajaHilado(new Hilado(id, "", "", 0, 0, null));
+                hiladoGestor.BajaHilado(new Hilado(hilado.Id, hilado.Codigo, hilado.Descripcion, hilado.Cantidad, hilado.Peso));
             }
             catch (Exception ex)
             {
@@ -197,15 +231,16 @@ namespace GUI
 
         #endregion
 
-        public string GetTextBoxText(TextBox textBox)
+        public void cambiarForm(Form newForm)
         {
-            return textBox.Text;
-        }
-
-        public string GetHashedTextBoxText(TextBox textBox)
-        {
-            ControlDeAccesoGestor controlDeAccesoGestor = new ControlDeAccesoGestor();
-            return controlDeAccesoGestor.GetHash(textBox.Text);
+            if(newForm.Owner == null)
+            {
+                form.AddOwnedForm(newForm);
+            }
+            form.Hide();
+            this.form = newForm;
+            newForm.StartPosition = form.Owner.StartPosition;
+            newForm.Show();
         }
     }
 }

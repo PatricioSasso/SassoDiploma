@@ -45,6 +45,7 @@
             this.gbox_Hilado = new System.Windows.Forms.GroupBox();
             this.gbox_Tela = new System.Windows.Forms.GroupBox();
             this.dataGridView_Tela = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Hilado)).BeginInit();
             this.gbox_Tela.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Tela)).BeginInit();
@@ -56,7 +57,7 @@
             this.btn_AltaHilado.Name = "btn_AltaHilado";
             this.btn_AltaHilado.Size = new System.Drawing.Size(187, 23);
             this.btn_AltaHilado.TabIndex = 0;
-            this.btn_AltaHilado.Text = "Alta Hilado";
+            this.btn_AltaHilado.Text = "Alta";
             this.btn_AltaHilado.UseVisualStyleBackColor = true;
             this.btn_AltaHilado.Click += new System.EventHandler(this.btn_AltaHilado_Click);
             // 
@@ -66,7 +67,7 @@
             this.btn_ModificarHilado.Name = "btn_ModificarHilado";
             this.btn_ModificarHilado.Size = new System.Drawing.Size(187, 23);
             this.btn_ModificarHilado.TabIndex = 1;
-            this.btn_ModificarHilado.Text = "Modificar Hilado";
+            this.btn_ModificarHilado.Text = "Modificar";
             this.btn_ModificarHilado.UseVisualStyleBackColor = true;
             this.btn_ModificarHilado.Click += new System.EventHandler(this.btn_ModificarHilado_Click);
             // 
@@ -76,7 +77,7 @@
             this.btn_BajaHilado.Name = "btn_BajaHilado";
             this.btn_BajaHilado.Size = new System.Drawing.Size(187, 23);
             this.btn_BajaHilado.TabIndex = 2;
-            this.btn_BajaHilado.Text = "Baja Hilado";
+            this.btn_BajaHilado.Text = "Baja";
             this.btn_BajaHilado.UseVisualStyleBackColor = true;
             this.btn_BajaHilado.Click += new System.EventHandler(this.btn_BajaHilado_Click);
             // 
@@ -172,14 +173,15 @@
             this.dataGridView_Hilado.RowHeadersWidth = 51;
             this.dataGridView_Hilado.RowTemplate.Height = 24;
             this.dataGridView_Hilado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_Hilado.Size = new System.Drawing.Size(814, 232);
+            this.dataGridView_Hilado.Size = new System.Drawing.Size(608, 232);
             this.dataGridView_Hilado.TabIndex = 13;
+            this.dataGridView_Hilado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Hilado_CellClick);
             // 
             // gbox_Hilado
             // 
             this.gbox_Hilado.Location = new System.Drawing.Point(12, 12);
             this.gbox_Hilado.Name = "gbox_Hilado";
-            this.gbox_Hilado.Size = new System.Drawing.Size(1051, 264);
+            this.gbox_Hilado.Size = new System.Drawing.Size(854, 264);
             this.gbox_Hilado.TabIndex = 14;
             this.gbox_Hilado.TabStop = false;
             this.gbox_Hilado.Text = "Gestion de Hilado";
@@ -189,7 +191,7 @@
             this.gbox_Tela.Controls.Add(this.dataGridView_Tela);
             this.gbox_Tela.Location = new System.Drawing.Point(12, 282);
             this.gbox_Tela.Name = "gbox_Tela";
-            this.gbox_Tela.Size = new System.Drawing.Size(1051, 262);
+            this.gbox_Tela.Size = new System.Drawing.Size(657, 262);
             this.gbox_Tela.TabIndex = 15;
             this.gbox_Tela.TabStop = false;
             this.gbox_Tela.Text = "Telas en stock";
@@ -206,14 +208,25 @@
             this.dataGridView_Tela.RowHeadersWidth = 51;
             this.dataGridView_Tela.RowTemplate.Height = 24;
             this.dataGridView_Tela.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_Tela.Size = new System.Drawing.Size(1025, 232);
+            this.dataGridView_Tela.Size = new System.Drawing.Size(621, 232);
             this.dataGridView_Tela.TabIndex = 14;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(872, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(87, 523);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Volver al Menu Principal";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btn_MenuPrincipal_Click);
             // 
             // AreaTejidoMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1090, 556);
+            this.ClientSize = new System.Drawing.Size(971, 556);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.gbox_Tela);
             this.Controls.Add(this.dataGridView_Hilado);
             this.Controls.Add(this.txt_Peso);
@@ -260,5 +273,6 @@
         private System.Windows.Forms.GroupBox gbox_Hilado;
         private System.Windows.Forms.GroupBox gbox_Tela;
         private System.Windows.Forms.DataGridView dataGridView_Tela;
+        private System.Windows.Forms.Button button1;
     }
 }

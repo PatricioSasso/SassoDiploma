@@ -30,13 +30,10 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.registrarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.darDeBajaUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darPermisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitarPermisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_NombreUsuario = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,7 +42,8 @@
             this.lbl_Rol = new System.Windows.Forms.Label();
             this.gbox_InfoUsuario = new System.Windows.Forms.GroupBox();
             this.btn_IrAreaTejido = new System.Windows.Forms.Button();
-            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_GestionarUsuarios = new System.Windows.Forms.Button();
+            this.btn_GestionarRoles = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.gbox_InfoUsuario.SuspendLayout();
             this.SuspendLayout();
@@ -58,49 +56,17 @@
             this.cerrarSesiónToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usuarioToolStripMenuItem,
             this.rolToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.archivoToolStripMenuItem.Text = "Gestion";
-            // 
-            // usuarioToolStripMenuItem
-            // 
-            this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.registrarUsuarioToolStripMenuItem,
-            this.modificarUsuarioToolStripMenuItem,
-            this.darDeBajaUsuarioToolStripMenuItem});
-            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
-            this.usuarioToolStripMenuItem.Text = "Usuario";
-            // 
-            // registrarUsuarioToolStripMenuItem
-            // 
-            this.registrarUsuarioToolStripMenuItem.Name = "registrarUsuarioToolStripMenuItem";
-            this.registrarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.registrarUsuarioToolStripMenuItem.Text = "Dar de Alta Usuario";
-            this.registrarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.registrarUsuarioToolStripMenuItem_Click);
-            // 
-            // modificarUsuarioToolStripMenuItem
-            // 
-            this.modificarUsuarioToolStripMenuItem.Name = "modificarUsuarioToolStripMenuItem";
-            this.modificarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.modificarUsuarioToolStripMenuItem.Text = "Modificar Usuario";
-            this.modificarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.modificarUsuarioToolStripMenuItem_Click);
-            // 
-            // darDeBajaUsuarioToolStripMenuItem
-            // 
-            this.darDeBajaUsuarioToolStripMenuItem.Name = "darDeBajaUsuarioToolStripMenuItem";
-            this.darDeBajaUsuarioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.darDeBajaUsuarioToolStripMenuItem.Text = "Dar de Baja Usuario";
-            this.darDeBajaUsuarioToolStripMenuItem.Click += new System.EventHandler(this.darDeBajaUsuarioToolStripMenuItem_Click);
             // 
             // rolToolStripMenuItem
             // 
@@ -108,7 +74,7 @@
             this.darPermisoToolStripMenuItem,
             this.quitarPermisoToolStripMenuItem});
             this.rolToolStripMenuItem.Name = "rolToolStripMenuItem";
-            this.rolToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.rolToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
             this.rolToolStripMenuItem.Text = "Rol";
             // 
             // darPermisoToolStripMenuItem
@@ -124,6 +90,13 @@
             this.quitarPermisoToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
             this.quitarPermisoToolStripMenuItem.Text = "Quitar Permiso";
             this.quitarPermisoToolStripMenuItem.Click += new System.EventHandler(this.quitarPermisoToolStripMenuItem_Click);
+            // 
+            // cerrarSesiónToolStripMenuItem
+            // 
+            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
+            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
+            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -196,7 +169,7 @@
             // 
             // btn_IrAreaTejido
             // 
-            this.btn_IrAreaTejido.Location = new System.Drawing.Point(12, 117);
+            this.btn_IrAreaTejido.Location = new System.Drawing.Point(10, 117);
             this.btn_IrAreaTejido.Name = "btn_IrAreaTejido";
             this.btn_IrAreaTejido.Size = new System.Drawing.Size(211, 23);
             this.btn_IrAreaTejido.TabIndex = 9;
@@ -204,18 +177,33 @@
             this.btn_IrAreaTejido.UseVisualStyleBackColor = true;
             this.btn_IrAreaTejido.Click += new System.EventHandler(this.btn_IrAreaTejido_Click);
             // 
-            // cerrarSesiónToolStripMenuItem
+            // btn_GestionarUsuarios
             // 
-            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
-            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
-            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
+            this.btn_GestionarUsuarios.Location = new System.Drawing.Point(229, 43);
+            this.btn_GestionarUsuarios.Name = "btn_GestionarUsuarios";
+            this.btn_GestionarUsuarios.Size = new System.Drawing.Size(209, 23);
+            this.btn_GestionarUsuarios.TabIndex = 10;
+            this.btn_GestionarUsuarios.Text = "Gestionar Usuarios";
+            this.btn_GestionarUsuarios.UseVisualStyleBackColor = true;
+            this.btn_GestionarUsuarios.Click += new System.EventHandler(this.btn_GestionarUsuarios_Click);
+            // 
+            // btn_GestionarRoles
+            // 
+            this.btn_GestionarRoles.Location = new System.Drawing.Point(229, 72);
+            this.btn_GestionarRoles.Name = "btn_GestionarRoles";
+            this.btn_GestionarRoles.Size = new System.Drawing.Size(209, 23);
+            this.btn_GestionarRoles.TabIndex = 11;
+            this.btn_GestionarRoles.Text = "Gestionar Roles";
+            this.btn_GestionarRoles.UseVisualStyleBackColor = true;
+            this.btn_GestionarRoles.Click += new System.EventHandler(this.btn_GestionarRoles_Click);
             // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_GestionarRoles);
+            this.Controls.Add(this.btn_GestionarUsuarios);
             this.Controls.Add(this.btn_IrAreaTejido);
             this.Controls.Add(this.gbox_InfoUsuario);
             this.Controls.Add(this.menuStrip1);
@@ -235,10 +223,6 @@
         #endregion
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem registrarUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem darDeBajaUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rolToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem darPermisoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitarPermisoToolStripMenuItem;
@@ -251,5 +235,7 @@
         private System.Windows.Forms.GroupBox gbox_InfoUsuario;
         private System.Windows.Forms.Button btn_IrAreaTejido;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
+        private System.Windows.Forms.Button btn_GestionarUsuarios;
+        private System.Windows.Forms.Button btn_GestionarRoles;
     }
 }
