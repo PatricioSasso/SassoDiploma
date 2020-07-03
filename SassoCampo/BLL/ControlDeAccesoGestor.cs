@@ -16,9 +16,9 @@ public class ControlDeAccesoGestor
         return bd.LogIn(nombreUsuario, contraseña);
     }
 
-    public Usuario GetUsuario(string nombreUsuario)
+    public Usuario GetUsuario(Usuario usuario)
     {
-        return bd.GetUsuario(nombreUsuario);
+        return bd.GetUsuario(usuario);
     }
 
     public string GetHash(string input)

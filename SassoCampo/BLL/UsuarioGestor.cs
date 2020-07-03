@@ -1,4 +1,5 @@
 ﻿using DAL;
+using System.Collections.Generic;
 
 namespace BLL
 {
@@ -24,6 +25,16 @@ namespace BLL
         public void Baja(Usuario user)
         {
             bd.BajaUsuario(user);
+        }
+
+        public Usuario Buscar(Usuario user)
+        {
+            return bd.GetUsuario(user);
+        }
+
+        public List<Usuario> GetListUsuario()
+        {
+            return bd.GetListUsuario();
         }
     }
 }
