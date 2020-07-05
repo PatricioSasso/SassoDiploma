@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.darPermisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quitarPermisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_NombreUsuario = new System.Windows.Forms.Label();
@@ -41,9 +37,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lbl_Rol = new System.Windows.Forms.Label();
             this.gbox_InfoUsuario = new System.Windows.Forms.GroupBox();
-            this.btn_IrAreaTejido = new System.Windows.Forms.Button();
+            this.btn_AreaTejido = new System.Windows.Forms.Button();
             this.btn_GestionarUsuarios = new System.Windows.Forms.Button();
             this.btn_GestionarRoles = new System.Windows.Forms.Button();
+            this.btn_AreaTeñido = new System.Windows.Forms.Button();
+            this.btn_AreaCortado = new System.Windows.Forms.Button();
+            this.btn_AreaConfeccion = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.gbox_InfoUsuario.SuspendLayout();
             this.SuspendLayout();
@@ -52,44 +51,12 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivoToolStripMenuItem,
             this.cerrarSesiónToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // archivoToolStripMenuItem
-            // 
-            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rolToolStripMenuItem});
-            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
-            this.archivoToolStripMenuItem.Text = "Gestion";
-            // 
-            // rolToolStripMenuItem
-            // 
-            this.rolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.darPermisoToolStripMenuItem,
-            this.quitarPermisoToolStripMenuItem});
-            this.rolToolStripMenuItem.Name = "rolToolStripMenuItem";
-            this.rolToolStripMenuItem.Size = new System.Drawing.Size(114, 26);
-            this.rolToolStripMenuItem.Text = "Rol";
-            // 
-            // darPermisoToolStripMenuItem
-            // 
-            this.darPermisoToolStripMenuItem.Name = "darPermisoToolStripMenuItem";
-            this.darPermisoToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
-            this.darPermisoToolStripMenuItem.Text = "Dar Permiso";
-            this.darPermisoToolStripMenuItem.Click += new System.EventHandler(this.darPermisoToolStripMenuItem_Click);
-            // 
-            // quitarPermisoToolStripMenuItem
-            // 
-            this.quitarPermisoToolStripMenuItem.Name = "quitarPermisoToolStripMenuItem";
-            this.quitarPermisoToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
-            this.quitarPermisoToolStripMenuItem.Text = "Quitar Permiso";
-            this.quitarPermisoToolStripMenuItem.Click += new System.EventHandler(this.quitarPermisoToolStripMenuItem_Click);
             // 
             // cerrarSesiónToolStripMenuItem
             // 
@@ -137,7 +104,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 52);
+            this.label5.Location = new System.Drawing.Point(17, 52);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 17);
             this.label5.TabIndex = 6;
@@ -167,15 +134,15 @@
             this.gbox_InfoUsuario.TabStop = false;
             this.gbox_InfoUsuario.Text = "Información de Usuario";
             // 
-            // btn_IrAreaTejido
+            // btn_AreaTejido
             // 
-            this.btn_IrAreaTejido.Location = new System.Drawing.Point(10, 117);
-            this.btn_IrAreaTejido.Name = "btn_IrAreaTejido";
-            this.btn_IrAreaTejido.Size = new System.Drawing.Size(211, 23);
-            this.btn_IrAreaTejido.TabIndex = 9;
-            this.btn_IrAreaTejido.Text = "Ir al Área de Tejido";
-            this.btn_IrAreaTejido.UseVisualStyleBackColor = true;
-            this.btn_IrAreaTejido.Click += new System.EventHandler(this.btn_IrAreaTejido_Click);
+            this.btn_AreaTejido.Location = new System.Drawing.Point(10, 117);
+            this.btn_AreaTejido.Name = "btn_AreaTejido";
+            this.btn_AreaTejido.Size = new System.Drawing.Size(211, 23);
+            this.btn_AreaTejido.TabIndex = 9;
+            this.btn_AreaTejido.Text = "Ir al Área de Tejido";
+            this.btn_AreaTejido.UseVisualStyleBackColor = true;
+            this.btn_AreaTejido.Click += new System.EventHandler(this.btn_IrAreaTejido_Click);
             // 
             // btn_GestionarUsuarios
             // 
@@ -197,14 +164,47 @@
             this.btn_GestionarRoles.UseVisualStyleBackColor = true;
             this.btn_GestionarRoles.Click += new System.EventHandler(this.btn_GestionarRoles_Click);
             // 
+            // btn_AreaTeñido
+            // 
+            this.btn_AreaTeñido.Location = new System.Drawing.Point(12, 146);
+            this.btn_AreaTeñido.Name = "btn_AreaTeñido";
+            this.btn_AreaTeñido.Size = new System.Drawing.Size(211, 23);
+            this.btn_AreaTeñido.TabIndex = 12;
+            this.btn_AreaTeñido.Text = "Ir al Área de Teñido";
+            this.btn_AreaTeñido.UseVisualStyleBackColor = true;
+            this.btn_AreaTeñido.Click += new System.EventHandler(this.btn_AreaTeñido_Click);
+            // 
+            // btn_AreaCortado
+            // 
+            this.btn_AreaCortado.Location = new System.Drawing.Point(10, 175);
+            this.btn_AreaCortado.Name = "btn_AreaCortado";
+            this.btn_AreaCortado.Size = new System.Drawing.Size(211, 23);
+            this.btn_AreaCortado.TabIndex = 13;
+            this.btn_AreaCortado.Text = "Ir al Área de Cortado";
+            this.btn_AreaCortado.UseVisualStyleBackColor = true;
+            this.btn_AreaCortado.Click += new System.EventHandler(this.btn_AreaCortado_Click);
+            // 
+            // btn_AreaConfeccion
+            // 
+            this.btn_AreaConfeccion.Location = new System.Drawing.Point(12, 204);
+            this.btn_AreaConfeccion.Name = "btn_AreaConfeccion";
+            this.btn_AreaConfeccion.Size = new System.Drawing.Size(211, 23);
+            this.btn_AreaConfeccion.TabIndex = 14;
+            this.btn_AreaConfeccion.Text = "Ir al Área de Confección";
+            this.btn_AreaConfeccion.UseVisualStyleBackColor = true;
+            this.btn_AreaConfeccion.Click += new System.EventHandler(this.btn_AreaConfeccion_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_AreaConfeccion);
+            this.Controls.Add(this.btn_AreaCortado);
+            this.Controls.Add(this.btn_AreaTeñido);
             this.Controls.Add(this.btn_GestionarRoles);
             this.Controls.Add(this.btn_GestionarUsuarios);
-            this.Controls.Add(this.btn_IrAreaTejido);
+            this.Controls.Add(this.btn_AreaTejido);
             this.Controls.Add(this.gbox_InfoUsuario);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -222,10 +222,6 @@
 
         #endregion
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rolToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem darPermisoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem quitarPermisoToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_NombreUsuario;
         private System.Windows.Forms.Label label3;
@@ -233,9 +229,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbl_Rol;
         private System.Windows.Forms.GroupBox gbox_InfoUsuario;
-        private System.Windows.Forms.Button btn_IrAreaTejido;
+        private System.Windows.Forms.Button btn_AreaTejido;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
         private System.Windows.Forms.Button btn_GestionarUsuarios;
         private System.Windows.Forms.Button btn_GestionarRoles;
+        private System.Windows.Forms.Button btn_AreaTeñido;
+        private System.Windows.Forms.Button btn_AreaCortado;
+        private System.Windows.Forms.Button btn_AreaConfeccion;
     }
 }

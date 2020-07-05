@@ -40,14 +40,18 @@
             this.btn_EliminarPermiso = new System.Windows.Forms.Button();
             this.dgv_PermisosRol = new System.Windows.Forms.DataGridView();
             this.dgv_Permisos = new System.Windows.Forms.DataGridView();
+            this.gbx_Roles = new System.Windows.Forms.GroupBox();
+            this.gbx_Permisos = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Roles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_PermisosRol)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Permisos)).BeginInit();
+            this.gbx_Roles.SuspendLayout();
+            this.gbx_Permisos.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_AltaRol
             // 
-            this.btn_AltaRol.Location = new System.Drawing.Point(12, 66);
+            this.btn_AltaRol.Location = new System.Drawing.Point(9, 72);
             this.btn_AltaRol.Name = "btn_AltaRol";
             this.btn_AltaRol.Size = new System.Drawing.Size(209, 23);
             this.btn_AltaRol.TabIndex = 0;
@@ -57,7 +61,7 @@
             // 
             // btn_ModificarRol
             // 
-            this.btn_ModificarRol.Location = new System.Drawing.Point(12, 95);
+            this.btn_ModificarRol.Location = new System.Drawing.Point(9, 101);
             this.btn_ModificarRol.Name = "btn_ModificarRol";
             this.btn_ModificarRol.Size = new System.Drawing.Size(209, 23);
             this.btn_ModificarRol.TabIndex = 1;
@@ -67,7 +71,7 @@
             // 
             // btn_BajaRol
             // 
-            this.btn_BajaRol.Location = new System.Drawing.Point(12, 124);
+            this.btn_BajaRol.Location = new System.Drawing.Point(9, 130);
             this.btn_BajaRol.Name = "btn_BajaRol";
             this.btn_BajaRol.Size = new System.Drawing.Size(209, 23);
             this.btn_BajaRol.TabIndex = 2;
@@ -78,7 +82,7 @@
             // lbl_Id
             // 
             this.lbl_Id.AutoSize = true;
-            this.lbl_Id.Location = new System.Drawing.Point(72, 9);
+            this.lbl_Id.Location = new System.Drawing.Point(69, 15);
             this.lbl_Id.Name = "lbl_Id";
             this.lbl_Id.Size = new System.Drawing.Size(27, 17);
             this.lbl_Id.TabIndex = 3;
@@ -87,7 +91,7 @@
             // lbl_Nombre
             // 
             this.lbl_Nombre.AutoSize = true;
-            this.lbl_Nombre.Location = new System.Drawing.Point(33, 41);
+            this.lbl_Nombre.Location = new System.Drawing.Point(30, 47);
             this.lbl_Nombre.Name = "lbl_Nombre";
             this.lbl_Nombre.Size = new System.Drawing.Size(66, 17);
             this.lbl_Nombre.TabIndex = 4;
@@ -95,14 +99,14 @@
             // 
             // txt_Id
             // 
-            this.txt_Id.Location = new System.Drawing.Point(105, 6);
+            this.txt_Id.Location = new System.Drawing.Point(102, 12);
             this.txt_Id.Name = "txt_Id";
             this.txt_Id.Size = new System.Drawing.Size(116, 22);
             this.txt_Id.TabIndex = 6;
             // 
             // txt_Nombre
             // 
-            this.txt_Nombre.Location = new System.Drawing.Point(105, 38);
+            this.txt_Nombre.Location = new System.Drawing.Point(102, 44);
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(116, 22);
             this.txt_Nombre.TabIndex = 7;
@@ -112,7 +116,7 @@
             this.dgv_Roles.AllowUserToAddRows = false;
             this.dgv_Roles.AllowUserToDeleteRows = false;
             this.dgv_Roles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Roles.Location = new System.Drawing.Point(227, 6);
+            this.dgv_Roles.Location = new System.Drawing.Point(224, 12);
             this.dgv_Roles.Name = "dgv_Roles";
             this.dgv_Roles.ReadOnly = true;
             this.dgv_Roles.RowHeadersWidth = 51;
@@ -123,7 +127,7 @@
             // 
             // btn_AgregarPermiso
             // 
-            this.btn_AgregarPermiso.Location = new System.Drawing.Point(12, 153);
+            this.btn_AgregarPermiso.Location = new System.Drawing.Point(9, 159);
             this.btn_AgregarPermiso.Name = "btn_AgregarPermiso";
             this.btn_AgregarPermiso.Size = new System.Drawing.Size(209, 23);
             this.btn_AgregarPermiso.TabIndex = 10;
@@ -133,7 +137,7 @@
             // 
             // btn_EliminarPermiso
             // 
-            this.btn_EliminarPermiso.Location = new System.Drawing.Point(12, 182);
+            this.btn_EliminarPermiso.Location = new System.Drawing.Point(9, 188);
             this.btn_EliminarPermiso.Name = "btn_EliminarPermiso";
             this.btn_EliminarPermiso.Size = new System.Drawing.Size(209, 23);
             this.btn_EliminarPermiso.TabIndex = 11;
@@ -146,7 +150,7 @@
             this.dgv_PermisosRol.AllowUserToAddRows = false;
             this.dgv_PermisosRol.AllowUserToDeleteRows = false;
             this.dgv_PermisosRol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_PermisosRol.Location = new System.Drawing.Point(437, 6);
+            this.dgv_PermisosRol.Location = new System.Drawing.Point(434, 12);
             this.dgv_PermisosRol.Name = "dgv_PermisosRol";
             this.dgv_PermisosRol.ReadOnly = true;
             this.dgv_PermisosRol.RowHeadersWidth = 51;
@@ -159,7 +163,7 @@
             this.dgv_Permisos.AllowUserToAddRows = false;
             this.dgv_Permisos.AllowUserToDeleteRows = false;
             this.dgv_Permisos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Permisos.Location = new System.Drawing.Point(437, 233);
+            this.dgv_Permisos.Location = new System.Drawing.Point(9, 21);
             this.dgv_Permisos.Name = "dgv_Permisos";
             this.dgv_Permisos.ReadOnly = true;
             this.dgv_Permisos.RowHeadersWidth = 51;
@@ -167,31 +171,53 @@
             this.dgv_Permisos.Size = new System.Drawing.Size(378, 199);
             this.dgv_Permisos.TabIndex = 13;
             // 
+            // gbx_Roles
+            // 
+            this.gbx_Roles.Controls.Add(this.dgv_PermisosRol);
+            this.gbx_Roles.Controls.Add(this.btn_EliminarPermiso);
+            this.gbx_Roles.Controls.Add(this.dgv_Roles);
+            this.gbx_Roles.Controls.Add(this.btn_AgregarPermiso);
+            this.gbx_Roles.Controls.Add(this.txt_Id);
+            this.gbx_Roles.Controls.Add(this.txt_Nombre);
+            this.gbx_Roles.Controls.Add(this.btn_AltaRol);
+            this.gbx_Roles.Controls.Add(this.btn_ModificarRol);
+            this.gbx_Roles.Controls.Add(this.lbl_Nombre);
+            this.gbx_Roles.Controls.Add(this.btn_BajaRol);
+            this.gbx_Roles.Controls.Add(this.lbl_Id);
+            this.gbx_Roles.Location = new System.Drawing.Point(12, 12);
+            this.gbx_Roles.Name = "gbx_Roles";
+            this.gbx_Roles.Size = new System.Drawing.Size(827, 222);
+            this.gbx_Roles.TabIndex = 14;
+            this.gbx_Roles.TabStop = false;
+            this.gbx_Roles.Text = "Roles";
+            // 
+            // gbx_Permisos
+            // 
+            this.gbx_Permisos.Controls.Add(this.dgv_Permisos);
+            this.gbx_Permisos.Location = new System.Drawing.Point(433, 240);
+            this.gbx_Permisos.Name = "gbx_Permisos";
+            this.gbx_Permisos.Size = new System.Drawing.Size(406, 234);
+            this.gbx_Permisos.TabIndex = 15;
+            this.gbx_Permisos.TabStop = false;
+            this.gbx_Permisos.Text = "Permisos";
+            // 
             // GestionRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(907, 450);
-            this.Controls.Add(this.dgv_Permisos);
-            this.Controls.Add(this.dgv_PermisosRol);
-            this.Controls.Add(this.btn_EliminarPermiso);
-            this.Controls.Add(this.btn_AgregarPermiso);
-            this.Controls.Add(this.dgv_Roles);
-            this.Controls.Add(this.txt_Nombre);
-            this.Controls.Add(this.txt_Id);
-            this.Controls.Add(this.lbl_Nombre);
-            this.Controls.Add(this.lbl_Id);
-            this.Controls.Add(this.btn_BajaRol);
-            this.Controls.Add(this.btn_ModificarRol);
-            this.Controls.Add(this.btn_AltaRol);
+            this.ClientSize = new System.Drawing.Size(906, 550);
+            this.Controls.Add(this.gbx_Permisos);
+            this.Controls.Add(this.gbx_Roles);
             this.Name = "GestionRoles";
             this.Text = "Gestión de Roles";
             this.Load += new System.EventHandler(this.GestionRoles_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Roles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_PermisosRol)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Permisos)).EndInit();
+            this.gbx_Roles.ResumeLayout(false);
+            this.gbx_Roles.PerformLayout();
+            this.gbx_Permisos.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -209,5 +235,7 @@
         private System.Windows.Forms.Button btn_EliminarPermiso;
         private System.Windows.Forms.DataGridView dgv_PermisosRol;
         private System.Windows.Forms.DataGridView dgv_Permisos;
+        private System.Windows.Forms.GroupBox gbx_Roles;
+        private System.Windows.Forms.GroupBox gbx_Permisos;
     }
 }

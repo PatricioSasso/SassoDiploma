@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using System;
 using System.ComponentModel;
+using System.Security.Cryptography;
 
 namespace GUI
 {
@@ -31,13 +32,20 @@ namespace GUI
             {
                 Usuario user = new Usuario(nombreUsuario, contraseña, "", "", new Rol(0, "", new List<Permiso>()));
                 user = usuarioGestor.Buscar(user);
-                ControlDeAcceso.UsuarioActual = controlDeAccesoGestor.GetUsuario(user);
-                if (ControlDeAcceso.UsuarioActual != null)
+                if (user.DVH == controlDeAccesoGestor.GetHash(user.NombreUsuario + user.Contraseña + user.Nombre + user.Apellido + user.Rol.Id))
                 {
-                    ControlDeAcceso.GetInstance();
-                    cambiarForm(new MenuPrincipal(this));
+                    ControlDeAcceso.UsuarioActual = user;
+                    if (ControlDeAcceso.UsuarioActual != null)
+                    {
+                        ControlDeAcceso.GetInstance();
+                        cambiarForm(new MenuPrincipal(this));
+                    }
+                    return "Inicio de sesión correcto";
                 }
-                return "Inicio de sesión correcto";
+                else
+                {
+                    MessageBox.Show("El usuario ha sido modificado sin permiso, verificar base de datos");
+                }
             }
             return "Inicio de sesión fallido";
         }
@@ -60,7 +68,7 @@ namespace GUI
                 List<Usuario> usuariosExistentes = usuarioGestor.GetListUsuario();
                 foreach (var usuario in usuariosExistentes)
                 {
-                    if(usuario.NombreUsuario.ToLower() == nombreUsuario.ToLower())
+                    if (usuario.NombreUsuario.ToLower() == nombreUsuario.ToLower())
                     {
                         throw new Exception("El nombre de usuario ingresado ya está en uso");
                     }
@@ -98,7 +106,7 @@ namespace GUI
             {
                 MessageBox.Show(ex.Message);
             }
-        } 
+        }
 
         public void AltaRol(int id, string nombre)
         {
@@ -165,10 +173,7 @@ namespace GUI
                 decimal peso = decimal.Parse(Peso);
                 hiladoGestor.AltaHilado(new Hilado(id, codigo, descripcion, cantidad, peso));
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public void ModificarHilado(Hilado hilado)
@@ -183,10 +188,7 @@ namespace GUI
                 decimal peso = hilado.Peso;
                 hiladoGestor.ModificarHilado(new Hilado(id, codigo, descripcion, cantidad, peso));
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public void BajaHilado(Hilado hilado)
@@ -196,10 +198,7 @@ namespace GUI
                 HiladoGestor hiladoGestor = new HiladoGestor();
                 hiladoGestor.BajaHilado(new Hilado(hilado.Id, hilado.Codigo, hilado.Descripcion, hilado.Cantidad, hilado.Peso));
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public List<Hilado> GetListHilado()
@@ -208,19 +207,35 @@ namespace GUI
             return hiladoGestor.GetListHilado();
         }
 
-        public void AltaTela()
+        public void AltaTela(int id, string codigo, string descripcion, int cantidad, string color, bool teñido)
         {
-            //TODO: Implementar.
+            try
+            {
+                TelaGestor telaGestor = new TelaGestor();
+                telaGestor.Alta(new Tela(id, codigo, descripcion, cantidad, "", false));
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        public void ModificarTela()
+        public void ModificarTela(Tela tela)
         {
-            //TODO: Implementar.
+            try
+            {
+                TelaGestor telaGestor = new TelaGestor();
+                telaGestor.Modificar(tela);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        public void BajaTela()
+        public void BajaTela(Tela tela)
         {
-            //TODO: Implementar.
+            try
+            {
+                TelaGestor telaGestor = new TelaGestor();
+                telaGestor.Baja(tela);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+
         }
 
         public List<Tela> GetListTela()
@@ -229,11 +244,84 @@ namespace GUI
             return telaGestor.GetListTela();
         }
 
+        public void AltaTinte(int id, string codigo, string descripcion, int cantidad, string color)
+        {
+            try
+            {
+                TinteGestor tinteGestor = new TinteGestor();
+                tinteGestor.Alta(new Tinte(id, codigo, descripcion, cantidad, color));
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public void ModificarTinte(Tinte tinte)
+        {
+            try
+            {
+                TinteGestor tinteGestor = new TinteGestor();
+                tinteGestor.Modificar(tinte);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public void BajaTinte(Tinte tinte)
+        {
+            try
+            {
+                TinteGestor tinteGestor = new TinteGestor();
+                tinteGestor.Baja(tinte);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+        }
+
+        public List<Tinte> GetListTinte()
+        {
+            TinteGestor tinteGestor = new TinteGestor();
+            return tinteGestor.GetListTinte();
+        }
+
+        public void AltaPrenda(int id, string codigo, string descripcion, int cantidad, string talle)
+        {
+            try
+            {
+                PrendaGestor prendaGestor = new PrendaGestor();
+                prendaGestor.Alta(new Prenda(id, codigo, descripcion, cantidad, talle, false, 0));
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public void ModificarPrenda(Prenda prenda)
+        {
+            try
+            {
+                PrendaGestor prendaGestor = new PrendaGestor();
+                prendaGestor.Modificar(prenda);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public void BajaPrenda(Prenda prenda)
+        {
+            try
+            {
+                PrendaGestor prendaGestor = new PrendaGestor();
+                prendaGestor.Baja(prenda);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public List<Prenda> GetListPrenda()
+        {
+            PrendaGestor prendaGestor = new PrendaGestor();
+            return prendaGestor.GetListPrenda();
+        }
+
         #endregion
 
         public void cambiarForm(Form newForm)
         {
-            if(newForm.Owner == null)
+            if (newForm.Owner == null)
             {
                 form.AddOwnedForm(newForm);
             }

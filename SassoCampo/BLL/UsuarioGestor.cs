@@ -1,5 +1,8 @@
 ﻿using DAL;
+using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Security.Policy;
 
 namespace BLL
 {
@@ -14,11 +17,13 @@ namespace BLL
 
         public void Alta(Usuario user)
         {
+            CalcularDVH(user);
             bd.AltaUsuario(user);
         }
 
         public void Modificar(Usuario user)
         {
+            CalcularDVH(user);
             bd.ModificarUsuario(user);
         }
 
@@ -35,6 +40,13 @@ namespace BLL
         public List<Usuario> GetListUsuario()
         {
             return bd.GetListUsuario();
+        }
+
+        public void CalcularDVH(Usuario user)
+        {
+            ControlDeAccesoGestor controlDeAccesoGestor = new ControlDeAccesoGestor();
+            string ParcialHash = controlDeAccesoGestor.GetHash(user.NombreUsuario + user.Contraseña + user.Nombre + user.Apellido + user.Rol.Id);
+            user.DVH = ParcialHash;
         }
     }
 }

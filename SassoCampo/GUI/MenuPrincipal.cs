@@ -39,16 +39,6 @@ namespace GUI
             controller.LogOut();
         }
 
-        private void darPermisoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //controller.DarPermiso();
-        }
-
-        private void quitarPermisoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //controller.QuitarPermiso();
-        }
-
         private void btn_IrAreaTejido_Click(object sender, EventArgs e)
         {
             controller.cambiarForm(new AreaTejidoMenu(controller));
@@ -62,6 +52,21 @@ namespace GUI
         private void btn_GestionarRoles_Click(object sender, EventArgs e)
         {
             controller.cambiarForm(new GestionRoles(controller));
+        }
+
+        private void btn_AreaTeñido_Click(object sender, EventArgs e)
+        {
+            controller.cambiarForm(new AreaTeñidoMenu(controller));
+        }
+
+        private void btn_AreaCortado_Click(object sender, EventArgs e)
+        {
+            controller.cambiarForm(new AreaCortadoMenu(controller));
+        }
+
+        private void btn_AreaConfeccion_Click(object sender, EventArgs e)
+        {
+            controller.cambiarForm(new AreaConfeccionadoMenu(controller));
         }
     }
 }

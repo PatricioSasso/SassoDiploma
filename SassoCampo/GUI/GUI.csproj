@@ -47,11 +47,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AreaConfeccionadoMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AreaConfeccionadoMenu.Designer.cs">
+      <DependentUpon>AreaConfeccionadoMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AreaCortadoMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AreaCortadoMenu.Designer.cs">
+      <DependentUpon>AreaCortadoMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="AreaTejidoMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AreaTejidoMenu.Designer.cs">
       <DependentUpon>AreaTejidoMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AreaTeñidoMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AreaTeñidoMenu.Designer.cs">
+      <DependentUpon>AreaTeñidoMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller.cs" />
     <Compile Include="GestionRoles.cs">
@@ -80,8 +98,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AreaConfeccionadoMenu.resx">
+      <DependentUpon>AreaConfeccionadoMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AreaCortadoMenu.resx">
+      <DependentUpon>AreaCortadoMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AreaTejidoMenu.resx">
       <DependentUpon>AreaTejidoMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AreaTeñidoMenu.resx">
+      <DependentUpon>AreaTeñidoMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionRoles.resx">
       <DependentUpon>GestionRoles.cs</DependentUpon>

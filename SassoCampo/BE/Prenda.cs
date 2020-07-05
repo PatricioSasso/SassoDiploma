@@ -3,7 +3,7 @@
 public class Prenda : Producto
 {
     string talle;
-    int tiempoConfección;
+    int tiempoConfeccion;
     bool confeccionada;
 
     public Prenda()
@@ -11,15 +11,18 @@ public class Prenda : Producto
 
     }
 
-    public Prenda(int id, string codigo, string descripcion, int cantidad) : base(id, codigo, descripcion, cantidad)
+    public Prenda(int id, string codigo, string descripcion, int cantidad, string talle, bool confeccionada, int tiempoConfeccion) : base(id, codigo, descripcion, cantidad)
     {
         Id = id;
         Codigo = codigo;
         Descripcion = descripcion;
         Cantidad = cantidad;
+        Talle = talle;
+        Confeccionada = confeccionada;
+        TiempoConfeccion = tiempoConfeccion;
     }
 
     public string Talle { get => talle; set => talle = value; }
-    public int TiempoConfección { get => tiempoConfección; set => tiempoConfección = value; }
+    public int TiempoConfeccion { get => tiempoConfeccion; set => tiempoConfeccion = value; }
     public bool Confeccionada { get => confeccionada; set => confeccionada = value; }
 }

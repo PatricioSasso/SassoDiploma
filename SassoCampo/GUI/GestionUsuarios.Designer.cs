@@ -120,7 +120,7 @@
             // lbl_Apellido
             // 
             this.lbl_Apellido.AutoSize = true;
-            this.lbl_Apellido.Location = new System.Drawing.Point(23, 102);
+            this.lbl_Apellido.Location = new System.Drawing.Point(23, 105);
             this.lbl_Apellido.Name = "lbl_Apellido";
             this.lbl_Apellido.Size = new System.Drawing.Size(66, 17);
             this.lbl_Apellido.TabIndex = 7;
@@ -157,7 +157,7 @@
             // lbl_Rol
             // 
             this.lbl_Rol.AutoSize = true;
-            this.lbl_Rol.Location = new System.Drawing.Point(33, 132);
+            this.lbl_Rol.Location = new System.Drawing.Point(40, 135);
             this.lbl_Rol.Name = "lbl_Rol";
             this.lbl_Rol.Size = new System.Drawing.Size(37, 17);
             this.lbl_Rol.TabIndex = 13;

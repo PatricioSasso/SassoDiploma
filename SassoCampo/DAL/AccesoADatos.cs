@@ -45,7 +45,7 @@ namespace DAL
             {
                 while(reader.Read())
                 {
-                    usuario = new Usuario(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), new Rol(reader.GetInt32(4),"", new List<Permiso>()));
+                    usuario = new Usuario(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), new Rol(reader.GetInt32(4),"", new List<Permiso>()), reader.GetString(5));
                 }
             }
             conexion.Close();
@@ -76,12 +76,13 @@ namespace DAL
         public void AltaUsuario(Usuario alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO Usuario VALUES (@nombreUsuario, @contraseña, @nombre, @apellido, @rolId)", conexion);
+            query = new SqlCommand("INSERT INTO Usuario VALUES (@nombreUsuario, @contraseña, @nombre, @apellido, @rolId, @DVH)", conexion);
             query.Parameters.AddWithValue("nombreUsuario", alta.NombreUsuario);
             query.Parameters.AddWithValue("contraseña", alta.Contraseña);
             query.Parameters.AddWithValue("nombre", alta.Nombre);
             query.Parameters.AddWithValue("apellido", alta.Apellido);
             query.Parameters.AddWithValue("rolId", alta.Rol.Id);
+            query.Parameters.AddWithValue("DVH", alta.DVH);
             query.ExecuteNonQuery();
             conexion.Close();
         }
@@ -89,11 +90,12 @@ namespace DAL
         public void ModificarUsuario(Usuario modificar)
         {
             conexion.Open();
-            query = new SqlCommand("UPDATE Usuario SET Nombre = @nombre, Apellido = @apellido, Rol_Id = @rolId WHERE NombreUsuario = @nombreUsuario",conexion);
+            query = new SqlCommand("UPDATE Usuario SET Nombre = @nombre, Apellido = @apellido, Rol_Id = @rolId, DVH = @DVH WHERE NombreUsuario = @nombreUsuario",conexion);
             query.Parameters.AddWithValue("nombreUsuario", modificar.NombreUsuario);
             query.Parameters.AddWithValue("nombre", modificar.Nombre);
             query.Parameters.AddWithValue("apellido", modificar.Apellido);
             query.Parameters.AddWithValue("rolId", modificar.Rol.Id);
+            query.Parameters.AddWithValue("DVH", modificar.DVH);
             query.ExecuteNonQuery();
             conexion.Close();
         }
@@ -267,6 +269,8 @@ namespace DAL
         #endregion
 
         #region productos
+
+        #region producto
         public void AltaProducto(Producto alta)
         {
             conexion.Open();
@@ -303,8 +307,8 @@ namespace DAL
         {
             conexion.Open();
             Producto producto = new Producto();
-            query = new SqlCommand("SELECT * FROM Producto WHERE Producto_Codigo = @codigo", conexion);
-            query.Parameters.AddWithValue("codigo", buscar.Codigo.ToLower());
+            query = new SqlCommand("SELECT * FROM Producto WHERE Id = @Id", conexion);
+            query.Parameters.AddWithValue("Id", buscar.Id);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while (reader.Read())
@@ -328,14 +332,15 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    producto.Add(new Producto(int.Parse(reader.GetString(0)), reader.GetString(1), reader.GetString(2), reader.GetInt32(3))); ;
-                    // Agregar el usuario creador del producto.
+                    producto.Add(new Producto(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3))); ;
                 }
             }
             conexion.Close();
             return producto;
         }
+        #endregion
 
+        #region hilado
         public void AltaHilado(Hilado alta)
         {
             conexion.Open();
@@ -374,8 +379,8 @@ namespace DAL
         {
             conexion.Open();
             Hilado hilado = new Hilado();
-            query = new SqlCommand("SELECT * FROM Hilado WHERE Codigo = @codigo", conexion);
-            query.Parameters.AddWithValue("codigo", buscar.Codigo.ToLower());
+            query = new SqlCommand("SELECT * FROM Hilado WHERE Id = @Id", conexion);
+            query.Parameters.AddWithValue("Id", buscar.Id);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while (reader.Read())
@@ -409,11 +414,13 @@ namespace DAL
             conexion.Close();
             return hilado;
         }
+        #endregion
 
+        #region tela
         public void AltaTela(Tela alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO Hilado VALUES (@id, @codigo, @descripcion, @cantidad, @color, @teñido)", conexion);
+            query = new SqlCommand("INSERT INTO Tela VALUES (@id, @codigo, @descripcion, @cantidad, @color, @teñido)", conexion);
             query.Parameters.AddWithValue("id", alta.Id);
             query.Parameters.AddWithValue("codigo", alta.Codigo);
             query.Parameters.AddWithValue("descripcion", alta.Descripcion);
@@ -450,7 +457,7 @@ namespace DAL
         {
             conexion.Open();
             Tela tela = new Tela();
-            query = new SqlCommand("SELECT * FROM Tela WHERE Codigo = @Id", conexion);
+            query = new SqlCommand("SELECT * FROM Tela WHERE Id = @Id", conexion);
             query.Parameters.AddWithValue("Id", buscar.Id);
             using (SqlDataReader reader = query.ExecuteReader())
             {
@@ -477,12 +484,166 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    tela.Add(new Tela(int.Parse(reader.GetString(0)), reader.GetString(1), reader.GetString(2), reader.GetInt32(3), reader.GetString(4), reader.GetBoolean(5))); ;
+                    tela.Add(new Tela(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3), reader.GetString(4), reader.GetBoolean(5))); ;
                 }
             }
             conexion.Close();
             return tela;
         }
+        #endregion
+
+        #region tinte
+        public void AltaTinte(Tinte alta)
+        {
+            conexion.Open();
+            query = new SqlCommand("INSERT INTO Tinte VALUES (@id, @codigo, @descripcion, @color, @cantidad)", conexion);
+            query.Parameters.AddWithValue("id", alta.Id);
+            query.Parameters.AddWithValue("codigo", alta.Codigo);
+            query.Parameters.AddWithValue("descripcion", alta.Descripcion);
+            query.Parameters.AddWithValue("cantidad", alta.Cantidad);
+            query.Parameters.AddWithValue("color", alta.Color);
+            query.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public void ModificarTinte(Tinte modificar)
+        {
+            conexion.Open();
+            query = new SqlCommand("UPDATE Tinte SET Descripcion = @descripcion, Cantidad = @cantidad, Color = @color WHERE Id = @id", conexion);
+            query.Parameters.AddWithValue("id", modificar.Id);
+            query.Parameters.AddWithValue("descripcion", modificar.Descripcion);
+            query.Parameters.AddWithValue("cantidad", modificar.Cantidad);
+            query.Parameters.AddWithValue("color", modificar.Color);
+            query.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public void BajaTinte(Tinte baja)
+        {
+            conexion.Open();
+            query = new SqlCommand("DELETE FROM Tinte WHERE Id = @id", conexion);
+            query.Parameters.AddWithValue("id", baja.Id);
+            query.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public Tinte GetTinte(Tinte buscar)
+        {
+            conexion.Open();
+            Tinte tinte = new Tinte();
+            query = new SqlCommand("SELECT * FROM Tinte WHERE Id = @Id", conexion);
+            query.Parameters.AddWithValue("Id", buscar.Id);
+            using (SqlDataReader reader = query.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    tinte.Id = reader.GetInt32(0);
+                    tinte.Codigo = reader.GetString(1);
+                    tinte.Descripcion = reader.GetString(2);
+                    tinte.Cantidad = reader.GetInt32(3);
+                    tinte.Color = reader.GetString(4);
+                }
+            }
+            conexion.Close();
+            return tinte;
+        }
+
+        public List<Tinte> GetListTinte()
+        {
+            conexion.Open();
+            List<Tinte> tintes = new List<Tinte>();
+            query = new SqlCommand("Select * From Tinte", conexion);
+            using (SqlDataReader reader = query.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    tintes.Add(new Tinte(reader.GetInt32(0), reader.GetString(1), reader.GetString(2),  reader.GetInt32(4), reader.GetString(3)));
+                }
+            }
+            conexion.Close();
+            return tintes;
+        }
+        #endregion
+
+        #region 
+        public void AltaPrenda(Prenda alta)
+        {
+            conexion.Open();
+            query = new SqlCommand("INSERT INTO Prenda VALUES (@id, @codigo, @descripcion, @cantidad, @talle, @confeccionada, @tiempoConfeccion)", conexion);
+            query.Parameters.AddWithValue("id", alta.Id);
+            query.Parameters.AddWithValue("codigo", alta.Codigo);
+            query.Parameters.AddWithValue("descripcion", alta.Descripcion);
+            query.Parameters.AddWithValue("cantidad", alta.Cantidad);
+            query.Parameters.AddWithValue("talle", alta.Talle);
+            query.Parameters.AddWithValue("confeccionada", alta.Confeccionada);
+            query.Parameters.AddWithValue("tiempoConfeccion", alta.TiempoConfeccion);
+            query.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public void ModificarPrenda(Prenda modificar)
+        {
+            conexion.Open();
+            query = new SqlCommand("UPDATE Prenda SET Descripcion = @descripcion, Cantidad = @cantidad, Talle = @talle, Confeccionada = @confeccionada, TiempoConfeccion = @tiempoConfeccion WHERE Id = @id", conexion);
+            query.Parameters.AddWithValue("id", modificar.Id);
+            query.Parameters.AddWithValue("descripcion", modificar.Descripcion);
+            query.Parameters.AddWithValue("cantidad", modificar.Cantidad);
+            query.Parameters.AddWithValue("talle", modificar.Talle);
+            query.Parameters.AddWithValue("confeccionada", modificar.Confeccionada);
+            query.Parameters.AddWithValue("tiempoConfeccion", modificar.TiempoConfeccion);
+            query.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public void BajaPrenda(Prenda baja)
+        {
+            conexion.Open();
+            query = new SqlCommand("DELETE FROM Prenda WHERE Id = @id", conexion);
+            query.Parameters.AddWithValue("id", baja.Id);
+            query.ExecuteNonQuery();
+            conexion.Close();
+        }
+
+        public Prenda GetPrenda(Prenda buscar)
+        {
+            conexion.Open();
+            Prenda prenda = new Prenda();
+            query = new SqlCommand("SELECT * FROM Prenda WHERE Id = @Id", conexion);
+            query.Parameters.AddWithValue("Id", buscar.Id);
+            using (SqlDataReader reader = query.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    prenda.Id = reader.GetInt32(0);
+                    prenda.Codigo = reader.GetString(1);
+                    prenda.Descripcion = reader.GetString(2);
+                    prenda.Cantidad = reader.GetInt32(3);
+                    prenda.Talle = reader.GetString(4);
+                    prenda.Confeccionada = reader.GetBoolean(5);
+                    prenda.TiempoConfeccion = reader.GetInt32(6);
+                }
+            }
+            conexion.Close();
+            return prenda;
+        }
+
+        public List<Prenda> GetListPrenda()
+        {
+            conexion.Open();
+            List<Prenda> prenda = new List<Prenda>();
+            query = new SqlCommand("Select * From Prenda", conexion);
+            using (SqlDataReader reader = query.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    prenda.Add(new Prenda(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3), reader.GetString(4), reader.GetBoolean(5), reader.GetInt32(6))); ;
+                }
+            }
+            conexion.Close();
+            return prenda;
+        }
+        #endregion
+
         #endregion
     }
 }
