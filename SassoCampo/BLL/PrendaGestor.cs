@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public class PrendaGestor
 {
-    AccesoADatos bd;
+    DALPrenda bd;
 
     public PrendaGestor()
     {
-        bd = new AccesoADatos();
+        bd = new DALPrenda();
     }
 
     public void Alta(Prenda prenda)

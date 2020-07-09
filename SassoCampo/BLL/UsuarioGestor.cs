@@ -8,11 +8,11 @@ namespace BLL
 {
     public class UsuarioGestor
     {
-        AccesoADatos bd;
+        DALUsuario bd;
 
         public UsuarioGestor()
         {
-            bd = new AccesoADatos();
+            bd = new DALUsuario();
         }
 
         public void Alta(Usuario user)

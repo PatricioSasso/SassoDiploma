@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public class HiladoGestor
 {
-    AccesoADatos bd ;
+    DALHilado bd ;
 
     public HiladoGestor()
     {
-        bd = new AccesoADatos();
+        bd = new DALHilado();
     }
 
     public void AltaHilado(Hilado hilado)

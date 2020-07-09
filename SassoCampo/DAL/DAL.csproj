@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccesoADatos.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="DALHilado.cs" />
+    <Compile Include="DALProducto.cs" />
+    <Compile Include="DALTela.cs" />
+    <Compile Include="DALTinte.cs" />
+    <Compile Include="DALUsuario.cs" />
+    <Compile Include="DALRolUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

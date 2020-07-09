@@ -4,11 +4,11 @@ using System.Text;
 
 public class ControlDeAccesoGestor
 {
-    AccesoADatos bd;
+    DALUsuario bd;
 
     public ControlDeAccesoGestor()
     {
-        bd = new AccesoADatos();
+        bd = new DALUsuario();
     }
 
     public bool LogIn(string nombreUsuario, string contraseña)

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public class TinteGestor
 {
-    AccesoADatos bd;
+    DALTinte bd;
 
     public TinteGestor()
     {
-        bd = new AccesoADatos();
+        bd = new DALTinte();
     }
 
     public void Alta(Tinte tinte)

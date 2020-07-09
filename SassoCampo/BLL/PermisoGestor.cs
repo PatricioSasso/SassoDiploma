@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public class PermisoGestor
 {
-    AccesoADatos bd;
+    DALRolPermiso bd;
 
     public PermisoGestor()
     {
-        bd = new AccesoADatos();
+        bd = new DALRolPermiso();
     }
 
     public Permiso GetPermiso(Permiso permiso)
@@ -18,6 +18,11 @@ public class PermisoGestor
     public List<Permiso> GetListPermiso()
     {
         return bd.GetListPermiso();
+    }
+
+    public List<Permiso> GetListPermiso(Rol rol)
+    {
+        return bd.GetListPermiso(rol);
     }
 
 }

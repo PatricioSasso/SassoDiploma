@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 
 public class RolGestor
 {
-    AccesoADatos bd;
+    DALRolPermiso bd;
 
     public RolGestor()
     {
-        bd = new AccesoADatos();
+        bd = new DALRolPermiso();
     }
 
     public Rol GetRol(Rol rol)

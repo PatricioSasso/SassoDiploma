@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public class TelaGestor
 {
-    AccesoADatos bd;
+    DALTela bd;
 
     public TelaGestor()
     {
-        bd = new AccesoADatos();
+        bd = new DALTela();
     }
 
     public void Alta(Tela tela)
