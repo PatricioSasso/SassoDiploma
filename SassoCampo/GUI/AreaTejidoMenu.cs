@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -104,7 +105,16 @@ namespace GUI
 
         private void btn_Tejer_Click(object sender, EventArgs e)
         {
-            // TO DO: IMPLEMENT.
+            Hilado hilado = dgv_Hilados.SelectedRows[0].DataBoundItem as Hilado;
+            int cantUtilizada = int.Parse(Interaction.InputBox("¿Cuánto cantidad del hilado seleccionado desea tejer?"));
+            int areaTela = int.Parse(Interaction.InputBox("¿Cuál es el área (en metros cuadrados) resultante?"));
+            Tejido tejido = new Tejido(cantUtilizada, areaTela, DateTime.Now, hilado);
+            string codigoTela = Interaction.InputBox("¿Cuál será el código de la tela resultante?");
+            controller.Tejer(tejido, codigoTela);
+            dgv_Hilados.DataSource = null;
+            dgv_Hilados.DataSource = controller.GetListHilado();
+            dgv_Telas.DataSource = null;
+            dgv_Telas.DataSource = controller.GetListTela();
         }
     }
 }

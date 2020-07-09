@@ -12,17 +12,17 @@ public class ProductoGestor
 
     public void Alta(Producto producto)
     {
-        bd.AltaProducto(producto);
+        bd.Alta(producto);
     }
 
     public void Modificar(Producto producto)
     {
-        bd.ModificarProducto(producto);
+        bd.Modificar(producto);
     }
 
     public void Baja(Producto producto)
     {
-        bd.BajaProducto(producto);
+        bd.Baja(producto);
     }
 
     public Producto GetProducto(Producto producto)

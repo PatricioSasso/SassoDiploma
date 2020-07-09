@@ -35,7 +35,7 @@ namespace DAL
             }
         }
 
-        public void AltaUsuario(Usuario alta)
+        public void Alta(Usuario alta)
         {
             conexion.Open();
             query = new SqlCommand("INSERT INTO Usuario VALUES (@nombreUsuario, @contraseña, @nombre, @apellido, @rolId, @DVH)", conexion);
@@ -49,7 +49,7 @@ namespace DAL
             conexion.Close();
         }
 
-        public void ModificarUsuario(Usuario modificar)
+        public void Modificar(Usuario modificar)
         {
             conexion.Open();
             query = new SqlCommand("UPDATE Usuario SET Nombre = @nombre, Apellido = @apellido, Rol_Id = @rolId, DVH = @DVH WHERE NombreUsuario = @nombreUsuario", conexion);
@@ -62,7 +62,7 @@ namespace DAL
             conexion.Close();
         }
 
-        public void BajaUsuario(Usuario baja)
+        public void Baja(Usuario baja)
         {
             conexion.Open();
             query = new SqlCommand("DELETE FROM Usuario WHERE NombreUsuario = @nombreUsuario", conexion);

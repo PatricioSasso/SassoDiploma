@@ -6,6 +6,7 @@ public class Tejido
     string codigo;
     int cantidadUtilizada;
     int tiempo;
+    int areaTela;
     DateTime fecha;
     Hilado hilado;
 
@@ -14,12 +15,21 @@ public class Tejido
 
     }
 
-    public Tejido(int id, string codigo, int cantidadUtilizada, int tiempo, DateTime fecha, Hilado hilado)
+    public Tejido(int cantidadUtilizada, int areaTela, DateTime fecha, Hilado hilado)
+    {
+        CantidadUtilizada = cantidadUtilizada;
+        AreaTela = areaTela;
+        Fecha = fecha;
+        Hilado = hilado;
+    }
+
+    public Tejido(int id, string codigo, int cantidadUtilizada, int tiempo, int areaTela, DateTime fecha, Hilado hilado)
     {
         Id = id;
         Codigo = codigo;
         CantidadUtilizada = cantidadUtilizada;
         Tiempo = tiempo;
+        AreaTela = areaTela;
         Fecha = fecha;
         Hilado = hilado;
     }
@@ -30,4 +40,5 @@ public class Tejido
     public int Tiempo { get => tiempo; set => tiempo = value; }
     public Hilado Hilado { get => hilado; set => hilado = value; }
     public DateTime Fecha { get => fecha; set => fecha = value; }
+    public int AreaTela { get => areaTela; set => areaTela = value; }
 }

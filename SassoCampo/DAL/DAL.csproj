@@ -42,11 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DALHilado.cs" />
+    <Compile Include="DALPrenda.cs" />
     <Compile Include="DALProducto.cs" />
+    <Compile Include="DALTejido.cs" />
     <Compile Include="DALTela.cs" />
     <Compile Include="DALTinte.cs" />
     <Compile Include="DALUsuario.cs" />
-    <Compile Include="DALRolUsuario.cs" />
+    <Compile Include="DALRolPermiso.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

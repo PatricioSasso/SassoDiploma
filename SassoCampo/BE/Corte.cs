@@ -8,7 +8,7 @@ public class Corte
     string talle;
     int tiempo;
     DateTime fecha;
-    List<ItemCorte> telas;
+    List<Tela> telas;
 
     public Corte()
     {
@@ -16,7 +16,7 @@ public class Corte
     }
 
 
-    public Corte(int id, string codigo, string talle, int tiempo, DateTime fecha, List<ItemCorte> telas)
+    public Corte(int id, string codigo, string talle, int tiempo, DateTime fecha, List<Tela> telas)
     {
         Id = id;
         Codigo = codigo;
@@ -31,5 +31,5 @@ public class Corte
     public string Talle { get => talle; set => talle = value; }
     public int Tiempo { get => tiempo; set => tiempo = value; }
     public DateTime Fecha { get => fecha; set => fecha = value; }
-    public List<ItemCorte> Telas { get => telas; set => telas = value; }
+    public List<Tela> Telas { get => telas; set => telas = value; }
 }

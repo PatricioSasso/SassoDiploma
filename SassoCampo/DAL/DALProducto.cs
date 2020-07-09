@@ -18,7 +18,7 @@ namespace DAL
             conexion = new SqlConnection(connectionString);
         }
 
-        public void AltaProducto(Producto alta)
+        public void Alta(Producto alta)
         {
             conexion.Open();
             query = new SqlCommand("INSERT INTO Producto VALUES (@id, @codigo, @descripcion, @cantidad)", conexion);
@@ -30,7 +30,7 @@ namespace DAL
             conexion.Close();
         }
 
-        public void ModificarProducto(Producto modificar)
+        public void Modificar(Producto modificar)
         {
             conexion.Open();
             query = new SqlCommand("UPDATE Producto SET Producto_Descripcion = @descripcion, Producto_Cantidad = @cantidad, WHERE Producto_Id = @id", conexion);
@@ -41,7 +41,7 @@ namespace DAL
             conexion.Close();
         }
 
-        public void BajaProducto(Producto baja)
+        public void Baja(Producto baja)
         {
             conexion.Open();
             query = new SqlCommand("DELETE FROM Producto WHERE Producto_Id = @id", conexion);

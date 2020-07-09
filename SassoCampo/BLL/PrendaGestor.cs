@@ -12,17 +12,17 @@ public class PrendaGestor
 
     public void Alta(Prenda prenda)
     {
-        bd.AltaPrenda(prenda);
+        bd.Alta(prenda);
     }
 
     public void Modificar(Prenda prenda)
     {
-        bd.ModificarPrenda(prenda);
+        bd.Modificar(prenda);
     }
 
     public void Baja(Prenda prenda)
     {
-        bd.BajaPrenda(prenda);
+        bd.Baja(prenda);
     }
 
     public Prenda GetPrenda(Prenda prenda)

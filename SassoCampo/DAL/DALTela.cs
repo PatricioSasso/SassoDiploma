@@ -18,7 +18,7 @@ namespace DAL
             conexion = new SqlConnection(connectionString);
         }
 
-        public void AltaTela(Tela alta)
+        public void Alta(Tela alta)
         {
             conexion.Open();
             query = new SqlCommand("INSERT INTO Tela VALUES (@id, @codigo, @descripcion, @cantidad, @color, @teñido)", conexion);
@@ -32,7 +32,7 @@ namespace DAL
             conexion.Close();
         }
 
-        public void ModificarTela(Tela modificar)
+        public void Modificar(Tela modificar)
         {
             conexion.Open();
             query = new SqlCommand("UPDATE Tela SET Descripcion = @descripcion, Cantidad = @cantidad, Color = @color, Teñido = @teñido WHERE Id = @id", conexion);
@@ -45,7 +45,7 @@ namespace DAL
             conexion.Close();
         }
 
-        public void BajaTela(Tela baja)
+        public void Baja(Tela baja)
         {
             conexion.Open();
             query = new SqlCommand("DELETE FROM Tela WHERE Id = @id", conexion);

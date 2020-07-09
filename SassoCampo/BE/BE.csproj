@@ -45,7 +45,6 @@
     <Compile Include="ControlDeAcceso.cs" />
     <Compile Include="Corte.cs" />
     <Compile Include="Hilado.cs" />
-    <Compile Include="ItemCorte.cs" />
     <Compile Include="Permiso.cs" />
     <Compile Include="Prenda.cs" />
     <Compile Include="Producto.cs" />

@@ -18,7 +18,7 @@ namespace DAL
             conexion = new SqlConnection(connectionString);
         }
 
-        public void AltaTinte(Tinte alta)
+        public void Alta(Tinte alta)
         {
             conexion.Open();
             query = new SqlCommand("INSERT INTO Tinte VALUES (@id, @codigo, @descripcion, @color, @cantidad)", conexion);
@@ -31,7 +31,7 @@ namespace DAL
             conexion.Close();
         }
 
-        public void ModificarTinte(Tinte modificar)
+        public void Modificar(Tinte modificar)
         {
             conexion.Open();
             query = new SqlCommand("UPDATE Tinte SET Descripcion = @descripcion, Cantidad = @cantidad, Color = @color WHERE Id = @id", conexion);
@@ -43,7 +43,7 @@ namespace DAL
             conexion.Close();
         }
 
-        public void BajaTinte(Tinte baja)
+        public void Baja(Tinte baja)
         {
             conexion.Open();
             query = new SqlCommand("DELETE FROM Tinte WHERE Id = @id", conexion);

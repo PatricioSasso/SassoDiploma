@@ -18,18 +18,18 @@ namespace BLL
         public void Alta(Usuario user)
         {
             CalcularDVH(user);
-            bd.AltaUsuario(user);
+            bd.Alta(user);
         }
 
         public void Modificar(Usuario user)
         {
             CalcularDVH(user);
-            bd.ModificarUsuario(user);
+            bd.Modificar(user);
         }
 
         public void Baja(Usuario user)
         {
-            bd.BajaUsuario(user);
+            bd.Baja(user);
         }
 
         public Usuario Buscar(Usuario user)

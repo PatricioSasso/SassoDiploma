@@ -10,19 +10,19 @@ public class HiladoGestor
         bd = new DALHilado();
     }
 
-    public void AltaHilado(Hilado hilado)
+    public void Alta(Hilado hilado)
     {
-        bd.AltaHilado(hilado);
+        bd.Alta(hilado);
     }
 
-    public void ModificarHilado(Hilado hilado)
+    public void Modificar(Hilado hilado)
     {
-        bd.ModificarHilado(hilado);
+        bd.Modificar(hilado);
     }
 
-    public void BajaHilado(Hilado hilado)
+    public void Baja(Hilado hilado)
     {
-        bd.BajaHilado(hilado);
+        bd.Baja(hilado);
     }
 
     public Hilado GetHilado(Hilado hilado)

@@ -12,17 +12,17 @@ public class TinteGestor
 
     public void Alta(Tinte tinte)
     {
-        bd.AltaTinte(tinte);
+        bd.Alta(tinte);
     }
 
     public void Modificar(Tinte tinte)
     {
-        bd.ModificarTinte(tinte);
+        bd.Modificar(tinte);
     }
 
     public void Baja(Tinte tinte)
     {
-        bd.BajaTinte(tinte);
+        bd.Baja(tinte);
     }
 
     public Tinte GetHilado(Tinte tinte)

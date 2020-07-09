@@ -18,7 +18,7 @@ namespace DAL
             conexion = new SqlConnection(connectionString);
         }
 
-        public void AltaHilado(Hilado alta)
+        public void Alta(Hilado alta)
         {
             conexion.Open();
             query = new SqlCommand("INSERT INTO Hilado VALUES (@id, @codigo, @descripcion, @cantidad, @peso)", conexion);
@@ -31,7 +31,7 @@ namespace DAL
             conexion.Close();
         }
 
-        public void ModificarHilado(Hilado modificar)
+        public void Modificar(Hilado modificar)
         {
             conexion.Open();
             query = new SqlCommand("UPDATE Hilado SET Descripcion = @descripcion, Cantidad = @cantidad, Peso = @peso WHERE Id = @id", conexion);
@@ -43,7 +43,7 @@ namespace DAL
             conexion.Close();
         }
 
-        public void BajaHilado(Hilado baja)
+        public void Baja(Hilado baja)
         {
             conexion.Open();
             query = new SqlCommand("DELETE FROM Hilado WHERE Id = @id", conexion);
@@ -66,7 +66,7 @@ namespace DAL
                     hilado.Codigo = reader.GetString(1);
                     hilado.Descripcion = reader.GetString(2);
                     hilado.Cantidad = reader.GetInt32(3);
-                    hilado.Peso = reader.GetInt32(4);
+                    hilado.Peso = reader.GetDecimal(4);
                 }
             }
             conexion.Close();

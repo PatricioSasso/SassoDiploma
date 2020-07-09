@@ -42,12 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="ConfeccionGestor.cs" />
     <Compile Include="ControlDeAccesoGestor.cs" />
     <Compile Include="CorteGestor.cs" />
     <Compile Include="HiladoGestor.cs" />
-    <Compile Include="ItemCorte.cs" />
     <Compile Include="PermisoGestor.cs" />
     <Compile Include="PrendaGestor.cs" />
     <Compile Include="ProductoGestor.cs" />

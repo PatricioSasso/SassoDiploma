@@ -171,7 +171,7 @@ namespace GUI
                 string descripcion = Descripcion;
                 int cantidad = int.Parse(Cantidad);
                 decimal peso = decimal.Parse(Peso);
-                hiladoGestor.AltaHilado(new Hilado(id, codigo, descripcion, cantidad, peso));
+                hiladoGestor.Alta(new Hilado(id, codigo, descripcion, cantidad, peso));
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -186,7 +186,7 @@ namespace GUI
                 string descripcion = hilado.Descripcion;
                 int cantidad = hilado.Cantidad;
                 decimal peso = hilado.Peso;
-                hiladoGestor.ModificarHilado(new Hilado(id, codigo, descripcion, cantidad, peso));
+                hiladoGestor.Modificar(new Hilado(id, codigo, descripcion, cantidad, peso));
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -196,7 +196,7 @@ namespace GUI
             try
             {
                 HiladoGestor hiladoGestor = new HiladoGestor();
-                hiladoGestor.BajaHilado(new Hilado(hilado.Id, hilado.Codigo, hilado.Descripcion, hilado.Cantidad, hilado.Peso));
+                hiladoGestor.Baja(new Hilado(hilado.Id, hilado.Codigo, hilado.Descripcion, hilado.Cantidad, hilado.Peso));
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -318,6 +318,22 @@ namespace GUI
         }
 
         #endregion
+
+#region procesos
+        public void Tejer(Tejido tejido, string codigoTela)
+        {
+            try
+            {
+                TejidoGestor tejidoGestor = new TejidoGestor();
+                if (tejido.CantidadUtilizada / tejido.AreaTela < 1) { throw new Exception("la cantidad ingresada no es suficiente para tejer"); }
+                tejidoGestor.Tejer(tejido, codigoTela);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+#endregion
 
         public void cambiarForm(Form newForm)
         {

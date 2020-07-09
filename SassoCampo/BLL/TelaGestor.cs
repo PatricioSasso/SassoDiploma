@@ -12,17 +12,17 @@ public class TelaGestor
 
     public void Alta(Tela tela)
     {
-        bd.AltaTela(tela);
+        bd.Alta(tela);
     }
 
     public void Modificar(Tela tela)
     {
-        bd.ModificarTela(tela);
+        bd.Modificar(tela);
     }
 
     public void Baja(Tela tela)
     {
-        bd.BajaTela(tela);
+        bd.Baja(tela);
     }
 
     public Tela GetTela(Tela tela)
