@@ -21,14 +21,13 @@ namespace DAL
         public void Alta(Prenda alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO Prenda VALUES (@id, @codigo, @descripcion, @cantidad, @talle, @confeccionada, @tiempoConfeccion)", conexion);
+            query = new SqlCommand("INSERT INTO Prenda VALUES (@id, @codigo, @descripcion, @cantidad, @talle, @confeccionada)", conexion);
             query.Parameters.AddWithValue("id", alta.Id);
             query.Parameters.AddWithValue("codigo", alta.Codigo);
             query.Parameters.AddWithValue("descripcion", alta.Descripcion);
             query.Parameters.AddWithValue("cantidad", alta.Cantidad);
             query.Parameters.AddWithValue("talle", alta.Talle);
             query.Parameters.AddWithValue("confeccionada", alta.Confeccionada);
-            query.Parameters.AddWithValue("tiempoConfeccion", alta.TiempoConfeccion);
             query.ExecuteNonQuery();
             conexion.Close();
         }
@@ -36,13 +35,12 @@ namespace DAL
         public void Modificar(Prenda modificar)
         {
             conexion.Open();
-            query = new SqlCommand("UPDATE Prenda SET Descripcion = @descripcion, Cantidad = @cantidad, Talle = @talle, Confeccionada = @confeccionada, TiempoConfeccion = @tiempoConfeccion WHERE Id = @id", conexion);
+            query = new SqlCommand("UPDATE Prenda SET Descripcion = @descripcion, Cantidad = @cantidad, Talle = @talle, Confeccionada = @confeccionada WHERE Id = @id", conexion);
             query.Parameters.AddWithValue("id", modificar.Id);
             query.Parameters.AddWithValue("descripcion", modificar.Descripcion);
             query.Parameters.AddWithValue("cantidad", modificar.Cantidad);
             query.Parameters.AddWithValue("talle", modificar.Talle);
             query.Parameters.AddWithValue("confeccionada", modificar.Confeccionada);
-            query.Parameters.AddWithValue("tiempoConfeccion", modificar.TiempoConfeccion);
             query.ExecuteNonQuery();
             conexion.Close();
         }
@@ -72,7 +70,6 @@ namespace DAL
                     prenda.Cantidad = reader.GetInt32(3);
                     prenda.Talle = reader.GetString(4);
                     prenda.Confeccionada = reader.GetBoolean(5);
-                    prenda.TiempoConfeccion = reader.GetInt32(6);
                 }
             }
             conexion.Close();
@@ -88,7 +85,7 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    prenda.Add(new Prenda(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3), reader.GetString(4), reader.GetBoolean(5), reader.GetInt32(6))); ;
+                    prenda.Add(new Prenda(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3), reader.GetString(4), reader.GetBoolean(5))); ;
                 }
             }
             conexion.Close();

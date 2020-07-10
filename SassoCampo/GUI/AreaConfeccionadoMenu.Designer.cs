@@ -68,7 +68,7 @@
             this.gbx_PrendasConfeccionadas.Controls.Add(this.dgv_PrendasConfeccionadas);
             this.gbx_PrendasConfeccionadas.Location = new System.Drawing.Point(51, 299);
             this.gbx_PrendasConfeccionadas.Name = "gbx_PrendasConfeccionadas";
-            this.gbx_PrendasConfeccionadas.Size = new System.Drawing.Size(908, 262);
+            this.gbx_PrendasConfeccionadas.Size = new System.Drawing.Size(834, 262);
             this.gbx_PrendasConfeccionadas.TabIndex = 24;
             this.gbx_PrendasConfeccionadas.TabStop = false;
             this.gbx_PrendasConfeccionadas.Text = "Prendas cortadas en stock";
@@ -85,7 +85,7 @@
             this.dgv_PrendasConfeccionadas.RowHeadersWidth = 51;
             this.dgv_PrendasConfeccionadas.RowTemplate.Height = 24;
             this.dgv_PrendasConfeccionadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_PrendasConfeccionadas.Size = new System.Drawing.Size(882, 232);
+            this.dgv_PrendasConfeccionadas.Size = new System.Drawing.Size(804, 232);
             this.dgv_PrendasConfeccionadas.TabIndex = 14;
             // 
             // gbx_Prendas
@@ -250,7 +250,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1122, 590);
+            this.ClientSize = new System.Drawing.Size(1065, 590);
             this.Controls.Add(this.btn_MenuPrincipal);
             this.Controls.Add(this.gbx_PrendasConfeccionadas);
             this.Controls.Add(this.gbx_Prendas);

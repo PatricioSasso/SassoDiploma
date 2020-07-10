@@ -286,7 +286,7 @@ namespace GUI
             try
             {
                 PrendaGestor prendaGestor = new PrendaGestor();
-                prendaGestor.Alta(new Prenda(id, codigo, descripcion, cantidad, talle, false, 0));
+                prendaGestor.Alta(new Prenda(id, codigo, descripcion, cantidad, talle, false));
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -353,6 +353,17 @@ namespace GUI
                 if(cantTela > tela.Cantidad) { throw new Exception("No hay suficiente tela en stock."); };
                 if(talle.ToUpper() != "S" && talle.ToUpper() != "M" && talle.ToUpper() != "L") { throw new Exception("El talle seleccionado no es válido"); }
                 corteGestor.Cortar(new Corte(talle.ToUpper(), DateTime.Now, cantTela, dimensiones, tela), codigoPrenda);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public void Confeccionar(Prenda prenda, int cantidadPrenda, string codigoPrenda)
+        {
+            try
+            {
+                if (cantidadPrenda > prenda.Cantidad) { throw new Exception("No hay suficientes prendas en stock."); }
+                ConfeccionGestor confeccionGestor = new ConfeccionGestor();
+                confeccionGestor.Confeccionar(new Confeccion(cantidadPrenda, DateTime.Now, prenda), codigoPrenda);
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

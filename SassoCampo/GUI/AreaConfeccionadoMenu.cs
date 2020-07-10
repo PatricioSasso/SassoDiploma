@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -58,8 +59,6 @@ namespace GUI
             dgv_PrendasConfeccionadas.Columns["Talle"].DataPropertyName = "Talle";
             dgv_PrendasConfeccionadas.Columns.Add("Confeccionada", "Confeccionada");
             dgv_PrendasConfeccionadas.Columns["Confeccionada"].DataPropertyName = "Confeccionada";
-            dgv_PrendasConfeccionadas.Columns.Add("TiempoConfeccion", "tiempo de Confeccion");
-            dgv_PrendasConfeccionadas.Columns["TiempoConfeccion"].DataPropertyName = "TiempoConfeccion";
             dgv_PrendasConfeccionadas.AutoGenerateColumns = false;
             dgv_PrendasConfeccionadas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_PrendasConfeccionadas.MultiSelect = false;
@@ -111,7 +110,15 @@ namespace GUI
 
         private void btn_Confeccionar_Click(object sender, EventArgs e)
         {
-            //TO DO: Implement.
+            Prenda prenda = dgv_Prendas.SelectedRows[0].DataBoundItem as Prenda;
+            int cantidadPrenda = int.Parse(Interaction.InputBox("Ingrese la cantidad de prendas a confeccionar."));
+            string codigoPrenda = Interaction.InputBox("Ingrese el código que tendrán las prendas resultantes.");
+            controller.Confeccionar(prenda, cantidadPrenda, codigoPrenda);
+            PrendaGestor prendaGestor = new PrendaGestor();
+            dgv_Prendas.DataSource = null;
+            dgv_Prendas.DataSource = prendaGestor.GetListPrendaSinConfeccionar();
+            dgv_PrendasConfeccionadas.DataSource = null;
+            dgv_PrendasConfeccionadas.DataSource = prendaGestor.GetListPrendaConfeccionada();
         }
     }
 }

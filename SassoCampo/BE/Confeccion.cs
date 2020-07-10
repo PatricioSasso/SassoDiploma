@@ -8,14 +8,21 @@ public class Confeccion
     int cantidad;
     int tiempo;
     DateTime fecha;
-    List<Prenda> prenda;
+    Prenda prenda;
 
     public Confeccion()
     {
 
     }
 
-    public Confeccion(int id, string codigo, int cantidad, int tiempo, DateTime fecha, List<Prenda> prenda)
+    public Confeccion( int cantidad, DateTime fecha, Prenda prenda)
+    {
+        Cantidad = cantidad;
+        Fecha = fecha;
+        Prenda = prenda;
+    }
+
+    public Confeccion(int id, string codigo, int cantidad, int tiempo, DateTime fecha, Prenda prenda)
     {
         Id = id;
         Codigo = codigo;
@@ -30,5 +37,5 @@ public class Confeccion
     public int Cantidad { get => cantidad; set => cantidad = value; }
     public int Tiempo { get => tiempo; set => tiempo = value; }
     public DateTime Fecha { get => fecha; set => fecha = value; }
-    public List<Prenda> Prenda { get => prenda; set => prenda = value; }
+    public Prenda Prenda { get => prenda; set => prenda = value; }
 }

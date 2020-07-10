@@ -47,7 +47,7 @@ public class CorteGestor
         }
         else
         {
-            prendaGestor.Alta(new Prenda(prendasExistentes.Last().Id + 1, codigoPrenda, "Corte de " + corte.Tela.Descripcion, prendasObtenidas, corte.Talle, false, corte.Tiempo));
+            prendaGestor.Alta(new Prenda(prendasExistentes.Last().Id + 1, codigoPrenda, "Corte de " + corte.Tela.Descripcion, prendasObtenidas, corte.Talle, false));
         }
         bd.Alta(corte);
     }
