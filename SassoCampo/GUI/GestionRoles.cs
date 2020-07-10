@@ -121,5 +121,10 @@ namespace GUI
             dgv_PermisosRol.DataSource = null;
             dgv_PermisosRol.DataSource = rol.Permisos;
         }
+
+        private void btn_MenuPrincipal_Click(object sender, EventArgs e)
+        {
+            controller.cambiarForm(this.Owner);
+        }
     }
 }

@@ -42,6 +42,7 @@
             this.dgv_Permisos = new System.Windows.Forms.DataGridView();
             this.gbx_Roles = new System.Windows.Forms.GroupBox();
             this.gbx_Permisos = new System.Windows.Forms.GroupBox();
+            this.btn_MenuPrincipal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Roles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_PermisosRol)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Permisos)).BeginInit();
@@ -201,11 +202,22 @@
             this.gbx_Permisos.TabStop = false;
             this.gbx_Permisos.Text = "Permisos";
             // 
+            // btn_MenuPrincipal
+            // 
+            this.btn_MenuPrincipal.Location = new System.Drawing.Point(845, 24);
+            this.btn_MenuPrincipal.Name = "btn_MenuPrincipal";
+            this.btn_MenuPrincipal.Size = new System.Drawing.Size(75, 73);
+            this.btn_MenuPrincipal.TabIndex = 16;
+            this.btn_MenuPrincipal.Text = "Volver Al Menu Principal";
+            this.btn_MenuPrincipal.UseVisualStyleBackColor = true;
+            this.btn_MenuPrincipal.Click += new System.EventHandler(this.btn_MenuPrincipal_Click);
+            // 
             // GestionRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(906, 550);
+            this.ClientSize = new System.Drawing.Size(934, 490);
+            this.Controls.Add(this.btn_MenuPrincipal);
             this.Controls.Add(this.gbx_Permisos);
             this.Controls.Add(this.gbx_Roles);
             this.Name = "GestionRoles";
@@ -237,5 +249,6 @@
         private System.Windows.Forms.DataGridView dgv_Permisos;
         private System.Windows.Forms.GroupBox gbx_Roles;
         private System.Windows.Forms.GroupBox gbx_Permisos;
+        private System.Windows.Forms.Button btn_MenuPrincipal;
     }
 }
