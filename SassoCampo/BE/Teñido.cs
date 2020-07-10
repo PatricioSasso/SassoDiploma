@@ -16,6 +16,15 @@ public class Teñido
 
     }
 
+    public Teñido( int cantidadTinteUtilizada, int cantidadTelaUtilizada, DateTime fecha, Tinte tinte, Tela tela)
+    {
+        CantidadTinteUtilizada = cantidadTinteUtilizada;
+        CantidadTelaUtilizada = cantidadTelaUtilizada;
+        Fecha = fecha;
+        Tinte = tinte;
+        Tela = tela;
+    }
+
     public Teñido(int id, string codigo, int cantidadTinteUtilizada, int cantidadTelaUtilizada, int tiempo, DateTime fecha, Tinte tinte, Tela tela)
     {
         Id = id;

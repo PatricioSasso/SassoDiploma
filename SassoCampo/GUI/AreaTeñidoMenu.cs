@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -154,7 +155,20 @@ namespace GUI
 
         private void btn_Teñir_Click(object sender, EventArgs e)
         {
-            //TODO: Implement.
+            Tela tela = dgv_Telas.SelectedRows[0].DataBoundItem as Tela;
+            Tinte tinte = dgv_Tintes.SelectedRows[0].DataBoundItem as Tinte;
+            int cantTelaUtilizada = int.Parse(Interaction.InputBox("¿Cuánta cantidad de la tela seleccionada desea utilizar?"));
+            int cantTinteUtilizado = int.Parse(Interaction.InputBox("¿Cuánta cantidad del tinte selecionado desea utilizar?"));
+            string codigoTela = Interaction.InputBox("Ingrese el nombre de la tela tintada resultante");
+            controller.Teñir(tela, cantTelaUtilizada, tinte, cantTinteUtilizado, codigoTela);
+            TelaGestor telaGestor = new TelaGestor();
+            TinteGestor tinteGestor = new TinteGestor();
+            dgv_Telas.DataSource = null;
+            dgv_Telas.DataSource = telaGestor.GetListTelaSinTeñir();
+            dgv_TelasTeñidas.DataSource = null;
+            dgv_TelasTeñidas.DataSource = telaGestor.GetListTelaTeñida();
+            dgv_Tintes.DataSource = null;
+            dgv_Tintes.DataSource = tinteGestor.GetListTinte();
         }
 
         private void btn_MenuPrincipal_Click(object sender, EventArgs e)

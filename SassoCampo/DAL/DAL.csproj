@@ -46,6 +46,7 @@
     <Compile Include="DALProducto.cs" />
     <Compile Include="DALTejido.cs" />
     <Compile Include="DALTela.cs" />
+    <Compile Include="DALTeñido.cs" />
     <Compile Include="DALTinte.cs" />
     <Compile Include="DALUsuario.cs" />
     <Compile Include="DALRolPermiso.cs" />

@@ -8,6 +8,11 @@
 
     }
 
+    public Tela(int id)
+    {
+        Id = Id;
+    }
+
     public Tela(int id, string codigo, string descripcion, int cantidad, string color, bool teñido) : base(id, codigo, descripcion, cantidad)
     {
         Id = id;

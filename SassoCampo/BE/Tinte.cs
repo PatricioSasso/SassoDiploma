@@ -7,6 +7,11 @@
 
     }
 
+    public Tinte(int id)
+    {
+        Id = id;
+    }
+
     public Tinte(int id, string codigo, string descripcion, int cantidad, string color) : base(id, codigo, descripcion, cantidad)
     {
         Id = id;

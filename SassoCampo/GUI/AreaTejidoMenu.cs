@@ -106,11 +106,11 @@ namespace GUI
         private void btn_Tejer_Click(object sender, EventArgs e)
         {
             Hilado hilado = dgv_Hilados.SelectedRows[0].DataBoundItem as Hilado;
-            int cantUtilizada = int.Parse(Interaction.InputBox("¿Cuánto cantidad del hilado seleccionado desea tejer?"));
-            int areaTela = int.Parse(Interaction.InputBox("¿Cuál es el área (en metros cuadrados) resultante?"));
-            Tejido tejido = new Tejido(cantUtilizada, areaTela, DateTime.Now, hilado);
+            int cantUtilizada = int.Parse(Interaction.InputBox("¿Cuánta cantidad del hilado seleccionado desea tejer?"));
+            int areaTela = int.Parse(Interaction.InputBox("¿Cuál es el área (en centímetros cuadrados) resultante?")); // Se podría agregar un intérpreter para entender cuando se escribe m2, o mm2 y pasarlo a cm2 por ejemplo ?
+            Tejido tejido = new Tejido();
             string codigoTela = Interaction.InputBox("¿Cuál será el código de la tela resultante?");
-            controller.Tejer(tejido, codigoTela);
+            controller.Tejer(cantUtilizada, areaTela, hilado, codigoTela);
             dgv_Hilados.DataSource = null;
             dgv_Hilados.DataSource = controller.GetListHilado();
             dgv_Telas.DataSource = null;

@@ -65,8 +65,8 @@ namespace DAL
                     tinte.Id = reader.GetInt32(0);
                     tinte.Codigo = reader.GetString(1);
                     tinte.Descripcion = reader.GetString(2);
-                    tinte.Cantidad = reader.GetInt32(3);
-                    tinte.Color = reader.GetString(4);
+                    tinte.Cantidad = reader.GetInt32(4);
+                    tinte.Color = reader.GetString(3);
                 }
             }
             conexion.Close();

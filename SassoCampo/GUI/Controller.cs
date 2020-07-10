@@ -319,21 +319,32 @@ namespace GUI
 
         #endregion
 
-#region procesos
-        public void Tejer(Tejido tejido, string codigoTela)
+        #region Procesos
+        public void Tejer(int cantUtilizada, int areaTela, Hilado hilado, string codigoTela)
         {
             try
             {
+                Tejido tejido = new Tejido(cantUtilizada, areaTela, DateTime.Now, hilado);
                 TejidoGestor tejidoGestor = new TejidoGestor();
-                if (tejido.CantidadUtilizada / tejido.AreaTela < 1) { throw new Exception("la cantidad ingresada no es suficiente para tejer"); }
+                if (tejido.CantidadUtilizada / tejido.AreaTela < 1) { throw new Exception("No hay suficiente tela en stock"); }
                 tejidoGestor.Tejer(tejido, codigoTela);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            catch (Exception ex){ MessageBox.Show(ex.Message); }
         }
-#endregion
+
+        public void Teñir(Tela tela, int cantTelaUtilizada, Tinte tinte, int cantTinteUtilizado, string codigoTela)
+        {
+            try
+            {
+                TeñidoGestor teñidoGestor = new TeñidoGestor();
+                if (cantTinteUtilizado * 2 < cantTelaUtilizada) { throw new Exception("La cantidad de tinte ingresada no es suficiente para la cantidad de tela elegida."); }
+                if (cantTinteUtilizado > tinte.Cantidad) { throw new Exception("No hay suciciente tinte en stock."); }
+                if (cantTelaUtilizada > tela.Cantidad) { throw new Exception("No hay suciciente tela en stock."); }
+                teñidoGestor.Teñir(new Teñido(cantTinteUtilizado, cantTelaUtilizada, DateTime.Now, tinte, tela), codigoTela);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+        #endregion
 
         public void cambiarForm(Form newForm)
         {
