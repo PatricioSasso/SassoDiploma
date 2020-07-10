@@ -344,6 +344,18 @@ namespace GUI
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
+
+        public void Cortar(Tela tela, int cantTela, int dimensiones, string talle, string codigoPrenda)
+        {
+            try
+            {
+                CorteGestor corteGestor = new CorteGestor();
+                if(cantTela > tela.Cantidad) { throw new Exception("No hay suficiente tela en stock."); };
+                if(talle.ToUpper() != "S" && talle.ToUpper() != "M" && talle.ToUpper() != "L") { throw new Exception("El talle seleccionado no es válido"); }
+                corteGestor.Cortar(new Corte(talle.ToUpper(), DateTime.Now, cantTela, dimensiones, tela), codigoPrenda);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
         #endregion
 
         public void cambiarForm(Form newForm)

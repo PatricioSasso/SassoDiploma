@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -106,6 +107,22 @@ namespace GUI
         private void btn_MenuPrincipal_Click(object sender, EventArgs e)
         {
             controller.cambiarForm(this.Owner);
+        }
+
+        private void btn_Cortar_Click(object sender, EventArgs e)
+        {
+            Tela tela = dgv_Telas.SelectedRows[0].DataBoundItem as Tela;
+            int cantTela = int.Parse(Interaction.InputBox("¿Cuánta cantidad de la tela seleccionada desea utilizar?"));
+            int dimensiones = int.Parse(Interaction.InputBox("Ingrese el área de la tela en m2"));
+            string talle = Interaction.InputBox("Ingrese si el talle deseado es S, M o L");
+            string codigoPrenda = Interaction.InputBox("Ingrese el código de las prendas resultantes");
+            controller.Cortar(tela, cantTela, dimensiones, talle, codigoPrenda);
+            TelaGestor telaGestor = new TelaGestor();
+            PrendaGestor prendaGestor = new PrendaGestor();
+            dgv_Telas.DataSource = null;
+            dgv_Telas.DataSource = telaGestor.GetListTela();
+            dgv_Prendas.DataSource = null;
+            dgv_Prendas.DataSource = prendaGestor.GetListPrenda();
         }
     }
 }

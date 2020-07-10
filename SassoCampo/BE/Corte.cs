@@ -8,22 +8,34 @@ public class Corte
     string talle;
     int tiempo;
     DateTime fecha;
-    List<Tela> telas;
+    int cantidadTela;
+    int dimensiones;
+    Tela tela;
 
     public Corte()
     {
 
     }
 
+    public Corte(string talle, DateTime fecha, int cantidadTela, int dimensiones, Tela tela)
+    {
+        Talle = talle;
+        Fecha = fecha;
+        CantidadTela = cantidadTela;
+        Dimensiones = dimensiones;
+        Tela = tela;
+    }
 
-    public Corte(int id, string codigo, string talle, int tiempo, DateTime fecha, List<Tela> telas)
+    public Corte(int id, string codigo, string talle, int tiempo, DateTime fecha, int cantidadTela, int dimensiones, Tela tela)
     {
         Id = id;
         Codigo = codigo;
         Talle = talle;
         Tiempo = tiempo;
         Fecha = fecha;
-        Telas = telas;
+        CantidadTela = cantidadTela;
+        Dimensiones = dimensiones;
+        Tela = tela;
     }
 
     public int Id { get => id; set => id = value; }
@@ -31,5 +43,7 @@ public class Corte
     public string Talle { get => talle; set => talle = value; }
     public int Tiempo { get => tiempo; set => tiempo = value; }
     public DateTime Fecha { get => fecha; set => fecha = value; }
-    public List<Tela> Telas { get => telas; set => telas = value; }
+    public Tela Tela { get => tela; set => tela = value; }
+    public int CantidadTela { get => cantidadTela; set => cantidadTela = value; }
+    public int Dimensiones { get => dimensiones; set => dimensiones = value; }
 }

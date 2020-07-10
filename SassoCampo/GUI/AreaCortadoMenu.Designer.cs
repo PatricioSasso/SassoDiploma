@@ -85,6 +85,7 @@
             this.btn_Cortar.TabIndex = 21;
             this.btn_Cortar.Text = "Cortar";
             this.btn_Cortar.UseVisualStyleBackColor = true;
+            this.btn_Cortar.Click += new System.EventHandler(this.btn_Cortar_Click);
             // 
             // btn_BajaTela
             // 
