@@ -46,6 +46,9 @@ namespace GUI
         {
             UsuarioGestor usuarioGestor = new UsuarioGestor();
             Usuario usuario = dgv_Usuarios.SelectedRows[0].DataBoundItem as Usuario;
+            usuario.Nombre = txt_Nombre.Text;
+            usuario.Apellido = txt_Apellido.Text;
+            usuario.Rol = (Rol)cmb_Rol.SelectedItem;
             controller.ModificarUsuario(usuario);
             dgv_Usuarios.DataSource = null;
             dgv_Usuarios.DataSource = usuarioGestor.GetListUsuario();

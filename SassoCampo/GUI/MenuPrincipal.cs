@@ -35,7 +35,6 @@ namespace GUI
 
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Owner.Show();
             controller.LogOut();
         }
 

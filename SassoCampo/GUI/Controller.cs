@@ -27,11 +27,10 @@ namespace GUI
         public string LogIn(string nombreUsuario, string contraseña)
         {
             ControlDeAccesoGestor controlDeAccesoGestor = new ControlDeAccesoGestor();
-            UsuarioGestor usuarioGestor = new UsuarioGestor();
             if (controlDeAccesoGestor.LogIn(nombreUsuario, controlDeAccesoGestor.GetHash(contraseña)))
             {
                 Usuario user = new Usuario(nombreUsuario, contraseña, "", "", new Rol(0, "", new List<Permiso>()));
-                user = usuarioGestor.Buscar(user);
+                user = controlDeAccesoGestor.GetUsuario(user);
                 if (user.DVH == controlDeAccesoGestor.GetHash(user.NombreUsuario + user.Contraseña + user.Nombre + user.Apellido + user.Rol.Id))
                 {
                     ControlDeAcceso.UsuarioActual = user;
@@ -52,10 +51,18 @@ namespace GUI
 
         public void LogOut()
         {
-            ControlDeAcceso.UsuarioActual = null;
-            MessageBox.Show("Se ha cerrado la sesión correctamente");
-            form.Owner.Show();
-            form.Close();
+            DialogResult result = MessageBox.Show("¿Seguro que desea cerrar sesión?", "Cerar Sesión", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                ControlDeAcceso.UsuarioActual = null;
+                form.Owner.Show();
+                form.Close();
+                MessageBox.Show("Se ha cerrado la sesión correctamente.");
+            }
+            else
+            {
+                MessageBox.Show("Cerrado de sesión cancelado.");
+            }
         }
 
         public void AltaUsuario(string nombreUsuario, string contraseña, string nombre, string apellido, Rol rol)

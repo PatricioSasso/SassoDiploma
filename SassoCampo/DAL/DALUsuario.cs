@@ -98,7 +98,7 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    usuarios.Add(new Usuario(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), new Rol(reader.GetInt32(4), "", new List<Permiso>())));
+                    usuarios.Add(new Usuario(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), new Rol(reader.GetInt32(4), "", new List<Permiso>()), reader.GetString(5)));
                 }
             }
             conexion.Close();
