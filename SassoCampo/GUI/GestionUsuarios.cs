@@ -1,4 +1,5 @@
 ﻿using BLL;
+using BE;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -93,6 +94,14 @@ namespace GUI
         private void btn_VolverAlMenu_Click(object sender, EventArgs e)
         {
             controller.cambiarForm(this.Owner);
+            DVVGestor dVVGestor = new DVVGestor();
+            dVVGestor.Modificar(new DVV("Usuario", ""));
+        }
+
+        private void GestionUsuarios_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DVVGestor dVVGestor = new DVVGestor();
+            dVVGestor.Modificar(new DVV("Usuario", ""));
         }
     }
 }

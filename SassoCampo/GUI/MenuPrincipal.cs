@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace GUI
 {
@@ -66,6 +67,32 @@ namespace GUI
         private void btn_AreaConfeccion_Click(object sender, EventArgs e)
         {
             controller.cambiarForm(new AreaConfeccionadoMenu(controller));
+        }
+
+        private void backupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialogBackup.Title = "Backup File";
+            saveFileDialogBackup.FileName = "SassoCampoBackup";
+            saveFileDialogBackup.Filter = "Backup Files (*.bak)|*.bak";
+            if (saveFileDialogBackup.ShowDialog() == DialogResult.OK)
+            {
+                BackupAndRestoreGestor backupAndRestoreGestor = new BackupAndRestoreGestor();
+                backupAndRestoreGestor.Backup(saveFileDialogBackup.FileName);
+                MessageBox.Show("Backup creado exitosamente.");
+            }
+
+        }
+
+        private void restoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialogRestore.Title = "Restore File";
+            openFileDialogRestore.Filter = "Restore Files (*bak)|*.bak";
+            if(openFileDialogRestore.ShowDialog() == DialogResult.OK)
+            {
+                BackupAndRestoreGestor backupAndRestoreGestor = new BackupAndRestoreGestor();
+                backupAndRestoreGestor.Restore(openFileDialogRestore.FileName);
+                MessageBox.Show("Restore realizado exitosamente.");
+            }
         }
     }
 }

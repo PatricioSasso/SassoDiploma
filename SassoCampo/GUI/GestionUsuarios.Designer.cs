@@ -203,6 +203,7 @@
             this.Controls.Add(this.dgv_Usuarios);
             this.Name = "GestionUsuarios";
             this.Text = "Gestión de Usuarios";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GestionUsuarios_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Usuarios)).EndInit();
             this.ResumeLayout(false);

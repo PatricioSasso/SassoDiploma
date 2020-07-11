@@ -43,6 +43,10 @@
             this.btn_AreaTeñido = new System.Windows.Forms.Button();
             this.btn_AreaCortado = new System.Windows.Forms.Button();
             this.btn_AreaConfeccion = new System.Windows.Forms.Button();
+            this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialogBackup = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialogRestore = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.gbox_InfoUsuario.SuspendLayout();
             this.SuspendLayout();
@@ -51,6 +55,8 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.backupToolStripMenuItem,
+            this.restoreToolStripMenuItem,
             this.cerrarSesiónToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -194,6 +200,24 @@
             this.btn_AreaConfeccion.UseVisualStyleBackColor = true;
             this.btn_AreaConfeccion.Click += new System.EventHandler(this.btn_AreaConfeccion_Click);
             // 
+            // backupToolStripMenuItem
+            // 
+            this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.backupToolStripMenuItem.Text = "Backup";
+            this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
+            // 
+            // restoreToolStripMenuItem
+            // 
+            this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
+            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.restoreToolStripMenuItem.Text = "Restore";
+            this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
+            // 
+            // openFileDialogRestore
+            // 
+            this.openFileDialogRestore.FileName = "openFileDialog1";
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -236,5 +260,9 @@
         private System.Windows.Forms.Button btn_AreaTeñido;
         private System.Windows.Forms.Button btn_AreaCortado;
         private System.Windows.Forms.Button btn_AreaConfeccion;
+        private System.Windows.Forms.ToolStripMenuItem backupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restoreToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogBackup;
+        private System.Windows.Forms.OpenFileDialog openFileDialogRestore;
     }
 }

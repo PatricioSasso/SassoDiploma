@@ -44,6 +44,7 @@
     <Compile Include="Confeccion.cs" />
     <Compile Include="ControlDeAcceso.cs" />
     <Compile Include="Corte.cs" />
+    <Compile Include="DVV.cs" />
     <Compile Include="Hilado.cs" />
     <Compile Include="Permiso.cs" />
     <Compile Include="Prenda.cs" />

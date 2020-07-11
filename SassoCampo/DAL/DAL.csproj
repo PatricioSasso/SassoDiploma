@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DALBackUpAndRestore.cs" />
     <Compile Include="DALConfeccion.cs" />
     <Compile Include="DALCorte.cs" />
+    <Compile Include="DALDVV.cs" />
     <Compile Include="DALHilado.cs" />
     <Compile Include="DALPrenda.cs" />
     <Compile Include="DALProducto.cs" />

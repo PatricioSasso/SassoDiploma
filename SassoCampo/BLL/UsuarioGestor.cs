@@ -76,6 +76,7 @@ namespace BLL
             string ParcialHash = controlDeAccesoGestor.GetHash(user.NombreUsuario + user.Contraseña + user.Nombre + user.Apellido + user.Rol.Id);
             user.DVH = ParcialHash;
         }
+
     }
 }
 
