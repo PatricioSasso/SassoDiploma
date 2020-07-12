@@ -6,6 +6,10 @@ using System.Security.Cryptography.X509Certificates;
 using System;
 using System.ComponentModel;
 using System.Security.Cryptography;
+using System.Linq;
+using BE;
+using System.Windows.Forms.VisualStyles;
+using System.Runtime.CompilerServices;
 
 namespace GUI
 {
@@ -13,7 +17,7 @@ namespace GUI
     {
         Form form;
 
-        public ControlDeAcceso controlDeAcceso = new ControlDeAcceso();
+        ControlDeAcceso controlDeAcceso = new ControlDeAcceso();
 
         public ControlDeAcceso ControlDeAcceso { get => controlDeAcceso; set => controlDeAcceso = value; }
 
@@ -383,9 +387,26 @@ namespace GUI
                 form.AddOwnedForm(newForm);
             }
             form.Hide();
+            if(typeof(MenuPrincipal) == this.form.GetType())
+            {
+                Traducir(newForm,((MenuPrincipal)this.form).Idioma);
+            }
             this.form = newForm;
             newForm.StartPosition = form.Owner.StartPosition;
             newForm.Show();
+        }
+
+        public List<Control> GetControlesContenidos(Control control)
+        {
+            var controls = control.Controls.Cast<Control>();
+            return (controls.SelectMany(ctrl => GetControlesContenidos(ctrl)).Concat(controls).ToList());
+        }
+
+        public void Traducir(Control contenedor, string idioma)
+        {
+            TraduccionIdiomaGestor traduccionIdiomaGestor = new TraduccionIdiomaGestor(idioma);
+            traduccionIdiomaGestor.Traducir(contenedor);
+            traduccionIdiomaGestor.Traducir(GetControlesContenidos(contenedor));
         }
     }
 }

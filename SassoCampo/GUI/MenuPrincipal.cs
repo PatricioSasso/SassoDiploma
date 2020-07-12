@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using BE;
 
 namespace GUI
 {
@@ -26,12 +27,17 @@ namespace GUI
         }
 
         Controller controller;
+        string idioma;
+
+        public string Idioma { get => idioma; set => idioma = value; }
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
-            lbl_NombreUsuario.Text = controller.ControlDeAcceso.UsuarioActual.NombreUsuario;
+            lbl_NombreUsuario2.Text = controller.ControlDeAcceso.UsuarioActual.NombreUsuario;
             lbl_NombreYApellido.Text = controller.ControlDeAcceso.UsuarioActual.Nombre + " " + controller.ControlDeAcceso.UsuarioActual.Apellido;
             lbl_Rol.Text = controller.ControlDeAcceso.UsuarioActual.Rol.Nombre;
+            cmb_Idioma.Items.AddRange(new string[] { "Español", "Ingles" });
+            cmb_Idioma.SelectedItem = cmb_Idioma.Items[0];
         }
 
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
@@ -93,6 +99,14 @@ namespace GUI
                 backupAndRestoreGestor.Restore(openFileDialogRestore.FileName);
                 MessageBox.Show("Restore realizado exitosamente.");
             }
+        }
+
+        private void cmb_Idioma_TextChanged(object sender, EventArgs e)
+        {
+            controller.Traducir(this, cmb_Idioma.SelectedItem.ToString());
+            if(cmb_Idioma.SelectedItem.ToString() == "Ingles") { menuStrip1.Items[2].Text = "Log Out"; }
+            else { menuStrip1.Items[2].Text = "Cerrar Sesión"; }
+            Idioma = cmb_Idioma.SelectedItem.ToString();
         }
     }
 }

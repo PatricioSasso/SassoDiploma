@@ -52,6 +52,7 @@
     <Compile Include="DALTela.cs" />
     <Compile Include="DALTeñido.cs" />
     <Compile Include="DALTinte.cs" />
+    <Compile Include="DALTraduccionIdioma.cs" />
     <Compile Include="DALUsuario.cs" />
     <Compile Include="DALRolPermiso.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

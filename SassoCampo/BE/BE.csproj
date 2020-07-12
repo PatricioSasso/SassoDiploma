@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +47,7 @@
     <Compile Include="Corte.cs" />
     <Compile Include="DVV.cs" />
     <Compile Include="Hilado.cs" />
+    <Compile Include="Idioma.cs" />
     <Compile Include="Permiso.cs" />
     <Compile Include="Prenda.cs" />
     <Compile Include="Producto.cs" />
@@ -55,6 +57,7 @@
     <Compile Include="Tela.cs" />
     <Compile Include="Teñido.cs" />
     <Compile Include="Tinte.cs" />
+    <Compile Include="Traduccion.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

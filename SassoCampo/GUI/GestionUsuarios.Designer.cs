@@ -34,13 +34,13 @@
             this.btn_BajaUsuario = new System.Windows.Forms.Button();
             this.lbl_NombreUsuario = new System.Windows.Forms.Label();
             this.lbl_Contraseña = new System.Windows.Forms.Label();
-            this.lbl_Nombre = new System.Windows.Forms.Label();
+            this.lbl_Nombre2 = new System.Windows.Forms.Label();
             this.lbl_Apellido = new System.Windows.Forms.Label();
             this.txt_NombreUsuario = new System.Windows.Forms.TextBox();
             this.txt_Contraseña = new System.Windows.Forms.TextBox();
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.txt_Apellido = new System.Windows.Forms.TextBox();
-            this.lbl_Rol = new System.Windows.Forms.Label();
+            this.lbl_Cargo = new System.Windows.Forms.Label();
             this.cmb_Rol = new System.Windows.Forms.ComboBox();
             this.btn_VolverAlMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Usuarios)).BeginInit();
@@ -93,7 +93,7 @@
             // lbl_NombreUsuario
             // 
             this.lbl_NombreUsuario.AutoSize = true;
-            this.lbl_NombreUsuario.Location = new System.Drawing.Point(11, 9);
+            this.lbl_NombreUsuario.Location = new System.Drawing.Point(9, 18);
             this.lbl_NombreUsuario.Name = "lbl_NombreUsuario";
             this.lbl_NombreUsuario.Size = new System.Drawing.Size(78, 34);
             this.lbl_NombreUsuario.TabIndex = 4;
@@ -102,25 +102,25 @@
             // lbl_Contraseña
             // 
             this.lbl_Contraseña.AutoSize = true;
-            this.lbl_Contraseña.Location = new System.Drawing.Point(12, 49);
+            this.lbl_Contraseña.Location = new System.Drawing.Point(9, 49);
             this.lbl_Contraseña.Name = "lbl_Contraseña";
             this.lbl_Contraseña.Size = new System.Drawing.Size(85, 17);
             this.lbl_Contraseña.TabIndex = 5;
             this.lbl_Contraseña.Text = "Contraseña:";
             // 
-            // lbl_Nombre
+            // lbl_Nombre2
             // 
-            this.lbl_Nombre.AutoSize = true;
-            this.lbl_Nombre.Location = new System.Drawing.Point(23, 74);
-            this.lbl_Nombre.Name = "lbl_Nombre";
-            this.lbl_Nombre.Size = new System.Drawing.Size(66, 17);
-            this.lbl_Nombre.TabIndex = 6;
-            this.lbl_Nombre.Text = "Nombre :";
+            this.lbl_Nombre2.AutoSize = true;
+            this.lbl_Nombre2.Location = new System.Drawing.Point(28, 74);
+            this.lbl_Nombre2.Name = "lbl_Nombre2";
+            this.lbl_Nombre2.Size = new System.Drawing.Size(66, 17);
+            this.lbl_Nombre2.TabIndex = 6;
+            this.lbl_Nombre2.Text = "Nombre :";
             // 
             // lbl_Apellido
             // 
             this.lbl_Apellido.AutoSize = true;
-            this.lbl_Apellido.Location = new System.Drawing.Point(23, 105);
+            this.lbl_Apellido.Location = new System.Drawing.Point(21, 105);
             this.lbl_Apellido.Name = "lbl_Apellido";
             this.lbl_Apellido.Size = new System.Drawing.Size(66, 17);
             this.lbl_Apellido.TabIndex = 7;
@@ -154,14 +154,14 @@
             this.txt_Apellido.Size = new System.Drawing.Size(100, 22);
             this.txt_Apellido.TabIndex = 11;
             // 
-            // lbl_Rol
+            // lbl_Cargo
             // 
-            this.lbl_Rol.AutoSize = true;
-            this.lbl_Rol.Location = new System.Drawing.Point(40, 135);
-            this.lbl_Rol.Name = "lbl_Rol";
-            this.lbl_Rol.Size = new System.Drawing.Size(37, 17);
-            this.lbl_Rol.TabIndex = 13;
-            this.lbl_Rol.Text = "Rol :";
+            this.lbl_Cargo.AutoSize = true;
+            this.lbl_Cargo.Location = new System.Drawing.Point(40, 135);
+            this.lbl_Cargo.Name = "lbl_Cargo";
+            this.lbl_Cargo.Size = new System.Drawing.Size(37, 17);
+            this.lbl_Cargo.TabIndex = 13;
+            this.lbl_Cargo.Text = "Rol :";
             // 
             // cmb_Rol
             // 
@@ -188,13 +188,13 @@
             this.ClientSize = new System.Drawing.Size(800, 284);
             this.Controls.Add(this.btn_VolverAlMenu);
             this.Controls.Add(this.cmb_Rol);
-            this.Controls.Add(this.lbl_Rol);
+            this.Controls.Add(this.lbl_Cargo);
             this.Controls.Add(this.txt_Apellido);
             this.Controls.Add(this.txt_Nombre);
             this.Controls.Add(this.txt_Contraseña);
             this.Controls.Add(this.txt_NombreUsuario);
             this.Controls.Add(this.lbl_Apellido);
-            this.Controls.Add(this.lbl_Nombre);
+            this.Controls.Add(this.lbl_Nombre2);
             this.Controls.Add(this.lbl_Contraseña);
             this.Controls.Add(this.lbl_NombreUsuario);
             this.Controls.Add(this.btn_BajaUsuario);
@@ -219,13 +219,13 @@
         private System.Windows.Forms.Button btn_BajaUsuario;
         private System.Windows.Forms.Label lbl_NombreUsuario;
         private System.Windows.Forms.Label lbl_Contraseña;
-        private System.Windows.Forms.Label lbl_Nombre;
+        private System.Windows.Forms.Label lbl_Nombre2;
         private System.Windows.Forms.Label lbl_Apellido;
         private System.Windows.Forms.TextBox txt_NombreUsuario;
         private System.Windows.Forms.TextBox txt_Contraseña;
         private System.Windows.Forms.TextBox txt_Nombre;
         private System.Windows.Forms.TextBox txt_Apellido;
-        private System.Windows.Forms.Label lbl_Rol;
+        private System.Windows.Forms.Label lbl_Cargo;
         private System.Windows.Forms.ComboBox cmb_Rol;
         private System.Windows.Forms.Button btn_VolverAlMenu;
     }

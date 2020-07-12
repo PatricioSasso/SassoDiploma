@@ -33,7 +33,7 @@
             this.btn_BajaHilado = new System.Windows.Forms.Button();
             this.lbl_HiladoId = new System.Windows.Forms.Label();
             this.lbl_HiladoCodigo = new System.Windows.Forms.Label();
-            this.lblHiladoDescripcion = new System.Windows.Forms.Label();
+            this.lbl_HiladoDescripcion = new System.Windows.Forms.Label();
             this.lbl_HiladoCantidad = new System.Windows.Forms.Label();
             this.lbl_HiladoPeso = new System.Windows.Forms.Label();
             this.txt_Id = new System.Windows.Forms.TextBox();
@@ -86,34 +86,34 @@
             // lbl_HiladoId
             // 
             this.lbl_HiladoId.AutoSize = true;
-            this.lbl_HiladoId.Location = new System.Drawing.Point(92, 35);
+            this.lbl_HiladoId.Location = new System.Drawing.Point(76, 23);
             this.lbl_HiladoId.Name = "lbl_HiladoId";
-            this.lbl_HiladoId.Size = new System.Drawing.Size(27, 17);
+            this.lbl_HiladoId.Size = new System.Drawing.Size(31, 17);
             this.lbl_HiladoId.TabIndex = 3;
-            this.lbl_HiladoId.Text = "Id: ";
+            this.lbl_HiladoId.Text = "Id : ";
             // 
             // lbl_HiladoCodigo
             // 
             this.lbl_HiladoCodigo.AutoSize = true;
-            this.lbl_HiladoCodigo.Location = new System.Drawing.Point(59, 67);
+            this.lbl_HiladoCodigo.Location = new System.Drawing.Point(43, 55);
             this.lbl_HiladoCodigo.Name = "lbl_HiladoCodigo";
-            this.lbl_HiladoCodigo.Size = new System.Drawing.Size(60, 17);
+            this.lbl_HiladoCodigo.Size = new System.Drawing.Size(64, 17);
             this.lbl_HiladoCodigo.TabIndex = 4;
-            this.lbl_HiladoCodigo.Text = "Código: ";
+            this.lbl_HiladoCodigo.Text = "Código : ";
             // 
-            // lblHiladoDescripcion
+            // lbl_HiladoDescripcion
             // 
-            this.lblHiladoDescripcion.AutoSize = true;
-            this.lblHiladoDescripcion.Location = new System.Drawing.Point(29, 96);
-            this.lblHiladoDescripcion.Name = "lblHiladoDescripcion";
-            this.lblHiladoDescripcion.Size = new System.Drawing.Size(90, 17);
-            this.lblHiladoDescripcion.TabIndex = 5;
-            this.lblHiladoDescripcion.Text = "Descripción: ";
+            this.lbl_HiladoDescripcion.AutoSize = true;
+            this.lbl_HiladoDescripcion.Location = new System.Drawing.Point(13, 84);
+            this.lbl_HiladoDescripcion.Name = "lbl_HiladoDescripcion";
+            this.lbl_HiladoDescripcion.Size = new System.Drawing.Size(94, 17);
+            this.lbl_HiladoDescripcion.TabIndex = 5;
+            this.lbl_HiladoDescripcion.Text = "Descripción : ";
             // 
             // lbl_HiladoCantidad
             // 
             this.lbl_HiladoCantidad.AutoSize = true;
-            this.lbl_HiladoCantidad.Location = new System.Drawing.Point(47, 127);
+            this.lbl_HiladoCantidad.Location = new System.Drawing.Point(35, 115);
             this.lbl_HiladoCantidad.Name = "lbl_HiladoCantidad";
             this.lbl_HiladoCantidad.Size = new System.Drawing.Size(72, 17);
             this.lbl_HiladoCantidad.TabIndex = 6;
@@ -122,11 +122,11 @@
             // lbl_HiladoPeso
             // 
             this.lbl_HiladoPeso.AutoSize = true;
-            this.lbl_HiladoPeso.Location = new System.Drawing.Point(71, 158);
+            this.lbl_HiladoPeso.Location = new System.Drawing.Point(55, 146);
             this.lbl_HiladoPeso.Name = "lbl_HiladoPeso";
-            this.lbl_HiladoPeso.Size = new System.Drawing.Size(48, 17);
+            this.lbl_HiladoPeso.Size = new System.Drawing.Size(52, 17);
             this.lbl_HiladoPeso.TabIndex = 7;
-            this.lbl_HiladoPeso.Text = "Peso: ";
+            this.lbl_HiladoPeso.Text = "Peso : ";
             // 
             // txt_Id
             // 
@@ -183,6 +183,11 @@
             // 
             this.gbx_Hilados.Controls.Add(this.btn_Tejer);
             this.gbx_Hilados.Controls.Add(this.dgv_Hilados);
+            this.gbx_Hilados.Controls.Add(this.lbl_HiladoId);
+            this.gbx_Hilados.Controls.Add(this.lbl_HiladoCodigo);
+            this.gbx_Hilados.Controls.Add(this.lbl_HiladoDescripcion);
+            this.gbx_Hilados.Controls.Add(this.lbl_HiladoCantidad);
+            this.gbx_Hilados.Controls.Add(this.lbl_HiladoPeso);
             this.gbx_Hilados.Location = new System.Drawing.Point(12, 12);
             this.gbx_Hilados.Name = "gbx_Hilados";
             this.gbx_Hilados.Size = new System.Drawing.Size(865, 289);
@@ -247,11 +252,6 @@
             this.Controls.Add(this.txt_Descripcion);
             this.Controls.Add(this.txt_Codigo);
             this.Controls.Add(this.txt_Id);
-            this.Controls.Add(this.lbl_HiladoPeso);
-            this.Controls.Add(this.lbl_HiladoCantidad);
-            this.Controls.Add(this.lblHiladoDescripcion);
-            this.Controls.Add(this.lbl_HiladoCodigo);
-            this.Controls.Add(this.lbl_HiladoId);
             this.Controls.Add(this.btn_BajaHilado);
             this.Controls.Add(this.btn_ModificarHilado);
             this.Controls.Add(this.btn_AltaHilado);
@@ -261,6 +261,7 @@
             this.Load += new System.EventHandler(this.AreaTejidoMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Hilados)).EndInit();
             this.gbx_Hilados.ResumeLayout(false);
+            this.gbx_Hilados.PerformLayout();
             this.gbx_Telas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Telas)).EndInit();
             this.ResumeLayout(false);
@@ -275,7 +276,7 @@
         private System.Windows.Forms.Button btn_BajaHilado;
         private System.Windows.Forms.Label lbl_HiladoId;
         private System.Windows.Forms.Label lbl_HiladoCodigo;
-        private System.Windows.Forms.Label lblHiladoDescripcion;
+        private System.Windows.Forms.Label lbl_HiladoDescripcion;
         private System.Windows.Forms.Label lbl_HiladoCantidad;
         private System.Windows.Forms.Label lbl_HiladoPeso;
         private System.Windows.Forms.TextBox txt_Id;
