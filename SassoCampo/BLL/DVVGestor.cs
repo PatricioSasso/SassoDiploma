@@ -55,7 +55,7 @@ namespace BLL
             {
                 ParcialHash += dvh;
             }
-            return ParcialHash.ToString();
+            return controlDeAccesoGestor.GetHash(ParcialHash);
         }
     }
 }
