@@ -7,15 +7,10 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DALTejido
+    public class DALTejido : DAL
     {
-        string connectionString = @"Data Source=PC;Initial Catalog=SassoCampo;Integrated Security=True";
-        SqlConnection conexion;
-        SqlCommand query;
-
         public DALTejido()
         {
-            conexion = new SqlConnection(connectionString);
         }
 
         public void Alta(Tejido alta)

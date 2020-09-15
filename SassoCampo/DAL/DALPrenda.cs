@@ -7,15 +7,10 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DALPrenda
+    public class DALPrenda : DAL
     {
-        string connectionString = @"Data Source=PC;Initial Catalog=SassoCampo;Integrated Security=True";
-        SqlConnection conexion;
-        SqlCommand query;
-
         public DALPrenda()
         {
-            conexion = new SqlConnection(connectionString);
         }
 
         public void Alta(Prenda alta)

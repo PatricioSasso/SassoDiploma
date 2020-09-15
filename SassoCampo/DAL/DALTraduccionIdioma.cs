@@ -8,15 +8,11 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DALTraduccionIdioma
+    public class DALTraduccionIdioma : DAL
     {
-        string connectionString = @"Data Source=PC;Initial Catalog=SassoCampo;Integrated Security=True";
-        SqlConnection conexion;
-        SqlCommand query;
 
         public DALTraduccionIdioma()
         {
-            conexion = new SqlConnection(connectionString);
         }
 
         public Idioma GetIdioma(string idiomaSeleccionado)

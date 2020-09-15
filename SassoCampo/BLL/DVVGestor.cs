@@ -29,11 +29,6 @@ namespace BLL
             bd.Modificar(dvv);
         }
 
-        public void GetDVV(DVV dvv)
-        {
-
-        }
-
         public bool VerificarDVV(DVV dvv)
         {
             dvv = bd.GetDVV(dvv);

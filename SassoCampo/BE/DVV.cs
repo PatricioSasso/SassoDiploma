@@ -16,6 +16,11 @@ namespace BE
 
         }
 
+        public DVV(string nombre)
+        {
+            Nombre = nombre;
+        }
+
         public DVV(string nombre, string hash)
         {
             Nombre = nombre;

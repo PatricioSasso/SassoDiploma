@@ -9,15 +9,10 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DALDVV
+    public class DALDVV : DAL
     {
-        string connectionString = @"Data Source=PC;Initial Catalog=SassoCampo;Integrated Security=True";
-        SqlConnection conexion;
-        SqlCommand query;
-
         public DALDVV()
         {
-            conexion = new SqlConnection(connectionString);
         }
 
         public void Alta(BE.DVV alta)
@@ -62,6 +57,7 @@ namespace DAL
         {
             conexion.Open();
             List<string> dvhs = new List<string>();
+            if (buscar.Nombre == null) { return dvhs; }
             query = new SqlCommand("SELECT DVH FROM " + buscar.Nombre, conexion);
             using (SqlDataReader reader = query.ExecuteReader())
             {

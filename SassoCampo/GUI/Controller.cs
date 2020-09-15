@@ -60,7 +60,7 @@ namespace GUI
             {
                 ControlDeAcceso.UsuarioActual = null;
                 form.Owner.Show();
-                form.Close();
+                form.Hide();
                 MessageBox.Show("Se ha cerrado la sesión correctamente.");
             }
             else

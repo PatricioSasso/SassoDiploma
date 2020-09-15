@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.SqlServer.Server;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
@@ -6,15 +7,10 @@ using System.Net.NetworkInformation;
 
 namespace DAL
 {
-    public class DALUsuario
+    public class DALUsuario : DAL
     {
-        string connectionString = @"Data Source=PC;Initial Catalog=SassoCampo;Integrated Security=True";
-        SqlConnection conexion;
-        SqlCommand query;
-
         public DALUsuario()
         {
-            conexion = new SqlConnection(connectionString);
         }
 
         public bool LogIn(string nombreUsuario, string contraseña)
@@ -38,7 +34,7 @@ namespace DAL
         public void Alta(Usuario alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO Usuario VALUES (@nombreUsuario, @contraseña, @nombre, @apellido, @rolId, @DVH)", conexion);
+            query = new SqlCommand("INSERT INTO Usuario VALUES (@nombreUsuario, @contraseña, @nombre, @apellido, @DVH, @rolId)", conexion);
             query.Parameters.AddWithValue("nombreUsuario", alta.NombreUsuario);
             query.Parameters.AddWithValue("contraseña", alta.Contraseña);
             query.Parameters.AddWithValue("nombre", alta.Nombre);
@@ -80,7 +76,7 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    usuario = new Usuario(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), new Rol(reader.GetInt32(4), "", new List<Permiso>()), reader.GetString(5));
+                    usuario = new Usuario(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), new Rol(reader.GetInt32(5), "", new List<Permiso>()), reader.GetString(4));
                 }
             }
             conexion.Close();
@@ -98,7 +94,7 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    usuarios.Add(new Usuario(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), new Rol(reader.GetInt32(4), "", new List<Permiso>()), reader.GetString(5)));
+                    usuarios.Add(new Usuario(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), new Rol(reader.GetInt32(5), "", new List<Permiso>()), reader.GetString(4)));
                 }
             }
             conexion.Close();

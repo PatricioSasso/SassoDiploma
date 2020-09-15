@@ -7,15 +7,10 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DALBackUpAndRestore
+    public class DALBackUpAndRestore : DAL
     {
-        string connectionString = @"Data Source=PC;Initial Catalog=SassoCampo;Integrated Security=True";
-        SqlConnection conexion;
-        SqlCommand query;
-
         public DALBackUpAndRestore()
         {
-            conexion = new SqlConnection(connectionString);
         }
 
         public void Backup(string ruta)

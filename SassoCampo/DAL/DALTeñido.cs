@@ -7,15 +7,10 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DALTeñido
+    public class DALTeñido : DAL
     {
-        string connectionString = @"Data Source=PC;Initial Catalog=SassoCampo;Integrated Security=True";
-        SqlConnection conexion;
-        SqlCommand query;
-
         public DALTeñido()
         {
-            conexion = new SqlConnection(connectionString);
         }
 
         public void Alta(Teñido alta)

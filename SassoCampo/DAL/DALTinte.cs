@@ -7,15 +7,10 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DALTinte
+    public class DALTinte : DAL
     {
-        string connectionString = @"Data Source=PC;Initial Catalog=SassoCampo;Integrated Security=True";
-        SqlConnection conexion;
-        SqlCommand query;
-
         public DALTinte()
         {
-            conexion = new SqlConnection(connectionString);
         }
 
         public void Alta(Tinte alta)

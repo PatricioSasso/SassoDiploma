@@ -3,15 +3,10 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class DALRolPermiso
+    public class DALRolPermiso : DAL
     {
-        string connectionString = @"Data Source=PC;Initial Catalog=SassoCampo;Integrated Security=True";
-        SqlConnection conexion;
-        SqlCommand query;
-
         public DALRolPermiso()
         {
-            conexion = new SqlConnection(connectionString);
         }
 
         public void AltaRol(Rol alta)

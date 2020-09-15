@@ -7,15 +7,10 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DALConfeccion
+    public class DALConfeccion : DAL
     {
-        string connectionString = @"Data Source=PC;Initial Catalog=SassoCampo;Integrated Security=True";
-        SqlConnection conexion;
-        SqlCommand query;
-
         public DALConfeccion()
         {
-            conexion = new SqlConnection(connectionString);
         }
 
         public void Alta(Confeccion alta)

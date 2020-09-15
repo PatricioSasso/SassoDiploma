@@ -22,9 +22,16 @@ namespace GUI
             DVVGestor dVVGestor = new DVVGestor();
             cmb_Idioma.Items.AddRange(new string[] { "Español", "Ingles" });
             cmb_Idioma.SelectedItem = cmb_Idioma.Items[0];
-            if (!dVVGestor.VerificarDVV(new DVV("Usuario", "")))
+            try
             {
-                throw new Exception("La tabla Usuario de la base de datos fue modificada desde fuera de la aplicación");
+                if (!dVVGestor.VerificarDVV(new DVV("Usuario")))
+                {
+                    throw new Exception("La tabla Usuario de la base de datos fue modificada desde fuera de la aplicación");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
