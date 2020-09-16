@@ -50,6 +50,7 @@
     <Compile Include="DALPermiso.cs" />
     <Compile Include="DALPrenda.cs" />
     <Compile Include="DALProducto.cs" />
+    <Compile Include="DALRolPermiso.cs" />
     <Compile Include="DALTejido.cs" />
     <Compile Include="DALTela.cs" />
     <Compile Include="DALTeñido.cs" />
