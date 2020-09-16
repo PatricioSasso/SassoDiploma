@@ -75,8 +75,7 @@ namespace DAL
         {
             conexion.Open();
             List<ItemProducto> itemProducto = new List<ItemProducto>();
-            List<int> permisosId = new List<int>();
-            query = new SqlCommand("Select * from ItemProducto where Rol_Id = @pedidoId", conexion);
+            query = new SqlCommand("Select * from ItemProducto where PedidoProduccion_Id = @pedidoId", conexion);
             query.Parameters.AddWithValue("pedidoId", pedidoProduccion.Id);
             using (SqlDataReader reader = query.ExecuteReader())
             {

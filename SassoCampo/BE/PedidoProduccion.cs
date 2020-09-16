@@ -12,6 +12,11 @@ namespace BE
         DateTime fechaProduccion;
         List<ItemProducto> itemProductos;
 
+        public PedidoProduccion()
+        {
+
+        }
+        
         public PedidoProduccion(int id)
         {
             Id = id;
