@@ -49,6 +49,7 @@
     <Compile Include="BackupAndRestoreGestor.cs" />
     <Compile Include="ControlDeAccesoGestor.cs" />
     <Compile Include="DVVGestor.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TraduccionIdiomaGestor.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
