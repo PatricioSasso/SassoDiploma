@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_AltaRol = new System.Windows.Forms.Button();
-            this.btn_ModificarRol = new System.Windows.Forms.Button();
-            this.btn_BajaRol = new System.Windows.Forms.Button();
+            this.btn_Alta = new System.Windows.Forms.Button();
+            this.btn_Modificar = new System.Windows.Forms.Button();
+            this.btn_Baja = new System.Windows.Forms.Button();
             this.lbl_Id = new System.Windows.Forms.Label();
             this.lbl_Nombre = new System.Windows.Forms.Label();
             this.txt_Id = new System.Windows.Forms.TextBox();
@@ -50,35 +50,35 @@
             this.gbx_Permisos.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btn_AltaRol
+            // btn_Alta
             // 
-            this.btn_AltaRol.Location = new System.Drawing.Point(9, 72);
-            this.btn_AltaRol.Name = "btn_AltaRol";
-            this.btn_AltaRol.Size = new System.Drawing.Size(209, 23);
-            this.btn_AltaRol.TabIndex = 0;
-            this.btn_AltaRol.Text = "Alta";
-            this.btn_AltaRol.UseVisualStyleBackColor = true;
-            this.btn_AltaRol.Click += new System.EventHandler(this.btn_AltaRol_Click);
+            this.btn_Alta.Location = new System.Drawing.Point(9, 72);
+            this.btn_Alta.Name = "btn_Alta";
+            this.btn_Alta.Size = new System.Drawing.Size(209, 23);
+            this.btn_Alta.TabIndex = 0;
+            this.btn_Alta.Text = "Alta";
+            this.btn_Alta.UseVisualStyleBackColor = true;
+            this.btn_Alta.Click += new System.EventHandler(this.btn_AltaRol_Click);
             // 
-            // btn_ModificarRol
+            // btn_Modificar
             // 
-            this.btn_ModificarRol.Location = new System.Drawing.Point(9, 101);
-            this.btn_ModificarRol.Name = "btn_ModificarRol";
-            this.btn_ModificarRol.Size = new System.Drawing.Size(209, 23);
-            this.btn_ModificarRol.TabIndex = 1;
-            this.btn_ModificarRol.Text = "Modificar";
-            this.btn_ModificarRol.UseVisualStyleBackColor = true;
-            this.btn_ModificarRol.Click += new System.EventHandler(this.btn_ModificarRol_Click);
+            this.btn_Modificar.Location = new System.Drawing.Point(9, 101);
+            this.btn_Modificar.Name = "btn_Modificar";
+            this.btn_Modificar.Size = new System.Drawing.Size(209, 23);
+            this.btn_Modificar.TabIndex = 1;
+            this.btn_Modificar.Text = "Modificar";
+            this.btn_Modificar.UseVisualStyleBackColor = true;
+            this.btn_Modificar.Click += new System.EventHandler(this.btn_ModificarRol_Click);
             // 
-            // btn_BajaRol
+            // btn_Baja
             // 
-            this.btn_BajaRol.Location = new System.Drawing.Point(9, 130);
-            this.btn_BajaRol.Name = "btn_BajaRol";
-            this.btn_BajaRol.Size = new System.Drawing.Size(209, 23);
-            this.btn_BajaRol.TabIndex = 2;
-            this.btn_BajaRol.Text = "Baja";
-            this.btn_BajaRol.UseVisualStyleBackColor = true;
-            this.btn_BajaRol.Click += new System.EventHandler(this.btn_BajaRol_Click);
+            this.btn_Baja.Location = new System.Drawing.Point(9, 130);
+            this.btn_Baja.Name = "btn_Baja";
+            this.btn_Baja.Size = new System.Drawing.Size(209, 23);
+            this.btn_Baja.TabIndex = 2;
+            this.btn_Baja.Text = "Baja";
+            this.btn_Baja.UseVisualStyleBackColor = true;
+            this.btn_Baja.Click += new System.EventHandler(this.btn_BajaRol_Click);
             // 
             // lbl_Id
             // 
@@ -180,10 +180,10 @@
             this.gbx_Roles.Controls.Add(this.btn_AgregarPermiso);
             this.gbx_Roles.Controls.Add(this.txt_Id);
             this.gbx_Roles.Controls.Add(this.txt_Nombre);
-            this.gbx_Roles.Controls.Add(this.btn_AltaRol);
-            this.gbx_Roles.Controls.Add(this.btn_ModificarRol);
+            this.gbx_Roles.Controls.Add(this.btn_Alta);
+            this.gbx_Roles.Controls.Add(this.btn_Modificar);
             this.gbx_Roles.Controls.Add(this.lbl_Nombre);
-            this.gbx_Roles.Controls.Add(this.btn_BajaRol);
+            this.gbx_Roles.Controls.Add(this.btn_Baja);
             this.gbx_Roles.Controls.Add(this.lbl_Id);
             this.gbx_Roles.Location = new System.Drawing.Point(12, 12);
             this.gbx_Roles.Name = "gbx_Roles";
@@ -235,9 +235,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btn_AltaRol;
-        private System.Windows.Forms.Button btn_ModificarRol;
-        private System.Windows.Forms.Button btn_BajaRol;
+        private System.Windows.Forms.Button btn_Alta;
+        private System.Windows.Forms.Button btn_Modificar;
+        private System.Windows.Forms.Button btn_Baja;
         private System.Windows.Forms.Label lbl_Id;
         private System.Windows.Forms.Label lbl_Nombre;
         private System.Windows.Forms.TextBox txt_Id;

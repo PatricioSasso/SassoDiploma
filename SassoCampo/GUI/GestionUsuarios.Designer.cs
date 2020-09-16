@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.dgv_Usuarios = new System.Windows.Forms.DataGridView();
-            this.btn_AltaUsuario = new System.Windows.Forms.Button();
-            this.btn_ModificarUsuario = new System.Windows.Forms.Button();
-            this.btn_BajaUsuario = new System.Windows.Forms.Button();
+            this.btn_Alta = new System.Windows.Forms.Button();
+            this.btn_Modificar = new System.Windows.Forms.Button();
+            this.btn_Baja = new System.Windows.Forms.Button();
             this.lbl_NombreUsuario = new System.Windows.Forms.Label();
             this.lbl_Contraseña = new System.Windows.Forms.Label();
-            this.lbl_Nombre2 = new System.Windows.Forms.Label();
+            this.lbl_Nombre = new System.Windows.Forms.Label();
             this.lbl_Apellido = new System.Windows.Forms.Label();
             this.txt_NombreUsuario = new System.Windows.Forms.TextBox();
             this.txt_Contraseña = new System.Windows.Forms.TextBox();
@@ -42,7 +42,7 @@
             this.txt_Apellido = new System.Windows.Forms.TextBox();
             this.lbl_Cargo = new System.Windows.Forms.Label();
             this.cmb_Rol = new System.Windows.Forms.ComboBox();
-            this.btn_VolverAlMenu = new System.Windows.Forms.Button();
+            this.btn_MenuPrincipal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Usuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,35 +60,35 @@
             this.dgv_Usuarios.TabIndex = 0;
             this.dgv_Usuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Usuarios_CellClick);
             // 
-            // btn_AltaUsuario
+            // btn_Alta
             // 
-            this.btn_AltaUsuario.Location = new System.Drawing.Point(12, 162);
-            this.btn_AltaUsuario.Name = "btn_AltaUsuario";
-            this.btn_AltaUsuario.Size = new System.Drawing.Size(180, 23);
-            this.btn_AltaUsuario.TabIndex = 1;
-            this.btn_AltaUsuario.Text = "Alta";
-            this.btn_AltaUsuario.UseVisualStyleBackColor = true;
-            this.btn_AltaUsuario.Click += new System.EventHandler(this.btn_AltaUsuario_Click);
+            this.btn_Alta.Location = new System.Drawing.Point(12, 162);
+            this.btn_Alta.Name = "btn_Alta";
+            this.btn_Alta.Size = new System.Drawing.Size(180, 23);
+            this.btn_Alta.TabIndex = 1;
+            this.btn_Alta.Text = "Alta";
+            this.btn_Alta.UseVisualStyleBackColor = true;
+            this.btn_Alta.Click += new System.EventHandler(this.btn_AltaUsuario_Click);
             // 
-            // btn_ModificarUsuario
+            // btn_Modificar
             // 
-            this.btn_ModificarUsuario.Location = new System.Drawing.Point(12, 191);
-            this.btn_ModificarUsuario.Name = "btn_ModificarUsuario";
-            this.btn_ModificarUsuario.Size = new System.Drawing.Size(180, 23);
-            this.btn_ModificarUsuario.TabIndex = 2;
-            this.btn_ModificarUsuario.Text = "Modificar";
-            this.btn_ModificarUsuario.UseVisualStyleBackColor = true;
-            this.btn_ModificarUsuario.Click += new System.EventHandler(this.btn_ModificarUsuario_Click);
+            this.btn_Modificar.Location = new System.Drawing.Point(12, 191);
+            this.btn_Modificar.Name = "btn_Modificar";
+            this.btn_Modificar.Size = new System.Drawing.Size(180, 23);
+            this.btn_Modificar.TabIndex = 2;
+            this.btn_Modificar.Text = "Modificar";
+            this.btn_Modificar.UseVisualStyleBackColor = true;
+            this.btn_Modificar.Click += new System.EventHandler(this.btn_ModificarUsuario_Click);
             // 
-            // btn_BajaUsuario
+            // btn_Baja
             // 
-            this.btn_BajaUsuario.Location = new System.Drawing.Point(12, 220);
-            this.btn_BajaUsuario.Name = "btn_BajaUsuario";
-            this.btn_BajaUsuario.Size = new System.Drawing.Size(180, 23);
-            this.btn_BajaUsuario.TabIndex = 3;
-            this.btn_BajaUsuario.Text = "Baja";
-            this.btn_BajaUsuario.UseVisualStyleBackColor = true;
-            this.btn_BajaUsuario.Click += new System.EventHandler(this.btn_BajaUsuario_Click);
+            this.btn_Baja.Location = new System.Drawing.Point(12, 220);
+            this.btn_Baja.Name = "btn_Baja";
+            this.btn_Baja.Size = new System.Drawing.Size(180, 23);
+            this.btn_Baja.TabIndex = 3;
+            this.btn_Baja.Text = "Baja";
+            this.btn_Baja.UseVisualStyleBackColor = true;
+            this.btn_Baja.Click += new System.EventHandler(this.btn_BajaUsuario_Click);
             // 
             // lbl_NombreUsuario
             // 
@@ -108,14 +108,14 @@
             this.lbl_Contraseña.TabIndex = 5;
             this.lbl_Contraseña.Text = "Contraseña:";
             // 
-            // lbl_Nombre2
+            // lbl_Nombre
             // 
-            this.lbl_Nombre2.AutoSize = true;
-            this.lbl_Nombre2.Location = new System.Drawing.Point(28, 74);
-            this.lbl_Nombre2.Name = "lbl_Nombre2";
-            this.lbl_Nombre2.Size = new System.Drawing.Size(66, 17);
-            this.lbl_Nombre2.TabIndex = 6;
-            this.lbl_Nombre2.Text = "Nombre :";
+            this.lbl_Nombre.AutoSize = true;
+            this.lbl_Nombre.Location = new System.Drawing.Point(28, 74);
+            this.lbl_Nombre.Name = "lbl_Nombre";
+            this.lbl_Nombre.Size = new System.Drawing.Size(66, 17);
+            this.lbl_Nombre.TabIndex = 6;
+            this.lbl_Nombre.Text = "Nombre :";
             // 
             // lbl_Apellido
             // 
@@ -171,22 +171,22 @@
             this.cmb_Rol.Size = new System.Drawing.Size(121, 24);
             this.cmb_Rol.TabIndex = 14;
             // 
-            // btn_VolverAlMenu
+            // btn_MenuPrincipal
             // 
-            this.btn_VolverAlMenu.Location = new System.Drawing.Point(12, 249);
-            this.btn_VolverAlMenu.Name = "btn_VolverAlMenu";
-            this.btn_VolverAlMenu.Size = new System.Drawing.Size(776, 23);
-            this.btn_VolverAlMenu.TabIndex = 15;
-            this.btn_VolverAlMenu.Text = "Volver al menu principal";
-            this.btn_VolverAlMenu.UseVisualStyleBackColor = true;
-            this.btn_VolverAlMenu.Click += new System.EventHandler(this.btn_VolverAlMenu_Click);
+            this.btn_MenuPrincipal.Location = new System.Drawing.Point(12, 249);
+            this.btn_MenuPrincipal.Name = "btn_MenuPrincipal";
+            this.btn_MenuPrincipal.Size = new System.Drawing.Size(776, 23);
+            this.btn_MenuPrincipal.TabIndex = 15;
+            this.btn_MenuPrincipal.Text = "Volver al menu principal";
+            this.btn_MenuPrincipal.UseVisualStyleBackColor = true;
+            this.btn_MenuPrincipal.Click += new System.EventHandler(this.btn_VolverAlMenu_Click);
             // 
             // GestionUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 284);
-            this.Controls.Add(this.btn_VolverAlMenu);
+            this.Controls.Add(this.btn_MenuPrincipal);
             this.Controls.Add(this.cmb_Rol);
             this.Controls.Add(this.lbl_Cargo);
             this.Controls.Add(this.txt_Apellido);
@@ -194,12 +194,12 @@
             this.Controls.Add(this.txt_Contraseña);
             this.Controls.Add(this.txt_NombreUsuario);
             this.Controls.Add(this.lbl_Apellido);
-            this.Controls.Add(this.lbl_Nombre2);
+            this.Controls.Add(this.lbl_Nombre);
             this.Controls.Add(this.lbl_Contraseña);
             this.Controls.Add(this.lbl_NombreUsuario);
-            this.Controls.Add(this.btn_BajaUsuario);
-            this.Controls.Add(this.btn_ModificarUsuario);
-            this.Controls.Add(this.btn_AltaUsuario);
+            this.Controls.Add(this.btn_Baja);
+            this.Controls.Add(this.btn_Modificar);
+            this.Controls.Add(this.btn_Alta);
             this.Controls.Add(this.dgv_Usuarios);
             this.Name = "GestionUsuarios";
             this.Text = "Gestión de Usuarios";
@@ -214,12 +214,12 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgv_Usuarios;
-        private System.Windows.Forms.Button btn_AltaUsuario;
-        private System.Windows.Forms.Button btn_ModificarUsuario;
-        private System.Windows.Forms.Button btn_BajaUsuario;
+        private System.Windows.Forms.Button btn_Alta;
+        private System.Windows.Forms.Button btn_Modificar;
+        private System.Windows.Forms.Button btn_Baja;
         private System.Windows.Forms.Label lbl_NombreUsuario;
         private System.Windows.Forms.Label lbl_Contraseña;
-        private System.Windows.Forms.Label lbl_Nombre2;
+        private System.Windows.Forms.Label lbl_Nombre;
         private System.Windows.Forms.Label lbl_Apellido;
         private System.Windows.Forms.TextBox txt_NombreUsuario;
         private System.Windows.Forms.TextBox txt_Contraseña;
@@ -227,6 +227,6 @@
         private System.Windows.Forms.TextBox txt_Apellido;
         private System.Windows.Forms.Label lbl_Cargo;
         private System.Windows.Forms.ComboBox cmb_Rol;
-        private System.Windows.Forms.Button btn_VolverAlMenu;
+        private System.Windows.Forms.Button btn_MenuPrincipal;
     }
 }

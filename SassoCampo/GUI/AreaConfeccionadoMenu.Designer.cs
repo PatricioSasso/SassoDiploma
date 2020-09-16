@@ -33,11 +33,11 @@
             this.dgv_PrendasConfeccionadas = new System.Windows.Forms.DataGridView();
             this.gbx_Prendas = new System.Windows.Forms.GroupBox();
             this.btn_Confeccionar = new System.Windows.Forms.Button();
-            this.btn_BajaTela = new System.Windows.Forms.Button();
+            this.btn_Baja = new System.Windows.Forms.Button();
             this.txt_Talle = new System.Windows.Forms.TextBox();
-            this.btn_ModificarTela = new System.Windows.Forms.Button();
-            this.lbl_Color = new System.Windows.Forms.Label();
-            this.btn_AltaTela = new System.Windows.Forms.Button();
+            this.btn_Modificar = new System.Windows.Forms.Button();
+            this.lbl_Talle = new System.Windows.Forms.Label();
+            this.btn_Alta = new System.Windows.Forms.Button();
             this.txt_Cantidad = new System.Windows.Forms.TextBox();
             this.lbl_Cantidad = new System.Windows.Forms.Label();
             this.txt_Descripcion = new System.Windows.Forms.TextBox();
@@ -91,11 +91,11 @@
             // gbx_Prendas
             // 
             this.gbx_Prendas.Controls.Add(this.btn_Confeccionar);
-            this.gbx_Prendas.Controls.Add(this.btn_BajaTela);
+            this.gbx_Prendas.Controls.Add(this.btn_Baja);
             this.gbx_Prendas.Controls.Add(this.txt_Talle);
-            this.gbx_Prendas.Controls.Add(this.btn_ModificarTela);
-            this.gbx_Prendas.Controls.Add(this.lbl_Color);
-            this.gbx_Prendas.Controls.Add(this.btn_AltaTela);
+            this.gbx_Prendas.Controls.Add(this.btn_Modificar);
+            this.gbx_Prendas.Controls.Add(this.lbl_Talle);
+            this.gbx_Prendas.Controls.Add(this.btn_Alta);
             this.gbx_Prendas.Controls.Add(this.txt_Cantidad);
             this.gbx_Prendas.Controls.Add(this.lbl_Cantidad);
             this.gbx_Prendas.Controls.Add(this.txt_Descripcion);
@@ -122,15 +122,15 @@
             this.btn_Confeccionar.UseVisualStyleBackColor = true;
             this.btn_Confeccionar.Click += new System.EventHandler(this.btn_Confeccionar_Click);
             // 
-            // btn_BajaTela
+            // btn_Baja
             // 
-            this.btn_BajaTela.Location = new System.Drawing.Point(23, 219);
-            this.btn_BajaTela.Name = "btn_BajaTela";
-            this.btn_BajaTela.Size = new System.Drawing.Size(193, 23);
-            this.btn_BajaTela.TabIndex = 20;
-            this.btn_BajaTela.Text = "Baja";
-            this.btn_BajaTela.UseVisualStyleBackColor = true;
-            this.btn_BajaTela.Click += new System.EventHandler(this.btn_BajaTela_Click);
+            this.btn_Baja.Location = new System.Drawing.Point(23, 219);
+            this.btn_Baja.Name = "btn_Baja";
+            this.btn_Baja.Size = new System.Drawing.Size(193, 23);
+            this.btn_Baja.TabIndex = 20;
+            this.btn_Baja.Text = "Baja";
+            this.btn_Baja.UseVisualStyleBackColor = true;
+            this.btn_Baja.Click += new System.EventHandler(this.btn_BajaPrenda_Click);
             // 
             // txt_Talle
             // 
@@ -139,34 +139,34 @@
             this.txt_Talle.Size = new System.Drawing.Size(100, 22);
             this.txt_Talle.TabIndex = 24;
             // 
-            // btn_ModificarTela
+            // btn_Modificar
             // 
-            this.btn_ModificarTela.Location = new System.Drawing.Point(23, 190);
-            this.btn_ModificarTela.Name = "btn_ModificarTela";
-            this.btn_ModificarTela.Size = new System.Drawing.Size(193, 23);
-            this.btn_ModificarTela.TabIndex = 19;
-            this.btn_ModificarTela.Text = "Modificar";
-            this.btn_ModificarTela.UseVisualStyleBackColor = true;
-            this.btn_ModificarTela.Click += new System.EventHandler(this.btn_ModificarTela_Click);
+            this.btn_Modificar.Location = new System.Drawing.Point(23, 190);
+            this.btn_Modificar.Name = "btn_Modificar";
+            this.btn_Modificar.Size = new System.Drawing.Size(193, 23);
+            this.btn_Modificar.TabIndex = 19;
+            this.btn_Modificar.Text = "Modificar";
+            this.btn_Modificar.UseVisualStyleBackColor = true;
+            this.btn_Modificar.Click += new System.EventHandler(this.btn_ModificarPrenda_Click);
             // 
-            // lbl_Color
+            // lbl_Talle
             // 
-            this.lbl_Color.AutoSize = true;
-            this.lbl_Color.Location = new System.Drawing.Point(61, 136);
-            this.lbl_Color.Name = "lbl_Color";
-            this.lbl_Color.Size = new System.Drawing.Size(47, 17);
-            this.lbl_Color.TabIndex = 23;
-            this.lbl_Color.Text = "Talle :";
+            this.lbl_Talle.AutoSize = true;
+            this.lbl_Talle.Location = new System.Drawing.Point(61, 136);
+            this.lbl_Talle.Name = "lbl_Talle";
+            this.lbl_Talle.Size = new System.Drawing.Size(47, 17);
+            this.lbl_Talle.TabIndex = 23;
+            this.lbl_Talle.Text = "Talle :";
             // 
-            // btn_AltaTela
+            // btn_Alta
             // 
-            this.btn_AltaTela.Location = new System.Drawing.Point(23, 161);
-            this.btn_AltaTela.Name = "btn_AltaTela";
-            this.btn_AltaTela.Size = new System.Drawing.Size(193, 23);
-            this.btn_AltaTela.TabIndex = 18;
-            this.btn_AltaTela.Text = "Alta";
-            this.btn_AltaTela.UseVisualStyleBackColor = true;
-            this.btn_AltaTela.Click += new System.EventHandler(this.btn_AltaTela_Click);
+            this.btn_Alta.Location = new System.Drawing.Point(23, 161);
+            this.btn_Alta.Name = "btn_Alta";
+            this.btn_Alta.Size = new System.Drawing.Size(193, 23);
+            this.btn_Alta.TabIndex = 18;
+            this.btn_Alta.Text = "Alta";
+            this.btn_Alta.UseVisualStyleBackColor = true;
+            this.btn_Alta.Click += new System.EventHandler(this.btn_AltaPrenda_Click);
             // 
             // txt_Cantidad
             // 
@@ -273,11 +273,11 @@
         private System.Windows.Forms.DataGridView dgv_PrendasConfeccionadas;
         private System.Windows.Forms.GroupBox gbx_Prendas;
         private System.Windows.Forms.Button btn_Confeccionar;
-        private System.Windows.Forms.Button btn_BajaTela;
+        private System.Windows.Forms.Button btn_Baja;
         private System.Windows.Forms.TextBox txt_Talle;
-        private System.Windows.Forms.Button btn_ModificarTela;
-        private System.Windows.Forms.Label lbl_Color;
-        private System.Windows.Forms.Button btn_AltaTela;
+        private System.Windows.Forms.Button btn_Modificar;
+        private System.Windows.Forms.Label lbl_Talle;
+        private System.Windows.Forms.Button btn_Alta;
         private System.Windows.Forms.TextBox txt_Cantidad;
         private System.Windows.Forms.Label lbl_Cantidad;
         private System.Windows.Forms.TextBox txt_Descripcion;

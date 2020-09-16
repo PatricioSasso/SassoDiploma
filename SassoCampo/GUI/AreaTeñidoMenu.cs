@@ -153,7 +153,7 @@ namespace GUI
             txt_ColorTinte.Text = tinte.Color;
         }
 
-        private void btn_Teñir_Click(object sender, EventArgs e)
+        private void btn_Tenir_Click(object sender, EventArgs e)
         {
             Tela tela = dgv_Telas.SelectedRows[0].DataBoundItem as Tela;
             Tinte tinte = dgv_Tintes.SelectedRows[0].DataBoundItem as Tinte;

@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_AltaHilado = new System.Windows.Forms.Button();
-            this.btn_ModificarHilado = new System.Windows.Forms.Button();
-            this.btn_BajaHilado = new System.Windows.Forms.Button();
+            this.btn_Alta = new System.Windows.Forms.Button();
+            this.btn_Modificar = new System.Windows.Forms.Button();
+            this.btn_Baja = new System.Windows.Forms.Button();
             this.lbl_HiladoId = new System.Windows.Forms.Label();
-            this.lbl_HiladoCodigo = new System.Windows.Forms.Label();
-            this.lbl_HiladoDescripcion = new System.Windows.Forms.Label();
-            this.lbl_HiladoCantidad = new System.Windows.Forms.Label();
-            this.lbl_HiladoPeso = new System.Windows.Forms.Label();
+            this.lbl_Codigo = new System.Windows.Forms.Label();
+            this.lbl_Descripcion = new System.Windows.Forms.Label();
+            this.lbl_Cantidad = new System.Windows.Forms.Label();
+            this.lbl_Peso = new System.Windows.Forms.Label();
             this.txt_Id = new System.Windows.Forms.TextBox();
             this.txt_Codigo = new System.Windows.Forms.TextBox();
             this.txt_Descripcion = new System.Windows.Forms.TextBox();
@@ -44,44 +44,44 @@
             this.dgv_Hilados = new System.Windows.Forms.DataGridView();
             this.gbx_Hilados = new System.Windows.Forms.GroupBox();
             this.btn_Tejer = new System.Windows.Forms.Button();
-            this.gbx_Telas = new System.Windows.Forms.GroupBox();
+            this.gbx_TelasStock = new System.Windows.Forms.GroupBox();
             this.dgv_Telas = new System.Windows.Forms.DataGridView();
             this.btn_MenuPrincipal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Hilados)).BeginInit();
             this.gbx_Hilados.SuspendLayout();
-            this.gbx_Telas.SuspendLayout();
+            this.gbx_TelasStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Telas)).BeginInit();
             this.SuspendLayout();
             // 
-            // btn_AltaHilado
+            // btn_Alta
             // 
-            this.btn_AltaHilado.Location = new System.Drawing.Point(38, 183);
-            this.btn_AltaHilado.Name = "btn_AltaHilado";
-            this.btn_AltaHilado.Size = new System.Drawing.Size(187, 23);
-            this.btn_AltaHilado.TabIndex = 0;
-            this.btn_AltaHilado.Text = "Alta";
-            this.btn_AltaHilado.UseVisualStyleBackColor = true;
-            this.btn_AltaHilado.Click += new System.EventHandler(this.btn_AltaHilado_Click);
+            this.btn_Alta.Location = new System.Drawing.Point(38, 183);
+            this.btn_Alta.Name = "btn_Alta";
+            this.btn_Alta.Size = new System.Drawing.Size(187, 23);
+            this.btn_Alta.TabIndex = 0;
+            this.btn_Alta.Text = "Alta";
+            this.btn_Alta.UseVisualStyleBackColor = true;
+            this.btn_Alta.Click += new System.EventHandler(this.btn_AltaHilado_Click);
             // 
-            // btn_ModificarHilado
+            // btn_Modificar
             // 
-            this.btn_ModificarHilado.Location = new System.Drawing.Point(38, 212);
-            this.btn_ModificarHilado.Name = "btn_ModificarHilado";
-            this.btn_ModificarHilado.Size = new System.Drawing.Size(187, 23);
-            this.btn_ModificarHilado.TabIndex = 1;
-            this.btn_ModificarHilado.Text = "Modificar";
-            this.btn_ModificarHilado.UseVisualStyleBackColor = true;
-            this.btn_ModificarHilado.Click += new System.EventHandler(this.btn_ModificarHilado_Click);
+            this.btn_Modificar.Location = new System.Drawing.Point(38, 212);
+            this.btn_Modificar.Name = "btn_Modificar";
+            this.btn_Modificar.Size = new System.Drawing.Size(187, 23);
+            this.btn_Modificar.TabIndex = 1;
+            this.btn_Modificar.Text = "Modificar";
+            this.btn_Modificar.UseVisualStyleBackColor = true;
+            this.btn_Modificar.Click += new System.EventHandler(this.btn_ModificarHilado_Click);
             // 
-            // btn_BajaHilado
+            // btn_Baja
             // 
-            this.btn_BajaHilado.Location = new System.Drawing.Point(38, 241);
-            this.btn_BajaHilado.Name = "btn_BajaHilado";
-            this.btn_BajaHilado.Size = new System.Drawing.Size(187, 23);
-            this.btn_BajaHilado.TabIndex = 2;
-            this.btn_BajaHilado.Text = "Baja";
-            this.btn_BajaHilado.UseVisualStyleBackColor = true;
-            this.btn_BajaHilado.Click += new System.EventHandler(this.btn_BajaHilado_Click);
+            this.btn_Baja.Location = new System.Drawing.Point(38, 241);
+            this.btn_Baja.Name = "btn_Baja";
+            this.btn_Baja.Size = new System.Drawing.Size(187, 23);
+            this.btn_Baja.TabIndex = 2;
+            this.btn_Baja.Text = "Baja";
+            this.btn_Baja.UseVisualStyleBackColor = true;
+            this.btn_Baja.Click += new System.EventHandler(this.btn_BajaHilado_Click);
             // 
             // lbl_HiladoId
             // 
@@ -92,41 +92,41 @@
             this.lbl_HiladoId.TabIndex = 3;
             this.lbl_HiladoId.Text = "Id : ";
             // 
-            // lbl_HiladoCodigo
+            // lbl_Codigo
             // 
-            this.lbl_HiladoCodigo.AutoSize = true;
-            this.lbl_HiladoCodigo.Location = new System.Drawing.Point(43, 55);
-            this.lbl_HiladoCodigo.Name = "lbl_HiladoCodigo";
-            this.lbl_HiladoCodigo.Size = new System.Drawing.Size(64, 17);
-            this.lbl_HiladoCodigo.TabIndex = 4;
-            this.lbl_HiladoCodigo.Text = "Código : ";
+            this.lbl_Codigo.AutoSize = true;
+            this.lbl_Codigo.Location = new System.Drawing.Point(43, 55);
+            this.lbl_Codigo.Name = "lbl_Codigo";
+            this.lbl_Codigo.Size = new System.Drawing.Size(64, 17);
+            this.lbl_Codigo.TabIndex = 4;
+            this.lbl_Codigo.Text = "Código : ";
             // 
-            // lbl_HiladoDescripcion
+            // lbl_Descripcion
             // 
-            this.lbl_HiladoDescripcion.AutoSize = true;
-            this.lbl_HiladoDescripcion.Location = new System.Drawing.Point(13, 84);
-            this.lbl_HiladoDescripcion.Name = "lbl_HiladoDescripcion";
-            this.lbl_HiladoDescripcion.Size = new System.Drawing.Size(94, 17);
-            this.lbl_HiladoDescripcion.TabIndex = 5;
-            this.lbl_HiladoDescripcion.Text = "Descripción : ";
+            this.lbl_Descripcion.AutoSize = true;
+            this.lbl_Descripcion.Location = new System.Drawing.Point(13, 84);
+            this.lbl_Descripcion.Name = "lbl_Descripcion";
+            this.lbl_Descripcion.Size = new System.Drawing.Size(94, 17);
+            this.lbl_Descripcion.TabIndex = 5;
+            this.lbl_Descripcion.Text = "Descripción : ";
             // 
-            // lbl_HiladoCantidad
+            // lbl_Cantidad
             // 
-            this.lbl_HiladoCantidad.AutoSize = true;
-            this.lbl_HiladoCantidad.Location = new System.Drawing.Point(35, 115);
-            this.lbl_HiladoCantidad.Name = "lbl_HiladoCantidad";
-            this.lbl_HiladoCantidad.Size = new System.Drawing.Size(72, 17);
-            this.lbl_HiladoCantidad.TabIndex = 6;
-            this.lbl_HiladoCantidad.Text = "Cantidad: ";
+            this.lbl_Cantidad.AutoSize = true;
+            this.lbl_Cantidad.Location = new System.Drawing.Point(35, 115);
+            this.lbl_Cantidad.Name = "lbl_Cantidad";
+            this.lbl_Cantidad.Size = new System.Drawing.Size(72, 17);
+            this.lbl_Cantidad.TabIndex = 6;
+            this.lbl_Cantidad.Text = "Cantidad: ";
             // 
-            // lbl_HiladoPeso
+            // lbl_Peso
             // 
-            this.lbl_HiladoPeso.AutoSize = true;
-            this.lbl_HiladoPeso.Location = new System.Drawing.Point(55, 146);
-            this.lbl_HiladoPeso.Name = "lbl_HiladoPeso";
-            this.lbl_HiladoPeso.Size = new System.Drawing.Size(52, 17);
-            this.lbl_HiladoPeso.TabIndex = 7;
-            this.lbl_HiladoPeso.Text = "Peso : ";
+            this.lbl_Peso.AutoSize = true;
+            this.lbl_Peso.Location = new System.Drawing.Point(55, 146);
+            this.lbl_Peso.Name = "lbl_Peso";
+            this.lbl_Peso.Size = new System.Drawing.Size(52, 17);
+            this.lbl_Peso.TabIndex = 7;
+            this.lbl_Peso.Text = "Peso : ";
             // 
             // txt_Id
             // 
@@ -184,10 +184,10 @@
             this.gbx_Hilados.Controls.Add(this.btn_Tejer);
             this.gbx_Hilados.Controls.Add(this.dgv_Hilados);
             this.gbx_Hilados.Controls.Add(this.lbl_HiladoId);
-            this.gbx_Hilados.Controls.Add(this.lbl_HiladoCodigo);
-            this.gbx_Hilados.Controls.Add(this.lbl_HiladoDescripcion);
-            this.gbx_Hilados.Controls.Add(this.lbl_HiladoCantidad);
-            this.gbx_Hilados.Controls.Add(this.lbl_HiladoPeso);
+            this.gbx_Hilados.Controls.Add(this.lbl_Codigo);
+            this.gbx_Hilados.Controls.Add(this.lbl_Descripcion);
+            this.gbx_Hilados.Controls.Add(this.lbl_Cantidad);
+            this.gbx_Hilados.Controls.Add(this.lbl_Peso);
             this.gbx_Hilados.Location = new System.Drawing.Point(12, 12);
             this.gbx_Hilados.Name = "gbx_Hilados";
             this.gbx_Hilados.Size = new System.Drawing.Size(865, 289);
@@ -205,15 +205,15 @@
             this.btn_Tejer.UseVisualStyleBackColor = true;
             this.btn_Tejer.Click += new System.EventHandler(this.btn_Tejer_Click);
             // 
-            // gbx_Telas
+            // gbx_TelasStock
             // 
-            this.gbx_Telas.Controls.Add(this.dgv_Telas);
-            this.gbx_Telas.Location = new System.Drawing.Point(220, 307);
-            this.gbx_Telas.Name = "gbx_Telas";
-            this.gbx_Telas.Size = new System.Drawing.Size(657, 262);
-            this.gbx_Telas.TabIndex = 15;
-            this.gbx_Telas.TabStop = false;
-            this.gbx_Telas.Text = "Telas en stock";
+            this.gbx_TelasStock.Controls.Add(this.dgv_Telas);
+            this.gbx_TelasStock.Location = new System.Drawing.Point(220, 307);
+            this.gbx_TelasStock.Name = "gbx_TelasStock";
+            this.gbx_TelasStock.Size = new System.Drawing.Size(657, 262);
+            this.gbx_TelasStock.TabIndex = 15;
+            this.gbx_TelasStock.TabStop = false;
+            this.gbx_TelasStock.Text = "Telas en stock";
             // 
             // dgv_Telas
             // 
@@ -246,15 +246,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 577);
             this.Controls.Add(this.btn_MenuPrincipal);
-            this.Controls.Add(this.gbx_Telas);
+            this.Controls.Add(this.gbx_TelasStock);
             this.Controls.Add(this.txt_Peso);
             this.Controls.Add(this.txt_Cantidad);
             this.Controls.Add(this.txt_Descripcion);
             this.Controls.Add(this.txt_Codigo);
             this.Controls.Add(this.txt_Id);
-            this.Controls.Add(this.btn_BajaHilado);
-            this.Controls.Add(this.btn_ModificarHilado);
-            this.Controls.Add(this.btn_AltaHilado);
+            this.Controls.Add(this.btn_Baja);
+            this.Controls.Add(this.btn_Modificar);
+            this.Controls.Add(this.btn_Alta);
             this.Controls.Add(this.gbx_Hilados);
             this.Name = "AreaTejidoMenu";
             this.Text = "Área de Tejido";
@@ -262,7 +262,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Hilados)).EndInit();
             this.gbx_Hilados.ResumeLayout(false);
             this.gbx_Hilados.PerformLayout();
-            this.gbx_Telas.ResumeLayout(false);
+            this.gbx_TelasStock.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Telas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -271,14 +271,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btn_AltaHilado;
-        private System.Windows.Forms.Button btn_ModificarHilado;
-        private System.Windows.Forms.Button btn_BajaHilado;
+        private System.Windows.Forms.Button btn_Alta;
+        private System.Windows.Forms.Button btn_Modificar;
+        private System.Windows.Forms.Button btn_Baja;
         private System.Windows.Forms.Label lbl_HiladoId;
-        private System.Windows.Forms.Label lbl_HiladoCodigo;
-        private System.Windows.Forms.Label lbl_HiladoDescripcion;
-        private System.Windows.Forms.Label lbl_HiladoCantidad;
-        private System.Windows.Forms.Label lbl_HiladoPeso;
+        private System.Windows.Forms.Label lbl_Codigo;
+        private System.Windows.Forms.Label lbl_Descripcion;
+        private System.Windows.Forms.Label lbl_Cantidad;
+        private System.Windows.Forms.Label lbl_Peso;
         private System.Windows.Forms.TextBox txt_Id;
         private System.Windows.Forms.TextBox txt_Codigo;
         private System.Windows.Forms.TextBox txt_Descripcion;
@@ -286,7 +286,7 @@
         private System.Windows.Forms.TextBox txt_Peso;
         private System.Windows.Forms.DataGridView dgv_Hilados;
         private System.Windows.Forms.GroupBox gbx_Hilados;
-        private System.Windows.Forms.GroupBox gbx_Telas;
+        private System.Windows.Forms.GroupBox gbx_TelasStock;
         private System.Windows.Forms.DataGridView dgv_Telas;
         private System.Windows.Forms.Button btn_MenuPrincipal;
         private System.Windows.Forms.Button btn_Tejer;

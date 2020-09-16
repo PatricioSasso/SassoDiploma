@@ -34,7 +34,7 @@
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbl_NombreUsuario = new System.Windows.Forms.Label();
             this.lbl_NombreUsuario2 = new System.Windows.Forms.Label();
-            this.lbl_Nombre2 = new System.Windows.Forms.Label();
+            this.lbl_Nombre = new System.Windows.Forms.Label();
             this.lbl_NombreYApellido = new System.Windows.Forms.Label();
             this.lbl_Cargo = new System.Windows.Forms.Label();
             this.lbl_Rol = new System.Windows.Forms.Label();
@@ -62,28 +62,28 @@
             this.cerrarSesionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(722, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(722, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // backupToolStripMenuItem
             // 
             this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
-            this.backupToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(71, 26);
             this.backupToolStripMenuItem.Text = "Backup";
             this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
             // 
             // restoreToolStripMenuItem
             // 
             this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
-            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
             this.restoreToolStripMenuItem.Text = "Restore";
             this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
             // 
             // cerrarSesionToolStripMenuItem
             // 
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(110, 26);
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesión";
             this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
@@ -105,14 +105,14 @@
             this.lbl_NombreUsuario2.TabIndex = 3;
             this.lbl_NombreUsuario2.Text = "lbl_NombreUsuario";
             // 
-            // lbl_Nombre2
+            // lbl_Nombre
             // 
-            this.lbl_Nombre2.AutoSize = true;
-            this.lbl_Nombre2.Location = new System.Drawing.Point(6, 35);
-            this.lbl_Nombre2.Name = "lbl_Nombre2";
-            this.lbl_Nombre2.Size = new System.Drawing.Size(66, 17);
-            this.lbl_Nombre2.TabIndex = 4;
-            this.lbl_Nombre2.Text = "Nombre: ";
+            this.lbl_Nombre.AutoSize = true;
+            this.lbl_Nombre.Location = new System.Drawing.Point(6, 35);
+            this.lbl_Nombre.Name = "lbl_Nombre";
+            this.lbl_Nombre.Size = new System.Drawing.Size(66, 17);
+            this.lbl_Nombre.TabIndex = 4;
+            this.lbl_Nombre.Text = "Nombre: ";
             // 
             // lbl_NombreYApellido
             // 
@@ -147,7 +147,7 @@
             this.gbox_InfoUsuario.Controls.Add(this.lbl_Rol);
             this.gbox_InfoUsuario.Controls.Add(this.lbl_NombreUsuario2);
             this.gbox_InfoUsuario.Controls.Add(this.lbl_Cargo);
-            this.gbox_InfoUsuario.Controls.Add(this.lbl_Nombre2);
+            this.gbox_InfoUsuario.Controls.Add(this.lbl_Nombre);
             this.gbox_InfoUsuario.Controls.Add(this.lbl_NombreYApellido);
             this.gbox_InfoUsuario.Location = new System.Drawing.Point(12, 31);
             this.gbox_InfoUsuario.Name = "gbox_InfoUsuario";
@@ -270,7 +270,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label lbl_NombreUsuario;
         private System.Windows.Forms.Label lbl_NombreUsuario2;
-        private System.Windows.Forms.Label lbl_Nombre2;
+        private System.Windows.Forms.Label lbl_Nombre;
         private System.Windows.Forms.Label lbl_NombreYApellido;
         private System.Windows.Forms.Label lbl_Cargo;
         private System.Windows.Forms.Label lbl_Rol;

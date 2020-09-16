@@ -30,11 +30,11 @@
         {
             this.gbx_Telas = new System.Windows.Forms.GroupBox();
             this.btn_Cortar = new System.Windows.Forms.Button();
-            this.btn_BajaTela = new System.Windows.Forms.Button();
+            this.btn_Baja = new System.Windows.Forms.Button();
             this.txt_Color = new System.Windows.Forms.TextBox();
-            this.btn_ModificarTela = new System.Windows.Forms.Button();
+            this.btn_Modificar = new System.Windows.Forms.Button();
             this.lbl_Color = new System.Windows.Forms.Label();
-            this.btn_AltaTela = new System.Windows.Forms.Button();
+            this.btn_Alta = new System.Windows.Forms.Button();
             this.txt_Cantidad = new System.Windows.Forms.TextBox();
             this.lbl_Cantidad = new System.Windows.Forms.Label();
             this.txt_Descripcion = new System.Windows.Forms.TextBox();
@@ -44,23 +44,23 @@
             this.txt_Id = new System.Windows.Forms.TextBox();
             this.lbl_Id = new System.Windows.Forms.Label();
             this.dgv_Telas = new System.Windows.Forms.DataGridView();
-            this.gbx_Tela = new System.Windows.Forms.GroupBox();
+            this.gbx_PrendasCortadasStock = new System.Windows.Forms.GroupBox();
             this.dgv_Prendas = new System.Windows.Forms.DataGridView();
             this.btn_MenuPrincipal = new System.Windows.Forms.Button();
             this.gbx_Telas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Telas)).BeginInit();
-            this.gbx_Tela.SuspendLayout();
+            this.gbx_PrendasCortadasStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Prendas)).BeginInit();
             this.SuspendLayout();
             // 
             // gbx_Telas
             // 
             this.gbx_Telas.Controls.Add(this.btn_Cortar);
-            this.gbx_Telas.Controls.Add(this.btn_BajaTela);
+            this.gbx_Telas.Controls.Add(this.btn_Baja);
             this.gbx_Telas.Controls.Add(this.txt_Color);
-            this.gbx_Telas.Controls.Add(this.btn_ModificarTela);
+            this.gbx_Telas.Controls.Add(this.btn_Modificar);
             this.gbx_Telas.Controls.Add(this.lbl_Color);
-            this.gbx_Telas.Controls.Add(this.btn_AltaTela);
+            this.gbx_Telas.Controls.Add(this.btn_Alta);
             this.gbx_Telas.Controls.Add(this.txt_Cantidad);
             this.gbx_Telas.Controls.Add(this.lbl_Cantidad);
             this.gbx_Telas.Controls.Add(this.txt_Descripcion);
@@ -87,15 +87,15 @@
             this.btn_Cortar.UseVisualStyleBackColor = true;
             this.btn_Cortar.Click += new System.EventHandler(this.btn_Cortar_Click);
             // 
-            // btn_BajaTela
+            // btn_Baja
             // 
-            this.btn_BajaTela.Location = new System.Drawing.Point(23, 219);
-            this.btn_BajaTela.Name = "btn_BajaTela";
-            this.btn_BajaTela.Size = new System.Drawing.Size(193, 23);
-            this.btn_BajaTela.TabIndex = 20;
-            this.btn_BajaTela.Text = "Baja";
-            this.btn_BajaTela.UseVisualStyleBackColor = true;
-            this.btn_BajaTela.Click += new System.EventHandler(this.btn_BajaTela_Click);
+            this.btn_Baja.Location = new System.Drawing.Point(23, 219);
+            this.btn_Baja.Name = "btn_Baja";
+            this.btn_Baja.Size = new System.Drawing.Size(193, 23);
+            this.btn_Baja.TabIndex = 20;
+            this.btn_Baja.Text = "Baja";
+            this.btn_Baja.UseVisualStyleBackColor = true;
+            this.btn_Baja.Click += new System.EventHandler(this.btn_BajaTela_Click);
             // 
             // txt_Color
             // 
@@ -104,15 +104,15 @@
             this.txt_Color.Size = new System.Drawing.Size(100, 22);
             this.txt_Color.TabIndex = 24;
             // 
-            // btn_ModificarTela
+            // btn_Modificar
             // 
-            this.btn_ModificarTela.Location = new System.Drawing.Point(23, 190);
-            this.btn_ModificarTela.Name = "btn_ModificarTela";
-            this.btn_ModificarTela.Size = new System.Drawing.Size(193, 23);
-            this.btn_ModificarTela.TabIndex = 19;
-            this.btn_ModificarTela.Text = "Modificar";
-            this.btn_ModificarTela.UseVisualStyleBackColor = true;
-            this.btn_ModificarTela.Click += new System.EventHandler(this.btn_ModificarTela_Click);
+            this.btn_Modificar.Location = new System.Drawing.Point(23, 190);
+            this.btn_Modificar.Name = "btn_Modificar";
+            this.btn_Modificar.Size = new System.Drawing.Size(193, 23);
+            this.btn_Modificar.TabIndex = 19;
+            this.btn_Modificar.Text = "Modificar";
+            this.btn_Modificar.UseVisualStyleBackColor = true;
+            this.btn_Modificar.Click += new System.EventHandler(this.btn_ModificarTela_Click);
             // 
             // lbl_Color
             // 
@@ -123,15 +123,15 @@
             this.lbl_Color.TabIndex = 23;
             this.lbl_Color.Text = "Color :";
             // 
-            // btn_AltaTela
+            // btn_Alta
             // 
-            this.btn_AltaTela.Location = new System.Drawing.Point(23, 161);
-            this.btn_AltaTela.Name = "btn_AltaTela";
-            this.btn_AltaTela.Size = new System.Drawing.Size(193, 23);
-            this.btn_AltaTela.TabIndex = 18;
-            this.btn_AltaTela.Text = "Alta";
-            this.btn_AltaTela.UseVisualStyleBackColor = true;
-            this.btn_AltaTela.Click += new System.EventHandler(this.btn_AltaTela_Click);
+            this.btn_Alta.Location = new System.Drawing.Point(23, 161);
+            this.btn_Alta.Name = "btn_Alta";
+            this.btn_Alta.Size = new System.Drawing.Size(193, 23);
+            this.btn_Alta.TabIndex = 18;
+            this.btn_Alta.Text = "Alta";
+            this.btn_Alta.UseVisualStyleBackColor = true;
+            this.btn_Alta.Click += new System.EventHandler(this.btn_AltaTela_Click);
             // 
             // txt_Cantidad
             // 
@@ -211,15 +211,15 @@
             this.dgv_Telas.TabIndex = 0;
             this.dgv_Telas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Telas_CellClick);
             // 
-            // gbx_Tela
+            // gbx_PrendasCortadasStock
             // 
-            this.gbx_Tela.Controls.Add(this.dgv_Prendas);
-            this.gbx_Tela.Location = new System.Drawing.Point(210, 299);
-            this.gbx_Tela.Name = "gbx_Tela";
-            this.gbx_Tela.Size = new System.Drawing.Size(704, 262);
-            this.gbx_Tela.TabIndex = 19;
-            this.gbx_Tela.TabStop = false;
-            this.gbx_Tela.Text = "Prendas cortadas en stock";
+            this.gbx_PrendasCortadasStock.Controls.Add(this.dgv_Prendas);
+            this.gbx_PrendasCortadasStock.Location = new System.Drawing.Point(210, 299);
+            this.gbx_PrendasCortadasStock.Name = "gbx_PrendasCortadasStock";
+            this.gbx_PrendasCortadasStock.Size = new System.Drawing.Size(704, 262);
+            this.gbx_PrendasCortadasStock.TabIndex = 19;
+            this.gbx_PrendasCortadasStock.TabStop = false;
+            this.gbx_PrendasCortadasStock.Text = "Prendas cortadas en stock";
             // 
             // dgv_Prendas
             // 
@@ -252,7 +252,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 596);
             this.Controls.Add(this.btn_MenuPrincipal);
-            this.Controls.Add(this.gbx_Tela);
+            this.Controls.Add(this.gbx_PrendasCortadasStock);
             this.Controls.Add(this.gbx_Telas);
             this.Name = "AreaCortadoMenu";
             this.Text = "Área de Cortado";
@@ -260,7 +260,7 @@
             this.gbx_Telas.ResumeLayout(false);
             this.gbx_Telas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Telas)).EndInit();
-            this.gbx_Tela.ResumeLayout(false);
+            this.gbx_PrendasCortadasStock.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Prendas)).EndInit();
             this.ResumeLayout(false);
 
@@ -269,11 +269,11 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbx_Telas;
-        private System.Windows.Forms.Button btn_BajaTela;
+        private System.Windows.Forms.Button btn_Baja;
         private System.Windows.Forms.TextBox txt_Color;
-        private System.Windows.Forms.Button btn_ModificarTela;
+        private System.Windows.Forms.Button btn_Modificar;
         private System.Windows.Forms.Label lbl_Color;
-        private System.Windows.Forms.Button btn_AltaTela;
+        private System.Windows.Forms.Button btn_Alta;
         private System.Windows.Forms.TextBox txt_Cantidad;
         private System.Windows.Forms.Label lbl_Cantidad;
         private System.Windows.Forms.TextBox txt_Descripcion;
@@ -283,7 +283,7 @@
         private System.Windows.Forms.TextBox txt_Id;
         private System.Windows.Forms.Label lbl_Id;
         private System.Windows.Forms.DataGridView dgv_Telas;
-        private System.Windows.Forms.GroupBox gbx_Tela;
+        private System.Windows.Forms.GroupBox gbx_PrendasCortadasStock;
         private System.Windows.Forms.DataGridView dgv_Prendas;
         private System.Windows.Forms.Button btn_Cortar;
         private System.Windows.Forms.Button btn_MenuPrincipal;

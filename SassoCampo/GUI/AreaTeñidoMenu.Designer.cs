@@ -37,32 +37,32 @@
             this.lbl_Codigo = new System.Windows.Forms.Label();
             this.lbl_Cantidad = new System.Windows.Forms.Label();
             this.lbl_Descripcion = new System.Windows.Forms.Label();
-            this.btn_AltaTela = new System.Windows.Forms.Button();
-            this.btn_ModificarTela = new System.Windows.Forms.Button();
-            this.btn_BajaTela = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_Alta = new System.Windows.Forms.Button();
+            this.btn_Modificar = new System.Windows.Forms.Button();
+            this.btn_Baja = new System.Windows.Forms.Button();
+            this.gbx_Telas = new System.Windows.Forms.GroupBox();
             this.btn_MenuPrincipal = new System.Windows.Forms.Button();
-            this.btn_Teñir = new System.Windows.Forms.Button();
-            this.gbx_Tela = new System.Windows.Forms.GroupBox();
+            this.btn_Tenir = new System.Windows.Forms.Button();
+            this.gbx_TelasTenidasStock = new System.Windows.Forms.GroupBox();
             this.dgv_TelasTeñidas = new System.Windows.Forms.DataGridView();
             this.gbx_Tintes = new System.Windows.Forms.GroupBox();
-            this.btn_BajaTinte = new System.Windows.Forms.Button();
+            this.btn_Baja2 = new System.Windows.Forms.Button();
             this.txt_ColorTinte = new System.Windows.Forms.TextBox();
-            this.btn_ModificarTinte = new System.Windows.Forms.Button();
-            this.lbl_ColorTinte = new System.Windows.Forms.Label();
-            this.btn_AltaTinte = new System.Windows.Forms.Button();
+            this.btn_Modificar2 = new System.Windows.Forms.Button();
+            this.lbl_Color = new System.Windows.Forms.Label();
+            this.btn_Alta2 = new System.Windows.Forms.Button();
             this.txt_CantidadTinte = new System.Windows.Forms.TextBox();
-            this.lbl_CantidadTinte = new System.Windows.Forms.Label();
+            this.lbl_Cantidad2 = new System.Windows.Forms.Label();
             this.txt_DescripcionTinte = new System.Windows.Forms.TextBox();
-            this.lbl_DescripcionTinte = new System.Windows.Forms.Label();
+            this.lbl_Descripcion2 = new System.Windows.Forms.Label();
             this.txt_CodigoTinte = new System.Windows.Forms.TextBox();
-            this.lbl_CodigoTinte = new System.Windows.Forms.Label();
+            this.lbl_Codigo2 = new System.Windows.Forms.Label();
             this.txt_IdTinte = new System.Windows.Forms.TextBox();
             this.lbl_IdTinte = new System.Windows.Forms.Label();
             this.dgv_Tintes = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Telas)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.gbx_Tela.SuspendLayout();
+            this.gbx_Telas.SuspendLayout();
+            this.gbx_TelasTenidasStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_TelasTeñidas)).BeginInit();
             this.gbx_Tintes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Tintes)).BeginInit();
@@ -146,48 +146,48 @@
             this.lbl_Descripcion.TabIndex = 10;
             this.lbl_Descripcion.Text = "Descripción :";
             // 
-            // btn_AltaTela
+            // btn_Alta
             // 
-            this.btn_AltaTela.Location = new System.Drawing.Point(23, 137);
-            this.btn_AltaTela.Name = "btn_AltaTela";
-            this.btn_AltaTela.Size = new System.Drawing.Size(193, 23);
-            this.btn_AltaTela.TabIndex = 11;
-            this.btn_AltaTela.Text = "Alta";
-            this.btn_AltaTela.UseVisualStyleBackColor = true;
-            this.btn_AltaTela.Click += new System.EventHandler(this.btn_AltaTela_Click);
+            this.btn_Alta.Location = new System.Drawing.Point(23, 137);
+            this.btn_Alta.Name = "btn_Alta";
+            this.btn_Alta.Size = new System.Drawing.Size(193, 23);
+            this.btn_Alta.TabIndex = 11;
+            this.btn_Alta.Text = "Alta";
+            this.btn_Alta.UseVisualStyleBackColor = true;
+            this.btn_Alta.Click += new System.EventHandler(this.btn_AltaTela_Click);
             // 
-            // btn_ModificarTela
+            // btn_Modificar
             // 
-            this.btn_ModificarTela.Location = new System.Drawing.Point(23, 166);
-            this.btn_ModificarTela.Name = "btn_ModificarTela";
-            this.btn_ModificarTela.Size = new System.Drawing.Size(193, 23);
-            this.btn_ModificarTela.TabIndex = 12;
-            this.btn_ModificarTela.Text = "Modificar";
-            this.btn_ModificarTela.UseVisualStyleBackColor = true;
-            this.btn_ModificarTela.Click += new System.EventHandler(this.btn_ModificarTela_Click);
+            this.btn_Modificar.Location = new System.Drawing.Point(23, 166);
+            this.btn_Modificar.Name = "btn_Modificar";
+            this.btn_Modificar.Size = new System.Drawing.Size(193, 23);
+            this.btn_Modificar.TabIndex = 12;
+            this.btn_Modificar.Text = "Modificar";
+            this.btn_Modificar.UseVisualStyleBackColor = true;
+            this.btn_Modificar.Click += new System.EventHandler(this.btn_ModificarTela_Click);
             // 
-            // btn_BajaTela
+            // btn_Baja
             // 
-            this.btn_BajaTela.Location = new System.Drawing.Point(23, 195);
-            this.btn_BajaTela.Name = "btn_BajaTela";
-            this.btn_BajaTela.Size = new System.Drawing.Size(193, 23);
-            this.btn_BajaTela.TabIndex = 13;
-            this.btn_BajaTela.Text = "Baja";
-            this.btn_BajaTela.UseVisualStyleBackColor = true;
-            this.btn_BajaTela.Click += new System.EventHandler(this.btn_BajaTela_Click);
+            this.btn_Baja.Location = new System.Drawing.Point(23, 195);
+            this.btn_Baja.Name = "btn_Baja";
+            this.btn_Baja.Size = new System.Drawing.Size(193, 23);
+            this.btn_Baja.TabIndex = 13;
+            this.btn_Baja.Text = "Baja";
+            this.btn_Baja.UseVisualStyleBackColor = true;
+            this.btn_Baja.Click += new System.EventHandler(this.btn_BajaTela_Click);
             // 
-            // groupBox1
+            // gbx_Telas
             // 
-            this.groupBox1.Controls.Add(this.dgv_Telas);
-            this.groupBox1.Controls.Add(this.btn_AltaTela);
-            this.groupBox1.Controls.Add(this.btn_ModificarTela);
-            this.groupBox1.Controls.Add(this.btn_BajaTela);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(758, 227);
-            this.groupBox1.TabIndex = 14;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Gestión de Telas";
+            this.gbx_Telas.Controls.Add(this.dgv_Telas);
+            this.gbx_Telas.Controls.Add(this.btn_Alta);
+            this.gbx_Telas.Controls.Add(this.btn_Modificar);
+            this.gbx_Telas.Controls.Add(this.btn_Baja);
+            this.gbx_Telas.Location = new System.Drawing.Point(12, 12);
+            this.gbx_Telas.Name = "gbx_Telas";
+            this.gbx_Telas.Size = new System.Drawing.Size(758, 227);
+            this.gbx_Telas.TabIndex = 14;
+            this.gbx_Telas.TabStop = false;
+            this.gbx_Telas.Text = "Gestión de Telas";
             // 
             // btn_MenuPrincipal
             // 
@@ -199,25 +199,25 @@
             this.btn_MenuPrincipal.UseVisualStyleBackColor = true;
             this.btn_MenuPrincipal.Click += new System.EventHandler(this.btn_MenuPrincipal_Click);
             // 
-            // btn_Teñir
+            // btn_Tenir
             // 
-            this.btn_Teñir.Location = new System.Drawing.Point(776, 24);
-            this.btn_Teñir.Name = "btn_Teñir";
-            this.btn_Teñir.Size = new System.Drawing.Size(107, 206);
-            this.btn_Teñir.TabIndex = 14;
-            this.btn_Teñir.Text = "Teñir Tela";
-            this.btn_Teñir.UseVisualStyleBackColor = true;
-            this.btn_Teñir.Click += new System.EventHandler(this.btn_Teñir_Click);
+            this.btn_Tenir.Location = new System.Drawing.Point(776, 24);
+            this.btn_Tenir.Name = "btn_Tenir";
+            this.btn_Tenir.Size = new System.Drawing.Size(107, 206);
+            this.btn_Tenir.TabIndex = 14;
+            this.btn_Tenir.Text = "Teñir Tela";
+            this.btn_Tenir.UseVisualStyleBackColor = true;
+            this.btn_Tenir.Click += new System.EventHandler(this.btn_Tenir_Click);
             // 
-            // gbx_Tela
+            // gbx_TelasTenidasStock
             // 
-            this.gbx_Tela.Controls.Add(this.dgv_TelasTeñidas);
-            this.gbx_Tela.Location = new System.Drawing.Point(12, 504);
-            this.gbx_Tela.Name = "gbx_Tela";
-            this.gbx_Tela.Size = new System.Drawing.Size(822, 262);
-            this.gbx_Tela.TabIndex = 16;
-            this.gbx_Tela.TabStop = false;
-            this.gbx_Tela.Text = "Telas teñidas en stock";
+            this.gbx_TelasTenidasStock.Controls.Add(this.dgv_TelasTeñidas);
+            this.gbx_TelasTenidasStock.Location = new System.Drawing.Point(12, 504);
+            this.gbx_TelasTenidasStock.Name = "gbx_TelasTenidasStock";
+            this.gbx_TelasTenidasStock.Size = new System.Drawing.Size(822, 262);
+            this.gbx_TelasTenidasStock.TabIndex = 16;
+            this.gbx_TelasTenidasStock.TabStop = false;
+            this.gbx_TelasTenidasStock.Text = "Telas teñidas en stock";
             // 
             // dgv_TelasTeñidas
             // 
@@ -236,17 +236,17 @@
             // 
             // gbx_Tintes
             // 
-            this.gbx_Tintes.Controls.Add(this.btn_BajaTinte);
+            this.gbx_Tintes.Controls.Add(this.btn_Baja2);
             this.gbx_Tintes.Controls.Add(this.txt_ColorTinte);
-            this.gbx_Tintes.Controls.Add(this.btn_ModificarTinte);
-            this.gbx_Tintes.Controls.Add(this.lbl_ColorTinte);
-            this.gbx_Tintes.Controls.Add(this.btn_AltaTinte);
+            this.gbx_Tintes.Controls.Add(this.btn_Modificar2);
+            this.gbx_Tintes.Controls.Add(this.lbl_Color);
+            this.gbx_Tintes.Controls.Add(this.btn_Alta2);
             this.gbx_Tintes.Controls.Add(this.txt_CantidadTinte);
-            this.gbx_Tintes.Controls.Add(this.lbl_CantidadTinte);
+            this.gbx_Tintes.Controls.Add(this.lbl_Cantidad2);
             this.gbx_Tintes.Controls.Add(this.txt_DescripcionTinte);
-            this.gbx_Tintes.Controls.Add(this.lbl_DescripcionTinte);
+            this.gbx_Tintes.Controls.Add(this.lbl_Descripcion2);
             this.gbx_Tintes.Controls.Add(this.txt_CodigoTinte);
-            this.gbx_Tintes.Controls.Add(this.lbl_CodigoTinte);
+            this.gbx_Tintes.Controls.Add(this.lbl_Codigo2);
             this.gbx_Tintes.Controls.Add(this.txt_IdTinte);
             this.gbx_Tintes.Controls.Add(this.lbl_IdTinte);
             this.gbx_Tintes.Controls.Add(this.dgv_Tintes);
@@ -257,15 +257,15 @@
             this.gbx_Tintes.TabStop = false;
             this.gbx_Tintes.Text = "Gestión de Tintes";
             // 
-            // btn_BajaTinte
+            // btn_Baja2
             // 
-            this.btn_BajaTinte.Location = new System.Drawing.Point(23, 219);
-            this.btn_BajaTinte.Name = "btn_BajaTinte";
-            this.btn_BajaTinte.Size = new System.Drawing.Size(193, 23);
-            this.btn_BajaTinte.TabIndex = 20;
-            this.btn_BajaTinte.Text = "Baja";
-            this.btn_BajaTinte.UseVisualStyleBackColor = true;
-            this.btn_BajaTinte.Click += new System.EventHandler(this.btn_BajaTinte_Click);
+            this.btn_Baja2.Location = new System.Drawing.Point(23, 219);
+            this.btn_Baja2.Name = "btn_Baja2";
+            this.btn_Baja2.Size = new System.Drawing.Size(193, 23);
+            this.btn_Baja2.TabIndex = 20;
+            this.btn_Baja2.Text = "Baja";
+            this.btn_Baja2.UseVisualStyleBackColor = true;
+            this.btn_Baja2.Click += new System.EventHandler(this.btn_BajaTinte_Click);
             // 
             // txt_ColorTinte
             // 
@@ -274,34 +274,34 @@
             this.txt_ColorTinte.Size = new System.Drawing.Size(100, 22);
             this.txt_ColorTinte.TabIndex = 24;
             // 
-            // btn_ModificarTinte
+            // btn_Modificar2
             // 
-            this.btn_ModificarTinte.Location = new System.Drawing.Point(23, 190);
-            this.btn_ModificarTinte.Name = "btn_ModificarTinte";
-            this.btn_ModificarTinte.Size = new System.Drawing.Size(193, 23);
-            this.btn_ModificarTinte.TabIndex = 19;
-            this.btn_ModificarTinte.Text = "Modificar";
-            this.btn_ModificarTinte.UseVisualStyleBackColor = true;
-            this.btn_ModificarTinte.Click += new System.EventHandler(this.btn_ModificarTinte_Click);
+            this.btn_Modificar2.Location = new System.Drawing.Point(23, 190);
+            this.btn_Modificar2.Name = "btn_Modificar2";
+            this.btn_Modificar2.Size = new System.Drawing.Size(193, 23);
+            this.btn_Modificar2.TabIndex = 19;
+            this.btn_Modificar2.Text = "Modificar";
+            this.btn_Modificar2.UseVisualStyleBackColor = true;
+            this.btn_Modificar2.Click += new System.EventHandler(this.btn_ModificarTinte_Click);
             // 
-            // lbl_ColorTinte
+            // lbl_Color
             // 
-            this.lbl_ColorTinte.AutoSize = true;
-            this.lbl_ColorTinte.Location = new System.Drawing.Point(52, 136);
-            this.lbl_ColorTinte.Name = "lbl_ColorTinte";
-            this.lbl_ColorTinte.Size = new System.Drawing.Size(49, 17);
-            this.lbl_ColorTinte.TabIndex = 23;
-            this.lbl_ColorTinte.Text = "Color :";
+            this.lbl_Color.AutoSize = true;
+            this.lbl_Color.Location = new System.Drawing.Point(52, 136);
+            this.lbl_Color.Name = "lbl_Color";
+            this.lbl_Color.Size = new System.Drawing.Size(49, 17);
+            this.lbl_Color.TabIndex = 23;
+            this.lbl_Color.Text = "Color :";
             // 
-            // btn_AltaTinte
+            // btn_Alta2
             // 
-            this.btn_AltaTinte.Location = new System.Drawing.Point(23, 161);
-            this.btn_AltaTinte.Name = "btn_AltaTinte";
-            this.btn_AltaTinte.Size = new System.Drawing.Size(193, 23);
-            this.btn_AltaTinte.TabIndex = 18;
-            this.btn_AltaTinte.Text = "Alta";
-            this.btn_AltaTinte.UseVisualStyleBackColor = true;
-            this.btn_AltaTinte.Click += new System.EventHandler(this.btn_AltaTinte_Click);
+            this.btn_Alta2.Location = new System.Drawing.Point(23, 161);
+            this.btn_Alta2.Name = "btn_Alta2";
+            this.btn_Alta2.Size = new System.Drawing.Size(193, 23);
+            this.btn_Alta2.TabIndex = 18;
+            this.btn_Alta2.Text = "Alta";
+            this.btn_Alta2.UseVisualStyleBackColor = true;
+            this.btn_Alta2.Click += new System.EventHandler(this.btn_AltaTinte_Click);
             // 
             // txt_CantidadTinte
             // 
@@ -310,14 +310,14 @@
             this.txt_CantidadTinte.Size = new System.Drawing.Size(100, 22);
             this.txt_CantidadTinte.TabIndex = 19;
             // 
-            // lbl_CantidadTinte
+            // lbl_Cantidad2
             // 
-            this.lbl_CantidadTinte.AutoSize = true;
-            this.lbl_CantidadTinte.Location = new System.Drawing.Point(38, 108);
-            this.lbl_CantidadTinte.Name = "lbl_CantidadTinte";
-            this.lbl_CantidadTinte.Size = new System.Drawing.Size(72, 17);
-            this.lbl_CantidadTinte.TabIndex = 21;
-            this.lbl_CantidadTinte.Text = "Cantidad :";
+            this.lbl_Cantidad2.AutoSize = true;
+            this.lbl_Cantidad2.Location = new System.Drawing.Point(38, 108);
+            this.lbl_Cantidad2.Name = "lbl_Cantidad2";
+            this.lbl_Cantidad2.Size = new System.Drawing.Size(72, 17);
+            this.lbl_Cantidad2.TabIndex = 21;
+            this.lbl_Cantidad2.Text = "Cantidad :";
             // 
             // txt_DescripcionTinte
             // 
@@ -326,14 +326,14 @@
             this.txt_DescripcionTinte.Size = new System.Drawing.Size(100, 22);
             this.txt_DescripcionTinte.TabIndex = 18;
             // 
-            // lbl_DescripcionTinte
+            // lbl_Descripcion2
             // 
-            this.lbl_DescripcionTinte.AutoSize = true;
-            this.lbl_DescripcionTinte.Location = new System.Drawing.Point(20, 82);
-            this.lbl_DescripcionTinte.Name = "lbl_DescripcionTinte";
-            this.lbl_DescripcionTinte.Size = new System.Drawing.Size(90, 17);
-            this.lbl_DescripcionTinte.TabIndex = 22;
-            this.lbl_DescripcionTinte.Text = "Descripción :";
+            this.lbl_Descripcion2.AutoSize = true;
+            this.lbl_Descripcion2.Location = new System.Drawing.Point(20, 82);
+            this.lbl_Descripcion2.Name = "lbl_Descripcion2";
+            this.lbl_Descripcion2.Size = new System.Drawing.Size(90, 17);
+            this.lbl_Descripcion2.TabIndex = 22;
+            this.lbl_Descripcion2.Text = "Descripción :";
             // 
             // txt_CodigoTinte
             // 
@@ -342,14 +342,14 @@
             this.txt_CodigoTinte.Size = new System.Drawing.Size(100, 22);
             this.txt_CodigoTinte.TabIndex = 17;
             // 
-            // lbl_CodigoTinte
+            // lbl_Codigo2
             // 
-            this.lbl_CodigoTinte.AutoSize = true;
-            this.lbl_CodigoTinte.Location = new System.Drawing.Point(52, 52);
-            this.lbl_CodigoTinte.Name = "lbl_CodigoTinte";
-            this.lbl_CodigoTinte.Size = new System.Drawing.Size(60, 17);
-            this.lbl_CodigoTinte.TabIndex = 20;
-            this.lbl_CodigoTinte.Text = "Código :";
+            this.lbl_Codigo2.AutoSize = true;
+            this.lbl_Codigo2.Location = new System.Drawing.Point(52, 52);
+            this.lbl_Codigo2.Name = "lbl_Codigo2";
+            this.lbl_Codigo2.Size = new System.Drawing.Size(60, 17);
+            this.lbl_Codigo2.TabIndex = 20;
+            this.lbl_Codigo2.Text = "Código :";
             // 
             // txt_IdTinte
             // 
@@ -386,7 +386,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(986, 775);
-            this.Controls.Add(this.btn_Teñir);
+            this.Controls.Add(this.btn_Tenir);
             this.Controls.Add(this.txt_Cantidad);
             this.Controls.Add(this.lbl_Cantidad);
             this.Controls.Add(this.txt_Descripcion);
@@ -396,15 +396,15 @@
             this.Controls.Add(this.txt_Id);
             this.Controls.Add(this.lbl_Id);
             this.Controls.Add(this.gbx_Tintes);
-            this.Controls.Add(this.gbx_Tela);
+            this.Controls.Add(this.gbx_TelasTenidasStock);
             this.Controls.Add(this.btn_MenuPrincipal);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbx_Telas);
             this.Name = "AreaTeñidoMenu";
             this.Text = "Area de Teñido";
             this.Load += new System.EventHandler(this.AreaTeñidoMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Telas)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.gbx_Tela.ResumeLayout(false);
+            this.gbx_Telas.ResumeLayout(false);
+            this.gbx_TelasTenidasStock.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_TelasTeñidas)).EndInit();
             this.gbx_Tintes.ResumeLayout(false);
             this.gbx_Tintes.PerformLayout();
@@ -425,26 +425,26 @@
         private System.Windows.Forms.Label lbl_Codigo;
         private System.Windows.Forms.Label lbl_Cantidad;
         private System.Windows.Forms.Label lbl_Descripcion;
-        private System.Windows.Forms.Button btn_AltaTela;
-        private System.Windows.Forms.Button btn_ModificarTela;
-        private System.Windows.Forms.Button btn_BajaTela;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btn_Alta;
+        private System.Windows.Forms.Button btn_Modificar;
+        private System.Windows.Forms.Button btn_Baja;
+        private System.Windows.Forms.GroupBox gbx_Telas;
         private System.Windows.Forms.Button btn_MenuPrincipal;
-        private System.Windows.Forms.Button btn_Teñir;
-        private System.Windows.Forms.GroupBox gbx_Tela;
+        private System.Windows.Forms.Button btn_Tenir;
+        private System.Windows.Forms.GroupBox gbx_TelasTenidasStock;
         private System.Windows.Forms.DataGridView dgv_TelasTeñidas;
         private System.Windows.Forms.GroupBox gbx_Tintes;
-        private System.Windows.Forms.Button btn_BajaTinte;
+        private System.Windows.Forms.Button btn_Baja2;
         private System.Windows.Forms.TextBox txt_ColorTinte;
-        private System.Windows.Forms.Button btn_ModificarTinte;
-        private System.Windows.Forms.Label lbl_ColorTinte;
-        private System.Windows.Forms.Button btn_AltaTinte;
+        private System.Windows.Forms.Button btn_Modificar2;
+        private System.Windows.Forms.Label lbl_Color;
+        private System.Windows.Forms.Button btn_Alta2;
         private System.Windows.Forms.TextBox txt_CantidadTinte;
-        private System.Windows.Forms.Label lbl_CantidadTinte;
+        private System.Windows.Forms.Label lbl_Cantidad2;
         private System.Windows.Forms.TextBox txt_DescripcionTinte;
-        private System.Windows.Forms.Label lbl_DescripcionTinte;
+        private System.Windows.Forms.Label lbl_Descripcion2;
         private System.Windows.Forms.TextBox txt_CodigoTinte;
-        private System.Windows.Forms.Label lbl_CodigoTinte;
+        private System.Windows.Forms.Label lbl_Codigo2;
         private System.Windows.Forms.TextBox txt_IdTinte;
         private System.Windows.Forms.Label lbl_IdTinte;
         private System.Windows.Forms.DataGridView dgv_Tintes;
