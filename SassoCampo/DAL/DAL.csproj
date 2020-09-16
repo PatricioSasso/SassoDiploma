@@ -47,6 +47,8 @@
     <Compile Include="DALCorte.cs" />
     <Compile Include="DALDVV.cs" />
     <Compile Include="DALHilado.cs" />
+    <Compile Include="DALItemProducto.cs" />
+    <Compile Include="DALPedidoProduccion.cs" />
     <Compile Include="DALPermiso.cs" />
     <Compile Include="DALPrenda.cs" />
     <Compile Include="DALProducto.cs" />

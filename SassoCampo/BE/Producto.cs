@@ -10,6 +10,11 @@
 
     }
 
+    public Producto(int id)
+    {
+        Id = id;
+    }
+
     public Producto(int id, string codigo, string descripcion, int cantidad)
     {
         Id = id;

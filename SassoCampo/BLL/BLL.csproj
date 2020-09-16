@@ -43,12 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackupAndRestoreGestor.cs" />
-    <Compile Include="TraduccionIdiomaGestor.cs" />
     <Compile Include="ConfeccionGestor.cs" />
-    <Compile Include="ControlDeAccesoGestor.cs" />
     <Compile Include="CorteGestor.cs" />
-    <Compile Include="DVVGestor.cs" />
     <Compile Include="HiladoGestor.cs" />
     <Compile Include="PermisoGestor.cs" />
     <Compile Include="PrendaGestor.cs" />
