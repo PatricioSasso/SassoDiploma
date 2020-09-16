@@ -10,6 +10,7 @@ using System.Linq;
 using BE;
 using System.Windows.Forms.VisualStyles;
 using System.Runtime.CompilerServices;
+using Service;
 
 namespace GUI
 {
@@ -31,10 +32,11 @@ namespace GUI
         public string LogIn(string nombreUsuario, string contraseña)
         {
             ControlDeAccesoGestor controlDeAccesoGestor = new ControlDeAccesoGestor();
+            UsuarioGestor usuarioGestor = new UsuarioGestor();
             if (controlDeAccesoGestor.LogIn(nombreUsuario, controlDeAccesoGestor.GetHash(contraseña)))
             {
                 Usuario user = new Usuario(nombreUsuario, contraseña, "", "", new Rol(0, "", new List<Permiso>()));
-                user = controlDeAccesoGestor.GetUsuario(user);
+                user = usuarioGestor.GetUsuario(user);
                 if (user.DVH == controlDeAccesoGestor.GetHash(user.NombreUsuario + user.Contraseña + user.Nombre + user.Apellido + user.Rol.Id))
                 {
                     ControlDeAcceso.UsuarioActual = user;

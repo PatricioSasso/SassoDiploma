@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{08C9647E-BCFE-4880-A12C-CB70C86950DB}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BLL</RootNamespace>
-    <AssemblyName>BLL</AssemblyName>
+    <ProjectGuid>{E12E75CF-26B4-45E5-952D-178B0340B6CD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Servicio</RootNamespace>
+    <AssemblyName>Servicio</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,31 +33,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfeccionGestor.cs" />
-    <Compile Include="CorteGestor.cs" />
-    <Compile Include="HiladoGestor.cs" />
-    <Compile Include="PermisoGestor.cs" />
-    <Compile Include="PrendaGestor.cs" />
-    <Compile Include="ProductoGestor.cs" />
+    <Compile Include="BackupAndRestoreGestor.cs" />
+    <Compile Include="ControlDeAccesoGestor.cs" />
+    <Compile Include="DVVGestor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RolGestor.cs" />
-    <Compile Include="TejidoGestor.cs" />
-    <Compile Include="TelaGestor.cs" />
-    <Compile Include="TeñidoGestor.cs" />
-    <Compile Include="TinteGestor.cs" />
-    <Compile Include="UsuarioGestor.cs" />
+    <Compile Include="TraduccionIdiomaGestor.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj">
@@ -66,9 +79,9 @@
       <Project>{eb93f509-2730-4519-8d13-0ecdd9c7011c}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Servicio\Service.csproj">
-      <Project>{e12e75cf-26b4-45e5-952d-178b0340b6cd}</Project>
-      <Name>Service</Name>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{2db22ad8-e1c6-4641-a884-e56b4be226ae}</Project>
+      <Name>Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

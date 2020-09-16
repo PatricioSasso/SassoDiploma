@@ -38,13 +38,16 @@ public class RolGestor
 
     public void AddPermiso(Rol rol, Permiso permiso)
     {
-        bd.AltaRolPermiso(rol, permiso);
-        rol.Permisos.Add(bd.GetPermiso(permiso));
+        DALRolPermiso dalRolPermiso = new DALRolPermiso();
+        DALPermiso dalPermiso = new DALPermiso();
+        dalRolPermiso.AltaRolPermiso(rol, permiso);
+        rol.Permisos.Add(dalPermiso.Get(permiso));
     }
 
     public void RemovePermiso(Rol rol, Permiso permiso)
     {
-        bd.BajaRolPermiso(rol, permiso);
+        DALRolPermiso dalRolPermiso = new DALRolPermiso();
+        dalRolPermiso.BajaRolPermiso(rol, permiso);
         rol.Permisos.Remove(permiso);
     }
 }

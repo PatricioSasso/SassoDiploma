@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using BE;
+using Service;
 
 namespace GUI
 {

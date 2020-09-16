@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class DALPermiso : DAL , IABMC<Permiso>
+    public class DALPermiso : DAL , IABMC<Permiso>
     {
 
         public Permiso Get(Permiso get)

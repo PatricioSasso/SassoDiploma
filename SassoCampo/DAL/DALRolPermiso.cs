@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class DALRolPermiso : DAL
+    public class DALRolPermiso : DAL
     {
         public void AltaRolPermiso(Rol rol, Permiso permiso)
         {

@@ -3,26 +3,26 @@ using System.Collections.Generic;
 
 public class PermisoGestor
 {
-    DALRol bd;
+    DALPermiso bd;
 
     public PermisoGestor()
     {
-        bd = new DALRol();
+        bd = new DALPermiso();
     }
 
     public Permiso GetPermiso(Permiso permiso)
     {
-        return bd.GetPermiso(permiso);
+        return bd.Get(permiso);
     }
 
     public List<Permiso> GetListPermiso()
     {
-        return bd.GetListPermiso();
+        return bd.GetList();
     }
 
     public List<Permiso> GetListPermiso(Rol rol)
     {
-        return bd.GetListPermiso(rol);
+        return bd.GetList(rol);
     }
 
 }
