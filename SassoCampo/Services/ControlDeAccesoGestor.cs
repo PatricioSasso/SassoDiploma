@@ -1,8 +1,9 @@
 ﻿using DAL;
+using Interfaces;
 using System.Security.Cryptography;
 using System.Text;
 
-public class ControlDeAccesoGestor
+public class ControlDeAccesoGestor: IHasheable
 {
     DALUsuario bd;
 
@@ -14,11 +15,6 @@ public class ControlDeAccesoGestor
     public bool LogIn(string nombreUsuario, string contraseña)
     {
         return bd.LogIn(nombreUsuario, contraseña);
-    }
-
-    public Usuario GetUsuario(Usuario usuario)
-    {
-        return bd.Get(usuario);
     }
 
     public string GetHash(string input)

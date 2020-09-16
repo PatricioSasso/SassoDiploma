@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 using BE;
 using DAL;
+using Interfaces;
 
 namespace BLL
 {
-    public class DVVGestor
+    public class DVVGestor : IHasheable
     {
         DALDVV bd;
 
@@ -44,13 +46,26 @@ namespace BLL
 
         public string CalcularDVV(DVV dvv)
         {
-            ControlDeAccesoGestor controlDeAccesoGestor = new ControlDeAccesoGestor();
             string ParcialHash = "";
             foreach (var dvh in bd.GetTableDVV(dvv))
             {
                 ParcialHash += dvh;
             }
-            return controlDeAccesoGestor.GetHash(ParcialHash);
+            return GetHash(ParcialHash);
+        }
+
+        public string GetHash(string input)
+        {
+            using (MD5 hasher = MD5.Create())
+            {
+                byte[] dato = hasher.ComputeHash(UTF8Encoding.UTF8.GetBytes(input));
+                string hasheado = "";
+                for (int i = 0; i < dato.Length; i++)
+                {
+                    hasheado += dato[i].ToString();
+                }
+                return hasheado;
+            }
         }
     }
 }

@@ -11,4 +11,9 @@ namespace Interfaces
         T Get(T get);
         List<T> GetList();
     }
+
+    public interface IHasheable
+    {
+        string GetHash( string input);
+    }
 }
