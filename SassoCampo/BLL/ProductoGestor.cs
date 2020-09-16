@@ -27,12 +27,12 @@ public class ProductoGestor
 
     public Producto GetProducto(Producto producto)
     {
-        return bd.GetProducto(producto);
+        return bd.Get(producto);
     }
 
     public List<Producto> GetListProducto()
     {
-        return bd.GetListProducto();
+        return bd.GetList();
     }
 
 }

@@ -4,10 +4,11 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Interfaces;
 
 namespace DAL
 {
-    public class DALConfeccion : DAL
+    public class DALConfeccion : DAL, IABMC<Confeccion> 
     {
         public DALConfeccion()
         {
@@ -36,12 +37,17 @@ namespace DAL
             conexion.Close();
         }
 
-        public Confeccion GetConfeccion(Confeccion buscar)
+        public void Modificar(Confeccion modificar)
+        {
+
+        }
+
+        public Confeccion Get(Confeccion get)
         {
             conexion.Open();
             Confeccion confeccion = new Confeccion();
             query = new SqlCommand("SELECT * FROM Confeccion WHERE Id = @Id", conexion);
-            query.Parameters.AddWithValue("Id", buscar.Id);
+            query.Parameters.AddWithValue("Id", get.Id);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while (reader.Read())
@@ -56,11 +62,11 @@ namespace DAL
             }
             conexion.Close();
             DALPrenda dalPrenda = new DALPrenda();
-            confeccion.Prenda = dalPrenda.GetPrenda(confeccion.Prenda);
+            confeccion.Prenda = dalPrenda.Get(confeccion.Prenda);
             return confeccion;
         }
 
-        public List<Confeccion> GetListConfeccion()
+        public List<Confeccion> GetList()
         {
             conexion.Open();
             List<Confeccion> confecciones = new List<Confeccion>();
@@ -76,7 +82,7 @@ namespace DAL
             DALPrenda dalPrenda = new DALPrenda();
             foreach (var confeccion in confecciones)
             {
-                confeccion.Prenda = dalPrenda.GetPrenda(confeccion.Prenda);
+                confeccion.Prenda = dalPrenda.Get(confeccion.Prenda);
             }
             return confecciones;
         }

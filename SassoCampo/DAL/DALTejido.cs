@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DALTejido : DAL
+    public class DALTejido : DAL, IABMC<Tejido>
     {
         public DALTejido()
         {
@@ -37,12 +38,17 @@ namespace DAL
             conexion.Close();
         }
 
-        public Tejido GetTejido(Tejido buscar)
+        public void Modificar(Tejido modificar)
+        {
+
+        }
+
+        public Tejido Get(Tejido get)
         {
             conexion.Open();
             Tejido tejido = new Tejido();
             query = new SqlCommand("SELECT * FROM Tejido WHERE Id = @Id", conexion);
-            query.Parameters.AddWithValue("Id", buscar.Id);
+            query.Parameters.AddWithValue("Id", get.Id);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while (reader.Read())
@@ -58,11 +64,11 @@ namespace DAL
             }
             conexion.Close();
             DALHilado dalHilado = new DALHilado();
-            tejido.Hilado = dalHilado.GetHilado(tejido.Hilado);
+            tejido.Hilado = dalHilado.Get(tejido.Hilado);
             return tejido;
         }
 
-        public List<Tejido> GetListTejido()
+        public List<Tejido> GetList()
         {
             conexion.Open();
             List<Tejido> tejidos = new List<Tejido>();
@@ -78,7 +84,7 @@ namespace DAL
             DALHilado dalHilado = new DALHilado();
             foreach (var tejido in tejidos)
             {
-                tejido.Hilado = dalHilado.GetHilado(tejido.Hilado);
+                tejido.Hilado = dalHilado.Get(tejido.Hilado);
             }
             return tejidos;
         }

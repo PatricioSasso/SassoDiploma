@@ -4,10 +4,11 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Interfaces;
 
 namespace DAL
 {
-    public class DALTinte : DAL
+    public class DALTinte : DAL, IABMC<Tinte>
     {
         public DALTinte()
         {
@@ -47,12 +48,12 @@ namespace DAL
             conexion.Close();
         }
 
-        public Tinte GetTinte(Tinte buscar)
+        public Tinte Get(Tinte get)
         {
             conexion.Open();
             Tinte tinte = new Tinte();
             query = new SqlCommand("SELECT * FROM Tinte WHERE Id = @Id", conexion);
-            query.Parameters.AddWithValue("Id", buscar.Id);
+            query.Parameters.AddWithValue("Id", get.Id);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while (reader.Read())
@@ -68,7 +69,7 @@ namespace DAL
             return tinte;
         }
 
-        public List<Tinte> GetListTinte()
+        public List<Tinte> GetList()
         {
             conexion.Open();
             List<Tinte> tintes = new List<Tinte>();

@@ -1,4 +1,5 @@
-﻿using Microsoft.SqlServer.Server;
+﻿using Interfaces;
+using Microsoft.SqlServer.Server;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
@@ -7,7 +8,7 @@ using System.Net.NetworkInformation;
 
 namespace DAL
 {
-    public class DALUsuario : DAL
+    public class DALUsuario : DAL, IABMC<Usuario>
     {
         public DALUsuario()
         {
@@ -45,6 +46,15 @@ namespace DAL
             conexion.Close();
         }
 
+        public void Baja(Usuario baja)
+        {
+            conexion.Open();
+            query = new SqlCommand("DELETE FROM Usuario WHERE NombreUsuario = @nombreUsuario", conexion);
+            query.Parameters.AddWithValue("nombreUsuario", baja.NombreUsuario);
+            query.ExecuteNonQuery();
+            conexion.Close();
+        }
+
         public void Modificar(Usuario modificar)
         {
             conexion.Open();
@@ -58,34 +68,25 @@ namespace DAL
             conexion.Close();
         }
 
-        public void Baja(Usuario baja)
-        {
-            conexion.Open();
-            query = new SqlCommand("DELETE FROM Usuario WHERE NombreUsuario = @nombreUsuario", conexion);
-            query.Parameters.AddWithValue("nombreUsuario", baja.NombreUsuario);
-            query.ExecuteNonQuery();
-            conexion.Close();
-        }
-
-        public Usuario GetUsuario(Usuario usuario)
+        public Usuario Get(Usuario get)
         {
             conexion.Open();
             query = new SqlCommand("Select * from Usuario where NombreUsuario = @nombreUsuario", conexion);
-            query.Parameters.AddWithValue("nombreUsuario", usuario.NombreUsuario);
+            query.Parameters.AddWithValue("nombreUsuario", get.NombreUsuario);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    usuario = new Usuario(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), new Rol(reader.GetInt32(5), "", new List<Permiso>()), reader.GetString(4));
+                    get = new Usuario(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), new Rol(reader.GetInt32(5), "", new List<Permiso>()), reader.GetString(4));
                 }
             }
             conexion.Close();
-            DALRolPermiso dalRolPermiso = new DALRolPermiso();
-            usuario.Rol = dalRolPermiso.GetRol(usuario.Rol);
-            return usuario;
+            DALRol dalRolPermiso = new DALRol();
+            get.Rol = dalRolPermiso.Get(get.Rol);
+            return get;
         }
 
-        public List<Usuario> GetListUsuario()
+        public List<Usuario> GetList()
         {
             conexion.Open();
             query = new SqlCommand("Select * from Usuario", conexion);
@@ -100,8 +101,8 @@ namespace DAL
             conexion.Close();
             foreach (var usuario in usuarios)
             {
-                DALRolPermiso dalRolPermiso = new DALRolPermiso();
-                usuario.Rol = dalRolPermiso.GetRol(usuario.Rol);
+                DALRol dalRolPermiso = new DALRol();
+                usuario.Rol = dalRolPermiso.Get(usuario.Rol);
             }
             return usuarios;
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DALHilado : DAL
+    public class DALHilado : DAL, IABMC<Hilado>
     {
         public DALHilado()
         {
@@ -26,6 +27,15 @@ namespace DAL
             conexion.Close();
         }
 
+        public void Baja(Hilado baja)
+        {
+            conexion.Open();
+            query = new SqlCommand("DELETE FROM Hilado WHERE Id = @id", conexion);
+            query.Parameters.AddWithValue("id", baja.Id);
+            query.ExecuteNonQuery();
+            conexion.Close();
+        }
+
         public void Modificar(Hilado modificar)
         {
             conexion.Open();
@@ -38,21 +48,12 @@ namespace DAL
             conexion.Close();
         }
 
-        public void Baja(Hilado baja)
-        {
-            conexion.Open();
-            query = new SqlCommand("DELETE FROM Hilado WHERE Id = @id", conexion);
-            query.Parameters.AddWithValue("id", baja.Id);
-            query.ExecuteNonQuery();
-            conexion.Close();
-        }
-
-        public Hilado GetHilado(Hilado buscar)
+        public Hilado Get(Hilado get)
         {
             conexion.Open();
             Hilado hilado = new Hilado();
             query = new SqlCommand("SELECT * FROM Hilado WHERE Id = @Id", conexion);
-            query.Parameters.AddWithValue("Id", buscar.Id);
+            query.Parameters.AddWithValue("Id", get.Id);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while (reader.Read())
@@ -68,7 +69,7 @@ namespace DAL
             return hilado;
         }
 
-        public List<Hilado> GetListHilado()
+        public List<Hilado> GetList()
         {
             conexion.Open();
             List<Hilado> hilado = new List<Hilado>();

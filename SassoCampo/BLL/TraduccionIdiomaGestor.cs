@@ -36,15 +36,15 @@ namespace BLL
             {
                 control.Text = idioma.Traducciones.Find(t => t.Nombre == control.Name).Texto;
             }
-            /*else if (control.Text != "")
+            else if (control.Text != "")
             {
                 MessageBox.Show("Falta traducir " + control.Name + " con texto " + control.Text + ".");
-            }*/
+            }
         }
 
         public void Traducir(List<Control> controles)
         {
-            /*List<Control> controlesATraducir = new List<Control>();
+            List<Control> controlesATraducir = new List<Control>();
             foreach (var control in controles)
             {
                 if (typeof(TextBox) != control.GetType() && typeof(ComboBox) != control.GetType() && typeof(MenuStrip) != control.GetType())
@@ -52,17 +52,17 @@ namespace BLL
                     controlesATraducir.Add(control);
                 }
             }
-            foreach (var control in controlesATraducir)*/
-            foreach (var control in controles)
+            foreach (var control in controlesATraducir)
+            //foreach (var control in controles)
             {
                 if (idioma.Traducciones.Exists(t => t.Nombre == control.Name))
                 {
                     control.Text = idioma.Traducciones.Find(t => t.Nombre == control.Name).Texto;
                 }
-                /*else
+                else
                 {
                     MessageBox.Show("Falta traducir " + control.Name + " con texto " + control.Text + " a " + idioma.Nombre + ".");
-                }*/
+                }
             }
         }
     }

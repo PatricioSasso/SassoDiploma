@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DALPrenda : DAL
+    public class DALPrenda : DAL, IABMC<Prenda>
     {
         public DALPrenda()
         {
@@ -27,6 +28,15 @@ namespace DAL
             conexion.Close();
         }
 
+        public void Baja(Prenda baja)
+        {
+            conexion.Open();
+            query = new SqlCommand("DELETE FROM Prenda WHERE Id = @id", conexion);
+            query.Parameters.AddWithValue("id", baja.Id);
+            query.ExecuteNonQuery();
+            conexion.Close();
+        }
+
         public void Modificar(Prenda modificar)
         {
             conexion.Open();
@@ -40,21 +50,12 @@ namespace DAL
             conexion.Close();
         }
 
-        public void Baja(Prenda baja)
-        {
-            conexion.Open();
-            query = new SqlCommand("DELETE FROM Prenda WHERE Id = @id", conexion);
-            query.Parameters.AddWithValue("id", baja.Id);
-            query.ExecuteNonQuery();
-            conexion.Close();
-        }
-
-        public Prenda GetPrenda(Prenda buscar)
+        public Prenda Get(Prenda get)
         {
             conexion.Open();
             Prenda prenda = new Prenda();
             query = new SqlCommand("SELECT * FROM Prenda WHERE Id = @Id", conexion);
-            query.Parameters.AddWithValue("Id", buscar.Id);
+            query.Parameters.AddWithValue("Id", get.Id);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while (reader.Read())
@@ -71,7 +72,7 @@ namespace DAL
             return prenda;
         }
 
-        public List<Prenda> GetListPrenda()
+        public List<Prenda> GetList()
         {
             conexion.Open();
             List<Prenda> prenda = new List<Prenda>();

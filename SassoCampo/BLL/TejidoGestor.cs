@@ -53,11 +53,11 @@ public class TejidoGestor
 
     public Tejido GetTejido(Tejido tejido)
     {
-        return bd.GetTejido(tejido);
+        return bd.Get(tejido);
     }
 
     public List<Tejido> GetListTejido()
     {
-        return bd.GetListTejido();
+        return bd.GetList();
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DALTela : DAL
+    public class DALTela : DAL, IABMC<Tela>
     {
         public DALTela()
         {
@@ -49,12 +50,12 @@ namespace DAL
             conexion.Close();
         }
 
-        public Tela GetTela(Tela buscar)
+        public Tela Get(Tela get)
         {
             conexion.Open();
             Tela tela = new Tela();
             query = new SqlCommand("SELECT * FROM Tela WHERE Id = @Id", conexion);
-            query.Parameters.AddWithValue("Id", buscar.Id);
+            query.Parameters.AddWithValue("Id", get.Id);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while (reader.Read())
@@ -71,7 +72,7 @@ namespace DAL
             return tela;
         }
 
-        public List<Tela> GetListTela()
+        public List<Tela> GetList()
         {
             conexion.Open();
             List<Tela> tela = new List<Tela>();

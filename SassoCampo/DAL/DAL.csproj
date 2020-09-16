@@ -47,6 +47,7 @@
     <Compile Include="DALCorte.cs" />
     <Compile Include="DALDVV.cs" />
     <Compile Include="DALHilado.cs" />
+    <Compile Include="DALPermiso.cs" />
     <Compile Include="DALPrenda.cs" />
     <Compile Include="DALProducto.cs" />
     <Compile Include="DALTejido.cs" />
@@ -55,13 +56,17 @@
     <Compile Include="DALTinte.cs" />
     <Compile Include="DALTraduccionIdioma.cs" />
     <Compile Include="DALUsuario.cs" />
-    <Compile Include="DALRolPermiso.cs" />
+    <Compile Include="DALRol.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj">
       <Project>{533660d0-9a0a-4244-b467-caef0376ad40}</Project>
       <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{2db22ad8-e1c6-4641-a884-e56b4be226ae}</Project>
+      <Name>Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -64,7 +64,7 @@ namespace GUI
             dgv_PrendasConfeccionadas.MultiSelect = false;
         }
 
-        private void btn_AltaTela_Click(object sender, EventArgs e)
+        private void btn_AltaPrenda_Click(object sender, EventArgs e)
         {
             controller.AltaPrenda(int.Parse(txt_Id.Text), txt_Codigo.Text, txt_Descripcion.Text, int.Parse(txt_Cantidad.Text), txt_Talle.Text);
             PrendaGestor prendaGestor = new PrendaGestor();
@@ -72,25 +72,23 @@ namespace GUI
             dgv_Prendas.DataSource = prendaGestor.GetListPrendaSinConfeccionar();
         }
 
-        private void btn_ModificarTela_Click(object sender, EventArgs e)
+        private void btn_ModificarPrenda_Click(object sender, EventArgs e)
         {
             Prenda prenda = dgv_Prendas.SelectedRows[0].DataBoundItem as Prenda;
             prenda.Descripcion = txt_Descripcion.Text;
             prenda.Cantidad = int.Parse(txt_Cantidad.Text);
             prenda.Talle = txt_Talle.Text;
             controller.ModificarPrenda(prenda);
-            PrendaGestor prendaGestor = new PrendaGestor();
             dgv_Prendas.DataSource = null;
-            dgv_Prendas.DataSource = prendaGestor.GetListPrendaSinConfeccionar();
+            dgv_Prendas.DataSource = controller.GetListPrenda();
         }
 
-        private void btn_BajaTela_Click(object sender, EventArgs e)
+        private void btn_BajaPrenda_Click(object sender, EventArgs e)
         {
             Prenda prenda = dgv_Prendas.SelectedRows[0].DataBoundItem as Prenda;
             controller.BajaPrenda(prenda);
-            PrendaGestor prendaGestor = new PrendaGestor();
             dgv_Prendas.DataSource = null;
-            dgv_Prendas.DataSource = prendaGestor.GetListPrendaSinConfeccionar();
+            dgv_Prendas.DataSource = controller.GetListPrenda();
         }
 
         private void btn_MenuPrincipal_Click(object sender, EventArgs e)

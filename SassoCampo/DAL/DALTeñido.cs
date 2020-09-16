@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DALTeñido : DAL
+    public class DALTeñido : DAL, IABMC<Teñido>
     {
         public DALTeñido()
         {
@@ -38,12 +39,17 @@ namespace DAL
             conexion.Close();
         }
 
-        public Teñido GetTeñido(Teñido buscar)
+        public void Modificar(Teñido modificar)
+        {
+
+        }
+
+        public Teñido Get(Teñido get)
         {
             conexion.Open();
             Teñido teñido = new Teñido();
             query = new SqlCommand("SELECT * FROM Teñido WHERE Id = @Id", conexion);
-            query.Parameters.AddWithValue("Id", buscar.Id);
+            query.Parameters.AddWithValue("Id", get.Id);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while (reader.Read())
@@ -60,13 +66,13 @@ namespace DAL
             }
             conexion.Close();
             DALTela dalTela = new DALTela();
-            teñido.Tela = dalTela.GetTela(teñido.Tela);
+            teñido.Tela = dalTela.Get(teñido.Tela);
             DALTinte dalTinte = new DALTinte();
-            teñido.Tinte = dalTinte.GetTinte(teñido.Tinte);
+            teñido.Tinte = dalTinte.Get(teñido.Tinte);
             return teñido;
         }
 
-        public List<Teñido> GetListTeñido()
+        public List<Teñido> GetList()
         {
             conexion.Open();
             List<Teñido> teñidos = new List<Teñido>();
@@ -83,8 +89,8 @@ namespace DAL
             DALTela dalTela = new DALTela();
             foreach (var teñido in teñidos)
             {
-                teñido.Tinte = dalTinte.GetTinte(teñido.Tinte);
-                teñido.Tela = dalTela.GetTela(teñido.Tela);
+                teñido.Tinte = dalTinte.Get(teñido.Tinte);
+                teñido.Tela = dalTela.Get(teñido.Tela);
             }
             return teñidos;
         }

@@ -15,7 +15,7 @@ public class ConfeccionGestor
 
     public void Confeccionar(Confeccion confeccion, string codigoPrenda)
     {
-        List<Confeccion> confeccionExistentes = GetListConfeccion();
+        List<Confeccion> confeccionExistentes = GetList();
         if (confeccionExistentes.Count == 0)
         {
             confeccion.Id = 1;
@@ -56,11 +56,11 @@ public class ConfeccionGestor
 
     public Confeccion GetConfeccion(Confeccion confeccion)
     {
-        return bd.GetConfeccion(confeccion);
+        return bd.Get(confeccion);
     }
 
-    public List<Confeccion> GetListConfeccion()
+    public List<Confeccion> GetList()
     {
-        return bd.GetListConfeccion();
+        return bd.GetList();
     }
 }

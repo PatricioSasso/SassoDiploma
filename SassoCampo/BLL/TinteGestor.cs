@@ -27,11 +27,11 @@ public class TinteGestor
 
     public Tinte GetHilado(Tinte tinte)
     {
-        return bd.GetTinte(tinte);
+        return bd.Get(tinte);
     }
 
     public List<Tinte> GetListTinte()
     {
-        return bd.GetListTinte();
+        return bd.GetList();
     }
 }

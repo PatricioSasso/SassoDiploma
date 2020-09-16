@@ -27,18 +27,18 @@ public class PrendaGestor
 
     public Prenda GetPrenda(Prenda prenda)
     {
-        return bd.GetPrenda(prenda);
+        return bd.Get(prenda);
     }
 
     public List<Prenda> GetListPrenda()
     {
-        return bd.GetListPrenda();
+        return bd.GetList();
     }
 
     public List<Prenda> GetListPrendaSinConfeccionar()
     {
         List<Prenda> sinConfeccionar = new List<Prenda>();
-        foreach (var p in bd.GetListPrenda())
+        foreach (var p in bd.GetList())
         {
             if (!p.Confeccionada) { sinConfeccionar.Add(p); }
         }
@@ -48,7 +48,7 @@ public class PrendaGestor
     public List<Prenda> GetListPrendaConfeccionada()
     {
         List<Prenda> Confeccionada = new List<Prenda>();
-        foreach (var p in bd.GetListPrenda())
+        foreach (var p in bd.GetList())
         {
             if (p.Confeccionada) { Confeccionada.Add(p); }
         }

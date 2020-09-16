@@ -27,18 +27,18 @@ public class TelaGestor
 
     public Tela GetTela(Tela tela)
     {
-        return bd.GetTela(tela);
+        return bd.Get(tela);
     }
 
     public List<Tela> GetListTela()
     {
-        return bd.GetListTela();
+        return bd.GetList();
     }
 
     public List<Tela> GetListTelaSinTeñir()
     {
         List<Tela> sinTeñir = new List<Tela>();
-        foreach (var t in bd.GetListTela())
+        foreach (var t in bd.GetList())
         {
             if (!t.Teñido) { sinTeñir.Add(t); }
         }
@@ -48,7 +48,7 @@ public class TelaGestor
     public List<Tela> GetListTelaTeñida()
     {
         List<Tela> teñidas = new List<Tela>();
-        foreach (var t in bd.GetListTela())
+        foreach (var t in bd.GetList())
         {
             if (t.Teñido) { teñidas.Add(t); }
         }

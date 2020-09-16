@@ -18,7 +18,7 @@ public class ControlDeAccesoGestor
 
     public Usuario GetUsuario(Usuario usuario)
     {
-        return bd.GetUsuario(usuario);
+        return bd.Get(usuario);
     }
 
     public string GetHash(string input)

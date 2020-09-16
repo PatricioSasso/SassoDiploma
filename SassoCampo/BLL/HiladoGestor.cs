@@ -27,11 +27,11 @@ public class HiladoGestor
 
     public Hilado GetHilado(Hilado hilado)
     {
-        return bd.GetHilado(hilado);
+        return bd.Get(hilado);
     }
 
     public List<Hilado> GetListHilado()
     {
-        return bd.GetListHilado();
+        return bd.GetList();
     }
 }

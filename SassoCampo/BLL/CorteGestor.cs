@@ -59,11 +59,11 @@ public class CorteGestor
 
     public Corte GetCorte(Corte corte)
     {
-        return bd.GetCorte(corte);
+        return bd.Get(corte);
     }
 
     public List<Corte> GetListCorte()
     {
-        return bd.GetListCorte();
+        return bd.GetList();
     }
 }

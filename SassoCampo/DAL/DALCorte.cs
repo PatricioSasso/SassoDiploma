@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DALCorte : DAL
+    public class DALCorte : DAL, IABMC<Corte>
     {
         public DALCorte()
         {
@@ -38,12 +39,17 @@ namespace DAL
             conexion.Close();
         }
 
-        public Corte GetCorte(Corte buscar)
+        public void Modificar(Corte modificar)
+        {
+
+        }
+
+        public Corte Get(Corte get)
         {
             conexion.Open();
             Corte corte = new Corte();
             query = new SqlCommand("SELECT * FROM Corte WHERE Id = @Id", conexion);
-            query.Parameters.AddWithValue("Id", buscar.Id);
+            query.Parameters.AddWithValue("Id", get.Id);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while (reader.Read())
@@ -60,11 +66,11 @@ namespace DAL
             }
             conexion.Close();
             DALTela dalTela = new DALTela();
-            corte.Tela = dalTela.GetTela(corte.Tela);
+            corte.Tela = dalTela.Get(corte.Tela);
             return corte;
         }
 
-        public List<Corte> GetListCorte()
+        public List<Corte> GetList()
         {
             conexion.Open();
             List<Corte> cortes = new List<Corte>();
@@ -80,7 +86,7 @@ namespace DAL
             DALTela dalTela = new DALTela();
             foreach (var corte in cortes)
             {
-                corte.Tela = dalTela.GetTela(corte.Tela);
+                corte.Tela = dalTela.Get(corte.Tela);
             }
             return cortes;
         }

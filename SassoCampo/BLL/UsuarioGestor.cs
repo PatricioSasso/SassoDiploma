@@ -24,7 +24,7 @@ namespace BLL
 
         public void Modificar(Usuario user)
         {
-            Usuario original = bd.GetUsuario(user);
+            Usuario original = bd.Get(user);
             ControlDeAccesoGestor controlDeAccesoGestor = new ControlDeAccesoGestor();
             if (original.DVH == controlDeAccesoGestor.GetHash(original.NombreUsuario + original.Contraseña + original.Nombre + original.Apellido + original.Rol.Id))
             {
@@ -44,7 +44,7 @@ namespace BLL
 
         public Usuario GetUsuario(Usuario user)
         {
-            user = bd.GetUsuario(user);
+            user = bd.Get(user);
             ControlDeAccesoGestor controlDeAccesoGestor = new ControlDeAccesoGestor();
             if (user.DVH == controlDeAccesoGestor.GetHash(user.NombreUsuario + user.Contraseña + user.Nombre + user.Apellido + user.Rol.Id))
             {
@@ -58,7 +58,7 @@ namespace BLL
 
         public List<Usuario> GetListUsuario()
         {
-            List<Usuario> usuarios= bd.GetListUsuario();
+            List<Usuario> usuarios= bd.GetList();
             ControlDeAccesoGestor controlDeAccesoGestor = new ControlDeAccesoGestor();
             foreach (var user in usuarios)
             {
@@ -67,7 +67,7 @@ namespace BLL
                     throw new Exception("El usuario " + user.NombreUsuario + " está corrupto, verificar base de datos");
                 }
             }
-            return bd.GetListUsuario();
+            return bd.GetList();
         }
 
         public void CalcularDVH(Usuario user)

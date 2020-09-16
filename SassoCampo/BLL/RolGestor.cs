@@ -4,36 +4,36 @@ using System.Runtime.InteropServices;
 
 public class RolGestor
 {
-    DALRolPermiso bd;
+    DALRol bd;
 
     public RolGestor()
     {
-        bd = new DALRolPermiso();
+        bd = new DALRol();
     }
 
     public Rol GetRol(Rol rol)
     {
-        return bd.GetRol(rol);
+        return bd.Get(rol);
     }
 
     public List<Rol> GetListRol()
     {
-        return bd.GetListRol();
+        return bd.GetList();
     }
 
     public void Alta(Rol rol)
     {
-        bd.AltaRol(rol);
+        bd.Alta(rol);
     }
 
     public void Modificar(Rol rol)
     {
-        bd.ModificarRol(rol);
+        bd.Modificar(rol);
     }
 
     public void Baja(Rol rol)
     {
-        bd.BajaRol(rol);
+        bd.Baja(rol);
     }
 
     public void AddPermiso(Rol rol, Permiso permiso)

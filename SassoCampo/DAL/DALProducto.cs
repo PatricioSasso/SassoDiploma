@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DALProducto : DAL
+    public class DALProducto : DAL, IABMC<Producto>
     {
         public DALProducto()
         {
@@ -45,12 +46,12 @@ namespace DAL
             conexion.Close();
         }
 
-        public Producto GetProducto(Producto buscar)
+        public Producto Get(Producto get)
         {
             conexion.Open();
             Producto producto = new Producto();
             query = new SqlCommand("SELECT * FROM Producto WHERE Id = @Id", conexion);
-            query.Parameters.AddWithValue("Id", buscar.Id);
+            query.Parameters.AddWithValue("Id", get.Id);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while (reader.Read())
@@ -65,7 +66,7 @@ namespace DAL
             return producto;
         }
 
-        public List<Producto> GetListProducto()
+        public List<Producto> GetList()
         {
             conexion.Open();
             List<Producto> producto = new List<Producto>();

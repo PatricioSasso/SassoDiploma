@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public class PermisoGestor
 {
-    DALRolPermiso bd;
+    DALRol bd;
 
     public PermisoGestor()
     {
-        bd = new DALRolPermiso();
+        bd = new DALRol();
     }
 
     public Permiso GetPermiso(Permiso permiso)

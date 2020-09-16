@@ -60,12 +60,12 @@ public class TeñidoGestor
 
     public Teñido GetTeñido(Teñido teñido)
     {
-        return bd.GetTeñido(teñido);
+        return bd.Get(teñido);
     }
 
     public List<Teñido> GetListTeñido()
     {
-        return bd.GetListTeñido();
+        return bd.GetList();
     }
 }
 
