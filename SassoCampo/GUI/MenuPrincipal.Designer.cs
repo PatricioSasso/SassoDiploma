@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bitácoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbl_NombreUsuario = new System.Windows.Forms.Label();
             this.lbl_NombreUsuario2 = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@
             this.openFileDialogRestore = new System.Windows.Forms.OpenFileDialog();
             this.cmb_Idioma = new System.Windows.Forms.ComboBox();
             this.lbl_Idioma = new System.Windows.Forms.Label();
-            this.bitácoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.gbox_InfoUsuario.SuspendLayout();
             this.SuspendLayout();
@@ -81,6 +81,12 @@
             this.restoreToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.restoreToolStripMenuItem.Text = "Restore";
             this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
+            // 
+            // bitácoraToolStripMenuItem
+            // 
+            this.bitácoraToolStripMenuItem.Name = "bitácoraToolStripMenuItem";
+            this.bitácoraToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
+            this.bitácoraToolStripMenuItem.Text = "Bitácora";
             // 
             // cerrarSesionToolStripMenuItem
             // 
@@ -229,7 +235,7 @@
             this.cmb_Idioma.Name = "cmb_Idioma";
             this.cmb_Idioma.Size = new System.Drawing.Size(152, 24);
             this.cmb_Idioma.TabIndex = 16;
-            this.cmb_Idioma.TextChanged += new System.EventHandler(this.cmb_Idioma_TextChanged);
+            this.cmb_Idioma.SelectedValueChanged += new System.EventHandler(this.cmb_Idioma_SelectedValueChanged);
             // 
             // lbl_Idioma
             // 
@@ -239,12 +245,6 @@
             this.lbl_Idioma.Size = new System.Drawing.Size(57, 17);
             this.lbl_Idioma.TabIndex = 15;
             this.lbl_Idioma.Text = "Idioma :";
-            // 
-            // bitácoraToolStripMenuItem
-            // 
-            this.bitácoraToolStripMenuItem.Name = "bitácoraToolStripMenuItem";
-            this.bitácoraToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
-            this.bitácoraToolStripMenuItem.Text = "Bitácora";
             // 
             // MenuPrincipal
             // 

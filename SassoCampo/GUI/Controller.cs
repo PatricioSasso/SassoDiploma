@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Security.Cryptography;
 using System.Linq;
 using BE;
+using Interfaces;
 using System.Windows.Forms.VisualStyles;
 using System.Runtime.CompilerServices;
 using Service;
@@ -396,10 +397,9 @@ namespace GUI
                 form.AddOwnedForm(newForm);
             }
             form.Hide();
-            if(typeof(MenuPrincipal) == this.form.GetType())
-            {
-                Traducir(newForm, TraduccionIdiomaGestor.Idioma);
-            }
+            TraduccionIdiomaGestor.Desuscribir(form as IObservador<Idioma>);
+            TraduccionIdiomaGestor.Suscribir(newForm as IObservador<Idioma>);
+            Traducir(newForm, TraduccionIdiomaGestor.Idioma);
             this.form = newForm;
             newForm.StartPosition = form.Owner.StartPosition;
             newForm.Show();

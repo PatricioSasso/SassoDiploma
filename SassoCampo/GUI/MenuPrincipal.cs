@@ -35,8 +35,8 @@ namespace GUI
             lbl_NombreUsuario2.Text = controller.ControlDeAcceso.UsuarioActual.NombreUsuario;
             lbl_NombreYApellido.Text = controller.ControlDeAcceso.UsuarioActual.Nombre + " " + controller.ControlDeAcceso.UsuarioActual.Apellido;
             lbl_Rol.Text = controller.ControlDeAcceso.UsuarioActual.Rol.Nombre;
-            cmb_Idioma.DataSource = controller.TraduccionIdiomaGestor.GetAllNameIdioma().ToArray();
-            cmb_Idioma.DisplayMember = controller.TraduccionIdiomaGestor.Idioma.Nombre;
+            cmb_Idioma.Text = controller.TraduccionIdiomaGestor.Idioma.Nombre;
+            cmb_Idioma.Items.AddRange(controller.TraduccionIdiomaGestor.GetAllNameIdioma().ToArray());
             controller.TraduccionIdiomaGestor.Suscribir(this);
         }
 
@@ -100,17 +100,16 @@ namespace GUI
             }
         }
 
-        private void cmb_Idioma_TextChanged(object sender, EventArgs e)
-        {
-            controller.TraduccionIdiomaGestor.CambiarIdioma(new Idioma(cmb_Idioma.SelectedItem.ToString()));
-            if(cmb_Idioma.SelectedItem.ToString() == "Ingles") { menuStrip1.Items[3].Text = "Log Out"; }
-            else { menuStrip1.Items[3].Text = "Cerrar Sesión"; }
-            //Idioma = cmb_Idioma.SelectedItem.ToString();
-        }
-
         public void UpdateObserver(Idioma idioma)
         {
             controller.Traducir(this, idioma);
+        }
+
+        private void cmb_Idioma_SelectedValueChanged(object sender, EventArgs e)
+        {
+            controller.TraduccionIdiomaGestor.CambiarIdioma(new Idioma(cmb_Idioma.SelectedItem.ToString()));
+            if (cmb_Idioma.SelectedItem.ToString() == "Ingles") { menuStrip1.Items[3].Text = "Log Out"; }
+            else { menuStrip1.Items[3].Text = "Cerrar Sesión"; }
         }
     }
 }

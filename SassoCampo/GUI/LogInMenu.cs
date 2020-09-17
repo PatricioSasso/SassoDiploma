@@ -40,7 +40,6 @@ namespace GUI
         public void UpdateObserver(Idioma idioma)
         {
             controller.Traducir(this,idioma);
-            controller.TraduccionIdiomaGestor.Idioma = idioma;
         }
     }
 }
