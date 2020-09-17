@@ -40,11 +40,6 @@ namespace GUI
             controller.TraduccionIdiomaGestor.Suscribir(this);
         }
 
-        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            controller.LogOut();
-        }
-
         private void btn_IrAreaTejido_Click(object sender, EventArgs e)
         {
             controller.cambiarForm(new AreaTejidoMenu(controller));
@@ -52,7 +47,7 @@ namespace GUI
 
         private void btn_GestionarUsuarios_Click(object sender, EventArgs e)
         {
-            controller.cambiarForm(new GestionUsuarios(this.controller));
+            controller.cambiarForm(new GestionUsuarios(controller));
         }
 
         private void btn_GestionarRoles_Click(object sender, EventArgs e)
@@ -98,6 +93,16 @@ namespace GUI
                 backupAndRestoreGestor.Restore(openFileDialogRestore.FileName);
                 MessageBox.Show("Restore realizado exitosamente.");
             }
+        }
+
+        private void bitacoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controller.cambiarForm(new GestionBitacora(controller));
+        }
+
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controller.LogOut();
         }
 
         public void UpdateObserver(Idioma idioma)

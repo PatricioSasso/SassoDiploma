@@ -15,6 +15,11 @@ public class Usuario
         
     }
 
+    public Usuario(string nombreUsuario)
+    {
+        NombreUsuario = nombreUsuario;
+    }
+
     public Usuario(string nombreUsuario, string contraseña, string nombre, string apellido, Rol rol)
     {
         NombreUsuario = nombreUsuario;

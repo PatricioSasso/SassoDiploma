@@ -72,6 +72,12 @@
       <DependentUpon>AreaTeñidoMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller.cs" />
+    <Compile Include="GestionBitacora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionBitacora.Designer.cs">
+      <DependentUpon>GestionBitacora.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionRoles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AreaTeñidoMenu.resx">
       <DependentUpon>AreaTeñidoMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionBitacora.resx">
+      <DependentUpon>GestionBitacora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionRoles.resx">
       <DependentUpon>GestionRoles.cs</DependentUpon>

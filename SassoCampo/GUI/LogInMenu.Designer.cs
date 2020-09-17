@@ -100,7 +100,7 @@
             // lbl_Idioma
             // 
             this.lbl_Idioma.AutoSize = true;
-            this.lbl_Idioma.Location = new System.Drawing.Point(40, 308);
+            this.lbl_Idioma.Location = new System.Drawing.Point(270, 26);
             this.lbl_Idioma.Name = "lbl_Idioma";
             this.lbl_Idioma.Size = new System.Drawing.Size(57, 17);
             this.lbl_Idioma.TabIndex = 6;
@@ -109,23 +109,24 @@
             // cmb_Idioma
             // 
             this.cmb_Idioma.FormattingEnabled = true;
-            this.cmb_Idioma.Location = new System.Drawing.Point(131, 305);
+            this.cmb_Idioma.Location = new System.Drawing.Point(361, 23);
             this.cmb_Idioma.Name = "cmb_Idioma";
             this.cmb_Idioma.Size = new System.Drawing.Size(152, 24);
             this.cmb_Idioma.TabIndex = 7;
-            this.cmb_Idioma.TextChanged += new System.EventHandler(this.cmb_Idioma_TextChanged);
+            this.cmb_Idioma.SelectedValueChanged += new System.EventHandler(this.cmb_Idioma_SelectedValueChanged);
             // 
             // LogInMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(305, 190);
+            this.ClientSize = new System.Drawing.Size(566, 170);
             this.Controls.Add(this.cmb_Idioma);
             this.Controls.Add(this.lbl_Idioma);
             this.Controls.Add(this.gbox_LogIn);
             this.Name = "LogInMenu";
             this.Text = "Iniciar Sesión";
             this.Load += new System.EventHandler(this.LogInMenu_Load);
+            this.TextChanged += new System.EventHandler(this.LogInMenu_TextChanged);
             this.gbox_LogIn.ResumeLayout(false);
             this.gbox_LogIn.PerformLayout();
             this.ResumeLayout(false);

@@ -65,8 +65,7 @@ namespace GUI
             if (result == DialogResult.Yes)
             {
                 ControlDeAcceso.UsuarioActual = null;
-                form.Owner.Show();
-                form.Hide();
+                cambiarForm(form.Owner);
                 MessageBox.Show("Se ha cerrado la sesión correctamente.");
             }
             else
@@ -392,7 +391,7 @@ namespace GUI
 
         public void cambiarForm(Form newForm)
         {
-            if (newForm.Owner == null)
+            if (newForm.Owner == null && newForm.GetType().Name != "LogInMenu")
             {
                 form.AddOwnedForm(newForm);
             }
@@ -401,7 +400,15 @@ namespace GUI
             TraduccionIdiomaGestor.Suscribir(newForm as IObservador<Idioma>);
             Traducir(newForm, TraduccionIdiomaGestor.Idioma);
             this.form = newForm;
-            newForm.StartPosition = form.Owner.StartPosition;
+            if(form.OwnedForms.Length > 0)
+            {
+                form.OwnedForms[0].Dispose();
+            }
+            if( form.Owner != null)
+            {
+                newForm.StartPosition = form.Owner.StartPosition;
+            }
+
             newForm.Show();
         }
 
