@@ -11,10 +11,11 @@ using System.Windows.Forms;
 using BLL;
 using BE;
 using Service;
+using Interfaces;
 
 namespace GUI
 {
-    public partial class MenuPrincipal : Form
+    public partial class MenuPrincipal : Form , IObservador<Idioma>
     {
         public MenuPrincipal()
         {
@@ -28,17 +29,15 @@ namespace GUI
         }
 
         Controller controller;
-        string idioma;
-
-        public string Idioma { get => idioma; set => idioma = value; }
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
             lbl_NombreUsuario2.Text = controller.ControlDeAcceso.UsuarioActual.NombreUsuario;
             lbl_NombreYApellido.Text = controller.ControlDeAcceso.UsuarioActual.Nombre + " " + controller.ControlDeAcceso.UsuarioActual.Apellido;
             lbl_Rol.Text = controller.ControlDeAcceso.UsuarioActual.Rol.Nombre;
-            cmb_Idioma.Items.AddRange(new string[] { "Español", "Ingles" });
-            cmb_Idioma.SelectedItem = cmb_Idioma.Items[0];
+            cmb_Idioma.DataSource = controller.TraduccionIdiomaGestor.GetAllNameIdioma().ToArray();
+            cmb_Idioma.DisplayMember = controller.TraduccionIdiomaGestor.Idioma.Nombre;
+            controller.TraduccionIdiomaGestor.Suscribir(this);
         }
 
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
@@ -87,7 +86,6 @@ namespace GUI
                 backupAndRestoreGestor.Backup(saveFileDialogBackup.FileName);
                 MessageBox.Show("Backup creado exitosamente.");
             }
-
         }
 
         private void restoreToolStripMenuItem_Click(object sender, EventArgs e)
@@ -104,10 +102,15 @@ namespace GUI
 
         private void cmb_Idioma_TextChanged(object sender, EventArgs e)
         {
-            controller.Traducir(this, cmb_Idioma.SelectedItem.ToString());
-            if(cmb_Idioma.SelectedItem.ToString() == "Ingles") { menuStrip1.Items[2].Text = "Log Out"; }
-            else { menuStrip1.Items[2].Text = "Cerrar Sesión"; }
-            Idioma = cmb_Idioma.SelectedItem.ToString();
+            controller.TraduccionIdiomaGestor.CambiarIdioma(new Idioma(cmb_Idioma.SelectedItem.ToString()));
+            if(cmb_Idioma.SelectedItem.ToString() == "Ingles") { menuStrip1.Items[3].Text = "Log Out"; }
+            else { menuStrip1.Items[3].Text = "Cerrar Sesión"; }
+            //Idioma = cmb_Idioma.SelectedItem.ToString();
+        }
+
+        public void UpdateObserver(Idioma idioma)
+        {
+            controller.Traducir(this, idioma);
         }
     }
 }

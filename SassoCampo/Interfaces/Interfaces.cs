@@ -16,4 +16,17 @@ namespace Interfaces
     {
         string GetHash( string input);
     }
+
+    public interface IObservador<T>
+    {
+        void UpdateObserver(T idioma);
+    }
+
+    public interface ISujeto<T>
+    {
+        void Suscribir(IObservador<T> observer);
+        void Desuscribir(IObservador<T> observer);
+        void Notificar(T idioma);
+        void CambiarIdioma(T idioma);
+    }
 }

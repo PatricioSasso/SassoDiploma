@@ -165,6 +165,10 @@
       <Project>{08c9647e-bcfe-4880-a12c-cb70c86950db}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{2db22ad8-e1c6-4641-a884-e56b4be226ae}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Servicio\Service.csproj">
       <Project>{e12e75cf-26b4-45e5-952d-178b0340b6cd}</Project>
       <Name>Service</Name>

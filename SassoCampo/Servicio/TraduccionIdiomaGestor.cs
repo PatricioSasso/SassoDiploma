@@ -5,36 +5,65 @@ using System.Text;
 using System.Threading.Tasks;
 using BE;
 using DAL;
+using Interfaces;
 using System.Windows.Forms;
 
 namespace Service
 {
-    public class TraduccionIdiomaGestor
+    public class TraduccionIdiomaGestor : ISujeto<Idioma>
     {
         DALTraduccionIdioma bd;
         Idioma idioma;
+        List<IObservador<Idioma>> observando;
 
-        public TraduccionIdiomaGestor(string idioma)
+        public TraduccionIdiomaGestor()
+        {
+
+        }
+
+        public TraduccionIdiomaGestor(Idioma idioma)
         {
             bd = new DALTraduccionIdioma();
-            this.idioma = bd.GetIdioma(idioma);
+            this.Idioma = bd.GetIdioma(idioma);
+            observando = new List<IObservador<Idioma>>();
         }
 
-        public void CambiarIdioma(string idioma)
+        public Idioma Idioma { get => idioma; set => idioma = value; }
+
+        public void CambiarIdioma(Idioma idioma)
         {
-            this.idioma = bd.GetIdioma(idioma);
+            if (idioma.Nombre != this.idioma.Nombre)
+            {
+                this.Idioma = bd.GetIdioma(idioma);
+                Notificar(this.idioma);
+            }
         }
 
-        public Idioma GetIdioma(string idioma)
+        public void Desuscribir(IObservador<Idioma> observer)
         {
-            return bd.GetIdioma(idioma);
+            observando.Remove(observer);
+        }
+
+        public void Notificar(Idioma idioma)
+        {
+            foreach (IObservador<Idioma> form in observando)
+            {
+                form.UpdateObserver(bd.GetIdioma(idioma));
+            }
+        }
+
+        public void Suscribir(IObservador<Idioma> observer)
+        {
+            observando.Add(observer);
+            CambiarIdioma(this.Idioma);
+
         }
 
         public void Traducir(Control control)
         {
-            if (idioma.Traducciones.Exists(t => t.Nombre == control.Name))
+            if (Idioma.Traducciones.Exists(t => t.Nombre == control.Name))
             {
-                control.Text = idioma.Traducciones.Find(t => t.Nombre == control.Name).Texto;
+                control.Text = Idioma.Traducciones.Find(t => t.Nombre == control.Name).Texto;
             }
             /*else if (control.Text != "")
             {
@@ -55,15 +84,20 @@ namespace Service
             //foreach (var control in controlesATraducir)
             foreach (var control in controles)
             {
-                if (idioma.Traducciones.Exists(t => t.Nombre == control.Name))
+                if (Idioma.Traducciones.Exists(t => t.Nombre == control.Name))
                 {
-                    control.Text = idioma.Traducciones.Find(t => t.Nombre == control.Name).Texto;
+                    control.Text = Idioma.Traducciones.Find(t => t.Nombre == control.Name).Texto;
                 }
                 /*else
                 {
                     MessageBox.Show("Falta traducir " + control.Name + " con texto " + control.Text + " a " + idioma.Nombre + ".");
                 }*/
             }
+        }
+
+        public List<string> GetAllNameIdioma()
+        {
+            return bd.GetAllNameIdioma();
         }
     }
 }

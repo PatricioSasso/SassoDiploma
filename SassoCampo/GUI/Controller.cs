@@ -19,12 +19,15 @@ namespace GUI
         Form form;
 
         ControlDeAcceso controlDeAcceso = new ControlDeAcceso();
+        TraduccionIdiomaGestor traduccionIdiomaGestor;
 
         public ControlDeAcceso ControlDeAcceso { get => controlDeAcceso; set => controlDeAcceso = value; }
+        public TraduccionIdiomaGestor TraduccionIdiomaGestor { get => traduccionIdiomaGestor; set => traduccionIdiomaGestor = value; }
 
-        public Controller(Form formulario)
+        public Controller(Form formulario, string idioma)
         {
             form = formulario;
+            traduccionIdiomaGestor = new TraduccionIdiomaGestor(new Idioma(idioma));
         }
 
         #region Log in / out, gestion de perfiles y usuarios.
@@ -226,6 +229,8 @@ namespace GUI
             {
                 TelaGestor telaGestor = new TelaGestor();
                 telaGestor.Alta(new Tela(id, codigo, descripcion, cantidad, "", false));
+                BitacoraGestor bitacoraGestor = new BitacoraGestor();
+                bitacoraGestor.Registrar("El empleado con nombre de usuario " + controlDeAcceso.UsuarioActual.NombreUsuario + " ha creado una nueva tela :" + codigo + " " + descripcion + ".", TipoMensaje.MENSAJE, controlDeAcceso.UsuarioActual);
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -246,6 +251,8 @@ namespace GUI
             {
                 TelaGestor telaGestor = new TelaGestor();
                 telaGestor.Baja(tela);
+                BitacoraGestor bitacoraGestor = new BitacoraGestor();
+                bitacoraGestor.Registrar("El empleado con nombre de usuario " + controlDeAcceso.UsuarioActual.NombreUsuario + " ha eliminado una tela :" + tela.Codigo + " " + tela.Descripcion + ".", TipoMensaje.ADVERTENCIA, controlDeAcceso.UsuarioActual);
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 
@@ -391,11 +398,27 @@ namespace GUI
             form.Hide();
             if(typeof(MenuPrincipal) == this.form.GetType())
             {
-                Traducir(newForm,((MenuPrincipal)this.form).Idioma);
+                Traducir(newForm, TraduccionIdiomaGestor.Idioma);
             }
             this.form = newForm;
             newForm.StartPosition = form.Owner.StartPosition;
             newForm.Show();
+        }
+
+        public void VerificarDVV()
+        {
+            DVVGestor dVVGestor = new DVVGestor();
+            try
+            {
+                if (!dVVGestor.VerificarDVV(new DVV("Usuario")))
+                {
+                    throw new Exception("La tabla Usuario de la base de datos fue modificada desde fuera de la aplicación");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public List<Control> GetControlesContenidos(Control control)
@@ -404,11 +427,10 @@ namespace GUI
             return (controls.SelectMany(ctrl => GetControlesContenidos(ctrl)).Concat(controls).ToList());
         }
 
-        public void Traducir(Control contenedor, string idioma)
+        public void Traducir(Control contenedor, Idioma idioma)
         {
-            TraduccionIdiomaGestor traduccionIdiomaGestor = new TraduccionIdiomaGestor(idioma);
-            traduccionIdiomaGestor.Traducir(contenedor);
-            traduccionIdiomaGestor.Traducir(GetControlesContenidos(contenedor));
+            TraduccionIdiomaGestor.Traducir(contenedor);
+            TraduccionIdiomaGestor.Traducir(GetControlesContenidos(contenedor));
         }
     }
 }

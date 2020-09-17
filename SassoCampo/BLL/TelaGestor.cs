@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using BE;
+using DAL;
 using System.Collections.Generic;
 
 public class TelaGestor

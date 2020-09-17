@@ -15,12 +15,11 @@ namespace DAL
         {
         }
 
-        public Idioma GetIdioma(string idiomaSeleccionado)
+        public Idioma GetIdioma(Idioma idiomaSeleccionado)
         {
             conexion.Open();
             query = new SqlCommand("SELECT * FROM Idioma WHERE NombreIdioma = @idioma", conexion);
-            query.Parameters.AddWithValue("idioma", idiomaSeleccionado);
-            Idioma idioma = new Idioma(idiomaSeleccionado);
+            query.Parameters.AddWithValue("idioma", idiomaSeleccionado.Nombre);
             List<Traduccion> traducciones = new List<Traduccion>();
             using (SqlDataReader reader = query.ExecuteReader())
             {
@@ -28,10 +27,26 @@ namespace DAL
                 {
                     traducciones.Add(new Traduccion(reader.GetString(1), reader.GetString(2)));
                 }
-                idioma.Traducciones = traducciones;
+                idiomaSeleccionado.Traducciones = traducciones;
             }
             conexion.Close();
-            return idioma;
+            return idiomaSeleccionado;
+        }
+
+        public List<string> GetAllNameIdioma ()
+        {
+            conexion.Open();
+            query = new SqlCommand("Select NombreIdioma From Idioma Group by NombreIdioma", conexion);
+            List<string> idiomas = new List<string>();
+            using (SqlDataReader reader = query.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    idiomas.Add(reader.GetString(0));
+                }
+            }
+            conexion.Close();
+            return idiomas;
         }
     }
 }

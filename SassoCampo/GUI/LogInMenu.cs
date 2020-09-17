@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using Service;
 
 namespace GUI
 {
-    public partial class LogInMenu : Form
+    public partial class LogInMenu : Form , IObservador<Idioma>
     {
         public LogInMenu()
         {
@@ -19,21 +20,11 @@ namespace GUI
 
         private void LogInMenu_Load(object sender, EventArgs e)
         {
-            controller = new Controller(this);
-            DVVGestor dVVGestor = new DVVGestor();
-            cmb_Idioma.Items.AddRange(new string[] { "Español", "Ingles" });
+            controller = new Controller(this,"Español");
+            controller.VerificarDVV();
+            controller.TraduccionIdiomaGestor.Suscribir(this);
+            cmb_Idioma.DataSource = controller.TraduccionIdiomaGestor.GetAllNameIdioma().ToArray();
             cmb_Idioma.SelectedItem = cmb_Idioma.Items[0];
-            try
-            {
-                if (!dVVGestor.VerificarDVV(new DVV("Usuario")))
-                {
-                    throw new Exception("La tabla Usuario de la base de datos fue modificada desde fuera de la aplicación");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void btn_IniciarSesion_Click(object sender, EventArgs e)
@@ -43,7 +34,13 @@ namespace GUI
 
         private void cmb_Idioma_TextChanged(object sender, EventArgs e)
         {
-            controller.Traducir(this, cmb_Idioma.SelectedItem.ToString());
+            controller.TraduccionIdiomaGestor.CambiarIdioma(new Idioma(cmb_Idioma.SelectedItem.ToString()));
+        }
+
+        public void UpdateObserver(Idioma idioma)
+        {
+            controller.Traducir(this,idioma);
+            controller.TraduccionIdiomaGestor.Idioma = idioma;
         }
     }
 }

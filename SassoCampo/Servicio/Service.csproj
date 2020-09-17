@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackupAndRestoreGestor.cs" />
+    <Compile Include="BitacoraGestor.cs" />
     <Compile Include="ControlDeAccesoGestor.cs" />
     <Compile Include="DVVGestor.cs" />
     <Compile Include="Program.cs" />

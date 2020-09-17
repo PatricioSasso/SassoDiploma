@@ -49,6 +49,7 @@
             this.openFileDialogRestore = new System.Windows.Forms.OpenFileDialog();
             this.cmb_Idioma = new System.Windows.Forms.ComboBox();
             this.lbl_Idioma = new System.Windows.Forms.Label();
+            this.bitácoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.gbox_InfoUsuario.SuspendLayout();
             this.SuspendLayout();
@@ -59,31 +60,32 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.backupToolStripMenuItem,
             this.restoreToolStripMenuItem,
+            this.bitácoraToolStripMenuItem,
             this.cerrarSesionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(722, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(722, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // backupToolStripMenuItem
             // 
             this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
-            this.backupToolStripMenuItem.Size = new System.Drawing.Size(71, 26);
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
             this.backupToolStripMenuItem.Text = "Backup";
             this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
             // 
             // restoreToolStripMenuItem
             // 
             this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
-            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(73, 26);
+            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.restoreToolStripMenuItem.Text = "Restore";
             this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
             // 
             // cerrarSesionToolStripMenuItem
             // 
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(110, 26);
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesión";
             this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
@@ -223,7 +225,7 @@
             // cmb_Idioma
             // 
             this.cmb_Idioma.FormattingEnabled = true;
-            this.cmb_Idioma.Location = new System.Drawing.Point(498, 46);
+            this.cmb_Idioma.Location = new System.Drawing.Point(491, 28);
             this.cmb_Idioma.Name = "cmb_Idioma";
             this.cmb_Idioma.Size = new System.Drawing.Size(152, 24);
             this.cmb_Idioma.TabIndex = 16;
@@ -232,11 +234,17 @@
             // lbl_Idioma
             // 
             this.lbl_Idioma.AutoSize = true;
-            this.lbl_Idioma.Location = new System.Drawing.Point(407, 49);
+            this.lbl_Idioma.Location = new System.Drawing.Point(400, 31);
             this.lbl_Idioma.Name = "lbl_Idioma";
             this.lbl_Idioma.Size = new System.Drawing.Size(57, 17);
             this.lbl_Idioma.TabIndex = 15;
             this.lbl_Idioma.Text = "Idioma :";
+            // 
+            // bitácoraToolStripMenuItem
+            // 
+            this.bitácoraToolStripMenuItem.Name = "bitácoraToolStripMenuItem";
+            this.bitácoraToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
+            this.bitácoraToolStripMenuItem.Text = "Bitácora";
             // 
             // MenuPrincipal
             // 
@@ -288,5 +296,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialogRestore;
         private System.Windows.Forms.ComboBox cmb_Idioma;
         private System.Windows.Forms.Label lbl_Idioma;
+        private System.Windows.Forms.ToolStripMenuItem bitácoraToolStripMenuItem;
     }
 }

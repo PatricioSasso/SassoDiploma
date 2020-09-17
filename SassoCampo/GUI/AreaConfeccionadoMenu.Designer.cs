@@ -71,7 +71,7 @@
             this.gbx_PrendasConfeccionadas.Size = new System.Drawing.Size(834, 262);
             this.gbx_PrendasConfeccionadas.TabIndex = 24;
             this.gbx_PrendasConfeccionadas.TabStop = false;
-            this.gbx_PrendasConfeccionadas.Text = "Prendas cortadas en stock";
+            this.gbx_PrendasConfeccionadas.Text = "Prendas confeccionadas en stock";
             // 
             // dgv_PrendasConfeccionadas
             // 

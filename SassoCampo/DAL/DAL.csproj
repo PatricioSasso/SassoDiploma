@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DAL.cs" />
     <Compile Include="DALBackUpAndRestore.cs" />
+    <Compile Include="DALBitacora.cs" />
     <Compile Include="DALConfeccion.cs" />
     <Compile Include="DALCorte.cs" />
     <Compile Include="DALDVV.cs" />
