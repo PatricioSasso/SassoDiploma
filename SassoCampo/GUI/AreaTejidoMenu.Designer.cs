@@ -47,10 +47,16 @@
             this.gbx_TelasStock = new System.Windows.Forms.GroupBox();
             this.dgv_Telas = new System.Windows.Forms.DataGridView();
             this.btn_MenuPrincipal = new System.Windows.Forms.Button();
+            this.gbx_ControlCambioHilado = new System.Windows.Forms.GroupBox();
+            this.btn_RestaurarMemento = new System.Windows.Forms.Button();
+            this.dgv_ControlCambiosHilado = new System.Windows.Forms.DataGridView();
+            this.btn_CrearMemento = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Hilados)).BeginInit();
             this.gbx_Hilados.SuspendLayout();
             this.gbx_TelasStock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Telas)).BeginInit();
+            this.gbx_ControlCambioHilado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ControlCambiosHilado)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Alta
@@ -208,9 +214,9 @@
             // gbx_TelasStock
             // 
             this.gbx_TelasStock.Controls.Add(this.dgv_Telas);
-            this.gbx_TelasStock.Location = new System.Drawing.Point(220, 307);
+            this.gbx_TelasStock.Location = new System.Drawing.Point(883, 12);
             this.gbx_TelasStock.Name = "gbx_TelasStock";
-            this.gbx_TelasStock.Size = new System.Drawing.Size(657, 262);
+            this.gbx_TelasStock.Size = new System.Drawing.Size(657, 289);
             this.gbx_TelasStock.TabIndex = 15;
             this.gbx_TelasStock.TabStop = false;
             this.gbx_TelasStock.Text = "Telas en stock";
@@ -227,24 +233,72 @@
             this.dgv_Telas.RowHeadersWidth = 51;
             this.dgv_Telas.RowTemplate.Height = 24;
             this.dgv_Telas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Telas.Size = new System.Drawing.Size(621, 232);
+            this.dgv_Telas.Size = new System.Drawing.Size(621, 260);
             this.dgv_Telas.TabIndex = 14;
             // 
             // btn_MenuPrincipal
             // 
-            this.btn_MenuPrincipal.Location = new System.Drawing.Point(883, 12);
+            this.btn_MenuPrincipal.Location = new System.Drawing.Point(883, 307);
             this.btn_MenuPrincipal.Name = "btn_MenuPrincipal";
-            this.btn_MenuPrincipal.Size = new System.Drawing.Size(90, 74);
+            this.btn_MenuPrincipal.Size = new System.Drawing.Size(124, 74);
             this.btn_MenuPrincipal.TabIndex = 16;
             this.btn_MenuPrincipal.Text = "Volver al Menu Principal";
             this.btn_MenuPrincipal.UseVisualStyleBackColor = true;
             this.btn_MenuPrincipal.Click += new System.EventHandler(this.btn_MenuPrincipal_Click);
             // 
+            // gbx_ControlCambioHilado
+            // 
+            this.gbx_ControlCambioHilado.Controls.Add(this.btn_CrearMemento);
+            this.gbx_ControlCambioHilado.Controls.Add(this.btn_RestaurarMemento);
+            this.gbx_ControlCambioHilado.Controls.Add(this.dgv_ControlCambiosHilado);
+            this.gbx_ControlCambioHilado.Location = new System.Drawing.Point(12, 307);
+            this.gbx_ControlCambioHilado.Name = "gbx_ControlCambioHilado";
+            this.gbx_ControlCambioHilado.Size = new System.Drawing.Size(865, 289);
+            this.gbx_ControlCambioHilado.TabIndex = 17;
+            this.gbx_ControlCambioHilado.TabStop = false;
+            this.gbx_ControlCambioHilado.Text = "Control de Cambios de Hilado";
+            // 
+            // btn_RestaurarMemento
+            // 
+            this.btn_RestaurarMemento.Location = new System.Drawing.Point(6, 80);
+            this.btn_RestaurarMemento.Name = "btn_RestaurarMemento";
+            this.btn_RestaurarMemento.Size = new System.Drawing.Size(141, 48);
+            this.btn_RestaurarMemento.TabIndex = 14;
+            this.btn_RestaurarMemento.Text = "Restaurar Memento";
+            this.btn_RestaurarMemento.UseVisualStyleBackColor = true;
+            this.btn_RestaurarMemento.Click += new System.EventHandler(this.btn_RestaurarMemento_Click);
+            // 
+            // dgv_ControlCambiosHilado
+            // 
+            this.dgv_ControlCambiosHilado.AllowUserToAddRows = false;
+            this.dgv_ControlCambiosHilado.AllowUserToDeleteRows = false;
+            this.dgv_ControlCambiosHilado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ControlCambiosHilado.Location = new System.Drawing.Point(153, 22);
+            this.dgv_ControlCambiosHilado.MultiSelect = false;
+            this.dgv_ControlCambiosHilado.Name = "dgv_ControlCambiosHilado";
+            this.dgv_ControlCambiosHilado.ReadOnly = true;
+            this.dgv_ControlCambiosHilado.RowHeadersWidth = 51;
+            this.dgv_ControlCambiosHilado.RowTemplate.Height = 24;
+            this.dgv_ControlCambiosHilado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_ControlCambiosHilado.Size = new System.Drawing.Size(695, 261);
+            this.dgv_ControlCambiosHilado.TabIndex = 13;
+            // 
+            // btn_CrearMemento
+            // 
+            this.btn_CrearMemento.Location = new System.Drawing.Point(6, 26);
+            this.btn_CrearMemento.Name = "btn_CrearMemento";
+            this.btn_CrearMemento.Size = new System.Drawing.Size(141, 48);
+            this.btn_CrearMemento.TabIndex = 15;
+            this.btn_CrearMemento.Text = "Crear Memento";
+            this.btn_CrearMemento.UseVisualStyleBackColor = true;
+            this.btn_CrearMemento.Click += new System.EventHandler(this.btn_CrearMemento_Click);
+            // 
             // AreaTejidoMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(983, 577);
+            this.ClientSize = new System.Drawing.Size(1548, 605);
+            this.Controls.Add(this.gbx_ControlCambioHilado);
             this.Controls.Add(this.btn_MenuPrincipal);
             this.Controls.Add(this.gbx_TelasStock);
             this.Controls.Add(this.txt_Peso);
@@ -264,6 +318,8 @@
             this.gbx_Hilados.PerformLayout();
             this.gbx_TelasStock.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Telas)).EndInit();
+            this.gbx_ControlCambioHilado.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ControlCambiosHilado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,5 +346,9 @@
         private System.Windows.Forms.DataGridView dgv_Telas;
         private System.Windows.Forms.Button btn_MenuPrincipal;
         private System.Windows.Forms.Button btn_Tejer;
+        private System.Windows.Forms.GroupBox gbx_ControlCambioHilado;
+        private System.Windows.Forms.Button btn_RestaurarMemento;
+        private System.Windows.Forms.DataGridView dgv_ControlCambiosHilado;
+        private System.Windows.Forms.Button btn_CrearMemento;
     }
 }

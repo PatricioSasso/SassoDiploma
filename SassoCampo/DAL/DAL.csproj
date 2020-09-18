@@ -45,6 +45,7 @@
     <Compile Include="DALBackUpAndRestore.cs" />
     <Compile Include="DALBitacora.cs" />
     <Compile Include="DALConfeccion.cs" />
+    <Compile Include="DALControlCambios.cs" />
     <Compile Include="DALCorte.cs" />
     <Compile Include="DALDVV.cs" />
     <Compile Include="DALHilado.cs" />

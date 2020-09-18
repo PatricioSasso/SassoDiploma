@@ -29,4 +29,10 @@ namespace Interfaces
         void Notificar(T idioma);
         void CambiarIdioma(T idioma);
     }
+
+    public interface ISerializer<T>
+    {
+        byte[] Serializar(T objeto);
+        T DesSerializar(byte[] serializado);
+    }
 }

@@ -51,6 +51,7 @@
     <Compile Include="Idioma.cs" />
     <Compile Include="InformacionProduccion.cs" />
     <Compile Include="ItemProducto.cs" />
+    <Compile Include="Memento.cs" />
     <Compile Include="PedidoProduccion.cs" />
     <Compile Include="Permiso.cs" />
     <Compile Include="Prenda.cs" />

@@ -1,4 +1,7 @@
-﻿public class Producto
+﻿using System;
+
+[Serializable]
+public class Producto
 {
     int id;
     string codigo;

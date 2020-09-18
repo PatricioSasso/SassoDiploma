@@ -50,6 +50,8 @@
     <Compile Include="BitacoraGestor.cs" />
     <Compile Include="ControlDeAccesoGestor.cs" />
     <Compile Include="DVVGestor.cs" />
+    <Compile Include="MementoGestor.cs" />
+    <Compile Include="Originator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TraduccionIdiomaGestor.cs" />

@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualBasic;
+﻿using BE;
+using Microsoft.VisualBasic;
+using Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -69,6 +71,9 @@ namespace GUI
             txt_Descripcion.Text = hilado.Descripcion;
             txt_Cantidad.Text = hilado.Cantidad.ToString();
             txt_Peso.Text = hilado.Peso.ToString();
+            Originator originator = new Originator();
+            dgv_ControlCambiosHilado.DataSource = null;
+            dgv_ControlCambiosHilado.DataSource = originator.GetMementos(new Memento(hilado));
         }
 
         private void btn_MenuPrincipal_Click(object sender, EventArgs e)
@@ -100,7 +105,14 @@ namespace GUI
             dgv_Telas.AutoGenerateColumns = false;
             dgv_Telas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_Telas.MultiSelect = false;
-
+            dgv_ControlCambiosHilado.Columns.Add("Fecha", "Fecha");
+            dgv_ControlCambiosHilado.Columns["Fecha"].DataPropertyName = "Fecha";
+            dgv_ControlCambiosHilado.Columns.Add("Estado", "Estado");
+            dgv_ControlCambiosHilado.Columns["Estado"].DataPropertyName = "Estado";
+            dgv_ControlCambiosHilado.Columns["Estado"].Width = 350;
+            dgv_ControlCambiosHilado.AutoGenerateColumns = false;
+            dgv_ControlCambiosHilado.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_ControlCambiosHilado.MultiSelect = false;
         }
 
         private void btn_Tejer_Click(object sender, EventArgs e)
@@ -115,6 +127,23 @@ namespace GUI
             dgv_Hilados.DataSource = controller.GetListHilado();
             dgv_Telas.DataSource = null;
             dgv_Telas.DataSource = controller.GetListTela();
+        }
+
+        private void btn_CrearMemento_Click(object sender, EventArgs e)
+        {
+            Originator originator = new Originator();
+            originator.SetMemento(dgv_Hilados.SelectedRows[0].DataBoundItem as Hilado);
+            originator.CreateMemento();
+            dgv_ControlCambiosHilado.DataSource = null;
+            dgv_ControlCambiosHilado.DataSource = originator.GetMementos(new Memento(dgv_Hilados.SelectedRows[0].DataBoundItem as Hilado));
+        }
+
+        private void btn_RestaurarMemento_Click(object sender, EventArgs e)
+        {
+            Originator originator = new Originator();
+            originator.RestoreMemento(dgv_Hilados.SelectedRows[0].DataBoundItem as Hilado, dgv_ControlCambiosHilado.SelectedRows[0].DataBoundItem as Memento);
+            dgv_Hilados.DataSource = null;
+            dgv_Hilados.DataSource = controller.GetListHilado();
         }
     }
 }
