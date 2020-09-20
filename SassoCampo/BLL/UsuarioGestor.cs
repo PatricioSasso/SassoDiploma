@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Security.Policy;
+using Service;
 
 namespace BLL
 {
@@ -25,8 +26,8 @@ namespace BLL
         public void Modificar(Usuario user)
         {
             Usuario original = bd.Get(user);
-            ControlDeAccesoGestor controlDeAccesoGestor = new ControlDeAccesoGestor();
-            if (original.DVH == controlDeAccesoGestor.GetHash(original.NombreUsuario + original.Contraseña + original.Nombre + original.Apellido + original.Rol.Id))
+            DVVGestor dvvGestor = new DVVGestor();
+            if (original.DVH == dvvGestor.GetHash(original.NombreUsuario + original.Contraseña + original.Nombre + original.Apellido + original.Rol.Id))
             {
                 CalcularDVH(user);
                 bd.Modificar(user);

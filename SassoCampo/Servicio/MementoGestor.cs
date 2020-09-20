@@ -14,11 +14,11 @@ namespace Service
 {
     public class MementoGestor : ISerializer<Hilado>
     {
-        DALControlCambios dalControlCambios = new DALControlCambios();
+        DALControlCambios dalControlCambios;
 
         public MementoGestor()
         {
-
+            dalControlCambios = new DALControlCambios();
         }
 
         public void CreateMemento(Hilado hilado)

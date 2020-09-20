@@ -19,7 +19,7 @@ namespace GUI
     {
         Form form;
 
-        ControlDeAcceso controlDeAcceso = new ControlDeAcceso();
+        ControlDeAcceso controlDeAcceso;
         TraduccionIdiomaGestor traduccionIdiomaGestor;
 
         public ControlDeAcceso ControlDeAcceso { get => controlDeAcceso; set => controlDeAcceso = value; }
@@ -27,6 +27,7 @@ namespace GUI
 
         public Controller(Form formulario, string idioma)
         {
+            controlDeAcceso = new ControlDeAcceso();
             form = formulario;
             traduccionIdiomaGestor = new TraduccionIdiomaGestor(new Idioma(idioma));
         }
@@ -78,7 +79,7 @@ namespace GUI
         {
             try
             {
-                ControlDeAccesoGestor controlDeAccesoGestor = new ControlDeAccesoGestor();
+                DVVGestor dvvGestor = new DVVGestor();
                 UsuarioGestor usuarioGestor = new UsuarioGestor();
                 RolGestor rolGestor = new RolGestor();
                 List<Usuario> usuariosExistentes = usuarioGestor.GetListUsuario();
@@ -89,7 +90,7 @@ namespace GUI
                         throw new Exception("El nombre de usuario ingresado ya está en uso");
                     }
                 }
-                usuarioGestor.Alta(new Usuario(nombreUsuario, controlDeAccesoGestor.GetHash(contraseña), nombre, apellido, rolGestor.GetRol(rol)));
+                usuarioGestor.Alta(new Usuario(nombreUsuario, dvvGestor.GetHash(contraseña), nombre, apellido, rolGestor.GetRol(rol)));
             }
             catch (Exception ex)
             {
@@ -114,7 +115,6 @@ namespace GUI
         {
             try
             {
-                ControlDeAccesoGestor controlDeAccesoGestor = new ControlDeAccesoGestor();
                 UsuarioGestor usuarioGestor = new UsuarioGestor();
                 usuarioGestor.Baja(usuario);
             }
