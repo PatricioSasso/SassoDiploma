@@ -88,6 +88,7 @@
             this.btn_MenuPrincipal.TabIndex = 5;
             this.btn_MenuPrincipal.Text = "Volver al menu principal";
             this.btn_MenuPrincipal.UseVisualStyleBackColor = true;
+            this.btn_MenuPrincipal.Click += new System.EventHandler(this.btn_MenuPrincipal_Click);
             // 
             // lbl_Formato
             // 

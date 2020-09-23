@@ -49,5 +49,10 @@ namespace GUI
             lbx_Bitacora.DataSource = null;
             lbx_Bitacora.DataSource = lista;
         }
+
+        private void btn_MenuPrincipal_Click(object sender, EventArgs e)
+        {
+            controller.cambiarForm(this.Owner);
+        }
     }
 }

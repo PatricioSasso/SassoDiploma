@@ -65,10 +65,6 @@ namespace Service
             {
                 control.Text = Idioma.Traducciones.Find(t => t.Nombre == control.Name).Texto;
             }
-            /*else if (control.Text != "")
-            {
-                MessageBox.Show("Falta traducir " + control.Name + " con texto " + control.Text + ".");
-            }*/
         }
 
         public void Traducir(List<Control> controles)
@@ -76,19 +72,21 @@ namespace Service
             List<Control> controlesATraducir = new List<Control>();
             foreach (var control in controles)
             {
-                if (typeof(TextBox) != control.GetType() && typeof(ComboBox) != control.GetType() && typeof(MenuStrip) != control.GetType())
+                if (typeof(TextBox) != control.GetType() && typeof(ComboBox) != control.GetType() && typeof(MenuStrip) != control.GetType() && typeof(DataGridView) != control.GetType() && typeof(ListBox) != control.GetType() && control.Text != "" && control.Name != "")
                 {
-                    controlesATraducir.Add(control);
+                    if(control.Name != "lbl_NombreUsuario2" && control.Name != "lbl_NombreYApellido" && control.Name != "lbl_Rol")
+                    {
+                        controlesATraducir.Add(control);
+                    }
                 }
             }
-            //foreach (var control in controlesATraducir)
-            foreach (var control in controles)
+            foreach (var control in controlesATraducir)
             {
                 if (Idioma.Traducciones.Exists(t => t.Nombre == control.Name))
                 {
                     control.Text = Idioma.Traducciones.Find(t => t.Nombre == control.Name).Texto;
                 }
-                /*else
+               /* else
                 {
                     MessageBox.Show("Falta traducir " + control.Name + " con texto " + control.Text + " a " + idioma.Nombre + ".");
                 }*/

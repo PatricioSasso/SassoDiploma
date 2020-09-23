@@ -64,7 +64,7 @@
             this.cerrarSesionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(722, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(605, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -177,7 +177,7 @@
             // 
             // btn_GestionarUsuarios
             // 
-            this.btn_GestionarUsuarios.Location = new System.Drawing.Point(403, 87);
+            this.btn_GestionarUsuarios.Location = new System.Drawing.Point(332, 37);
             this.btn_GestionarUsuarios.Name = "btn_GestionarUsuarios";
             this.btn_GestionarUsuarios.Size = new System.Drawing.Size(247, 23);
             this.btn_GestionarUsuarios.TabIndex = 10;
@@ -187,7 +187,7 @@
             // 
             // btn_GestionarRoles
             // 
-            this.btn_GestionarRoles.Location = new System.Drawing.Point(403, 116);
+            this.btn_GestionarRoles.Location = new System.Drawing.Point(332, 66);
             this.btn_GestionarRoles.Name = "btn_GestionarRoles";
             this.btn_GestionarRoles.Size = new System.Drawing.Size(247, 23);
             this.btn_GestionarRoles.TabIndex = 11;
@@ -232,7 +232,7 @@
             // cmb_Idioma
             // 
             this.cmb_Idioma.FormattingEnabled = true;
-            this.cmb_Idioma.Location = new System.Drawing.Point(491, 28);
+            this.cmb_Idioma.Location = new System.Drawing.Point(445, 3);
             this.cmb_Idioma.Name = "cmb_Idioma";
             this.cmb_Idioma.Size = new System.Drawing.Size(152, 24);
             this.cmb_Idioma.TabIndex = 16;
@@ -241,7 +241,7 @@
             // lbl_Idioma
             // 
             this.lbl_Idioma.AutoSize = true;
-            this.lbl_Idioma.Location = new System.Drawing.Point(400, 31);
+            this.lbl_Idioma.Location = new System.Drawing.Point(365, 6);
             this.lbl_Idioma.Name = "lbl_Idioma";
             this.lbl_Idioma.Size = new System.Drawing.Size(57, 17);
             this.lbl_Idioma.TabIndex = 15;
@@ -251,7 +251,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(722, 247);
+            this.ClientSize = new System.Drawing.Size(605, 247);
             this.Controls.Add(this.cmb_Idioma);
             this.Controls.Add(this.lbl_Idioma);
             this.Controls.Add(this.btn_AreaConfeccion);

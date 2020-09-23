@@ -69,6 +69,7 @@
             // 
             this.txt_Contraseña.Location = new System.Drawing.Point(9, 92);
             this.txt_Contraseña.Name = "txt_Contraseña";
+            this.txt_Contraseña.PasswordChar = '*';
             this.txt_Contraseña.Size = new System.Drawing.Size(206, 22);
             this.txt_Contraseña.TabIndex = 3;
             this.txt_Contraseña.Text = "xAgunimon";
@@ -100,7 +101,7 @@
             // lbl_Idioma
             // 
             this.lbl_Idioma.AutoSize = true;
-            this.lbl_Idioma.Location = new System.Drawing.Point(270, 26);
+            this.lbl_Idioma.Location = new System.Drawing.Point(41, 174);
             this.lbl_Idioma.Name = "lbl_Idioma";
             this.lbl_Idioma.Size = new System.Drawing.Size(57, 17);
             this.lbl_Idioma.TabIndex = 6;
@@ -109,7 +110,7 @@
             // cmb_Idioma
             // 
             this.cmb_Idioma.FormattingEnabled = true;
-            this.cmb_Idioma.Location = new System.Drawing.Point(361, 23);
+            this.cmb_Idioma.Location = new System.Drawing.Point(112, 171);
             this.cmb_Idioma.Name = "cmb_Idioma";
             this.cmb_Idioma.Size = new System.Drawing.Size(152, 24);
             this.cmb_Idioma.TabIndex = 7;
@@ -119,7 +120,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(566, 170);
+            this.ClientSize = new System.Drawing.Size(312, 203);
             this.Controls.Add(this.cmb_Idioma);
             this.Controls.Add(this.lbl_Idioma);
             this.Controls.Add(this.gbox_LogIn);
