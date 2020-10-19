@@ -15,17 +15,7 @@ public class CorteGestor
 
     public void Cortar(Corte corte, string codigoPrenda)
     {
-        List<Corte> cortesExistentes = GetListCorte();
-        if (cortesExistentes.Count == 0)
-        {
-            corte.Id = 1;
-            corte.Codigo = "CRT" + 1;
-        }
-        else
-        {
-            corte.Id = cortesExistentes.Last().Id + 1;
-            corte.Codigo = "CRT" + (cortesExistentes.Last().Id + 1);
-        }
+        corte.Codigo = corte.Tela.Codigo + "CRT";
         corte.Tela.Cantidad -= corte.CantidadTela;
         // velocidad de 2000 cm/s máxima aprox.
         corte.Tiempo = (corte.CantidadTela * corte.Dimensiones * 1000) / 2000; // CantidadTelas * Dimensiones * 1000 (para transformar de m2 a cm2) / velocidad máquina.
@@ -47,7 +37,7 @@ public class CorteGestor
         }
         else
         {
-            prendaGestor.Alta(new Prenda(prendasExistentes.Last().Id + 1, codigoPrenda, "Corte de " + corte.Tela.Descripcion, prendasObtenidas, corte.Talle, false));
+            prendaGestor.Alta(new Prenda(codigoPrenda, "Corte de " + corte.Tela.Descripcion, prendasObtenidas, corte.Talle, false));
         }
         bd.Alta(corte);
     }

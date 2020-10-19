@@ -65,7 +65,7 @@ namespace GUI
             RolGestor rolGestor = new RolGestor();
             int id = int.Parse(txt_Id.Text);
             string nombre = txt_Nombre.Text;
-            controller.AltaRol(id, nombre);
+            controller.AltaRol(nombre);
             dgv_Roles.DataSource = null;
             dgv_Roles.DataSource = rolGestor.GetListRol();
         }

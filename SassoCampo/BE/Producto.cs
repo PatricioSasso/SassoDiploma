@@ -18,6 +18,13 @@ public class Producto
         Id = id;
     }
 
+    public Producto(string codigo, string descripcion, int cantidad)
+    {
+        Codigo = codigo;
+        Descripcion = descripcion;
+        Cantidad = cantidad;
+    }
+
     public Producto(int id, string codigo, string descripcion, int cantidad)
     {
         Id = id;

@@ -66,7 +66,7 @@ namespace GUI
 
         private void btn_AltaPrenda_Click(object sender, EventArgs e)
         {
-            controller.AltaPrenda(int.Parse(txt_Id.Text), txt_Codigo.Text, txt_Descripcion.Text, int.Parse(txt_Cantidad.Text), txt_Talle.Text);
+            controller.AltaPrenda(txt_Codigo.Text, txt_Descripcion.Text, int.Parse(txt_Cantidad.Text), txt_Talle.Text);
             PrendaGestor prendaGestor = new PrendaGestor();
             dgv_Prendas.DataSource = null;
             dgv_Prendas.DataSource = prendaGestor.GetListPrendaSinConfeccionar();

@@ -79,9 +79,9 @@ namespace GUI
         private void btn_AltaTela_Click(object sender, EventArgs e)
         {
             TelaGestor telaGestor = new TelaGestor();
-            controller.AltaTela(int.Parse(txt_Id.Text), txt_Codigo.Text, txt_Descripcion.Text, int.Parse(txt_Cantidad.Text), "", false);
+            controller.AltaTela(txt_Codigo.Text, txt_Descripcion.Text, int.Parse(txt_Cantidad.Text), "", false);
             dgv_Telas.DataSource = null;
-            dgv_Telas.DataSource = telaGestor.GetListTela();
+            dgv_Telas.DataSource = telaGestor.GetListTelaSinTeñir();
         }
 
         private void btn_ModificarTela_Click(object sender, EventArgs e)
@@ -92,7 +92,7 @@ namespace GUI
             tela.Cantidad = int.Parse(txt_Cantidad.Text);
             controller.ModificarTela(tela);
             dgv_Telas.DataSource = null;
-            dgv_Telas.DataSource = telaGestor.GetListTela();
+            dgv_Telas.DataSource = telaGestor.GetListTelaSinTeñir();
         }
 
         private void btn_BajaTela_Click(object sender, EventArgs e)
@@ -101,7 +101,7 @@ namespace GUI
             Tela tela = dgv_Telas.SelectedRows[0].DataBoundItem as Tela;
             controller.BajaTela(tela);
             dgv_Telas.DataSource = null;
-            dgv_Telas.DataSource = telaGestor.GetListTela();
+            dgv_Telas.DataSource = telaGestor.GetListTelaSinTeñir();
         }
 
         private void dgv_Telas_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -116,7 +116,7 @@ namespace GUI
         private void btn_AltaTinte_Click(object sender, EventArgs e)
         {
             TinteGestor tinteGestor = new TinteGestor();
-            controller.AltaTinte(int.Parse(txt_IdTinte.Text), txt_CodigoTinte.Text, txt_DescripcionTinte.Text, int.Parse(txt_CantidadTinte.Text), txt_ColorTinte.Text);
+            controller.AltaTinte(txt_CodigoTinte.Text, txt_DescripcionTinte.Text, int.Parse(txt_CantidadTinte.Text), txt_ColorTinte.Text);
             dgv_Tintes.DataSource = null;
             dgv_Tintes.DataSource = tinteGestor.GetListTinte();
         }

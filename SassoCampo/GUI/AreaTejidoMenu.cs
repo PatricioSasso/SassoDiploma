@@ -39,7 +39,7 @@ namespace GUI
 
         private void btn_AltaHilado_Click(object sender, EventArgs e)
         {
-            controller.AltaHilado(txt_Id.Text, txt_Codigo.Text, txt_Descripcion.Text, txt_Cantidad.Text, txt_Peso.Text);
+            controller.AltaHilado(txt_Codigo.Text, txt_Descripcion.Text, txt_Cantidad.Text, txt_Peso.Text);
             dgv_Hilados.DataSource = null;
             dgv_Hilados.DataSource = controller.GetListHilado();
         }

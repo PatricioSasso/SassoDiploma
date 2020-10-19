@@ -17,8 +17,7 @@ namespace DAL
         public void Alta(Tejido alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO Tejido VALUES (@id, @codigo, @tiempo, @fecha, @hiladoId, @cantUtilizada, @areaTela )", conexion);
-            query.Parameters.AddWithValue("id", alta.Id);
+            query = new SqlCommand("INSERT INTO Tejido VALUES (@codigo, @tiempo, @cantUtilizada, @areaTela, @fecha, @hiladoId)", conexion);
             query.Parameters.AddWithValue("codigo", alta.Codigo);
             query.Parameters.AddWithValue("tiempo", alta.Tiempo);
             query.Parameters.AddWithValue("fecha", alta.Fecha);
@@ -56,10 +55,10 @@ namespace DAL
                     tejido.Id = reader.GetInt32(0);
                     tejido.Codigo = reader.GetString(1);
                     tejido.Tiempo = reader.GetInt32(2);
-                    tejido.Fecha = reader.GetDateTime(3);
-                    tejido.Hilado.Id = reader.GetInt32(4);
-                    tejido.CantidadUtilizada = reader.GetInt32(5);
-                    tejido.AreaTela = reader.GetInt32(6);
+                    tejido.CantidadUtilizada = reader.GetInt32(3);
+                    tejido.AreaTela = reader.GetInt32(4);
+                    tejido.Fecha = reader.GetDateTime(5);
+                    tejido.Hilado.Id = reader.GetInt32(6);
                 }
             }
             conexion.Close();

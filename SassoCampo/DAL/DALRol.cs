@@ -13,8 +13,7 @@ namespace DAL
         public void Alta(Rol alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO Rol VALUES(@id, @nombre)", conexion);
-            query.Parameters.AddWithValue("id", alta.Id);
+            query = new SqlCommand("INSERT INTO Rol VALUES(@nombre)", conexion);
             query.Parameters.AddWithValue("nombre", alta.Nombre);
             query.ExecuteNonQuery();
             conexion.Close();

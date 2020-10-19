@@ -17,8 +17,7 @@ namespace DAL
         public void Alta(Producto alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO Producto VALUES (@id, @codigo, @descripcion, @cantidad)", conexion);
-            query.Parameters.AddWithValue("id", alta.Id);
+            query = new SqlCommand("INSERT INTO Producto VALUES (@codigo, @descripcion, @cantidad)", conexion);
             query.Parameters.AddWithValue("codigo", alta.Codigo);
             query.Parameters.AddWithValue("descripcion", alta.Descripcion);
             query.Parameters.AddWithValue("cantidad", alta.Cantidad);

@@ -17,8 +17,7 @@ namespace DAL
         public void Alta(Hilado alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO Hilado VALUES (@id, @codigo, @descripcion, @cantidad, @peso)", conexion);
-            query.Parameters.AddWithValue("id", alta.Id);
+            query = new SqlCommand("INSERT INTO Hilado VALUES (@codigo, @descripcion, @cantidad, @peso)", conexion);
             query.Parameters.AddWithValue("codigo", alta.Codigo);
             query.Parameters.AddWithValue("descripcion", alta.Descripcion);
             query.Parameters.AddWithValue("cantidad", alta.Cantidad);

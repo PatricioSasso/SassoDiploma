@@ -67,7 +67,7 @@ namespace GUI
 
         private void btn_AltaTela_Click(object sender, EventArgs e)
         {
-            controller.AltaTela(int.Parse(txt_Id.Text), txt_Codigo.Text, txt_Descripcion.Text, int.Parse(txt_Cantidad.Text), txt_Color.Text, false);
+            controller.AltaTela(txt_Codigo.Text, txt_Descripcion.Text, int.Parse(txt_Cantidad.Text), txt_Color.Text, false);
             TelaGestor telaGestor = new TelaGestor();
             dgv_Telas.DataSource = null;
             dgv_Telas.DataSource = telaGestor.GetListTela();

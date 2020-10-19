@@ -14,8 +14,7 @@ namespace DAL
         public void Alta(PedidoProduccion alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO PedidoProduccion VALUES (@id, @fechaProduccion)", conexion);
-            query.Parameters.AddWithValue("id", alta.Id);
+            query = new SqlCommand("INSERT INTO PedidoProduccion VALUES (@fechaProduccion)", conexion);
             query.Parameters.AddWithValue("fechaProduccion", alta.FechaProduccion);
             query.ExecuteNonQuery();
             conexion.Close();

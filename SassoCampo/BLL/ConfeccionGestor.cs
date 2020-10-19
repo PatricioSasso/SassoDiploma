@@ -15,17 +15,7 @@ public class ConfeccionGestor
 
     public void Confeccionar(Confeccion confeccion, string codigoPrenda)
     {
-        List<Confeccion> confeccionExistentes = GetList();
-        if (confeccionExistentes.Count == 0)
-        {
-            confeccion.Id = 1;
-            confeccion.Codigo = "CNFCCN" + 1;
-        }
-        else
-        {
-            confeccion.Id = confeccionExistentes.Last().Id + 1;
-            confeccion.Codigo = "CNFCCN" + (confeccionExistentes.Last().Id + 1);
-        }
+        confeccion.Codigo = confeccion.Prenda.Codigo + "_CNFCCN";
         confeccion.Prenda.Cantidad -= confeccion.Cantidad;
         // La confección aunque se realiza con máquinas también depende de el uso que le de la persona.
         // Aunque si tenemos en cuenta la velocidad de las máquinas varían entre 1200 a 300 rpm . Promedio 750 rpm.
@@ -44,7 +34,7 @@ public class ConfeccionGestor
         }
         else
         {
-            prendaGestor.Alta(new Prenda(prendasExistentes.Last().Id + 1, codigoPrenda, "Formado por " + confeccion.Prenda.Descripcion, prendasObtenidas, confeccion.Prenda.Talle, true));
+            prendaGestor.Alta(new Prenda(codigoPrenda, "Formado por " + confeccion.Prenda.Descripcion, prendasObtenidas, confeccion.Prenda.Talle, true));
         }
         bd.Alta(confeccion);
     }

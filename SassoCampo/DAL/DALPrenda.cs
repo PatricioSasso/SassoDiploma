@@ -17,8 +17,7 @@ namespace DAL
         public void Alta(Prenda alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO Prenda VALUES (@id, @codigo, @descripcion, @cantidad, @talle, @confeccionada)", conexion);
-            query.Parameters.AddWithValue("id", alta.Id);
+            query = new SqlCommand("INSERT INTO Prenda VALUES (@codigo, @descripcion, @cantidad, @talle, @confeccionada)", conexion);
             query.Parameters.AddWithValue("codigo", alta.Codigo);
             query.Parameters.AddWithValue("descripcion", alta.Descripcion);
             query.Parameters.AddWithValue("cantidad", alta.Cantidad);

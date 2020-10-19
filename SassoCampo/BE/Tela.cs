@@ -13,6 +13,15 @@
         Id = Id;
     }
 
+    public Tela(string codigo, string descripcion, int cantidad, string color, bool teñido) : base(codigo, descripcion, cantidad)
+    {
+        Codigo = codigo;
+        Descripcion = descripcion;
+        Cantidad = cantidad;
+        Color = color;
+        Teñido = teñido;
+    }
+
     public Tela(int id, string codigo, string descripcion, int cantidad, string color, bool teñido) : base(id, codigo, descripcion, cantidad)
     {
         Id = id;

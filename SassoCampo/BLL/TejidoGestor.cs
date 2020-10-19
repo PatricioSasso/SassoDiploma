@@ -15,17 +15,7 @@ public class TejidoGestor
 
     public void Tejer(Tejido tejido, string codigoTela)
     {
-        List<Tejido> tejidosExistentes = GetListTejido();
-        if (tejidosExistentes.Count == 0) 
-        { 
-            tejido.Id = 1;
-            tejido.Codigo = "TJD" + 1;
-        }
-        else 
-        {
-            tejido.Id = tejidosExistentes.Last().Id + 1;
-            tejido.Codigo = "TJD" + (tejidosExistentes.Last().Id + 1);
-        }
+        tejido.Codigo = tejido.Hilado.Codigo + "_TJD";
         tejido.Hilado.Cantidad -= tejido.CantidadUtilizada;
         tejido.Tiempo = tejido.CantidadUtilizada * decimal.ToInt32(decimal.Floor(tejido.Hilado.Peso)) / 160; // Uso 160 porque es la velocidad promedio de los telares que encontré. La fórmula sería Tiempo = (tamaño + peso) / velocidad de tejido.
         int telasObtenidas = tejido.CantidadUtilizada / tejido.AreaTela;
@@ -41,7 +31,7 @@ public class TejidoGestor
         }
         else
         {
-            telaGestor.Alta(new Tela(telasExistentes.Last().Id + 1, codigoTela, "Proviene de " + tejido.Hilado.Descripcion + ".", telasObtenidas , "", false)); // cada 20 metros de tela utilizadas se crea 1 tela.
+            telaGestor.Alta(new Tela(codigoTela, "Proviene de " + tejido.Hilado.Descripcion + ".", telasObtenidas , "", false)); // cada 20 metros de tela utilizadas se crea 1 tela.
         }
         bd.Alta(tejido);
     }

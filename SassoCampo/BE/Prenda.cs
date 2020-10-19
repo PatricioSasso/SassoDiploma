@@ -15,6 +15,15 @@ public class Prenda : Producto
         Id = id;
     }
 
+    public Prenda(string codigo, string descripcion, int cantidad, string talle, bool confeccionada) : base(codigo, descripcion, cantidad)
+    {
+        Codigo = codigo;
+        Descripcion = descripcion;
+        Cantidad = cantidad;
+        Talle = talle;
+        Confeccionada = confeccionada;
+    }
+
     public Prenda(int id, string codigo, string descripcion, int cantidad, string talle, bool confeccionada) : base(id, codigo, descripcion, cantidad)
     {
         Id = id;

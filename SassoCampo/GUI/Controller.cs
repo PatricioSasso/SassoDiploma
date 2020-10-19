@@ -124,10 +124,10 @@ namespace GUI
             }
         }
 
-        public void AltaRol(int id, string nombre)
+        public void AltaRol(string nombre)
         {
             RolGestor rolGestor = new RolGestor();
-            rolGestor.Alta(new Rol(id, nombre, new List<Permiso>()));
+            rolGestor.Alta(new Rol(nombre, new List<Permiso>()));
         }
 
         public void ModificarRol(Rol rol)
@@ -177,17 +177,16 @@ namespace GUI
 
         #region Productos
 
-        public void AltaHilado(string Id, string Codigo, string Descripcion, string Cantidad, string Peso)
+        public void AltaHilado(string Codigo, string Descripcion, string Cantidad, string Peso)
         {
             try
             {
                 HiladoGestor hiladoGestor = new HiladoGestor();
-                int id = int.Parse(Id);
                 string codigo = Codigo;
                 string descripcion = Descripcion;
                 int cantidad = int.Parse(Cantidad);
                 decimal peso = decimal.Parse(Peso);
-                hiladoGestor.Alta(new Hilado(id, codigo, descripcion, cantidad, peso));
+                hiladoGestor.Alta(new Hilado(codigo, descripcion, cantidad, peso));
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -223,12 +222,12 @@ namespace GUI
             return hiladoGestor.GetListHilado();
         }
 
-        public void AltaTela(int id, string codigo, string descripcion, int cantidad, string color, bool teñido)
+        public void AltaTela(string codigo, string descripcion, int cantidad, string color, bool teñido)
         {
             try
             {
                 TelaGestor telaGestor = new TelaGestor();
-                telaGestor.Alta(new Tela(id, codigo, descripcion, cantidad, "", false));
+                telaGestor.Alta(new Tela(codigo, descripcion, cantidad, "", false));
                 BitacoraGestor bitacoraGestor = new BitacoraGestor();
                 bitacoraGestor.Registrar("El empleado con nombre de usuario " + controlDeAcceso.UsuarioActual.NombreUsuario + " ha creado una nueva tela :" + codigo + " " + descripcion + ".", TipoMensaje.MENSAJE, controlDeAcceso.UsuarioActual);
             }
@@ -264,12 +263,12 @@ namespace GUI
             return telaGestor.GetListTela();
         }
 
-        public void AltaTinte(int id, string codigo, string descripcion, int cantidad, string color)
+        public void AltaTinte(string codigo, string descripcion, int cantidad, string color)
         {
             try
             {
                 TinteGestor tinteGestor = new TinteGestor();
-                tinteGestor.Alta(new Tinte(id, codigo, descripcion, cantidad, color));
+                tinteGestor.Alta(new Tinte(codigo, descripcion, cantidad, color));
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -301,12 +300,12 @@ namespace GUI
             return tinteGestor.GetListTinte();
         }
 
-        public void AltaPrenda(int id, string codigo, string descripcion, int cantidad, string talle)
+        public void AltaPrenda(string codigo, string descripcion, int cantidad, string talle)
         {
             try
             {
                 PrendaGestor prendaGestor = new PrendaGestor();
-                prendaGestor.Alta(new Prenda(id, codigo, descripcion, cantidad, talle, false));
+                prendaGestor.Alta(new Prenda(codigo, descripcion, cantidad, talle, false));
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

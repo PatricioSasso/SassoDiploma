@@ -17,8 +17,7 @@ namespace DAL
         public void Alta(Corte alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO Corte VALUES (@id, @codigo, @talle, @tiempo, @fecha, @cantidadTela, @dimensiones, @telaId)", conexion);
-            query.Parameters.AddWithValue("id", alta.Id);
+            query = new SqlCommand("INSERT INTO Corte VALUES (@codigo, @talle, @tiempo, @fecha, @cantidadTela, @dimensiones, @telaId)", conexion);
             query.Parameters.AddWithValue("codigo", alta.Codigo);
             query.Parameters.AddWithValue("talle", alta.Talle);
             query.Parameters.AddWithValue("tiempo", alta.Tiempo);

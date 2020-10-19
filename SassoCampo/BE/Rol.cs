@@ -11,6 +11,13 @@ public class Rol
 
     }
 
+    public Rol(string nombre, List<Permiso> permisos)
+    {
+        Id = id;
+        Nombre = nombre;
+        Permisos = permisos;
+    }
+
     public Rol(int id, string nombre, List<Permiso> permisos)
     {
         Id = id;

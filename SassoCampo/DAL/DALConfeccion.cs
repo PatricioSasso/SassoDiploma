@@ -17,8 +17,7 @@ namespace DAL
         public void Alta(Confeccion alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO Confeccion VALUES (@id, @codigo, @tiempo, @fecha, @prendaId, @cantidadPrenda)", conexion);
-            query.Parameters.AddWithValue("id", alta.Id);
+            query = new SqlCommand("INSERT INTO Confeccion VALUES (@codigo, @cantidadPrenda, @tiempo, @fecha, @prendaId)", conexion);
             query.Parameters.AddWithValue("codigo", alta.Codigo);
             query.Parameters.AddWithValue("tiempo", alta.Tiempo);
             query.Parameters.AddWithValue("fecha", alta.Fecha);
@@ -54,10 +53,10 @@ namespace DAL
                 {
                     confeccion.Id = reader.GetInt32(0);
                     confeccion.Codigo = reader.GetString(1);
-                    confeccion.Tiempo = reader.GetInt32(2);
-                    confeccion.Fecha = reader.GetDateTime(3);
-                    confeccion.Prenda.Id = reader.GetInt32(4);
-                    confeccion.Cantidad = reader.GetInt32(5);
+                    confeccion.Cantidad = reader.GetInt32(2);
+                    confeccion.Tiempo = reader.GetInt32(3);
+                    confeccion.Fecha = reader.GetDateTime(4);
+                    confeccion.Prenda.Id = reader.GetInt32(5);
                 }
             }
             conexion.Close();

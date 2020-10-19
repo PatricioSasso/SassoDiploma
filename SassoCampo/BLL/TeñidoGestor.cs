@@ -14,17 +14,7 @@ public class TeñidoGestor
 
     public void Teñir(Teñido teñido, string codigoTela)
     {
-        List<Teñido> teñidosExistentes = GetListTeñido();
-        if (teñidosExistentes.Count == 0) 
-        { 
-            teñido.Id = 1;
-            teñido.Codigo = "TÑD" + 1;
-        }
-        else 
-        { 
-            teñido.Id = teñidosExistentes.Last().Id + 1;
-            teñido.Codigo = "TÑD" + (teñidosExistentes.Last().Id + 1);
-        }
+        teñido.Codigo = teñido.Tela.Codigo + "_" + teñido.Tinte.Codigo + "_TÑD";
         teñido.Tinte.Cantidad -= teñido.CantidadTinteUtilizada;
         teñido.Tela.Cantidad -= teñido.CantidadTelaUtilizada;
         Random r = new Random();
@@ -37,6 +27,7 @@ public class TeñidoGestor
         TinteGestor tinteGestor = new TinteGestor();
         tinteGestor.Modificar(teñido.Tinte);
         TelaGestor telaGestor = new TelaGestor();
+        telaGestor.Modificar(teñido.Tela);
         List<Tela> telasExistentes = telaGestor.GetListTela();
         if (telasExistentes.Exists(t => t.Codigo == codigoTela) && telasExistentes.Exists(t => t.Color == teñido.Tinte.Color))
         {
@@ -48,7 +39,7 @@ public class TeñidoGestor
         }
         else
         {
-            telaGestor.Alta(new Tela(telasExistentes.Last().Id + 1, codigoTela, teñido.Tela.Descripcion, telasObtenidas, teñido.Tinte.Color , true));
+            telaGestor.Alta(new Tela(codigoTela, teñido.Tela.Descripcion, telasObtenidas, teñido.Tinte.Color , true));
         }
         bd.Alta(teñido);
     }

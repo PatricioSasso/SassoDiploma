@@ -17,8 +17,7 @@ namespace DAL
         public void Alta(Teñido alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO Teñido VALUES (@id, @codigo, @tiempo, @fecha, @telaId, @tinteId, @cantidadTela, @cantidadTinte)", conexion);
-            query.Parameters.AddWithValue("id", alta.Id);
+            query = new SqlCommand("INSERT INTO Teñido VALUES (@codigo, @cantidadTela, @cantidadTinte, @tiempo, @fecha, @telaId, @tinteId)", conexion);
             query.Parameters.AddWithValue("codigo", alta.Codigo);
             query.Parameters.AddWithValue("tiempo", alta.Tiempo);
             query.Parameters.AddWithValue("fecha", alta.Fecha);
@@ -56,12 +55,12 @@ namespace DAL
                 {
                     teñido.Id = reader.GetInt32(0);
                     teñido.Codigo = reader.GetString(1);
-                    teñido.Tiempo = reader.GetInt32(2);
-                    teñido.Fecha = reader.GetDateTime(3);
-                    teñido.Tela.Id = reader.GetInt32(4);
-                    teñido.Tinte.Id = reader.GetInt32(5);
-                    teñido.CantidadTelaUtilizada = reader.GetInt32(6);
-                    teñido.CantidadTinteUtilizada = reader.GetInt32(7);
+                    teñido.CantidadTelaUtilizada = reader.GetInt32(2);
+                    teñido.CantidadTinteUtilizada = reader.GetInt32(3);
+                    teñido.Tiempo = reader.GetInt32(4);
+                    teñido.Fecha = reader.GetDateTime(5);
+                    teñido.Tela.Id = reader.GetInt32(6);
+                    teñido.Tinte.Id = reader.GetInt32(7);
                 }
             }
             conexion.Close();
