@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic;
+﻿using BE;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -107,7 +108,6 @@ namespace GUI
         private void dgv_Telas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Tela tela = dgv_Telas.SelectedRows[0].DataBoundItem as Tela;
-            txt_Id.Text = tela.Id.ToString();
             txt_Codigo.Text = tela.Codigo;
             txt_Descripcion.Text = tela.Descripcion;
             txt_Cantidad.Text = tela.Cantidad.ToString();
@@ -146,7 +146,6 @@ namespace GUI
         private void dgv_Tintes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Tinte tinte = dgv_Tintes.SelectedRows[0].DataBoundItem as Tinte;
-            txt_IdTinte.Text = tinte.Id.ToString();
             txt_CodigoTinte.Text = tinte.Codigo;
             txt_DescripcionTinte.Text = tinte.Descripcion;
             txt_CantidadTinte.Text = tinte.Cantidad.ToString();
@@ -174,6 +173,30 @@ namespace GUI
         private void btn_MenuPrincipal_Click(object sender, EventArgs e)
         {
             controller.cambiarForm(this.Owner);
+        }
+
+        private void btn_Solicitar_Click(object sender, EventArgs e)
+        {
+            List<ItemProducto> productos = new List<ItemProducto>();
+            foreach (DataGridViewRow tela in dgv_Telas.SelectedRows)
+            {
+                int cantidad = int.Parse(Interaction.InputBox("¿Cuánta cantidad de la tela " + (tela.DataBoundItem as Tela).Codigo + " desea solicitar?"));
+                productos.Add(new ItemProducto(cantidad, tela.DataBoundItem as Tela));
+            }
+            DateTime fecha = DateTime.Parse(Interaction.InputBox("¿Para qué día necesita los elementos solicitados terminados?"));
+            controller.SolicitarProducto(productos, fecha);
+        }
+
+        private void bnt_Solicitar2_Click(object sender, EventArgs e)
+        {
+            List<ItemProducto> productos = new List<ItemProducto>();
+            foreach (DataGridViewRow tinte in dgv_Tintes.SelectedRows)
+            {
+                int cantidad = int.Parse(Interaction.InputBox("¿Cuánta cantidad del tinte " + (tinte.DataBoundItem as Tinte).Codigo + " desea solicitar?"));
+                productos.Add(new ItemProducto(cantidad, tinte.DataBoundItem as Tinte));
+            }
+            DateTime fecha = DateTime.Parse(Interaction.InputBox("¿Para qué día necesita los elementos solicitados terminados?"));
+            controller.SolicitarProducto(productos, fecha);
         }
     }
 }

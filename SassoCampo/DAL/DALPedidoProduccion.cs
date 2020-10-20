@@ -43,6 +43,25 @@ namespace DAL
             conexion.Close();
         }
 
+        public PedidoProduccion GetLast()
+        {
+            conexion.Open();
+            PedidoProduccion pedidoProduccion = new PedidoProduccion();
+            query = new SqlCommand("SELECT * FROM PedidoProduccion WHERE Id = (SELECT Max(Id) FROM PedidoProduccion)", conexion);
+            using (SqlDataReader reader = query.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    pedidoProduccion.Id = reader.GetInt32(0);
+                    pedidoProduccion.FechaProduccion = reader.GetDateTime(1);
+                }
+            }
+            conexion.Close();
+            DALItemProducto dalItemProducto = new DALItemProducto();
+            pedidoProduccion.ItemProductos = dalItemProducto.GetList(pedidoProduccion);
+            return pedidoProduccion;
+        }
+
         public PedidoProduccion Get(PedidoProduccion get)
         {
             conexion.Open();

@@ -14,11 +14,11 @@ namespace DAL
         public void Alta(ItemProducto alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO ItemProducto VALUES (@pedidoId, @cantidad, @productoId)", conexion);
+            query = new SqlCommand("INSERT INTO ItemProducto VALUES (@pedidoId, @cantidad, @productoId, @tipo)", conexion);
             query.Parameters.AddWithValue("pedidoId", alta.Pedido.Id);
             query.Parameters.AddWithValue("cantidad", alta.Cantidad);
             query.Parameters.AddWithValue("productoId", alta.Producto.Id);
-            query.Parameters.AddWithValue("cantidad", alta.Cantidad);
+            query.Parameters.AddWithValue("tipo", alta.Producto.GetType().Name);
             query.ExecuteNonQuery();
             conexion.Close();
         }

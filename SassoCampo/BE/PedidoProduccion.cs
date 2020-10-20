@@ -16,10 +16,15 @@ namespace BE
         {
 
         }
-        
+
         public PedidoProduccion(int id)
         {
             Id = id;
+        }
+
+        public PedidoProduccion(DateTime fechaProduccion)
+        {
+            FechaProduccion = fechaProduccion;
         }
 
         public PedidoProduccion(int id, DateTime fechaProduccion, List<ItemProducto> productos)

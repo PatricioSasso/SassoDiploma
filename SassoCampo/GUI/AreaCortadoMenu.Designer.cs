@@ -41,12 +41,11 @@
             this.lbl_Descripcion = new System.Windows.Forms.Label();
             this.txt_Codigo = new System.Windows.Forms.TextBox();
             this.lbl_Codigo = new System.Windows.Forms.Label();
-            this.txt_Id = new System.Windows.Forms.TextBox();
-            this.lbl_Id = new System.Windows.Forms.Label();
             this.dgv_Telas = new System.Windows.Forms.DataGridView();
             this.gbx_PrendasCortadasStock = new System.Windows.Forms.GroupBox();
             this.dgv_Prendas = new System.Windows.Forms.DataGridView();
             this.btn_MenuPrincipal = new System.Windows.Forms.Button();
+            this.btn_Solicitar = new System.Windows.Forms.Button();
             this.gbx_Telas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Telas)).BeginInit();
             this.gbx_PrendasCortadasStock.SuspendLayout();
@@ -55,6 +54,7 @@
             // 
             // gbx_Telas
             // 
+            this.gbx_Telas.Controls.Add(this.btn_Solicitar);
             this.gbx_Telas.Controls.Add(this.btn_Cortar);
             this.gbx_Telas.Controls.Add(this.btn_Baja);
             this.gbx_Telas.Controls.Add(this.txt_Color);
@@ -67,8 +67,6 @@
             this.gbx_Telas.Controls.Add(this.lbl_Descripcion);
             this.gbx_Telas.Controls.Add(this.txt_Codigo);
             this.gbx_Telas.Controls.Add(this.lbl_Codigo);
-            this.gbx_Telas.Controls.Add(this.txt_Id);
-            this.gbx_Telas.Controls.Add(this.lbl_Id);
             this.gbx_Telas.Controls.Add(this.dgv_Telas);
             this.gbx_Telas.Location = new System.Drawing.Point(12, 12);
             this.gbx_Telas.Name = "gbx_Telas";
@@ -79,7 +77,7 @@
             // 
             // btn_Cortar
             // 
-            this.btn_Cortar.Location = new System.Drawing.Point(23, 248);
+            this.btn_Cortar.Location = new System.Drawing.Point(23, 220);
             this.btn_Cortar.Name = "btn_Cortar";
             this.btn_Cortar.Size = new System.Drawing.Size(193, 23);
             this.btn_Cortar.TabIndex = 21;
@@ -89,7 +87,7 @@
             // 
             // btn_Baja
             // 
-            this.btn_Baja.Location = new System.Drawing.Point(23, 219);
+            this.btn_Baja.Location = new System.Drawing.Point(23, 191);
             this.btn_Baja.Name = "btn_Baja";
             this.btn_Baja.Size = new System.Drawing.Size(193, 23);
             this.btn_Baja.TabIndex = 20;
@@ -99,14 +97,14 @@
             // 
             // txt_Color
             // 
-            this.txt_Color.Location = new System.Drawing.Point(116, 133);
+            this.txt_Color.Location = new System.Drawing.Point(116, 105);
             this.txt_Color.Name = "txt_Color";
             this.txt_Color.Size = new System.Drawing.Size(100, 22);
             this.txt_Color.TabIndex = 24;
             // 
             // btn_Modificar
             // 
-            this.btn_Modificar.Location = new System.Drawing.Point(23, 190);
+            this.btn_Modificar.Location = new System.Drawing.Point(23, 162);
             this.btn_Modificar.Name = "btn_Modificar";
             this.btn_Modificar.Size = new System.Drawing.Size(193, 23);
             this.btn_Modificar.TabIndex = 19;
@@ -117,7 +115,7 @@
             // lbl_Color
             // 
             this.lbl_Color.AutoSize = true;
-            this.lbl_Color.Location = new System.Drawing.Point(61, 136);
+            this.lbl_Color.Location = new System.Drawing.Point(61, 108);
             this.lbl_Color.Name = "lbl_Color";
             this.lbl_Color.Size = new System.Drawing.Size(49, 17);
             this.lbl_Color.TabIndex = 23;
@@ -125,7 +123,7 @@
             // 
             // btn_Alta
             // 
-            this.btn_Alta.Location = new System.Drawing.Point(23, 161);
+            this.btn_Alta.Location = new System.Drawing.Point(23, 133);
             this.btn_Alta.Name = "btn_Alta";
             this.btn_Alta.Size = new System.Drawing.Size(193, 23);
             this.btn_Alta.TabIndex = 18;
@@ -135,7 +133,7 @@
             // 
             // txt_Cantidad
             // 
-            this.txt_Cantidad.Location = new System.Drawing.Point(116, 105);
+            this.txt_Cantidad.Location = new System.Drawing.Point(116, 77);
             this.txt_Cantidad.Name = "txt_Cantidad";
             this.txt_Cantidad.Size = new System.Drawing.Size(100, 22);
             this.txt_Cantidad.TabIndex = 19;
@@ -143,7 +141,7 @@
             // lbl_Cantidad
             // 
             this.lbl_Cantidad.AutoSize = true;
-            this.lbl_Cantidad.Location = new System.Drawing.Point(38, 108);
+            this.lbl_Cantidad.Location = new System.Drawing.Point(38, 80);
             this.lbl_Cantidad.Name = "lbl_Cantidad";
             this.lbl_Cantidad.Size = new System.Drawing.Size(72, 17);
             this.lbl_Cantidad.TabIndex = 21;
@@ -151,7 +149,7 @@
             // 
             // txt_Descripcion
             // 
-            this.txt_Descripcion.Location = new System.Drawing.Point(116, 77);
+            this.txt_Descripcion.Location = new System.Drawing.Point(116, 49);
             this.txt_Descripcion.Name = "txt_Descripcion";
             this.txt_Descripcion.Size = new System.Drawing.Size(100, 22);
             this.txt_Descripcion.TabIndex = 18;
@@ -159,7 +157,7 @@
             // lbl_Descripcion
             // 
             this.lbl_Descripcion.AutoSize = true;
-            this.lbl_Descripcion.Location = new System.Drawing.Point(20, 82);
+            this.lbl_Descripcion.Location = new System.Drawing.Point(20, 54);
             this.lbl_Descripcion.Name = "lbl_Descripcion";
             this.lbl_Descripcion.Size = new System.Drawing.Size(90, 17);
             this.lbl_Descripcion.TabIndex = 22;
@@ -167,7 +165,7 @@
             // 
             // txt_Codigo
             // 
-            this.txt_Codigo.Location = new System.Drawing.Point(116, 49);
+            this.txt_Codigo.Location = new System.Drawing.Point(116, 21);
             this.txt_Codigo.Name = "txt_Codigo";
             this.txt_Codigo.Size = new System.Drawing.Size(100, 22);
             this.txt_Codigo.TabIndex = 17;
@@ -175,27 +173,11 @@
             // lbl_Codigo
             // 
             this.lbl_Codigo.AutoSize = true;
-            this.lbl_Codigo.Location = new System.Drawing.Point(52, 52);
+            this.lbl_Codigo.Location = new System.Drawing.Point(52, 24);
             this.lbl_Codigo.Name = "lbl_Codigo";
             this.lbl_Codigo.Size = new System.Drawing.Size(60, 17);
             this.lbl_Codigo.TabIndex = 20;
             this.lbl_Codigo.Text = "Código :";
-            // 
-            // txt_Id
-            // 
-            this.txt_Id.Location = new System.Drawing.Point(116, 21);
-            this.txt_Id.Name = "txt_Id";
-            this.txt_Id.Size = new System.Drawing.Size(100, 22);
-            this.txt_Id.TabIndex = 16;
-            // 
-            // lbl_Id
-            // 
-            this.lbl_Id.AutoSize = true;
-            this.lbl_Id.Location = new System.Drawing.Point(83, 24);
-            this.lbl_Id.Name = "lbl_Id";
-            this.lbl_Id.Size = new System.Drawing.Size(27, 17);
-            this.lbl_Id.TabIndex = 15;
-            this.lbl_Id.Text = "Id :";
             // 
             // dgv_Telas
             // 
@@ -214,7 +196,7 @@
             // gbx_PrendasCortadasStock
             // 
             this.gbx_PrendasCortadasStock.Controls.Add(this.dgv_Prendas);
-            this.gbx_PrendasCortadasStock.Location = new System.Drawing.Point(210, 299);
+            this.gbx_PrendasCortadasStock.Location = new System.Drawing.Point(310, 299);
             this.gbx_PrendasCortadasStock.Name = "gbx_PrendasCortadasStock";
             this.gbx_PrendasCortadasStock.Size = new System.Drawing.Size(704, 262);
             this.gbx_PrendasCortadasStock.TabIndex = 19;
@@ -238,19 +220,29 @@
             // 
             // btn_MenuPrincipal
             // 
-            this.btn_MenuPrincipal.Location = new System.Drawing.Point(1020, 12);
+            this.btn_MenuPrincipal.Location = new System.Drawing.Point(12, 299);
             this.btn_MenuPrincipal.Name = "btn_MenuPrincipal";
-            this.btn_MenuPrincipal.Size = new System.Drawing.Size(80, 69);
+            this.btn_MenuPrincipal.Size = new System.Drawing.Size(292, 48);
             this.btn_MenuPrincipal.TabIndex = 22;
             this.btn_MenuPrincipal.Text = "Volver Al Menu Principal";
             this.btn_MenuPrincipal.UseVisualStyleBackColor = true;
             this.btn_MenuPrincipal.Click += new System.EventHandler(this.btn_MenuPrincipal_Click);
             // 
+            // btn_Solicitar
+            // 
+            this.btn_Solicitar.Location = new System.Drawing.Point(23, 249);
+            this.btn_Solicitar.Name = "btn_Solicitar";
+            this.btn_Solicitar.Size = new System.Drawing.Size(193, 23);
+            this.btn_Solicitar.TabIndex = 26;
+            this.btn_Solicitar.Text = "Solicitar";
+            this.btn_Solicitar.UseVisualStyleBackColor = true;
+            this.btn_Solicitar.Click += new System.EventHandler(this.btn_Solicitar_Click);
+            // 
             // AreaCortadoMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1112, 596);
+            this.ClientSize = new System.Drawing.Size(1021, 571);
             this.Controls.Add(this.btn_MenuPrincipal);
             this.Controls.Add(this.gbx_PrendasCortadasStock);
             this.Controls.Add(this.gbx_Telas);
@@ -280,12 +272,11 @@
         private System.Windows.Forms.Label lbl_Descripcion;
         private System.Windows.Forms.TextBox txt_Codigo;
         private System.Windows.Forms.Label lbl_Codigo;
-        private System.Windows.Forms.TextBox txt_Id;
-        private System.Windows.Forms.Label lbl_Id;
         private System.Windows.Forms.DataGridView dgv_Telas;
         private System.Windows.Forms.GroupBox gbx_PrendasCortadasStock;
         private System.Windows.Forms.DataGridView dgv_Prendas;
         private System.Windows.Forms.Button btn_Cortar;
         private System.Windows.Forms.Button btn_MenuPrincipal;
+        private System.Windows.Forms.Button btn_Solicitar;
     }
 }

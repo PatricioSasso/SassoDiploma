@@ -17,6 +17,12 @@ namespace BE
 
         }
 
+        public ItemProducto(int cantidad, Producto producto)
+        {
+            Cantidad = cantidad;
+            Producto = producto;
+        }
+
         public ItemProducto(int cantidad, Producto producto, PedidoProduccion pedido)
         {
             Cantidad = cantidad;

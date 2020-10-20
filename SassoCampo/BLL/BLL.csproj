@@ -46,6 +46,8 @@
     <Compile Include="ConfeccionGestor.cs" />
     <Compile Include="CorteGestor.cs" />
     <Compile Include="HiladoGestor.cs" />
+    <Compile Include="ItemProductoGestor.cs" />
+    <Compile Include="PedidoProduccionGestor.cs" />
     <Compile Include="PermisoGestor.cs" />
     <Compile Include="PrendaGestor.cs" />
     <Compile Include="ProductoGestor.cs" />
@@ -65,6 +67,10 @@
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{eb93f509-2730-4519-8d13-0ecdd9c7011c}</Project>
       <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{2DB22AD8-E1C6-4641-A884-E56B4BE226AE}</Project>
+      <Name>Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\Servicio\Service.csproj">
       <Project>{e12e75cf-26b4-45e5-952d-178b0340b6cd}</Project>

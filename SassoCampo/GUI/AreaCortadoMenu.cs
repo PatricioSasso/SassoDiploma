@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic;
+﻿using BE;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -97,7 +98,6 @@ namespace GUI
         private void dgv_Telas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Tela tela = dgv_Telas.SelectedRows[0].DataBoundItem as Tela;
-            txt_Id.Text = tela.Id.ToString();
             txt_Codigo.Text = tela.Codigo;
             txt_Descripcion.Text = tela.Descripcion;
             txt_Cantidad.Text = tela.Cantidad.ToString();
@@ -123,6 +123,18 @@ namespace GUI
             dgv_Telas.DataSource = telaGestor.GetListTela();
             dgv_Prendas.DataSource = null;
             dgv_Prendas.DataSource = prendaGestor.GetListPrenda();
+        }
+
+        private void btn_Solicitar_Click(object sender, EventArgs e)
+        {
+            List<ItemProducto> productos = new List<ItemProducto>();
+            foreach (DataGridViewRow prenda in dgv_Prendas.SelectedRows)
+            {
+                int cantidad = int.Parse(Interaction.InputBox("¿Cuánta cantidad de la prenda " + (prenda.DataBoundItem as Prenda).Codigo + " desea solicitar?"));
+                productos.Add(new ItemProducto(cantidad, prenda.DataBoundItem as Prenda));
+            }
+            DateTime fecha = DateTime.Parse(Interaction.InputBox("¿Para qué día necesita los elementos solicitados terminados?"));
+            controller.SolicitarProducto(productos, fecha);
         }
     }
 }

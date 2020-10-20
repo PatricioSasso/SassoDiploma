@@ -388,6 +388,22 @@ namespace GUI
         }
         #endregion
 
+        #region 2
+        public void SolicitarProducto(List<ItemProducto> productos, DateTime fecha)
+        {
+            PedidoProduccionGestor pedidoProduccionGestor = new PedidoProduccionGestor();
+            PedidoProduccion pedido = pedidoProduccionGestor.Alta(new PedidoProduccion(fecha));
+            ItemProductoGestor itemProductoGestor = new ItemProductoGestor();
+            foreach (var item in productos)
+            {
+                item.Pedido = pedido;
+                itemProductoGestor.Alta(item);
+            }
+            MessageBox.Show("Se ha realizado el pedido correctamente");
+        }
+
+        #endregion
+
         public void cambiarForm(Form newForm)
         {
             if (newForm.Owner == null && newForm.GetType().Name != "LogInMenu")

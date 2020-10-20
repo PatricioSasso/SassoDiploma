@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic;
+﻿using BE;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -99,7 +100,6 @@ namespace GUI
         private void dgv_Prendas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Prenda prenda = dgv_Prendas.SelectedRows[0].DataBoundItem as Prenda;
-            txt_Id.Text = prenda.Id.ToString();
             txt_Codigo.Text = prenda.Codigo;
             txt_Descripcion.Text = prenda.Descripcion;
             txt_Cantidad.Text = prenda.Cantidad.ToString();
@@ -117,6 +117,18 @@ namespace GUI
             dgv_Prendas.DataSource = prendaGestor.GetListPrendaSinConfeccionar();
             dgv_PrendasConfeccionadas.DataSource = null;
             dgv_PrendasConfeccionadas.DataSource = prendaGestor.GetListPrendaConfeccionada();
+        }
+
+        private void btn_Solicitar_Click(object sender, EventArgs e)
+        {
+            List<ItemProducto> productos = new List<ItemProducto>();
+            foreach (DataGridViewRow prenda in dgv_Prendas.SelectedRows)
+            {
+                int cantidad = int.Parse(Interaction.InputBox("¿Cuánta cantidad de la tinte " + (prenda.DataBoundItem as Prenda).Codigo + " desea solicitar?"));
+                productos.Add(new ItemProducto(cantidad, prenda.DataBoundItem as Prenda));
+            }
+            DateTime fecha = DateTime.Parse(Interaction.InputBox("¿Para qué día necesita los elementos solicitados terminados?"));
+            controller.SolicitarProducto(productos, fecha);
         }
     }
 }

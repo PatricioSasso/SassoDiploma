@@ -66,7 +66,6 @@ namespace GUI
         private void dataGridView_Hilado_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Hilado hilado = dgv_Hilados.SelectedRows[0].DataBoundItem as Hilado;
-            txt_Id.Text = hilado.Id.ToString();
             txt_Codigo.Text = hilado.Codigo;
             txt_Descripcion.Text = hilado.Descripcion;
             txt_Cantidad.Text = hilado.Cantidad.ToString();
@@ -144,6 +143,18 @@ namespace GUI
             originator.RestoreMemento(dgv_Hilados.SelectedRows[0].DataBoundItem as Hilado, dgv_ControlCambiosHilado.SelectedRows[0].DataBoundItem as Memento);
             dgv_Hilados.DataSource = null;
             dgv_Hilados.DataSource = controller.GetListHilado();
+        }
+
+        private void btn_Solicitar_Click(object sender, EventArgs e)
+        {
+            List<ItemProducto> productos = new List<ItemProducto>();
+            foreach (DataGridViewRow hilado in dgv_Hilados.SelectedRows)
+            {
+                int cantidad = int.Parse(Interaction.InputBox("¿Cuánta cantidad del hilado " + (hilado.DataBoundItem as Hilado).Codigo + " desea solicitar?"));
+                productos.Add(new ItemProducto(cantidad, hilado.DataBoundItem as Hilado));
+            }
+            DateTime fecha = DateTime.Parse(Interaction.InputBox("¿Para qué día necesita los elementos solicitados terminados?"));
+            controller.SolicitarProducto(productos, fecha);
         }
     }
 }
