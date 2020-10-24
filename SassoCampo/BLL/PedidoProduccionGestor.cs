@@ -41,7 +41,7 @@ namespace BLL
 
         public void Modificar(PedidoProduccion modificar)
         {
-            throw new NotImplementedException();
+            dal.Modificar(modificar);
         }
     }
 }

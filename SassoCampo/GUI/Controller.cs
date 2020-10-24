@@ -411,6 +411,13 @@ namespace GUI
             MessageBox.Show("Se ha registrado el pedido correctamente");
         }
 
+        public void modificarPedidoProduccion(PedidoProduccion pedidoProduccion, string estado)
+        {
+            PedidoProduccionGestor pedidoProduccionGestor = new PedidoProduccionGestor();
+            pedidoProduccion.Estado = estado;
+            pedidoProduccionGestor.Modificar(pedidoProduccion);
+        }
+
         public string ActualizarInfo()
         {
             TejidoGestor tejidoGestor = new TejidoGestor();
@@ -425,6 +432,7 @@ namespace GUI
             text += informacionProduccionGestor.ObtenerInformacionConfeccion(info) + Environment.NewLine;
             return text;
         }
+
         #endregion
 
         public void cambiarForm(Form newForm)

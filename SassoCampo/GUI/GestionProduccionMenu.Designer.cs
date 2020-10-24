@@ -150,6 +150,7 @@
             this.btn_SolicitudProduccionCompleta.TabIndex = 7;
             this.btn_SolicitudProduccionCompleta.Text = "Solicitud Completa";
             this.btn_SolicitudProduccionCompleta.UseVisualStyleBackColor = true;
+            this.btn_SolicitudProduccionCompleta.Click += new System.EventHandler(this.btn_SolicitudProduccionCompleta_Click);
             // 
             // lbl_Codigo
             // 
@@ -244,6 +245,7 @@
             this.btn_PedidoProduccionCompletado.TabIndex = 18;
             this.btn_PedidoProduccionCompletado.Text = "Marcar como completado";
             this.btn_PedidoProduccionCompletado.UseVisualStyleBackColor = true;
+            this.btn_PedidoProduccionCompletado.Click += new System.EventHandler(this.btn_PedidoProduccionCompletado_Click);
             // 
             // btn_BajaItemProducto
             // 
@@ -309,7 +311,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 644);
+            this.ClientSize = new System.Drawing.Size(1350, 665);
             this.Controls.Add(this.txt_Info);
             this.Controls.Add(this.btn_ActualizarInfo);
             this.Controls.Add(this.btn_MenuPrincipal);

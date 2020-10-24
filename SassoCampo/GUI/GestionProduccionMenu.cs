@@ -36,6 +36,7 @@ namespace GUI
             dgv_PedidoProduccion.DataSource = pedidoProduccionGestor.GetList();
             dgv_SolicitudProduccion.DataSource = null;
             dgv_SolicitudProduccion.DataSource = pedidoProduccionGestor.GetListSolicitud();
+            txt_Info.Text = controller.ActualizarInfo();
         }
 
         public void IniciarControles()
@@ -138,6 +139,24 @@ namespace GUI
             pedidoProduccionGestor.Baja(selected);
             dgv_PedidoProduccion.DataSource = null;
             dgv_PedidoProduccion.DataSource = pedidoProduccionGestor.GetList();
+        }
+
+        private void btn_PedidoProduccionCompletado_Click(object sender, EventArgs e)
+        {
+            PedidoProduccion selected = dgv_PedidoProduccion.SelectedRows[0].DataBoundItem as PedidoProduccion;
+            controller.modificarPedidoProduccion(selected, "Completado");
+            PedidoProduccionGestor pedidoProduccionGestor = new PedidoProduccionGestor();
+            dgv_PedidoProduccion.DataSource = null;
+            dgv_PedidoProduccion.DataSource = pedidoProduccionGestor.GetList();
+        }
+
+        private void btn_SolicitudProduccionCompleta_Click(object sender, EventArgs e)
+        {
+            PedidoProduccion selected = dgv_SolicitudProduccion.SelectedRows[0].DataBoundItem as PedidoProduccion;
+            controller.modificarPedidoProduccion(selected, "Completado");
+            PedidoProduccionGestor pedidoProduccionGestor = new PedidoProduccionGestor();
+            dgv_SolicitudProduccion.DataSource = null;
+            dgv_SolicitudProduccion.DataSource = pedidoProduccionGestor.GetListSolicitud();
         }
 
         private void btn_MenuPrincipal_Click(object sender, EventArgs e)

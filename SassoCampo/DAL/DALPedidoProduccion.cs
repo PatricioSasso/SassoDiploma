@@ -45,9 +45,8 @@ namespace DAL
         public void Modificar(PedidoProduccion modificar)
         {
             conexion.Open();
-            query = new SqlCommand("UPDATE PedidoProduccion SET FechaProduccion = @fechaProduccion WHERE Id = @pedidoId", conexion);
+            query = new SqlCommand("UPDATE PedidoProduccion SET Estado = 'Completado' WHERE Id = @id", conexion);
             query.Parameters.AddWithValue("id", modificar.Id);
-            query.Parameters.AddWithValue("fechaProduccion", modificar.FechaProduccion);
             query.ExecuteNonQuery();
             conexion.Close();
         }
@@ -107,7 +106,7 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    pedidoProduccion.Add(new PedidoProduccion(reader.GetInt32(0), reader.GetDateTime(1), new List<ItemProducto>()));
+                    pedidoProduccion.Add(new PedidoProduccion(reader.GetInt32(0), reader.GetDateTime(1), new List<ItemProducto>(), reader.GetString(2)));
                 }
             }
             conexion.Close();
@@ -128,7 +127,7 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    pedidoProduccion.Add(new PedidoProduccion(reader.GetInt32(0), DateTime.MinValue , new List<ItemProducto>()));
+                    pedidoProduccion.Add(new PedidoProduccion(reader.GetInt32(0), DateTime.MinValue , new List<ItemProducto>(), reader.GetString(2)));
                 }
             }
             conexion.Close();

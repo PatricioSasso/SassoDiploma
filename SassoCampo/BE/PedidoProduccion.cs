@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,12 +30,12 @@ namespace BE
             Estado = "Pendiente";
         }
 
-        public PedidoProduccion(int id, DateTime fechaProduccion, List<ItemProducto> productos)
+        public PedidoProduccion(int id, DateTime fechaProduccion, List<ItemProducto> productos, string estado)
         {
             Id = id;
             FechaProduccion = fechaProduccion;
             itemProductos = productos;
-            Estado = "Pendiente";
+            Estado = estado;
         }
 
         public int Id { get => id; set => id = value; }
