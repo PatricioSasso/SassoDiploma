@@ -158,7 +158,6 @@
             this.dgv_Hilados.AllowUserToDeleteRows = false;
             this.dgv_Hilados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Hilados.Location = new System.Drawing.Point(240, 20);
-            this.dgv_Hilados.MultiSelect = false;
             this.dgv_Hilados.Name = "dgv_Hilados";
             this.dgv_Hilados.ReadOnly = true;
             this.dgv_Hilados.RowHeadersWidth = 51;

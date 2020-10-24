@@ -49,7 +49,6 @@ namespace GUI
             dgv_Prendas.Columns["Talle"].DataPropertyName = "Talle";
             dgv_Prendas.AutoGenerateColumns = false;
             dgv_Prendas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_Prendas.MultiSelect = false;
             dgv_PrendasConfeccionadas.Columns.Add("Codigo", "Codigo");
             dgv_PrendasConfeccionadas.Columns["Codigo"].DataPropertyName = "Codigo";
             dgv_PrendasConfeccionadas.Columns.Add("Descripcion", "Descripción");

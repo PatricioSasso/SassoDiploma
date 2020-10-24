@@ -50,7 +50,6 @@ namespace GUI
             dgv_Telas.Columns["Cantidad"].DataPropertyName = "Cantidad";
             dgv_Telas.AutoGenerateColumns = false;
             dgv_Telas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_Telas.MultiSelect = false;
             dgv_Tintes.Columns.Add("Codigo", "Codigo");
             dgv_Tintes.Columns["Codigo"].DataPropertyName = "Codigo";
             dgv_Tintes.Columns.Add("Descripcion", "Descripción");
@@ -61,7 +60,6 @@ namespace GUI
             dgv_Tintes.Columns["Color"].DataPropertyName = "Color";
             dgv_Tintes.AutoGenerateColumns = false;
             dgv_Tintes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_Tintes.MultiSelect = false;
             dgv_TelasTeñidas.Columns.Add("Codigo", "Codigo");
             dgv_TelasTeñidas.Columns["Codigo"].DataPropertyName = "Codigo";
             dgv_TelasTeñidas.Columns.Add("Descripcion", "Descripción");

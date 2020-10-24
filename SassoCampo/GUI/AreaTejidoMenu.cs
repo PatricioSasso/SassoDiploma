@@ -92,7 +92,6 @@ namespace GUI
             dgv_Hilados.Columns["Peso"].DataPropertyName = "Peso";
             dgv_Hilados.AutoGenerateColumns = false;
             dgv_Hilados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_Hilados.MultiSelect = false;
             dgv_Telas.Columns.Add("Codigo", "Codigo");
             dgv_Telas.Columns["Codigo"].DataPropertyName = "Codigo";
             dgv_Telas.Columns.Add("Descripcion", "Descripción");

@@ -52,7 +52,6 @@ namespace GUI
             dgv_Telas.Columns["Teñido"].DataPropertyName = "Teñido";
             dgv_Telas.AutoGenerateColumns = false;
             dgv_Telas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_Telas.MultiSelect = false;
             dgv_Prendas.Columns.Add("Codigo", "Codigo");
             dgv_Prendas.Columns["Codigo"].DataPropertyName = "Codigo";
             dgv_Prendas.Columns.Add("Descripcion", "Descripción");
