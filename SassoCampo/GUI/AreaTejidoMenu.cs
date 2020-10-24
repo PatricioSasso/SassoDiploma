@@ -153,8 +153,7 @@ namespace GUI
                 int cantidad = int.Parse(Interaction.InputBox("¿Cuánta cantidad del hilado " + (hilado.DataBoundItem as Hilado).Codigo + " desea solicitar?"));
                 productos.Add(new ItemProducto(cantidad, hilado.DataBoundItem as Hilado));
             }
-            DateTime fecha = DateTime.Parse(Interaction.InputBox("¿Para qué día necesita los elementos solicitados terminados?"));
-            controller.SolicitarProducto(productos, fecha);
+            controller.SolicitarProducto(productos);
         }
     }
 }

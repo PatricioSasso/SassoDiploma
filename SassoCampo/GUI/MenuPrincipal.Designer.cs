@@ -50,6 +50,7 @@
             this.openFileDialogRestore = new System.Windows.Forms.OpenFileDialog();
             this.cmb_Idioma = new System.Windows.Forms.ComboBox();
             this.lbl_Idioma = new System.Windows.Forms.Label();
+            this.btn_GestionarProduccion = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.gbox_InfoUsuario.SuspendLayout();
             this.SuspendLayout();
@@ -247,11 +248,22 @@
             this.lbl_Idioma.TabIndex = 15;
             this.lbl_Idioma.Text = "Idioma :";
             // 
+            // btn_GestionarProduccion
+            // 
+            this.btn_GestionarProduccion.Location = new System.Drawing.Point(332, 95);
+            this.btn_GestionarProduccion.Name = "btn_GestionarProduccion";
+            this.btn_GestionarProduccion.Size = new System.Drawing.Size(247, 23);
+            this.btn_GestionarProduccion.TabIndex = 17;
+            this.btn_GestionarProduccion.Text = "Gestionar Producción";
+            this.btn_GestionarProduccion.UseVisualStyleBackColor = true;
+            this.btn_GestionarProduccion.Click += new System.EventHandler(this.btn_GestionarProduccion_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 247);
+            this.Controls.Add(this.btn_GestionarProduccion);
             this.Controls.Add(this.cmb_Idioma);
             this.Controls.Add(this.lbl_Idioma);
             this.Controls.Add(this.btn_AreaConfeccion);
@@ -298,5 +310,6 @@
         private System.Windows.Forms.ComboBox cmb_Idioma;
         private System.Windows.Forms.Label lbl_Idioma;
         private System.Windows.Forms.ToolStripMenuItem bitacoraToolStripMenuItem;
+        private System.Windows.Forms.Button btn_GestionarProduccion;
     }
 }

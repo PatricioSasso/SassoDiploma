@@ -133,8 +133,7 @@ namespace GUI
                 int cantidad = int.Parse(Interaction.InputBox("¿Cuánta cantidad de la prenda " + (prenda.DataBoundItem as Prenda).Codigo + " desea solicitar?"));
                 productos.Add(new ItemProducto(cantidad, prenda.DataBoundItem as Prenda));
             }
-            DateTime fecha = DateTime.Parse(Interaction.InputBox("¿Para qué día necesita los elementos solicitados terminados?"));
-            controller.SolicitarProducto(productos, fecha);
+            controller.SolicitarProducto(productos);
         }
     }
 }

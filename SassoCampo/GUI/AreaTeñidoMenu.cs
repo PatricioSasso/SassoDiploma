@@ -183,8 +183,7 @@ namespace GUI
                 int cantidad = int.Parse(Interaction.InputBox("¿Cuánta cantidad de la tela " + (tela.DataBoundItem as Tela).Codigo + " desea solicitar?"));
                 productos.Add(new ItemProducto(cantidad, tela.DataBoundItem as Tela));
             }
-            DateTime fecha = DateTime.Parse(Interaction.InputBox("¿Para qué día necesita los elementos solicitados terminados?"));
-            controller.SolicitarProducto(productos, fecha);
+            controller.SolicitarProducto(productos);
         }
 
         private void bnt_Solicitar2_Click(object sender, EventArgs e)
@@ -195,8 +194,7 @@ namespace GUI
                 int cantidad = int.Parse(Interaction.InputBox("¿Cuánta cantidad del tinte " + (tinte.DataBoundItem as Tinte).Codigo + " desea solicitar?"));
                 productos.Add(new ItemProducto(cantidad, tinte.DataBoundItem as Tinte));
             }
-            DateTime fecha = DateTime.Parse(Interaction.InputBox("¿Para qué día necesita los elementos solicitados terminados?"));
-            controller.SolicitarProducto(productos, fecha);
+            controller.SolicitarProducto(productos);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace BLL
 
         public void Baja(ItemProducto baja)
         {
-            throw new NotImplementedException();
+            dal.Baja(baja);
         }
 
         public ItemProducto Get(ItemProducto get)
@@ -33,9 +33,14 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        public List<ItemProducto> GetList()
+        public List<ItemProducto> GetList(PedidoProduccion pedidoProduccion)
         {
-            throw new NotImplementedException();
+            return dal.GetList(pedidoProduccion);
+        }
+
+            public List<ItemProducto> GetList()
+        {
+            return dal.GetList();
         }
 
         public void Modificar(ItemProducto modificar)

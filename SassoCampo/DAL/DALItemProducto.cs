@@ -30,6 +30,7 @@ namespace DAL
             query.Parameters.AddWithValue("pedidoId", baja.Pedido.Id);
             query.Parameters.AddWithValue("productoId", baja.Producto.Id);
             query.ExecuteNonQuery();
+            conexion.Close();
         }
 
         public void Modificar(ItemProducto modificar)
@@ -58,7 +59,7 @@ namespace DAL
                     itemProducto.Pedido = dalPedidoProduccion.Get(new PedidoProduccion( reader.GetInt32(0)));
                     itemProducto.Cantidad = reader.GetInt32(1);
                     DALProducto dalProducto = new DALProducto();
-                    itemProducto.Producto = dalProducto.Get(new Producto(reader.GetInt32(3)));
+                    itemProducto.Producto = dalProducto.Get(new Producto(reader.GetInt32(2)), reader.GetString(3));
                 }
             }
             conexion.Close();
@@ -75,18 +76,24 @@ namespace DAL
         {
             conexion.Open();
             List<ItemProducto> itemProducto = new List<ItemProducto>();
+            List<string> tipos = new List<string>();
             query = new SqlCommand("Select * from ItemProducto where PedidoProduccion_Id = @pedidoId", conexion);
             query.Parameters.AddWithValue("pedidoId", pedidoProduccion.Id);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    DALPedidoProduccion dalPedidoProduccion = new DALPedidoProduccion();
-                    DALProducto dalProducto = new DALProducto();
-                    itemProducto.Add(new ItemProducto(reader.GetInt32(1), dalProducto.Get(new Producto(reader.GetInt32(2))), dalPedidoProduccion.Get(new PedidoProduccion(reader.GetInt32(0)))));
+                    itemProducto.Add(new ItemProducto(reader.GetInt32(1), new Producto(reader.GetInt32(2)), pedidoProduccion));
+                    tipos.Add(reader.GetString(3));
                 }
             }
             conexion.Close();
+            int i = 0;
+            foreach (var item in itemProducto)
+            {
+                DALProducto dalProducto = new DALProducto();
+                item.Producto = dalProducto.Get(item.Producto, tipos[i]);
+            }
             return itemProducto;
         }
     }

@@ -70,6 +70,11 @@ namespace GUI
             controller.cambiarForm(new AreaConfeccionadoMenu(controller));
         }
 
+        private void btn_GestionarProduccion_Click(object sender, EventArgs e)
+        {
+            controller.cambiarForm(new txt_Info(controller));
+        }
+
         private void backupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialogBackup.Title = "Backup File";

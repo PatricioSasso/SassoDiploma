@@ -10,9 +10,10 @@ public class ProductoGestor
         bd = new DALProducto();
     }
 
-    public void Alta(Producto producto)
+    public Producto Alta(Producto producto)
     {
         bd.Alta(producto);
+        return bd.GetLast();
     }
 
     public void Modificar(Producto producto)
@@ -25,9 +26,9 @@ public class ProductoGestor
         bd.Baja(producto);
     }
 
-    public Producto GetProducto(Producto producto)
+    public Producto GetProducto(Producto producto, string tipo)
     {
-        return bd.Get(producto);
+        return bd.Get(producto, tipo);
     }
 
     public List<Producto> GetListProducto()

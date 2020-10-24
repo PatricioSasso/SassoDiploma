@@ -17,7 +17,7 @@ namespace DAL
         public void Alta(Tinte alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO Tinte VALUES (@codigo, @descripcion, @color, @cantidad)", conexion);
+            query = new SqlCommand("INSERT INTO Tinte VALUES (@codigo, @descripcion, @cantidad, @color)", conexion);
             query.Parameters.AddWithValue("codigo", alta.Codigo);
             query.Parameters.AddWithValue("descripcion", alta.Descripcion);
             query.Parameters.AddWithValue("cantidad", alta.Cantidad);
@@ -60,8 +60,8 @@ namespace DAL
                     tinte.Id = reader.GetInt32(0);
                     tinte.Codigo = reader.GetString(1);
                     tinte.Descripcion = reader.GetString(2);
-                    tinte.Cantidad = reader.GetInt32(4);
-                    tinte.Color = reader.GetString(3);
+                    tinte.Cantidad = reader.GetInt32(3);
+                    tinte.Color = reader.GetString(4);
                 }
             }
             conexion.Close();
@@ -77,7 +77,7 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    tintes.Add(new Tinte(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(4), reader.GetString(3)));
+                    tintes.Add(new Tinte(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3), reader.GetString(4)));
                 }
             }
             conexion.Close();

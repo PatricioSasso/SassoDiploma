@@ -389,10 +389,10 @@ namespace GUI
         #endregion
 
         #region 2
-        public void SolicitarProducto(List<ItemProducto> productos, DateTime fecha)
+        public void SolicitarProducto(List<ItemProducto> productos)
         {
             PedidoProduccionGestor pedidoProduccionGestor = new PedidoProduccionGestor();
-            PedidoProduccion pedido = pedidoProduccionGestor.Alta(new PedidoProduccion(fecha));
+            PedidoProduccion pedido = pedidoProduccionGestor.Alta(new PedidoProduccion(DateTime.MinValue));
             ItemProductoGestor itemProductoGestor = new ItemProductoGestor();
             foreach (var item in productos)
             {
@@ -402,6 +402,12 @@ namespace GUI
             MessageBox.Show("Se ha realizado el pedido correctamente");
         }
 
+        public void RegistrarPedido(DateTime fecha)
+        {
+            PedidoProduccionGestor pedidoProduccionGestor = new PedidoProduccionGestor();
+            pedidoProduccionGestor.Alta(new PedidoProduccion(fecha));
+            MessageBox.Show("Se ha registrado el pedido correctamente");
+        }
         #endregion
 
         public void cambiarForm(Form newForm)

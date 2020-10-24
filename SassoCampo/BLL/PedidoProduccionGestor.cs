@@ -26,12 +26,17 @@ namespace BLL
 
         public void Baja(PedidoProduccion baja)
         {
-            throw new NotImplementedException();
+            dal.Baja(baja);
         }
 
         public List<PedidoProduccion> GetList()
         {
             return dal.GetList();
+        }
+
+        public List<PedidoProduccion> GetListSolicitud()
+        {
+            return dal.GetListSolicitud();
         }
 
         public void Modificar(PedidoProduccion modificar)

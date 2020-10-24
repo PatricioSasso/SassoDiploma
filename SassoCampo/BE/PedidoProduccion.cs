@@ -11,6 +11,7 @@ namespace BE
         int id;
         DateTime fechaProduccion;
         List<ItemProducto> itemProductos;
+        string estado;
 
         public PedidoProduccion()
         {
@@ -25,6 +26,7 @@ namespace BE
         public PedidoProduccion(DateTime fechaProduccion)
         {
             FechaProduccion = fechaProduccion;
+            Estado = "Pendiente";
         }
 
         public PedidoProduccion(int id, DateTime fechaProduccion, List<ItemProducto> productos)
@@ -32,10 +34,12 @@ namespace BE
             Id = id;
             FechaProduccion = fechaProduccion;
             itemProductos = productos;
+            Estado = "Pendiente";
         }
 
         public int Id { get => id; set => id = value; }
         public DateTime FechaProduccion { get => fechaProduccion; set => fechaProduccion = value; }
         public List<ItemProducto> ItemProductos { get => itemProductos; set => itemProductos = value; }
+        public string Estado { get => estado; set => estado = value; }
     }
 }

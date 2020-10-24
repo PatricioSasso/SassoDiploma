@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DALProducto : DAL, IABMC<Producto>
+    public class DALProducto : DAL
     {
         public DALProducto()
         {
@@ -39,18 +39,38 @@ namespace DAL
         public void Baja(Producto baja)
         {
             conexion.Open();
-            query = new SqlCommand("DELETE FROM Producto WHERE Producto_Id = @id", conexion);
+            query = new SqlCommand("DELETE FROM Producto WHERE Id = @id", conexion);
             query.Parameters.AddWithValue("id", baja.Id);
             query.ExecuteNonQuery();
             conexion.Close();
         }
 
-        public Producto Get(Producto get)
+        public Producto Get(Producto get, string tipo)
         {
             conexion.Open();
             Producto producto = new Producto();
-            query = new SqlCommand("SELECT * FROM Producto WHERE Id = @Id", conexion);
+            tipo = tipo.Split(' ')[0];
+            query = new SqlCommand("SELECT * FROM " + tipo + " WHERE Id = @Id", conexion);
             query.Parameters.AddWithValue("Id", get.Id);
+            using (SqlDataReader reader = query.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    producto.Id = reader.GetInt32(0);
+                    producto.Codigo = reader.GetString(1);
+                    producto.Descripcion = reader.GetString(2);
+                    producto.Cantidad = reader.GetInt32(3);
+                }
+            }
+            conexion.Close();
+            return producto;
+        }
+
+        public Producto GetLast()
+        {
+            conexion.Open();
+            Producto producto = new Producto();
+            query = new SqlCommand("SELECT * FROM Producto WHERE Id = (SELECT Max(Id) FROM Producto)", conexion);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while (reader.Read())
