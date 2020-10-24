@@ -3,16 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public class TeñidoGestor
+public class TenidoGestor
 {
-    DALTeñido bd;
+    DALTenido bd;
 
-    public TeñidoGestor()
+    public TenidoGestor()
     {
-        bd = new DALTeñido();
+        bd = new DALTenido();
     }
 
-    public void Teñir(Teñido teñido, string codigoTela)
+    public void Tenir(Tenido teñido, string codigoTela)
     {
         teñido.Codigo = teñido.Tela.Codigo + "_" + teñido.Tinte.Codigo + "_TÑD";
         teñido.Tinte.Cantidad -= teñido.CantidadTinteUtilizada;
@@ -44,17 +44,17 @@ public class TeñidoGestor
         bd.Alta(teñido);
     }
 
-    public void Baja(Teñido teñido)
+    public void Baja(Tenido teñido)
     {
         bd.Baja(teñido);
     }
 
-    public Teñido GetTeñido(Teñido teñido)
+    public Tenido GetTeñido(Tenido teñido)
     {
         return bd.Get(teñido);
     }
 
-    public List<Teñido> GetListTeñido()
+    public List<Tenido> GetList()
     {
         return bd.GetList();
     }

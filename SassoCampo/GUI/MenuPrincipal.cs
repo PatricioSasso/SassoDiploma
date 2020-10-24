@@ -72,7 +72,7 @@ namespace GUI
 
         private void btn_GestionarProduccion_Click(object sender, EventArgs e)
         {
-            controller.cambiarForm(new txt_Info(controller));
+            controller.cambiarForm(new GestionProduccionMenu(controller));
         }
 
         private void backupToolStripMenuItem_Click(object sender, EventArgs e)

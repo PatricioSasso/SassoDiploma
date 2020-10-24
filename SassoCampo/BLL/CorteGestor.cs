@@ -52,7 +52,7 @@ public class CorteGestor
         return bd.Get(corte);
     }
 
-    public List<Corte> GetListCorte()
+    public List<Corte> GetList()
     {
         return bd.GetList();
     }

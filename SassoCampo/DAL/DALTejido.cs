@@ -76,7 +76,7 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    tejidos.Add(new Tejido(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(5), reader.GetInt32(2), reader.GetInt32(6), reader.GetDateTime(3), new Hilado(reader.GetInt32(4), "", "", 1, 1)));
+                    tejidos.Add(new Tejido(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(3), reader.GetInt32(2), reader.GetInt32(4), reader.GetDateTime(5), new Hilado(reader.GetInt32(6), "", "", 1, 1)));
                 }
             }
             conexion.Close();

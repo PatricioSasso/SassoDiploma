@@ -60,7 +60,7 @@
     <Compile Include="Rol.cs" />
     <Compile Include="Tejido.cs" />
     <Compile Include="Tela.cs" />
-    <Compile Include="Teñido.cs" />
+    <Compile Include="Tenido.cs" />
     <Compile Include="Tinte.cs" />
     <Compile Include="Traduccion.cs" />
     <Compile Include="Usuario.cs" />

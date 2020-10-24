@@ -12,6 +12,8 @@ using Interfaces;
 using System.Windows.Forms.VisualStyles;
 using System.Runtime.CompilerServices;
 using Service;
+using System.Runtime.InteropServices;
+using System.Diagnostics.Contracts;
 
 namespace GUI
 {
@@ -355,11 +357,11 @@ namespace GUI
         {
             try
             {
-                TeñidoGestor teñidoGestor = new TeñidoGestor();
+                TenidoGestor teñidoGestor = new TenidoGestor();
                 if (cantTinteUtilizado * 2 < cantTelaUtilizada) { throw new Exception("La cantidad de tinte ingresada no es suficiente para la cantidad de tela elegida."); }
                 if (cantTinteUtilizado > tinte.Cantidad) { throw new Exception("No hay suciciente tinte en stock."); }
                 if (cantTelaUtilizada > tela.Cantidad) { throw new Exception("No hay suciciente tela en stock."); }
-                teñidoGestor.Teñir(new Teñido(cantTinteUtilizado, cantTelaUtilizada, DateTime.Now, tinte, tela), codigoTela);
+                teñidoGestor.Tenir(new Tenido(cantTinteUtilizado, cantTelaUtilizada, DateTime.Now, tinte, tela), codigoTela);
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -407,6 +409,21 @@ namespace GUI
             PedidoProduccionGestor pedidoProduccionGestor = new PedidoProduccionGestor();
             pedidoProduccionGestor.Alta(new PedidoProduccion(fecha));
             MessageBox.Show("Se ha registrado el pedido correctamente");
+        }
+
+        public string ActualizarInfo()
+        {
+            TejidoGestor tejidoGestor = new TejidoGestor();
+            TenidoGestor tenidoGestor = new TenidoGestor();
+            CorteGestor corteGestor = new CorteGestor();
+            ConfeccionGestor confeccionGestor = new ConfeccionGestor();
+            InformacionProduccion info = new InformacionProduccion(DateTime.Now, tejidoGestor.GetList(), tenidoGestor.GetList(), corteGestor.GetList(), confeccionGestor.GetList());
+            InformacionProduccionGestor informacionProduccionGestor = new InformacionProduccionGestor();
+            string text = informacionProduccionGestor.ObtenerInformacionTejido(info) + Environment.NewLine;
+            text += informacionProduccionGestor.ObtenerInformacionTenido(info) + Environment.NewLine;
+            text += informacionProduccionGestor.ObtenerInformacionCorte(info) + Environment.NewLine;
+            text += informacionProduccionGestor.ObtenerInformacionConfeccion(info) + Environment.NewLine;
+            return text;
         }
         #endregion
 

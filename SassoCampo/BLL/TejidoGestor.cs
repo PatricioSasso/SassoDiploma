@@ -46,7 +46,7 @@ public class TejidoGestor
         return bd.Get(tejido);
     }
 
-    public List<Tejido> GetListTejido()
+    public List<Tejido> GetList()
     {
         return bd.GetList();
     }

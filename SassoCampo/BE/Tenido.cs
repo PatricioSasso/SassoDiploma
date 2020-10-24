@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class Teñido
+public class Tenido
 {
     int id;
     string codigo;
@@ -11,12 +11,12 @@ public class Teñido
     Tinte tinte;
     Tela tela;
 
-    public Teñido()
+    public Tenido()
     {
 
     }
 
-    public Teñido( int cantidadTinteUtilizada, int cantidadTelaUtilizada, DateTime fecha, Tinte tinte, Tela tela)
+    public Tenido( int cantidadTinteUtilizada, int cantidadTelaUtilizada, DateTime fecha, Tinte tinte, Tela tela)
     {
         CantidadTinteUtilizada = cantidadTinteUtilizada;
         CantidadTelaUtilizada = cantidadTelaUtilizada;
@@ -25,7 +25,7 @@ public class Teñido
         Tela = tela;
     }
 
-    public Teñido(int id, string codigo, int cantidadTinteUtilizada, int cantidadTelaUtilizada, int tiempo, DateTime fecha, Tinte tinte, Tela tela)
+    public Tenido(int id, string codigo, int cantidadTinteUtilizada, int cantidadTelaUtilizada, int tiempo, DateTime fecha, Tinte tinte, Tela tela)
     {
         Id = id;
         Codigo = codigo;

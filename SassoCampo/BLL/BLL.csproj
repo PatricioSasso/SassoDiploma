@@ -46,6 +46,7 @@
     <Compile Include="ConfeccionGestor.cs" />
     <Compile Include="CorteGestor.cs" />
     <Compile Include="HiladoGestor.cs" />
+    <Compile Include="InformacionProduccionGestor.cs" />
     <Compile Include="ItemProductoGestor.cs" />
     <Compile Include="PedidoProduccionGestor.cs" />
     <Compile Include="PermisoGestor.cs" />
@@ -55,7 +56,7 @@
     <Compile Include="RolGestor.cs" />
     <Compile Include="TejidoGestor.cs" />
     <Compile Include="TelaGestor.cs" />
-    <Compile Include="TeñidoGestor.cs" />
+    <Compile Include="TenidoGestor.cs" />
     <Compile Include="TinteGestor.cs" />
     <Compile Include="UsuarioGestor.cs" />
   </ItemGroup>

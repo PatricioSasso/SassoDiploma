@@ -3,18 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DALTeñido : DAL, IABMC<Teñido>
+    public class DALTenido : DAL, IABMC<Tenido>
     {
-        public DALTeñido()
+        public DALTenido()
         {
         }
 
-        public void Alta(Teñido alta)
+        public void Alta(Tenido alta)
         {
             conexion.Open();
             query = new SqlCommand("INSERT INTO Teñido VALUES (@codigo, @cantidadTela, @cantidadTinte, @tiempo, @fecha, @telaId, @tinteId)", conexion);
@@ -29,7 +30,7 @@ namespace DAL
             conexion.Close();
         }
 
-        public void Baja(Teñido baja)
+        public void Baja(Tenido baja)
         {
             conexion.Open();
             query = new SqlCommand("DELETE FROM Teñido WHERE Id = @id", conexion);
@@ -38,15 +39,15 @@ namespace DAL
             conexion.Close();
         }
 
-        public void Modificar(Teñido modificar)
+        public void Modificar(Tenido modificar)
         {
 
         }
 
-        public Teñido Get(Teñido get)
+        public Tenido Get(Tenido get)
         {
             conexion.Open();
-            Teñido teñido = new Teñido();
+            Tenido teñido = new Tenido();
             query = new SqlCommand("SELECT * FROM Teñido WHERE Id = @Id", conexion);
             query.Parameters.AddWithValue("Id", get.Id);
             using (SqlDataReader reader = query.ExecuteReader())
@@ -71,16 +72,16 @@ namespace DAL
             return teñido;
         }
 
-        public List<Teñido> GetList()
+        public List<Tenido> GetList()
         {
             conexion.Open();
-            List<Teñido> teñidos = new List<Teñido>();
+            List<Tenido> teñidos = new List<Tenido>();
             query = new SqlCommand("Select * From Teñido", conexion);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    teñidos.Add(new Teñido(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(7), reader.GetInt32(6), reader.GetInt32(2), reader.GetDateTime(3), new Tinte(reader.GetInt32(5)), new Tela(reader.GetInt32(4))));
+                    teñidos.Add(new Tenido(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(3), reader.GetInt32(2), reader.GetInt32(4), reader.GetDateTime(5), new Tinte(reader.GetInt32(7)), new Tela(reader.GetInt32(6))));
                 }
             }
             conexion.Close();

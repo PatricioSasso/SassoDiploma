@@ -144,5 +144,10 @@ namespace GUI
         {
             controller.cambiarForm(this.Owner);
         }
+
+        private void btn_ActualizarInfo_Click(object sender, EventArgs e)
+        {
+            txt_Info.Text = controller.ActualizarInfo();
+        }
     }
 }

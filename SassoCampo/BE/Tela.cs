@@ -10,7 +10,7 @@
 
     public Tela(int id)
     {
-        Id = Id;
+        Id = id;
     }
 
     public Tela(string codigo, string descripcion, int cantidad, string color, bool teñido) : base(codigo, descripcion, cantidad)

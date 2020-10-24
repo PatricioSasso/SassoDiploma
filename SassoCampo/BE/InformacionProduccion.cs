@@ -8,11 +8,10 @@ namespace BE
 {
     public class InformacionProduccion
     {
-        int id;
         DateTime fecha;
         string estacion;
         List<Tejido> tejidos;
-        List<Teñido> teñidos;
+        List<Tenido> teñidos;
         List<Corte> cortes;
         List<Confeccion> confecciones;
 
@@ -21,9 +20,8 @@ namespace BE
 
         }
 
-        public InformacionProduccion(int id, DateTime fecha, string estacion, List<Tejido> tejidos, List<Teñido> teñidos, List<Corte> cortes, List<Confeccion> confecciones)
+        public InformacionProduccion(DateTime fecha, List<Tejido> tejidos, List<Tenido> teñidos, List<Corte> cortes, List<Confeccion> confecciones)
         {
-            this.id = id;
             this.fecha = fecha;
             this.estacion = getSeason(fecha);
             this.tejidos = tejidos;
@@ -41,11 +39,10 @@ namespace BE
             return "Primavera";   // Spring
         }
 
-        public int Id { get => id; set => id = value; }
         public DateTime Fecha { get => fecha; set => fecha = value; }
         public string Estacion { get => estacion; set => estacion = value; }
         public List<Tejido> Tejidos { get => tejidos; set => tejidos = value; }
-        public List<Teñido> Teñidos { get => teñidos; set => teñidos = value; }
+        public List<Tenido> Teñidos { get => teñidos; set => teñidos = value; }
         public List<Corte> Cortes { get => cortes; set => cortes = value; }
         public List<Confeccion> Confecciones { get => confecciones; set => confecciones = value; }
     }

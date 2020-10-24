@@ -74,7 +74,12 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    confecciones.Add(new Confeccion(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(5), reader.GetInt32(2), reader.GetDateTime(3), new Prenda(reader.GetInt32(5))));
+                    confecciones.Add(new Confeccion(reader.GetInt32(0), 
+                                                    reader.GetString(1), 
+                                                    reader.GetInt32(2), 
+                                                    reader.GetInt32(3), 
+                                                    reader.GetDateTime(4), 
+                                                    new Prenda(reader.GetInt32(5))));
                 }
             }
             conexion.Close();

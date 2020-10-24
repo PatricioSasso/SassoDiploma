@@ -57,7 +57,7 @@
     <Compile Include="DALRolPermiso.cs" />
     <Compile Include="DALTejido.cs" />
     <Compile Include="DALTela.cs" />
-    <Compile Include="DALTeñido.cs" />
+    <Compile Include="DALTenido.cs" />
     <Compile Include="DALTinte.cs" />
     <Compile Include="DALTraduccionIdioma.cs" />
     <Compile Include="DALUsuario.cs" />
