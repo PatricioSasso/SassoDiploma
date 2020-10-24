@@ -222,6 +222,7 @@
             this.Controls.Add(this.gbx_Roles);
             this.Name = "GestionRoles";
             this.Text = "Gestión de Roles";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestionRoles_FormClosing);
             this.Load += new System.EventHandler(this.GestionRoles_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Roles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_PermisosRol)).EndInit();

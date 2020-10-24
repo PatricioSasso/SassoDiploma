@@ -104,5 +104,10 @@ namespace GUI
             DVVGestor dVVGestor = new DVVGestor();
             dVVGestor.Modificar(new DVV("Usuario", ""));
         }
+
+        private void GestionUsuarios_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

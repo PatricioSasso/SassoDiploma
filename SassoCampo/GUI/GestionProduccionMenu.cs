@@ -168,5 +168,10 @@ namespace GUI
         {
             txt_Info.Text = controller.ActualizarInfo();
         }
+
+        private void GestionProduccionMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

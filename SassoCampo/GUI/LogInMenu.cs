@@ -46,5 +46,10 @@ namespace GUI
         {
             cmb_Idioma.Text = controller.TraduccionIdiomaGestor.Idioma.Nombre;
         }
+
+        private void LogInMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

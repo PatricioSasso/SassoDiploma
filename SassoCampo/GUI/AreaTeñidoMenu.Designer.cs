@@ -39,11 +39,13 @@
             this.btn_Modificar = new System.Windows.Forms.Button();
             this.btn_Baja = new System.Windows.Forms.Button();
             this.gbx_Telas = new System.Windows.Forms.GroupBox();
+            this.btn_Solicitar = new System.Windows.Forms.Button();
             this.btn_MenuPrincipal = new System.Windows.Forms.Button();
             this.btn_Tenir = new System.Windows.Forms.Button();
             this.gbx_TelasTenidasStock = new System.Windows.Forms.GroupBox();
             this.dgv_TelasTeñidas = new System.Windows.Forms.DataGridView();
             this.gbx_Tintes = new System.Windows.Forms.GroupBox();
+            this.bnt_Solicitar2 = new System.Windows.Forms.Button();
             this.btn_Baja2 = new System.Windows.Forms.Button();
             this.txt_ColorTinte = new System.Windows.Forms.TextBox();
             this.btn_Modificar2 = new System.Windows.Forms.Button();
@@ -56,8 +58,6 @@
             this.txt_CodigoTinte = new System.Windows.Forms.TextBox();
             this.lbl_Codigo2 = new System.Windows.Forms.Label();
             this.dgv_Tintes = new System.Windows.Forms.DataGridView();
-            this.btn_Solicitar = new System.Windows.Forms.Button();
-            this.bnt_Solicitar2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Telas)).BeginInit();
             this.gbx_Telas.SuspendLayout();
             this.gbx_TelasTenidasStock.SuspendLayout();
@@ -178,6 +178,16 @@
             this.gbx_Telas.TabStop = false;
             this.gbx_Telas.Text = "Gestión de Telas";
             // 
+            // btn_Solicitar
+            // 
+            this.btn_Solicitar.Location = new System.Drawing.Point(23, 192);
+            this.btn_Solicitar.Name = "btn_Solicitar";
+            this.btn_Solicitar.Size = new System.Drawing.Size(193, 23);
+            this.btn_Solicitar.TabIndex = 18;
+            this.btn_Solicitar.Text = "Solicitar";
+            this.btn_Solicitar.UseVisualStyleBackColor = true;
+            this.btn_Solicitar.Click += new System.EventHandler(this.btn_Solicitar_Click);
+            // 
             // btn_MenuPrincipal
             // 
             this.btn_MenuPrincipal.Location = new System.Drawing.Point(776, 12);
@@ -244,6 +254,16 @@
             this.gbx_Tintes.TabIndex = 17;
             this.gbx_Tintes.TabStop = false;
             this.gbx_Tintes.Text = "Gestión de Tintes";
+            // 
+            // bnt_Solicitar2
+            // 
+            this.bnt_Solicitar2.Location = new System.Drawing.Point(23, 219);
+            this.bnt_Solicitar2.Name = "bnt_Solicitar2";
+            this.bnt_Solicitar2.Size = new System.Drawing.Size(193, 23);
+            this.bnt_Solicitar2.TabIndex = 25;
+            this.bnt_Solicitar2.Text = "Solicitar";
+            this.bnt_Solicitar2.UseVisualStyleBackColor = true;
+            this.bnt_Solicitar2.Click += new System.EventHandler(this.bnt_Solicitar2_Click);
             // 
             // btn_Baja2
             // 
@@ -353,26 +373,6 @@
             this.dgv_Tintes.TabIndex = 0;
             this.dgv_Tintes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Tintes_CellClick);
             // 
-            // btn_Solicitar
-            // 
-            this.btn_Solicitar.Location = new System.Drawing.Point(23, 192);
-            this.btn_Solicitar.Name = "btn_Solicitar";
-            this.btn_Solicitar.Size = new System.Drawing.Size(193, 23);
-            this.btn_Solicitar.TabIndex = 18;
-            this.btn_Solicitar.Text = "Solicitar";
-            this.btn_Solicitar.UseVisualStyleBackColor = true;
-            this.btn_Solicitar.Click += new System.EventHandler(this.btn_Solicitar_Click);
-            // 
-            // bnt_Solicitar2
-            // 
-            this.bnt_Solicitar2.Location = new System.Drawing.Point(23, 219);
-            this.bnt_Solicitar2.Name = "bnt_Solicitar2";
-            this.bnt_Solicitar2.Size = new System.Drawing.Size(193, 23);
-            this.bnt_Solicitar2.TabIndex = 25;
-            this.bnt_Solicitar2.Text = "Solicitar";
-            this.bnt_Solicitar2.UseVisualStyleBackColor = true;
-            this.bnt_Solicitar2.Click += new System.EventHandler(this.bnt_Solicitar2_Click);
-            // 
             // AreaTeñidoMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -385,6 +385,7 @@
             this.Controls.Add(this.gbx_Telas);
             this.Name = "AreaTeñidoMenu";
             this.Text = "Area de Teñido";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AreaTeñidoMenu_FormClosing);
             this.Load += new System.EventHandler(this.AreaTeñidoMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Telas)).EndInit();
             this.gbx_Telas.ResumeLayout(false);

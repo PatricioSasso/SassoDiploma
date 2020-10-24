@@ -54,5 +54,10 @@ namespace GUI
         {
             controller.cambiarForm(this.Owner);
         }
+
+        private void GestionBitacora_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

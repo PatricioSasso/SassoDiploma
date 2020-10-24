@@ -32,6 +32,7 @@
             this.gbx_PrendasConfeccionadas = new System.Windows.Forms.GroupBox();
             this.dgv_PrendasConfeccionadas = new System.Windows.Forms.DataGridView();
             this.gbx_Prendas = new System.Windows.Forms.GroupBox();
+            this.btn_Solicitar = new System.Windows.Forms.Button();
             this.btn_Confeccionar = new System.Windows.Forms.Button();
             this.btn_Baja = new System.Windows.Forms.Button();
             this.txt_Talle = new System.Windows.Forms.TextBox();
@@ -45,7 +46,6 @@
             this.txt_Codigo = new System.Windows.Forms.TextBox();
             this.lbl_Codigo = new System.Windows.Forms.Label();
             this.dgv_Prendas = new System.Windows.Forms.DataGridView();
-            this.btn_Solicitar = new System.Windows.Forms.Button();
             this.gbx_PrendasConfeccionadas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_PrendasConfeccionadas)).BeginInit();
             this.gbx_Prendas.SuspendLayout();
@@ -109,6 +109,16 @@
             this.gbx_Prendas.TabIndex = 23;
             this.gbx_Prendas.TabStop = false;
             this.gbx_Prendas.Text = "Gestión de Prendas";
+            // 
+            // btn_Solicitar
+            // 
+            this.btn_Solicitar.Location = new System.Drawing.Point(23, 248);
+            this.btn_Solicitar.Name = "btn_Solicitar";
+            this.btn_Solicitar.Size = new System.Drawing.Size(193, 23);
+            this.btn_Solicitar.TabIndex = 27;
+            this.btn_Solicitar.Text = "Solicitar";
+            this.btn_Solicitar.UseVisualStyleBackColor = true;
+            this.btn_Solicitar.Click += new System.EventHandler(this.btn_Solicitar_Click);
             // 
             // btn_Confeccionar
             // 
@@ -228,16 +238,6 @@
             this.dgv_Prendas.TabIndex = 0;
             this.dgv_Prendas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Prendas_CellClick);
             // 
-            // btn_Solicitar
-            // 
-            this.btn_Solicitar.Location = new System.Drawing.Point(23, 248);
-            this.btn_Solicitar.Name = "btn_Solicitar";
-            this.btn_Solicitar.Size = new System.Drawing.Size(193, 23);
-            this.btn_Solicitar.TabIndex = 27;
-            this.btn_Solicitar.Text = "Solicitar";
-            this.btn_Solicitar.UseVisualStyleBackColor = true;
-            this.btn_Solicitar.Click += new System.EventHandler(this.btn_Solicitar_Click);
-            // 
             // AreaConfeccionadoMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -248,6 +248,7 @@
             this.Controls.Add(this.gbx_Prendas);
             this.Name = "AreaConfeccionadoMenu";
             this.Text = "Área de Confeccionado";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AreaConfeccionadoMenu_FormClosing);
             this.Load += new System.EventHandler(this.AreaConfeccionadoMenu_Load);
             this.gbx_PrendasConfeccionadas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_PrendasConfeccionadas)).EndInit();

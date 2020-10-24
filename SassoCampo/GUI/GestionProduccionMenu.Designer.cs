@@ -336,6 +336,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "GestionProduccionMenu";
             this.Text = "GestionProduccionMenu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestionProduccionMenu_FormClosing);
             this.Load += new System.EventHandler(this.GestionProduccionMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_PedidoProduccion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_SolicitudProduccion)).EndInit();

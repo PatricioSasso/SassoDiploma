@@ -113,6 +113,7 @@
             this.Controls.Add(this.txt_BuscarNombreUsuario);
             this.Name = "GestionBitacora";
             this.Text = "Gestion de Bitácora";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestionBitacora_FormClosing);
             this.Load += new System.EventHandler(this.GestionBitacora_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

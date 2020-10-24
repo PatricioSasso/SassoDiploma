@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbx_Telas = new System.Windows.Forms.GroupBox();
+            this.btn_Solicitar = new System.Windows.Forms.Button();
             this.btn_Cortar = new System.Windows.Forms.Button();
             this.btn_Baja = new System.Windows.Forms.Button();
             this.txt_Color = new System.Windows.Forms.TextBox();
@@ -45,7 +46,6 @@
             this.gbx_PrendasCortadasStock = new System.Windows.Forms.GroupBox();
             this.dgv_Prendas = new System.Windows.Forms.DataGridView();
             this.btn_MenuPrincipal = new System.Windows.Forms.Button();
-            this.btn_Solicitar = new System.Windows.Forms.Button();
             this.gbx_Telas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Telas)).BeginInit();
             this.gbx_PrendasCortadasStock.SuspendLayout();
@@ -74,6 +74,16 @@
             this.gbx_Telas.TabIndex = 18;
             this.gbx_Telas.TabStop = false;
             this.gbx_Telas.Text = "Gestión de Telas";
+            // 
+            // btn_Solicitar
+            // 
+            this.btn_Solicitar.Location = new System.Drawing.Point(23, 249);
+            this.btn_Solicitar.Name = "btn_Solicitar";
+            this.btn_Solicitar.Size = new System.Drawing.Size(193, 23);
+            this.btn_Solicitar.TabIndex = 26;
+            this.btn_Solicitar.Text = "Solicitar";
+            this.btn_Solicitar.UseVisualStyleBackColor = true;
+            this.btn_Solicitar.Click += new System.EventHandler(this.btn_Solicitar_Click);
             // 
             // btn_Cortar
             // 
@@ -228,16 +238,6 @@
             this.btn_MenuPrincipal.UseVisualStyleBackColor = true;
             this.btn_MenuPrincipal.Click += new System.EventHandler(this.btn_MenuPrincipal_Click);
             // 
-            // btn_Solicitar
-            // 
-            this.btn_Solicitar.Location = new System.Drawing.Point(23, 249);
-            this.btn_Solicitar.Name = "btn_Solicitar";
-            this.btn_Solicitar.Size = new System.Drawing.Size(193, 23);
-            this.btn_Solicitar.TabIndex = 26;
-            this.btn_Solicitar.Text = "Solicitar";
-            this.btn_Solicitar.UseVisualStyleBackColor = true;
-            this.btn_Solicitar.Click += new System.EventHandler(this.btn_Solicitar_Click);
-            // 
             // AreaCortadoMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -248,6 +248,7 @@
             this.Controls.Add(this.gbx_Telas);
             this.Name = "AreaCortadoMenu";
             this.Text = "Área de Cortado";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AreaCortadoMenu_FormClosing);
             this.Load += new System.EventHandler(this.AreaCortado_Load);
             this.gbx_Telas.ResumeLayout(false);
             this.gbx_Telas.PerformLayout();

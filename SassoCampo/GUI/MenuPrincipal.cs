@@ -121,5 +121,10 @@ namespace GUI
             if (cmb_Idioma.SelectedItem.ToString() == "Ingles") { menuStrip1.Items[3].Text = "Log Out"; }
             else { menuStrip1.Items[3].Text = "Cerrar Sesión"; }
         }
+
+        private void MenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

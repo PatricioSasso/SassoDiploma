@@ -41,6 +41,7 @@
             this.txt_Peso = new System.Windows.Forms.TextBox();
             this.dgv_Hilados = new System.Windows.Forms.DataGridView();
             this.gbx_Hilados = new System.Windows.Forms.GroupBox();
+            this.btn_Solicitar = new System.Windows.Forms.Button();
             this.btn_Tejer = new System.Windows.Forms.Button();
             this.gbx_TelasStock = new System.Windows.Forms.GroupBox();
             this.dgv_Telas = new System.Windows.Forms.DataGridView();
@@ -49,7 +50,6 @@
             this.btn_CrearMemento = new System.Windows.Forms.Button();
             this.btn_RestaurarMemento = new System.Windows.Forms.Button();
             this.dgv_ControlCambiosHilado = new System.Windows.Forms.DataGridView();
-            this.btn_Solicitar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Hilados)).BeginInit();
             this.gbx_Hilados.SuspendLayout();
             this.gbx_TelasStock.SuspendLayout();
@@ -191,6 +191,16 @@
             this.gbx_Hilados.TabStop = false;
             this.gbx_Hilados.Text = "Gestion de Hilado";
             // 
+            // btn_Solicitar
+            // 
+            this.btn_Solicitar.Location = new System.Drawing.Point(6, 255);
+            this.btn_Solicitar.Name = "btn_Solicitar";
+            this.btn_Solicitar.Size = new System.Drawing.Size(228, 23);
+            this.btn_Solicitar.TabIndex = 15;
+            this.btn_Solicitar.Text = "Solicitar";
+            this.btn_Solicitar.UseVisualStyleBackColor = true;
+            this.btn_Solicitar.Click += new System.EventHandler(this.btn_Solicitar_Click);
+            // 
             // btn_Tejer
             // 
             this.btn_Tejer.Location = new System.Drawing.Point(6, 224);
@@ -283,16 +293,6 @@
             this.dgv_ControlCambiosHilado.Size = new System.Drawing.Size(695, 261);
             this.dgv_ControlCambiosHilado.TabIndex = 13;
             // 
-            // btn_Solicitar
-            // 
-            this.btn_Solicitar.Location = new System.Drawing.Point(6, 255);
-            this.btn_Solicitar.Name = "btn_Solicitar";
-            this.btn_Solicitar.Size = new System.Drawing.Size(228, 23);
-            this.btn_Solicitar.TabIndex = 15;
-            this.btn_Solicitar.Text = "Solicitar";
-            this.btn_Solicitar.UseVisualStyleBackColor = true;
-            this.btn_Solicitar.Click += new System.EventHandler(this.btn_Solicitar_Click);
-            // 
             // AreaTejidoMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -304,6 +304,7 @@
             this.Controls.Add(this.gbx_Hilados);
             this.Name = "AreaTejidoMenu";
             this.Text = "Área de Tejido";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AreaTejidoMenu_FormClosing);
             this.Load += new System.EventHandler(this.AreaTejidoMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Hilados)).EndInit();
             this.gbx_Hilados.ResumeLayout(false);

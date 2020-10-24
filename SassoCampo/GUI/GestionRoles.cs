@@ -126,5 +126,10 @@ namespace GUI
         {
             controller.cambiarForm(this.Owner);
         }
+
+        private void GestionRoles_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

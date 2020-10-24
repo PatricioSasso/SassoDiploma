@@ -126,6 +126,7 @@
             this.Controls.Add(this.gbox_LogIn);
             this.Name = "LogInMenu";
             this.Text = "Iniciar Sesión";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LogInMenu_FormClosing);
             this.Load += new System.EventHandler(this.LogInMenu_Load);
             this.TextChanged += new System.EventHandler(this.LogInMenu_TextChanged);
             this.gbox_LogIn.ResumeLayout(false);

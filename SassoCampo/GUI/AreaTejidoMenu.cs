@@ -155,5 +155,10 @@ namespace GUI
             }
             controller.SolicitarProducto(productos);
         }
+
+        private void AreaTejidoMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
