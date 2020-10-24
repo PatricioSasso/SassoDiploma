@@ -17,7 +17,7 @@ namespace DAL
         public void Alta(Hilado alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO Hilado VALUES (@codigo, @descripcion, @cantidad, @peso)", conexion);
+            query = new SqlCommand("INSERT INTO Hilado VALUES (@codigo, @descripcion, @cantidad, @peso, 0)", conexion);
             query.Parameters.AddWithValue("codigo", alta.Codigo);
             query.Parameters.AddWithValue("descripcion", alta.Descripcion);
             query.Parameters.AddWithValue("cantidad", alta.Cantidad);
@@ -29,7 +29,7 @@ namespace DAL
         public void Baja(Hilado baja)
         {
             conexion.Open();
-            query = new SqlCommand("DELETE FROM Hilado WHERE Id = @id", conexion);
+            query = new SqlCommand("UPDATE Hilado SET borrado = 1 WHERE Id = @id", conexion);
             query.Parameters.AddWithValue("id", baja.Id);
             query.ExecuteNonQuery();
             conexion.Close();
@@ -72,7 +72,7 @@ namespace DAL
         {
             conexion.Open();
             List<Hilado> hilado = new List<Hilado>();
-            query = new SqlCommand("Select * From Hilado", conexion);
+            query = new SqlCommand("Select * From Hilado WHERE borrado = 0", conexion);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while (reader.Read())

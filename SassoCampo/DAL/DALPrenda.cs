@@ -30,7 +30,7 @@ namespace DAL
         public void Baja(Prenda baja)
         {
             conexion.Open();
-            query = new SqlCommand("DELETE FROM Prenda WHERE Id = @id", conexion);
+            query = new SqlCommand("UPDATE Prenda SET borrado = 1 WHERE Id = @id", conexion);
             query.Parameters.AddWithValue("id", baja.Id);
             query.ExecuteNonQuery();
             conexion.Close();
@@ -75,7 +75,7 @@ namespace DAL
         {
             conexion.Open();
             List<Prenda> prenda = new List<Prenda>();
-            query = new SqlCommand("Select * From Prenda", conexion);
+            query = new SqlCommand("Select * From Prenda WHERE borrado = 0", conexion);
             using (SqlDataReader reader = query.ExecuteReader())
             {
                 while (reader.Read())
