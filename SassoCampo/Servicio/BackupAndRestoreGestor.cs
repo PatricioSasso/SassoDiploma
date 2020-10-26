@@ -26,5 +26,10 @@ namespace Service
         {
             bd.Restore(ruta);
         }
+
+        public void VerifyDataBase()
+        {
+            bd.CheckIfDataBaseExists();
+        }
     }
 }

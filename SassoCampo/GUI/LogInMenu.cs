@@ -20,6 +20,8 @@ namespace GUI
 
         private void LogInMenu_Load(object sender, EventArgs e)
         {
+            BackupAndRestoreGestor verificarBaseDatos = new BackupAndRestoreGestor();
+            verificarBaseDatos.VerifyDataBase();
             controller = new Controller(this,"Español");
             controller.VerificarDVV();
             cmb_Idioma.Text = controller.TraduccionIdiomaGestor.Idioma.Nombre;
