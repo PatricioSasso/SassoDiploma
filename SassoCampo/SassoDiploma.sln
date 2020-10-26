@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "Interfaces\In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Servicio\Service.csproj", "{E12E75CF-26B4-45E5-952D-178B0340B6CD}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalador", "Instalador\Instalador.vdproj", "{414C9154-26E8-49FA-895F-CFFA35CBA66C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -149,6 +151,16 @@ Global
 		{E12E75CF-26B4-45E5-952D-178B0340B6CD}.Release|x64.Build.0 = Release|Any CPU
 		{E12E75CF-26B4-45E5-952D-178B0340B6CD}.Release|x86.ActiveCfg = Release|Any CPU
 		{E12E75CF-26B4-45E5-952D-178B0340B6CD}.Release|x86.Build.0 = Release|Any CPU
+		{414C9154-26E8-49FA-895F-CFFA35CBA66C}.Debug|Any CPU.ActiveCfg = Release
+		{414C9154-26E8-49FA-895F-CFFA35CBA66C}.Debug|ARM.ActiveCfg = Debug
+		{414C9154-26E8-49FA-895F-CFFA35CBA66C}.Debug|ARM64.ActiveCfg = Debug
+		{414C9154-26E8-49FA-895F-CFFA35CBA66C}.Debug|x64.ActiveCfg = Debug
+		{414C9154-26E8-49FA-895F-CFFA35CBA66C}.Debug|x86.ActiveCfg = Debug
+		{414C9154-26E8-49FA-895F-CFFA35CBA66C}.Release|Any CPU.ActiveCfg = Release
+		{414C9154-26E8-49FA-895F-CFFA35CBA66C}.Release|ARM.ActiveCfg = Release
+		{414C9154-26E8-49FA-895F-CFFA35CBA66C}.Release|ARM64.ActiveCfg = Release
+		{414C9154-26E8-49FA-895F-CFFA35CBA66C}.Release|x64.ActiveCfg = Release
+		{414C9154-26E8-49FA-895F-CFFA35CBA66C}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

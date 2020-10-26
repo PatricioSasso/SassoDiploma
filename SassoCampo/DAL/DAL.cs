@@ -9,7 +9,7 @@ namespace DAL
 {
     public abstract class DAL
     {
-        protected string connectionString = "Data Source=DESKTOP-VOPCEH3;Initial Catalog=SassoCampo;Integrated Security=True";
+        protected string connectionString = "Data Source=(local);Initial Catalog=SassoCampo;Integrated Security=True";
         protected SqlConnection conexion;
         protected SqlCommand query;
 
