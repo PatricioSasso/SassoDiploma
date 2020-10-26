@@ -118,6 +118,28 @@ namespace DAL
             return pedidoProduccion;
         }
 
+        public List<PedidoProduccion> GetList(string estado)
+        {
+            conexion.Open();
+            List<PedidoProduccion> pedidoProduccion = new List<PedidoProduccion>();
+            query = new SqlCommand("Select * from PedidoProduccion where FechaProduccion IS NOT NULL AND Estado = @estado", conexion);
+            query.Parameters.AddWithValue("estado", estado);
+            using (SqlDataReader reader = query.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    pedidoProduccion.Add(new PedidoProduccion(reader.GetInt32(0), reader.GetDateTime(1), new List<ItemProducto>(), reader.GetString(2)));
+                }
+            }
+            conexion.Close();
+            DALItemProducto dalItemProducto = new DALItemProducto();
+            for (int i = 0; i < pedidoProduccion.Count; i++)
+            {
+                pedidoProduccion[i].ItemProductos = dalItemProducto.GetList(pedidoProduccion[i]);
+            }
+            return pedidoProduccion;
+        }
+
         public List<PedidoProduccion> GetListSolicitud()
         {
             conexion.Open();

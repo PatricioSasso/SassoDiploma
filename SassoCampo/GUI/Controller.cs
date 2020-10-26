@@ -418,7 +418,7 @@ namespace GUI
             pedidoProduccionGestor.Modificar(pedidoProduccion);
         }
 
-        public string ActualizarInfo()
+        public string ActualizarInfo(DataGridView recomedacion, DataGridView item)
         {
             TejidoGestor tejidoGestor = new TejidoGestor();
             TenidoGestor tenidoGestor = new TenidoGestor();
@@ -430,7 +430,45 @@ namespace GUI
             text += informacionProduccionGestor.ObtenerInformacionTenido(info) + Environment.NewLine;
             text += informacionProduccionGestor.ObtenerInformacionCorte(info) + Environment.NewLine;
             text += informacionProduccionGestor.ObtenerInformacionConfeccion(info) + Environment.NewLine;
+            List<PedidoProduccion> recomendaciones = informacionProduccionGestor.CalcularRecomendaciones(info);
+            recomedacion.DataSource = null;
+            recomedacion.DataSource = recomendaciones;
             return text;
+        }
+
+        public void AltaItemProducto(PedidoProduccion pedido, Producto producto)
+        {
+            ProductoGestor productoGestor = new ProductoGestor();
+            producto = productoGestor.Alta(producto);
+            ItemProducto add = new ItemProducto(producto.Cantidad, producto, pedido);
+            ItemProductoGestor itemProductoGestor = new ItemProductoGestor();
+            itemProductoGestor.Alta(add);
+        }
+
+        public void AplicarRecomendaciones(DataGridView recomendaciones)
+        {
+            PedidoProduccionGestor pedidoProduccionGestor = new PedidoProduccionGestor();
+            foreach (DataGridViewRow pedido in recomendaciones.SelectedRows)
+            {
+                PedidoProduccion nuevo = pedidoProduccionGestor.Alta(pedido.DataBoundItem as PedidoProduccion);
+                ItemProductoGestor itemProductoGestor = new ItemProductoGestor();
+                foreach (var item in (pedido.DataBoundItem as PedidoProduccion).ItemProductos)
+                {
+                    item.Pedido = nuevo;
+                    nuevo.ItemProductos.Add(item);
+                    itemProductoGestor.Alta(item);
+                }
+            }
+            List<PedidoProduccion> nuevaLista = (List<PedidoProduccion>)recomendaciones.DataSource;
+            for (int i = 0; i < nuevaLista.Count; i++)
+            {
+                foreach (DataGridViewRow row in recomendaciones.SelectedRows)
+                {
+                    nuevaLista.Remove(row.DataBoundItem as PedidoProduccion);
+                }
+            }
+            recomendaciones.DataSource = null;
+            recomendaciones.DataSource = nuevaLista;
         }
 
         #endregion

@@ -38,7 +38,7 @@ namespace BLL
             return dal.GetList(pedidoProduccion);
         }
 
-            public List<ItemProducto> GetList()
+        public List<ItemProducto> GetList()
         {
             return dal.GetList();
         }

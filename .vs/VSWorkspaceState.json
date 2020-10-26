@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\SassoCampo",
-    "\\SassoCampo\\BLL",
-    "\\SassoCampo\\BLL\\Properties",
-    "\\SassoCampo\\DAL"
+    "\\SassoCampo"
   ],
-  "SelectedNode": "\\SassoCampo\\BLL\\ConfeccionGestor.cs",
+  "SelectedNode": "\\SassoCampo\\BLL",
   "PreviewInSolutionExplorer": false
 }

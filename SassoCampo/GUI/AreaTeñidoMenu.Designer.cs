@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class AreaTeñidoMenu
+    partial class AreaTenidoMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -45,7 +45,7 @@
             this.gbx_TelasTenidasStock = new System.Windows.Forms.GroupBox();
             this.dgv_TelasTeñidas = new System.Windows.Forms.DataGridView();
             this.gbx_Tintes = new System.Windows.Forms.GroupBox();
-            this.bnt_Solicitar2 = new System.Windows.Forms.Button();
+            this.btn_Solicitar2 = new System.Windows.Forms.Button();
             this.btn_Baja2 = new System.Windows.Forms.Button();
             this.txt_ColorTinte = new System.Windows.Forms.TextBox();
             this.btn_Modificar2 = new System.Windows.Forms.Button();
@@ -235,7 +235,7 @@
             // 
             // gbx_Tintes
             // 
-            this.gbx_Tintes.Controls.Add(this.bnt_Solicitar2);
+            this.gbx_Tintes.Controls.Add(this.btn_Solicitar2);
             this.gbx_Tintes.Controls.Add(this.btn_Baja2);
             this.gbx_Tintes.Controls.Add(this.txt_ColorTinte);
             this.gbx_Tintes.Controls.Add(this.btn_Modificar2);
@@ -255,15 +255,15 @@
             this.gbx_Tintes.TabStop = false;
             this.gbx_Tintes.Text = "Gestión de Tintes";
             // 
-            // bnt_Solicitar2
+            // btn_Solicitar2
             // 
-            this.bnt_Solicitar2.Location = new System.Drawing.Point(23, 219);
-            this.bnt_Solicitar2.Name = "bnt_Solicitar2";
-            this.bnt_Solicitar2.Size = new System.Drawing.Size(193, 23);
-            this.bnt_Solicitar2.TabIndex = 25;
-            this.bnt_Solicitar2.Text = "Solicitar";
-            this.bnt_Solicitar2.UseVisualStyleBackColor = true;
-            this.bnt_Solicitar2.Click += new System.EventHandler(this.bnt_Solicitar2_Click);
+            this.btn_Solicitar2.Location = new System.Drawing.Point(23, 219);
+            this.btn_Solicitar2.Name = "btn_Solicitar2";
+            this.btn_Solicitar2.Size = new System.Drawing.Size(193, 23);
+            this.btn_Solicitar2.TabIndex = 25;
+            this.btn_Solicitar2.Text = "Solicitar";
+            this.btn_Solicitar2.UseVisualStyleBackColor = true;
+            this.btn_Solicitar2.Click += new System.EventHandler(this.bnt_Solicitar2_Click);
             // 
             // btn_Baja2
             // 
@@ -430,6 +430,6 @@
         private System.Windows.Forms.Label lbl_Codigo2;
         private System.Windows.Forms.DataGridView dgv_Tintes;
         private System.Windows.Forms.Button btn_Solicitar;
-        private System.Windows.Forms.Button bnt_Solicitar2;
+        private System.Windows.Forms.Button btn_Solicitar2;
     }
 }

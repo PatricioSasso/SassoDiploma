@@ -36,7 +36,7 @@ namespace GUI
             dgv_PedidoProduccion.DataSource = pedidoProduccionGestor.GetList();
             dgv_SolicitudProduccion.DataSource = null;
             dgv_SolicitudProduccion.DataSource = pedidoProduccionGestor.GetListSolicitud();
-            txt_Info.Text = controller.ActualizarInfo();
+            txt_Info.Text = controller.ActualizarInfo(dgv_Recomendaciones, dgv_ItemRecomendacion);
         }
 
         public void IniciarControles()
@@ -52,6 +52,7 @@ namespace GUI
             dgv_PedidoProduccion.MultiSelect = false;
             dgv_ItemPedidoProduccion.Columns.Add("Producto", "Producto");
             dgv_ItemPedidoProduccion.Columns["Producto"].DataPropertyName = "Producto";
+            dgv_ItemPedidoProduccion.Columns["Producto"].Width = 220;
             dgv_ItemPedidoProduccion.Columns.Add("Cantidad", "Cantidad");
             dgv_ItemPedidoProduccion.Columns["Cantidad"].DataPropertyName = "Cantidad";
             dgv_ItemPedidoProduccion.AutoGenerateColumns = false;
@@ -65,12 +66,27 @@ namespace GUI
             dgv_SolicitudProduccion.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_SolicitudProduccion.MultiSelect = false;
             dgv_ItemSolicitudProduccion.Columns.Add("Producto", "Producto");
+            dgv_ItemSolicitudProduccion.Columns["Producto"].Width = 220;
             dgv_ItemSolicitudProduccion.Columns["Producto"].DataPropertyName = "Producto";
             dgv_ItemSolicitudProduccion.Columns.Add("Cantidad", "Cantidad");
             dgv_ItemSolicitudProduccion.Columns["Cantidad"].DataPropertyName = "Cantidad";
             dgv_ItemSolicitudProduccion.AutoGenerateColumns = false;
             dgv_ItemSolicitudProduccion.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_ItemSolicitudProduccion.MultiSelect = false;
+            dgv_Recomendaciones.Columns.Add("FechaProduccion", "Fecha de Produccion");
+            dgv_Recomendaciones.Columns["FechaProduccion"].DataPropertyName = "FechaProduccion";
+            dgv_Recomendaciones.Columns.Add("Estado", "Estado");
+            dgv_Recomendaciones.Columns["Estado"].DataPropertyName = "Estado";
+            dgv_Recomendaciones.AutoGenerateColumns = false;
+            dgv_Recomendaciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_ItemRecomendacion.Columns.Add("Producto", "Producto");
+            dgv_ItemRecomendacion.Columns["Producto"].DataPropertyName = "Producto";
+            dgv_ItemRecomendacion.Columns["Producto"].Width = 220;
+            dgv_ItemRecomendacion.Columns.Add("Cantidad", "Cantidad");
+            dgv_ItemRecomendacion.Columns["Cantidad"].DataPropertyName = "Cantidad";
+            dgv_ItemRecomendacion.AutoGenerateColumns = false;
+            dgv_ItemRecomendacion.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_ItemRecomendacion.MultiSelect = false;
         }
 
         private void dgv_PedidoProduccion_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -87,6 +103,13 @@ namespace GUI
             ItemProductoGestor itemProductoGestor = new ItemProductoGestor();
             dgv_ItemSolicitudProduccion.DataSource = null;
             dgv_ItemSolicitudProduccion.DataSource = itemProductoGestor.GetList(selected);
+        }
+
+        private void dgv_Recomendaciones_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            PedidoProduccion selected = dgv_Recomendaciones.SelectedRows[0].DataBoundItem as PedidoProduccion;
+            dgv_ItemRecomendacion.DataSource = null;
+            dgv_ItemRecomendacion.DataSource = selected.ItemProductos;
         }
 
         private void dgv_ItemPedidoProduccion_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -110,11 +133,8 @@ namespace GUI
         {
             PedidoProduccion selected = dgv_PedidoProduccion.SelectedRows[0].DataBoundItem as PedidoProduccion;
             Producto producto = new Producto(txt_Codigo.Text, txt_Descripcion.Text, int.Parse(txt_Cantidad.Text));
-            ProductoGestor productoGestor = new ProductoGestor();
-            producto = productoGestor.Alta(producto);
-            ItemProducto add = new ItemProducto(producto.Cantidad, producto, selected);
+            controller.AltaItemProducto(selected, producto);
             ItemProductoGestor itemProductoGestor = new ItemProductoGestor();
-            itemProductoGestor.Alta(add);
             dgv_ItemPedidoProduccion.DataSource = null;
             dgv_ItemPedidoProduccion.DataSource = itemProductoGestor.GetList(selected);
         }
@@ -166,7 +186,16 @@ namespace GUI
 
         private void btn_ActualizarInfo_Click(object sender, EventArgs e)
         {
-            txt_Info.Text = controller.ActualizarInfo();
+            txt_Info.Text = controller.ActualizarInfo(dgv_Recomendaciones, dgv_ItemRecomendacion);
+        }
+
+        private void btn_AplicarRecomendaciones_Click(object sender, EventArgs e)
+        {
+            controller.AplicarRecomendaciones(dgv_Recomendaciones);
+            PedidoProduccionGestor pedidoProduccionGestor = new PedidoProduccionGestor();
+            dgv_PedidoProduccion.DataSource = null;
+            dgv_PedidoProduccion.DataSource = pedidoProduccionGestor.GetList();
+            dgv_ItemRecomendacion.DataSource = null;
         }
 
         private void GestionProduccionMenu_FormClosing(object sender, FormClosingEventArgs e)

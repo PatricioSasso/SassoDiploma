@@ -34,6 +34,11 @@ namespace BLL
             return dal.GetList();
         }
 
+        public List<PedidoProduccion> GetList(string estado)
+        {
+            return dal.GetList(estado);
+        }
+
         public List<PedidoProduccion> GetListSolicitud()
         {
             return dal.GetListSolicitud();

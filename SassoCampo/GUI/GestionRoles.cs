@@ -63,7 +63,6 @@ namespace GUI
         private void btn_AltaRol_Click(object sender, EventArgs e)
         {
             RolGestor rolGestor = new RolGestor();
-            int id = int.Parse(txt_Id.Text);
             string nombre = txt_Nombre.Text;
             controller.AltaRol(nombre);
             dgv_Roles.DataSource = null;
@@ -92,7 +91,6 @@ namespace GUI
         private void dgv_Roles_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Rol rol = dgv_Roles.SelectedRows[0].DataBoundItem as Rol;
-            txt_Id.Text = rol.Id.ToString();
             txt_Nombre.Text = rol.Nombre;
             dgv_PermisosRol.DataSource = null;
             if (rol.Permisos != null)

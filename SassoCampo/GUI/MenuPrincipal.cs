@@ -57,7 +57,7 @@ namespace GUI
 
         private void btn_AreaTeñido_Click(object sender, EventArgs e)
         {
-            controller.cambiarForm(new AreaTeñidoMenu(controller));
+            controller.cambiarForm(new AreaTenidoMenu(controller));
         }
 
         private void btn_AreaCortado_Click(object sender, EventArgs e)

@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class AreaTeñidoMenu : Form
+    public partial class AreaTenidoMenu : Form
     {
-        public AreaTeñidoMenu()
+        public AreaTenidoMenu()
         {
             InitializeComponent();
         }
 
-        public AreaTeñidoMenu(Controller controller)
+        public AreaTenidoMenu(Controller controller)
         {
             InitializeComponent();
             this.controller = controller;

@@ -103,7 +103,6 @@ namespace BLL
             return max;
         }
 
-
         public ItemProducto productoMasUtilizado(List<Tenido> lista, string tipo)
         {
             List<ItemProducto> producto = new List<ItemProducto>();
@@ -201,6 +200,45 @@ namespace BLL
                 }
             }
             return max;
+        }
+
+        private List<ItemProducto> productoMasUtilizado(List<PedidoProduccion> lista)
+        {
+            List<ItemProducto> producto = new List<ItemProducto>();
+            foreach (var pedido in lista)
+            {
+                foreach (var item in pedido.ItemProductos)
+                {
+                    if (producto.Exists(x => x.Producto.Id == item.Producto.Id))
+                    {
+                        ItemProducto prod = producto.Find(x => x.Producto.Id == item.Producto.Id);
+                        prod.Cantidad += item.Cantidad;
+                    }
+                    else
+                    {
+                        producto.Add(new ItemProducto(item.Cantidad, item.Producto));
+                    }
+                }
+            }
+            producto = producto.OrderByDescending(x => x.Cantidad).Take(3).ToList<ItemProducto>();
+            return producto;
+        }
+
+        public List<PedidoProduccion> CalcularRecomendaciones(InformacionProduccion info)
+        {
+            List<PedidoProduccion> recomendaciones = new List<PedidoProduccion>();
+            PedidoProduccionGestor pedidoProduccionGestor = new PedidoProduccionGestor();
+            List<PedidoProduccion> completados = pedidoProduccionGestor.GetList("Completado");
+            Random r = new Random();
+            foreach (var item in productoMasUtilizado(completados))
+            {
+                PedidoProduccion pedido = new PedidoProduccion(DateTime.Now.AddDays(r.Next(30,60)));
+                pedido.ItemProductos = new List<ItemProducto>();
+                item.Cantidad = (item.Cantidad * r.Next(60,95)) / 100;
+                pedido.ItemProductos.Add(item);
+                recomendaciones.Add(pedido);
+            }
+            return recomendaciones;
         }
     }
 }
