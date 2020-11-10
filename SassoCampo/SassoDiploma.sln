@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Servicio\Service
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalador", "Instalador\Instalador.vdproj", "{414C9154-26E8-49FA-895F-CFFA35CBA66C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -161,6 +163,26 @@ Global
 		{414C9154-26E8-49FA-895F-CFFA35CBA66C}.Release|ARM64.ActiveCfg = Release
 		{414C9154-26E8-49FA-895F-CFFA35CBA66C}.Release|x64.ActiveCfg = Release
 		{414C9154-26E8-49FA-895F-CFFA35CBA66C}.Release|x86.ActiveCfg = Release
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Debug|ARM.Build.0 = Debug|Any CPU
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Debug|x64.Build.0 = Debug|Any CPU
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Debug|x86.Build.0 = Debug|Any CPU
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Release|ARM.ActiveCfg = Release|Any CPU
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Release|ARM.Build.0 = Release|Any CPU
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Release|ARM64.Build.0 = Release|Any CPU
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Release|x64.ActiveCfg = Release|Any CPU
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Release|x64.Build.0 = Release|Any CPU
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Release|x86.ActiveCfg = Release|Any CPU
+		{DCAA6617-2AE4-48A8-8A68-8B0FE5CC165E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
