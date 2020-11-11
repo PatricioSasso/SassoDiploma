@@ -47,6 +47,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControlDeAcceso_LogIn_Test.cs" />
@@ -56,6 +58,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BE\BE.csproj">
+      <Project>{533660d0-9a0a-4244-b467-caef0376ad40}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{08c9647e-bcfe-4880-a12c-cb70c86950db}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GUI\GUI.csproj">
+      <Project>{ca9e8e49-0588-40bf-8e38-81fedc586fbd}</Project>
+      <Name>GUI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Servicio\Service.csproj">
       <Project>{e12e75cf-26b4-45e5-952d-178b0340b6cd}</Project>
       <Name>Service</Name>
