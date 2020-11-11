@@ -34,7 +34,7 @@ namespace GUI
         {
             lbl_NombreUsuario2.Text = controller.ControlDeAcceso.UsuarioActual.NombreUsuario;
             lbl_NombreYApellido.Text = controller.ControlDeAcceso.UsuarioActual.Nombre + " " + controller.ControlDeAcceso.UsuarioActual.Apellido;
-            lbl_Rol.Text = controller.ControlDeAcceso.UsuarioActual.Rol.Nombre;
+            lbl_Rol.Text = (controller.ControlDeAcceso.UsuarioActual.Rol as Rol).Nombre;
             cmb_Idioma.Text = controller.TraduccionIdiomaGestor.Idioma.Nombre;
             cmb_Idioma.Items.AddRange(controller.TraduccionIdiomaGestor.GetAllNameIdioma().ToArray());
             controller.TraduccionIdiomaGestor.Suscribir(this);

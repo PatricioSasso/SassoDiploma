@@ -35,4 +35,13 @@ namespace Interfaces
         byte[] Serializar(T objeto);
         T DesSerializar(byte[] serializado);
     }
+
+    public interface IComponente
+    {
+        List<IComponente> Hijos { get; }
+
+        void AgregarHijo(IComponente agregar);
+        void QuitarHijo(IComponente quitar);
+        void Vaciar();
+    }
 }

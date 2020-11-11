@@ -27,7 +27,7 @@ namespace BLL
         {
             Usuario original = bd.Get(user);
             DVVGestor dvvGestor = new DVVGestor();
-            if (original.DVH == dvvGestor.GetHash(original.NombreUsuario + original.Contraseña + original.Nombre + original.Apellido + original.Rol.Id))
+            if (original.DVH == dvvGestor.GetHash(original.NombreUsuario + original.Contraseña + original.Nombre + original.Apellido + (original.Rol as Rol).Id))
             {
                 CalcularDVH(user);
                 bd.Modificar(user);
@@ -47,7 +47,7 @@ namespace BLL
         {
             user = bd.Get(user);
             ControlDeAccesoGestor controlDeAccesoGestor = new ControlDeAccesoGestor();
-            if (user.DVH == controlDeAccesoGestor.GetHash(user.NombreUsuario + user.Contraseña + user.Nombre + user.Apellido + user.Rol.Id))
+            if (user.DVH == controlDeAccesoGestor.GetHash(user.NombreUsuario + user.Contraseña + user.Nombre + user.Apellido + (user.Rol as Rol).Id))
             {
                 return user;
             }
@@ -63,7 +63,7 @@ namespace BLL
             ControlDeAccesoGestor controlDeAccesoGestor = new ControlDeAccesoGestor();
             foreach (var user in usuarios)
             {
-                if (user.DVH != controlDeAccesoGestor.GetHash(user.NombreUsuario + user.Contraseña + user.Nombre + user.Apellido + user.Rol.Id))
+                if (user.DVH != controlDeAccesoGestor.GetHash(user.NombreUsuario + user.Contraseña + user.Nombre + user.Apellido + (user.Rol as Rol).Id))
                 {
                     throw new Exception("El usuario " + user.NombreUsuario + " está corrupto, verificar base de datos");
                 }
@@ -74,7 +74,7 @@ namespace BLL
         public void CalcularDVH(Usuario user)
         {
             ControlDeAccesoGestor controlDeAccesoGestor = new ControlDeAccesoGestor();
-            string ParcialHash = controlDeAccesoGestor.GetHash(user.NombreUsuario + user.Contraseña + user.Nombre + user.Apellido + user.Rol.Id);
+            string ParcialHash = controlDeAccesoGestor.GetHash(user.NombreUsuario + user.Contraseña + user.Nombre + user.Apellido + (user.Rol as Rol).Id);
             user.DVH = ParcialHash;
         }
 

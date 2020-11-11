@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Interfaces;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BE { }
 public class Usuario
@@ -7,7 +9,7 @@ public class Usuario
     string contraseña;
     string nombre;
     string apellido;
-    Rol rol;
+    IComponente rol;
     string dVH;
 
     public Usuario()
@@ -20,7 +22,7 @@ public class Usuario
         NombreUsuario = nombreUsuario;
     }
 
-    public Usuario(string nombreUsuario, string contraseña, string nombre, string apellido, Rol rol)
+    public Usuario(string nombreUsuario, string contraseña, string nombre, string apellido, IComponente rol)
     {
         NombreUsuario = nombreUsuario;
         Contraseña = contraseña;
@@ -29,7 +31,7 @@ public class Usuario
         Rol = rol;
     }
 
-    public Usuario(string nombreUsuario, string contraseña, string nombre, string apellido, Rol rol, string DVH)
+    public Usuario(string nombreUsuario, string contraseña, string nombre, string apellido, IComponente rol, string DVH)
     {
         NombreUsuario = nombreUsuario;
         Contraseña = contraseña;
@@ -43,6 +45,6 @@ public class Usuario
     public string Contraseña { get => contraseña; set => contraseña = value; }
     public string Nombre { get => nombre; set => nombre = value; }
     public string Apellido { get => apellido; set => apellido = value; }
-    public Rol Rol { get => rol; set => rol = value; }
+    public IComponente Rol { get => rol; set => rol = value; }
     public string DVH { get => dVH; set => dVH = value; }
 }

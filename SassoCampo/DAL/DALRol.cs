@@ -1,6 +1,7 @@
 ﻿using Interfaces;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace DAL
 {
@@ -54,7 +55,10 @@ namespace DAL
             }
             conexion.Close();
             DALPermiso dalPermiso = new DALPermiso();
-            rol.Permisos = dalPermiso.GetList(rol);
+            foreach (var permiso in dalPermiso.GetList(rol))
+            {
+                rol.AgregarHijo(permiso);
+            }
             return rol;
         }
 
@@ -67,14 +71,17 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    roles.Add(new Rol(reader.GetInt32(0), reader.GetString(1), new List<Permiso>()));
+                    roles.Add(new Rol(reader.GetInt32(0), reader.GetString(1), new List<IComponente>()));
                 }
             }
             conexion.Close();
             DALPermiso dalPermiso = new DALPermiso();
             foreach (var rol in roles)
             {
-                rol.Permisos = dalPermiso.GetList(rol);
+                foreach (var permiso in dalPermiso.GetList(rol))
+                {
+                    rol.AgregarHijo(permiso);
+                }
             }
             return roles;
         }

@@ -93,9 +93,9 @@ namespace GUI
             Rol rol = dgv_Roles.SelectedRows[0].DataBoundItem as Rol;
             txt_Nombre.Text = rol.Nombre;
             dgv_PermisosRol.DataSource = null;
-            if (rol.Permisos != null)
+            if (rol.Hijos != null)
             {
-                dgv_PermisosRol.DataSource = rol.Permisos;
+                dgv_PermisosRol.DataSource = rol.GetList();
             }
         }
 
@@ -106,7 +106,7 @@ namespace GUI
             Permiso permiso = dgv_Permisos.SelectedRows[0].DataBoundItem as Permiso;
             controller.DarPermiso(rol, permiso);
             dgv_PermisosRol.DataSource = null;
-            dgv_PermisosRol.DataSource = rol.Permisos;
+            dgv_PermisosRol.DataSource = rol.GetList();
         }
 
         private void btn_EliminarPermiso_Click(object sender, EventArgs e)
@@ -117,7 +117,7 @@ namespace GUI
             if (dgv_PermisosRol.SelectedRows != null) { permiso = dgv_PermisosRol.SelectedRows[0].DataBoundItem as Permiso; }
             controller.QuitarPermiso(rol, permiso);
             dgv_PermisosRol.DataSource = null;
-            dgv_PermisosRol.DataSource = rol.Permisos;
+            dgv_PermisosRol.DataSource = rol.GetList();
         }
 
         private void btn_MenuPrincipal_Click(object sender, EventArgs e)

@@ -42,9 +42,9 @@ namespace GUI
             UsuarioGestor usuarioGestor = new UsuarioGestor();
             if (controlDeAccesoGestor.LogIn(nombreUsuario, controlDeAccesoGestor.GetHash(contraseña)))
             {
-                Usuario user = new Usuario(nombreUsuario, contraseña, "", "", new Rol(0, "", new List<Permiso>()));
+                Usuario user = new Usuario(nombreUsuario, contraseña, "", "", new Rol(0, "", new List<IComponente>()));
                 user = usuarioGestor.GetUsuario(user);
-                if (user.DVH == controlDeAccesoGestor.GetHash(user.NombreUsuario + user.Contraseña + user.Nombre + user.Apellido + user.Rol.Id))
+                if (user.DVH == controlDeAccesoGestor.GetHash(user.NombreUsuario + user.Contraseña + user.Nombre + user.Apellido + (user.Rol as Rol).Id))
                 {
                     ControlDeAcceso.UsuarioActual = user;
                     if (ControlDeAcceso.UsuarioActual != null)
@@ -129,7 +129,7 @@ namespace GUI
         public void AltaRol(string nombre)
         {
             RolGestor rolGestor = new RolGestor();
-            rolGestor.Alta(new Rol(nombre, new List<Permiso>()));
+            rolGestor.Alta(new Rol(nombre, new List<IComponente>()));
         }
 
         public void ModificarRol(Rol rol)
@@ -151,9 +151,9 @@ namespace GUI
                 if (permiso == null) { throw new Exception("No se ha seleccionado ningún permiso"); }
                 if (rol == null) { throw new Exception("No se ha seleccionado ningún rol"); }
                 RolGestor rolGestor = new RolGestor();
-                foreach (var p in rol.Permisos)
+                foreach (var p in rol.Hijos)
                 {
-                    if (permiso.Id == p.Id)
+                    if (permiso.Id == (p as Permiso).Id)
                     {
                         throw new Exception("El permiso que desea agregar ya está en dentro del rol");
                     }

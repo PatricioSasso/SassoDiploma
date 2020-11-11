@@ -40,7 +40,7 @@ namespace DAL
             query.Parameters.AddWithValue("contraseña", alta.Contraseña);
             query.Parameters.AddWithValue("nombre", alta.Nombre);
             query.Parameters.AddWithValue("apellido", alta.Apellido);
-            query.Parameters.AddWithValue("rolId", alta.Rol.Id);
+            query.Parameters.AddWithValue("rolId", (alta.Rol as Rol).Id);
             query.Parameters.AddWithValue("DVH", alta.DVH);
             query.ExecuteNonQuery();
             conexion.Close();
@@ -62,7 +62,7 @@ namespace DAL
             query.Parameters.AddWithValue("nombreUsuario", modificar.NombreUsuario);
             query.Parameters.AddWithValue("nombre", modificar.Nombre);
             query.Parameters.AddWithValue("apellido", modificar.Apellido);
-            query.Parameters.AddWithValue("rolId", modificar.Rol.Id);
+            query.Parameters.AddWithValue("rolId", (modificar.Rol as Rol).Id);
             query.Parameters.AddWithValue("DVH", modificar.DVH);
             query.ExecuteNonQuery();
             conexion.Close();
@@ -77,12 +77,12 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    get = new Usuario(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), new Rol(reader.GetInt32(5), "", new List<Permiso>()), reader.GetString(4));
+                    get = new Usuario(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), new Rol(reader.GetInt32(5), "", new List<IComponente>()), reader.GetString(4));
                 }
             }
             conexion.Close();
             DALRol dalRolPermiso = new DALRol();
-            get.Rol = dalRolPermiso.Get(get.Rol);
+            get.Rol = dalRolPermiso.Get(get.Rol as Rol);
             return get;
         }
 
@@ -95,14 +95,14 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    usuarios.Add(new Usuario(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), new Rol(reader.GetInt32(5), "", new List<Permiso>()), reader.GetString(4)));
+                    usuarios.Add(new Usuario(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), new Rol(reader.GetInt32(5), "", new List<IComponente>()), reader.GetString(4)));
                 }
             }
             conexion.Close();
             foreach (var usuario in usuarios)
             {
                 DALRol dalRolPermiso = new DALRol();
-                usuario.Rol = dalRolPermiso.Get(usuario.Rol);
+                usuario.Rol = dalRolPermiso.Get(usuario.Rol as Rol);
             }
             return usuarios;
         }
