@@ -17,7 +17,7 @@ namespace DAL
         public void Alta(Tinte alta)
         {
             conexion.Open();
-            query = new SqlCommand("INSERT INTO Tinte VALUES (@codigo, @descripcion, @cantidad, @color)", conexion);
+            query = new SqlCommand("INSERT INTO Tinte VALUES (@codigo, @descripcion, @cantidad, @color, 0)", conexion);
             query.Parameters.AddWithValue("codigo", alta.Codigo);
             query.Parameters.AddWithValue("descripcion", alta.Descripcion);
             query.Parameters.AddWithValue("cantidad", alta.Cantidad);
