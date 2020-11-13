@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,6 +18,7 @@ namespace DAL
 
         public Idioma GetIdioma(Idioma idiomaSeleccionado)
         {
+            if (idiomaSeleccionado == null || idiomaSeleccionado.Nombre == "") { return null; }
             conexion.Open();
             query = new SqlCommand("SELECT * FROM Idioma WHERE NombreIdioma = @idioma", conexion);
             query.Parameters.AddWithValue("idioma", idiomaSeleccionado.Nombre);

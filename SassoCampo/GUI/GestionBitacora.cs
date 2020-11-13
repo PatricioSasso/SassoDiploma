@@ -32,18 +32,6 @@ namespace GUI
             Mostrar(bitacoraGestor.GetAll());
         }
 
-        private void txt_BuscarNombreUsuario_TextChanged(object sender, EventArgs e)
-        {
-            BitacoraGestor bitacoraGestor = new BitacoraGestor();
-            Mostrar(bitacoraGestor.BuscarNombreUsuario(txt_BuscarNombreUsuario.Text));
-        }
-
-        private void txt_BuscarFecha_TextChanged(object sender, EventArgs e)
-        {
-            BitacoraGestor bitacoraGestor = new BitacoraGestor();
-            Mostrar(bitacoraGestor.BuscarFecha(txt_BuscarFecha.Text));
-        }
-
         public void Mostrar(List<string> lista)
         {
             lbx_Bitacora.DataSource = null;
@@ -58,6 +46,18 @@ namespace GUI
         private void GestionBitacora_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btn_FiltrarPorFecha_Click(object sender, EventArgs e)
+        {
+            BitacoraGestor bitacoraGestor = new BitacoraGestor();
+            Mostrar(bitacoraGestor.BuscarFecha(txt_BuscarFecha.Text));
+        }
+
+        private void btn_FiltrarPorUsuario_Click(object sender, EventArgs e)
+        {
+            BitacoraGestor bitacoraGestor = new BitacoraGestor();
+            Mostrar(bitacoraGestor.BuscarNombreUsuario(txt_BuscarNombreUsuario.Text));
         }
     }
 }
