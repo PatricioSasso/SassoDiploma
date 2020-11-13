@@ -9,10 +9,10 @@ using System.Data.SqlClient;
 namespace Test
 {
     [TestClass]
-    public class ControlDeAcceso_LogIn_Test
+    public class TestUnitarios
     {
         [TestMethod]
-        public void BaseLogin()
+        public void Login_Usuario_Pato_Contra_xAgunimon_ResultadoEsperado_True()
         {
             ControlDeAccesoGestor control = new ControlDeAccesoGestor();
             var userName = "Pato";
@@ -22,7 +22,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void EmptyUser()
+        public void Login_UsuarioYContraVacios_ResultadoEsperado_False()
         {
             ControlDeAccesoGestor control = new ControlDeAccesoGestor();
             var userName = string.Empty;
@@ -32,7 +32,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void FilterTest()
+        public void BuscarFecha_FiltroVacio_ReultadoEsperado_EqualToGetAll()
         {
             BitacoraGestor bitacoraGestor = new BitacoraGestor();
             var expectedResult = bitacoraGestor.GetAll();
@@ -42,7 +42,7 @@ namespace Test
 
         [TestMethod]
         [ExpectedException(typeof(SqlException))]
-        public void ProductoTest()
+        public void AltaProducto_ProductoNull_ExpectedException_SqlException()
         {
             ProductoGestor productoGestor = new ProductoGestor();
             Producto productoEsperado = new Producto();
@@ -50,7 +50,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void UserFilterTest()
+        public void BuscarFecha_Filtro_X_ResultadoEsperado_EmptyList()
         {
             BitacoraGestor bitacoraGestor = new BitacoraGestor();
             int expectedResult = 0;
