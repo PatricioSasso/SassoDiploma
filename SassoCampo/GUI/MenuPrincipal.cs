@@ -126,5 +126,10 @@ namespace GUI
         {
             Application.Exit();
         }
+
+        private void linklbl_Ayuda_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("IExplore", "https://drive.google.com/drive/folders/1JGYjagA2U3mixPNKgBE6RB7AfRKd-3FP?usp=sharing");  
+        }
     }
 }

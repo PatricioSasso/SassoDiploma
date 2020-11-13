@@ -51,6 +51,7 @@
             this.cmb_Idioma = new System.Windows.Forms.ComboBox();
             this.lbl_Idioma = new System.Windows.Forms.Label();
             this.btn_GestionarProduccion = new System.Windows.Forms.Button();
+            this.linklbl_Ayuda = new System.Windows.Forms.LinkLabel();
             this.menuStrip1.SuspendLayout();
             this.gbox_InfoUsuario.SuspendLayout();
             this.SuspendLayout();
@@ -168,9 +169,9 @@
             // 
             // btn_AreaTejido
             // 
-            this.btn_AreaTejido.Location = new System.Drawing.Point(10, 117);
+            this.btn_AreaTejido.Location = new System.Drawing.Point(332, 33);
             this.btn_AreaTejido.Name = "btn_AreaTejido";
-            this.btn_AreaTejido.Size = new System.Drawing.Size(316, 23);
+            this.btn_AreaTejido.Size = new System.Drawing.Size(265, 23);
             this.btn_AreaTejido.TabIndex = 9;
             this.btn_AreaTejido.Text = "Ir al Área de Tejido";
             this.btn_AreaTejido.UseVisualStyleBackColor = true;
@@ -178,9 +179,9 @@
             // 
             // btn_GestionarUsuarios
             // 
-            this.btn_GestionarUsuarios.Location = new System.Drawing.Point(332, 37);
+            this.btn_GestionarUsuarios.Location = new System.Drawing.Point(12, 120);
             this.btn_GestionarUsuarios.Name = "btn_GestionarUsuarios";
-            this.btn_GestionarUsuarios.Size = new System.Drawing.Size(247, 23);
+            this.btn_GestionarUsuarios.Size = new System.Drawing.Size(314, 23);
             this.btn_GestionarUsuarios.TabIndex = 10;
             this.btn_GestionarUsuarios.Text = "Gestionar Usuarios";
             this.btn_GestionarUsuarios.UseVisualStyleBackColor = true;
@@ -188,9 +189,9 @@
             // 
             // btn_GestionarRoles
             // 
-            this.btn_GestionarRoles.Location = new System.Drawing.Point(332, 66);
+            this.btn_GestionarRoles.Location = new System.Drawing.Point(12, 149);
             this.btn_GestionarRoles.Name = "btn_GestionarRoles";
-            this.btn_GestionarRoles.Size = new System.Drawing.Size(247, 23);
+            this.btn_GestionarRoles.Size = new System.Drawing.Size(314, 23);
             this.btn_GestionarRoles.TabIndex = 11;
             this.btn_GestionarRoles.Text = "Gestionar Roles";
             this.btn_GestionarRoles.UseVisualStyleBackColor = true;
@@ -198,9 +199,9 @@
             // 
             // btn_AreaTeñido
             // 
-            this.btn_AreaTeñido.Location = new System.Drawing.Point(12, 146);
+            this.btn_AreaTeñido.Location = new System.Drawing.Point(332, 62);
             this.btn_AreaTeñido.Name = "btn_AreaTeñido";
-            this.btn_AreaTeñido.Size = new System.Drawing.Size(314, 23);
+            this.btn_AreaTeñido.Size = new System.Drawing.Size(265, 23);
             this.btn_AreaTeñido.TabIndex = 12;
             this.btn_AreaTeñido.Text = "Ir al Área de Teñido";
             this.btn_AreaTeñido.UseVisualStyleBackColor = true;
@@ -208,9 +209,9 @@
             // 
             // btn_AreaCortado
             // 
-            this.btn_AreaCortado.Location = new System.Drawing.Point(10, 175);
+            this.btn_AreaCortado.Location = new System.Drawing.Point(332, 91);
             this.btn_AreaCortado.Name = "btn_AreaCortado";
-            this.btn_AreaCortado.Size = new System.Drawing.Size(316, 23);
+            this.btn_AreaCortado.Size = new System.Drawing.Size(265, 23);
             this.btn_AreaCortado.TabIndex = 13;
             this.btn_AreaCortado.Text = "Ir al Área de Cortado";
             this.btn_AreaCortado.UseVisualStyleBackColor = true;
@@ -218,9 +219,9 @@
             // 
             // btn_AreaConfeccion
             // 
-            this.btn_AreaConfeccion.Location = new System.Drawing.Point(12, 204);
+            this.btn_AreaConfeccion.Location = new System.Drawing.Point(332, 120);
             this.btn_AreaConfeccion.Name = "btn_AreaConfeccion";
-            this.btn_AreaConfeccion.Size = new System.Drawing.Size(314, 23);
+            this.btn_AreaConfeccion.Size = new System.Drawing.Size(265, 23);
             this.btn_AreaConfeccion.TabIndex = 14;
             this.btn_AreaConfeccion.Text = "Ir al Área de Confección";
             this.btn_AreaConfeccion.UseVisualStyleBackColor = true;
@@ -250,19 +251,31 @@
             // 
             // btn_GestionarProduccion
             // 
-            this.btn_GestionarProduccion.Location = new System.Drawing.Point(332, 95);
+            this.btn_GestionarProduccion.Location = new System.Drawing.Point(12, 178);
             this.btn_GestionarProduccion.Name = "btn_GestionarProduccion";
-            this.btn_GestionarProduccion.Size = new System.Drawing.Size(247, 23);
+            this.btn_GestionarProduccion.Size = new System.Drawing.Size(314, 23);
             this.btn_GestionarProduccion.TabIndex = 17;
             this.btn_GestionarProduccion.Text = "Gestionar Producción";
             this.btn_GestionarProduccion.UseVisualStyleBackColor = true;
             this.btn_GestionarProduccion.Click += new System.EventHandler(this.btn_GestionarProduccion_Click);
             // 
+            // linklbl_Ayuda
+            // 
+            this.linklbl_Ayuda.AutoSize = true;
+            this.linklbl_Ayuda.Location = new System.Drawing.Point(12, 213);
+            this.linklbl_Ayuda.Name = "linklbl_Ayuda";
+            this.linklbl_Ayuda.Size = new System.Drawing.Size(102, 17);
+            this.linklbl_Ayuda.TabIndex = 18;
+            this.linklbl_Ayuda.TabStop = true;
+            this.linklbl_Ayuda.Text = "Ayuda en línea";
+            this.linklbl_Ayuda.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_Ayuda_LinkClicked);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 247);
+            this.ClientSize = new System.Drawing.Size(605, 244);
+            this.Controls.Add(this.linklbl_Ayuda);
             this.Controls.Add(this.btn_GestionarProduccion);
             this.Controls.Add(this.cmb_Idioma);
             this.Controls.Add(this.lbl_Idioma);
@@ -312,5 +325,6 @@
         private System.Windows.Forms.Label lbl_Idioma;
         private System.Windows.Forms.ToolStripMenuItem bitacoraToolStripMenuItem;
         private System.Windows.Forms.Button btn_GestionarProduccion;
+        private System.Windows.Forms.LinkLabel linklbl_Ayuda;
     }
 }

@@ -36,6 +36,7 @@
             this.gbox_LogIn = new System.Windows.Forms.GroupBox();
             this.lbl_Idioma = new System.Windows.Forms.Label();
             this.cmb_Idioma = new System.Windows.Forms.ComboBox();
+            this.linklbl_Ayuda = new System.Windows.Forms.LinkLabel();
             this.gbox_LogIn.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,17 +111,29 @@
             // cmb_Idioma
             // 
             this.cmb_Idioma.FormattingEnabled = true;
-            this.cmb_Idioma.Location = new System.Drawing.Point(112, 171);
+            this.cmb_Idioma.Location = new System.Drawing.Point(104, 171);
             this.cmb_Idioma.Name = "cmb_Idioma";
             this.cmb_Idioma.Size = new System.Drawing.Size(152, 24);
             this.cmb_Idioma.TabIndex = 7;
             this.cmb_Idioma.SelectedValueChanged += new System.EventHandler(this.cmb_Idioma_SelectedValueChanged);
             // 
+            // linklbl_Ayuda
+            // 
+            this.linklbl_Ayuda.AutoSize = true;
+            this.linklbl_Ayuda.Location = new System.Drawing.Point(109, 198);
+            this.linklbl_Ayuda.Name = "linklbl_Ayuda";
+            this.linklbl_Ayuda.Size = new System.Drawing.Size(102, 17);
+            this.linklbl_Ayuda.TabIndex = 19;
+            this.linklbl_Ayuda.TabStop = true;
+            this.linklbl_Ayuda.Text = "Ayuda en línea";
+            this.linklbl_Ayuda.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklbl_Ayuda_LinkClicked);
+            // 
             // LogInMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(312, 203);
+            this.ClientSize = new System.Drawing.Size(312, 224);
+            this.Controls.Add(this.linklbl_Ayuda);
             this.Controls.Add(this.cmb_Idioma);
             this.Controls.Add(this.lbl_Idioma);
             this.Controls.Add(this.gbox_LogIn);
@@ -146,6 +159,7 @@
         private System.Windows.Forms.GroupBox gbox_LogIn;
         private System.Windows.Forms.Label lbl_Idioma;
         private System.Windows.Forms.ComboBox cmb_Idioma;
+        private System.Windows.Forms.LinkLabel linklbl_Ayuda;
     }
 }
 

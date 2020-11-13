@@ -35,15 +35,16 @@
             this.lbx_Bitacora = new System.Windows.Forms.ListBox();
             this.btn_MenuPrincipal = new System.Windows.Forms.Button();
             this.lbl_Formato = new System.Windows.Forms.Label();
+            this.btn_FiltrarPorFecha = new System.Windows.Forms.Button();
+            this.btn_FiltrarPorUsuario = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txt_BuscarNombreUsuario
             // 
             this.txt_BuscarNombreUsuario.Location = new System.Drawing.Point(218, 15);
             this.txt_BuscarNombreUsuario.Name = "txt_BuscarNombreUsuario";
-            this.txt_BuscarNombreUsuario.Size = new System.Drawing.Size(364, 22);
+            this.txt_BuscarNombreUsuario.Size = new System.Drawing.Size(222, 22);
             this.txt_BuscarNombreUsuario.TabIndex = 0;
-            this.txt_BuscarNombreUsuario.TextChanged += new System.EventHandler(this.txt_BuscarNombreUsuario_TextChanged);
             // 
             // lbl_BuscarPorNombreUsuario
             // 
@@ -67,9 +68,8 @@
             // 
             this.txt_BuscarFecha.Location = new System.Drawing.Point(134, 40);
             this.txt_BuscarFecha.Name = "txt_BuscarFecha";
-            this.txt_BuscarFecha.Size = new System.Drawing.Size(448, 22);
+            this.txt_BuscarFecha.Size = new System.Drawing.Size(306, 22);
             this.txt_BuscarFecha.TabIndex = 2;
-            this.txt_BuscarFecha.TextChanged += new System.EventHandler(this.txt_BuscarFecha_TextChanged);
             // 
             // lbx_Bitacora
             // 
@@ -93,17 +93,39 @@
             // lbl_Formato
             // 
             this.lbl_Formato.AutoSize = true;
-            this.lbl_Formato.Location = new System.Drawing.Point(588, 43);
+            this.lbl_Formato.Location = new System.Drawing.Point(589, 43);
             this.lbl_Formato.Name = "lbl_Formato";
             this.lbl_Formato.Size = new System.Drawing.Size(216, 17);
             this.lbl_Formato.TabIndex = 6;
             this.lbl_Formato.Text = "Formato :  yyyy-mm-dd hh:mm:ss";
+            // 
+            // btn_FiltrarPorFecha
+            // 
+            this.btn_FiltrarPorFecha.Location = new System.Drawing.Point(446, 40);
+            this.btn_FiltrarPorFecha.Name = "btn_FiltrarPorFecha";
+            this.btn_FiltrarPorFecha.Size = new System.Drawing.Size(137, 23);
+            this.btn_FiltrarPorFecha.TabIndex = 7;
+            this.btn_FiltrarPorFecha.Text = "Filtrar por Fecha";
+            this.btn_FiltrarPorFecha.UseVisualStyleBackColor = true;
+            this.btn_FiltrarPorFecha.Click += new System.EventHandler(this.btn_FiltrarPorFecha_Click);
+            // 
+            // btn_FiltrarPorUsuario
+            // 
+            this.btn_FiltrarPorUsuario.Location = new System.Drawing.Point(446, 15);
+            this.btn_FiltrarPorUsuario.Name = "btn_FiltrarPorUsuario";
+            this.btn_FiltrarPorUsuario.Size = new System.Drawing.Size(137, 23);
+            this.btn_FiltrarPorUsuario.TabIndex = 8;
+            this.btn_FiltrarPorUsuario.Text = "Filtrar por Usuario";
+            this.btn_FiltrarPorUsuario.UseVisualStyleBackColor = true;
+            this.btn_FiltrarPorUsuario.Click += new System.EventHandler(this.btn_FiltrarPorUsuario_Click);
             // 
             // GestionBitacora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 450);
+            this.Controls.Add(this.btn_FiltrarPorUsuario);
+            this.Controls.Add(this.btn_FiltrarPorFecha);
             this.Controls.Add(this.lbl_Formato);
             this.Controls.Add(this.btn_MenuPrincipal);
             this.Controls.Add(this.lbx_Bitacora);
@@ -129,5 +151,7 @@
         private System.Windows.Forms.ListBox lbx_Bitacora;
         private System.Windows.Forms.Button btn_MenuPrincipal;
         private System.Windows.Forms.Label lbl_Formato;
+        private System.Windows.Forms.Button btn_FiltrarPorFecha;
+        private System.Windows.Forms.Button btn_FiltrarPorUsuario;
     }
 }
