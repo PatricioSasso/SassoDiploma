@@ -37,6 +37,8 @@
             this.lbl_Formato = new System.Windows.Forms.Label();
             this.btn_FiltrarPorFecha = new System.Windows.Forms.Button();
             this.btn_FiltrarPorUsuario = new System.Windows.Forms.Button();
+            this.btn_GenerarPdf = new System.Windows.Forms.Button();
+            this.saveFileDialogBitacora = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // txt_BuscarNombreUsuario
@@ -119,11 +121,22 @@
             this.btn_FiltrarPorUsuario.UseVisualStyleBackColor = true;
             this.btn_FiltrarPorUsuario.Click += new System.EventHandler(this.btn_FiltrarPorUsuario_Click);
             // 
+            // btn_GenerarPdf
+            // 
+            this.btn_GenerarPdf.Location = new System.Drawing.Point(592, 15);
+            this.btn_GenerarPdf.Name = "btn_GenerarPdf";
+            this.btn_GenerarPdf.Size = new System.Drawing.Size(212, 23);
+            this.btn_GenerarPdf.TabIndex = 9;
+            this.btn_GenerarPdf.Text = "Exportar a PDF";
+            this.btn_GenerarPdf.UseVisualStyleBackColor = true;
+            this.btn_GenerarPdf.Click += new System.EventHandler(this.btn_GenerarPdf_Click);
+            // 
             // GestionBitacora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 450);
+            this.Controls.Add(this.btn_GenerarPdf);
             this.Controls.Add(this.btn_FiltrarPorUsuario);
             this.Controls.Add(this.btn_FiltrarPorFecha);
             this.Controls.Add(this.lbl_Formato);
@@ -153,5 +166,7 @@
         private System.Windows.Forms.Label lbl_Formato;
         private System.Windows.Forms.Button btn_FiltrarPorFecha;
         private System.Windows.Forms.Button btn_FiltrarPorUsuario;
+        private System.Windows.Forms.Button btn_GenerarPdf;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogBitacora;
     }
 }

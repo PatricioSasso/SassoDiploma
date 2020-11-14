@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,6 +59,19 @@ namespace GUI
         {
             BitacoraGestor bitacoraGestor = new BitacoraGestor();
             Mostrar(bitacoraGestor.BuscarNombreUsuario(txt_BuscarNombreUsuario.Text));
+        }
+
+        private void btn_GenerarPdf_Click(object sender, EventArgs e)
+        {
+            saveFileDialogBitacora.Title = "Informe de Bitácora";
+            saveFileDialogBitacora.FileName = DateTime.Now.ToShortDateString().Replace($"/","-") + "_Bitacora.pdf";
+            saveFileDialogBitacora.Filter = "Backup Files (*.pdf)|*.pdf";
+            if (saveFileDialogBitacora.ShowDialog() == DialogResult.OK)
+            {
+                BitacoraGestor bitacoraGestor = new BitacoraGestor();
+                bitacoraGestor.GenerarPdf(Path.GetFullPath(saveFileDialogBitacora.FileName));
+                MessageBox.Show("Informe de bitácora creado exitosamente.");
+            }
         }
     }
 }
