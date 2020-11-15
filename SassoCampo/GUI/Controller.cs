@@ -34,6 +34,10 @@ namespace GUI
             traduccionIdiomaGestor = new TraduccionIdiomaGestor(new Idioma(idioma));
         }
 
+        public Controller()
+        {
+        }
+
         #region Log in / out, gestion de perfiles y usuarios.
 
         public string LogIn(string nombreUsuario, string contraseña)

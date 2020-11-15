@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Data.Sql;
 using Service;
 using BLL;
 using GUI;
+using DAL;
 using System.Data.SqlClient;
 
 namespace Test
@@ -32,30 +32,30 @@ namespace Test
         }
 
         [TestMethod]
-        public void BuscarFecha_FiltroVacio_ReultadoEsperado_EqualToGetAll()
+        public void BuscarNombreUsuario_FiltroVacio_ReultadoEsperado_EqualToGetAll()
         {
-            BitacoraGestor bitacoraGestor = new BitacoraGestor();
-            var expectedResult = bitacoraGestor.GetAll();
-            var result = bitacoraGestor.BuscarFecha(string.Empty);
-            CollectionAssert.AreEqual(expectedResult, result);
+            DALBitacora dalBitacora = new DALBitacora();
+            var expectedResult = dalBitacora.GetAll();
+            var result = dalBitacora.BuscarNombreUsuario(string.Empty);
+            Assert.AreEqual(expectedResult.Count, result.Count);
         }
 
         [TestMethod]
         [ExpectedException(typeof(SqlException))]
         public void AltaProducto_ProductoNull_ExpectedException_SqlException()
         {
-            ProductoGestor productoGestor = new ProductoGestor();
-            Producto productoEsperado = new Producto();
-            productoGestor.Alta(productoEsperado);
+            DALProducto dalProducto = new DALProducto();
+            Producto productoVacio = new Producto();
+            dalProducto.Alta(productoVacio);
         }
 
         [TestMethod]
-        public void BuscarFecha_Filtro_X_ResultadoEsperado_EmptyList()
+        public void BuscarFecha_Filtro_Hola_ResultadoEsperado_EmptyList()
         {
-            BitacoraGestor bitacoraGestor = new BitacoraGestor();
+            DALBitacora bitacoraGestor = new DALBitacora();
             int expectedResult = 0;
-            var result = bitacoraGestor.BuscarFecha("x");
-            Assert.AreEqual(expectedResult, result);
+            var result = bitacoraGestor.BuscarFecha("Hola");
+            Assert.AreEqual(expectedResult, result.Count);
         }
     }
 }
